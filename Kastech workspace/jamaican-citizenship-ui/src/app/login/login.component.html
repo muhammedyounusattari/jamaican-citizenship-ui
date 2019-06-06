@@ -1,0 +1,25 @@
+<div style='background-color: #eeeff1' class="container">
+    <div class="row justify-content-center align-items-center" style="height:64vh;margin-bottom:40px">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                <div *ngIf="showError" class="alert alert-danger" role="alert">
+                    {{errorMsg}}
+                </div>
+                    <form [formGroup]="login"  (ngSubmit)=onSubmit(login.value) class="form-group" >
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input formControlName="email" type="email" class="form-control" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input formControlName="password" type="password" class="form-control" name="password">
+                        </div>
+                        <button type="submit" id="sendlogin" class="btn" style="background-color:#eeeff1">Login</button>
+                        <div *ngIf="showError" style="float:right"><a routerLink="/createProfile" class="badge badge-primary">Create Profile</a></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

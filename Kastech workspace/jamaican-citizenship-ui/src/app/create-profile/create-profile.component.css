@@ -1,0 +1,31 @@
+label{
+    font-weight: bold;
+    margin: 0px 24px 28px 0px;
+
+}
+
+label.email-label {
+    margin-right: 11px;
+}
+
+select.selectBoxAlign{
+    margin-left: 40px;
+    height: 27px;
+    background-color: white;
+}
+
+input[type='radio']{
+    margin-left:-18px;
+}
+span.genderAlign{
+    margin-left:36px;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    margin: 0px -4px 15px 50px;
+    width: 120px;
+}

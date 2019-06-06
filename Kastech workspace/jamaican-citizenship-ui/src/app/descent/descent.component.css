@@ -1,0 +1,199 @@
+h4.wrapper  {
+    text-align: center;
+    color:blue
+}
+.row{
+    margin-top:15px;
+}
+
+div.personalInfo{
+    text-align: center;
+}
+
+div.boxLayout{
+    width: 100%;
+    height: 150px;
+    background-color:#e9ecef;
+    margin-bottom: 14px;
+}
+div.profileBox{
+    width: 100%;
+    height: 90px;
+    background-color:#e9ecef;
+    margin-bottom: 14px;
+}
+div.box{
+    border-left: 1px solid gray;
+    width:551px;
+    float: left;
+    /* padding-left: 20px; */
+}
+div.layout{
+    padding-left: 23px;
+}
+.textAlign{
+    overflow: visible;
+    width: 162px;
+    height: 24px;
+    margin-left: 18px;
+    margin-right: 9px;
+}
+
+.dateAlign{
+    width: 162px;
+    height: 24px;
+    margin-left: 5px;
+    margin-right: 7px;
+}
+
+select{
+    width: 162px;
+    background-color: white;
+}
+
+span.wrapper {
+    text-align: center;
+    width: 555px;
+    align-items: center;
+    display: inline-block;
+    color:blue;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    background-color: #e9ecef;
+}
+
+div.boxSmall{
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+    width:276px;
+    float: left;
+    /* padding-left: 20px; */
+}
+
+div.boxLayoutSmall{
+    width: 100%;
+    height: 202px;
+    background-color:#e9ecef;
+    
+    margin-bottom: 25px;
+
+}
+.dropDown{
+    width: 154px;
+    /* padding-left: 15px; */
+    margin-left: 6px;
+
+}
+
+.textAlignSmall{
+    overflow: visible;
+    width: 148px;
+    margin-left: 27px;
+    height: 22px;
+}
+
+input[type='date']{
+    width: 152px;
+    height: 22px;
+    margin-left: 14px;
+}
+span.wrapperHeader {
+    text-align: center;
+    width: 100%;
+    align-items: center;
+    display: inline-block;
+    color:#0091ff;
+    border-top: 1px solid black;
+    background-color:#e9ecef;
+    font-weight: bold;
+    
+}
+.buttonAlign{
+    text-align: center;
+    padding-top:5px;
+}
+
+button.btn.btn-light {
+    background-color:#8080802e;
+    margin-top: 11px;
+}
+
+div.documentBox{
+    width: 100%;
+    height: 100%;
+    background-color:#e9ecef;
+    margin-bottom: 14px;
+}
+
+/* ol.counter-increment li {
+    counter-increment: section;
+    display: table-row;
+    }
+    
+    ol.counter-increment li::before {
+    content: "(" counter(section,) ") ";
+    display: table-cell;
+    /* padding-right: 2px; */
+    /* text-align: left; */
+    /* } */ 
+
+    li{
+        list-style: none;
+    }
+
+    span.documentTitle{
+        /* padding: 12px 12px 20px 23px; */
+        padding-left:20px;
+        margin-botton:10px;
+        font-size: 20px;
+        color: blue;
+        font-weight: bold;
+    }
+    span.documentNote{
+        font-size: 14px;
+        color: black;
+        padding-left: 20px;
+        display: inherit;
+        padding-bottom: 15px;
+    }
+    span.documentLable{
+        float:left;
+        color: blue;
+        font-weight: bold;
+    }
+    div.documentUploadButton{
+        width: 449px;
+        height: 212px;
+        border: 1px solid grey;
+        background-color: #f1f19e7a;
+        margin-bottom: 20px;
+        margin-left:14px;
+        font-size: 17px;
+        overflow: scroll;
+        display: block;
+    }
+
+    div.documentUpload{
+        width: 623px;
+        height: 212px;
+        border: 1px solid grey;
+        background-color:#e9ecef;
+        float: right;
+        padding: 8px;
+        margin-bottom: 20px;
+        margin-left:8px;
+        font-size: 17px;
+        overflow: scroll;
+        display: block;
+    }
+    input[type=file]{ 
+        color:transparent;
+        width: 139px;
+    }
+
+    button.uploadButton{
+        float: right;
+        background-color:#e9ecef;
+        margin-top: 7px;
+    }

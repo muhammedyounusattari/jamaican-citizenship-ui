@@ -1,0 +1,315 @@
+<div class="container">
+  <div *ngIf="showDescentForm">
+    <h4 class="wrapper">DECENT APPLICATION FORM</h4>
+    <!-- <div class="jumbotron jumbotron-fluid personalInfo">
+          <div class="container">
+            <p class="lead">To be populated with profile information.</p>
+          </div>
+      </div> -->
+    <div class="profileBox">
+      <p class="lead" style='text-align: center;padding-top:22px'>To be populated with profile information.</p>
+    </div>
+    <span class="wrapperHeader">
+      Particulars Parents
+    </span>
+    <form [formGroup]='descentForm' (ngSubmit)='onSubmit(descentForm.value)'>
+      <div class="boxLayout">
+        <div class="box" style="border:0px">
+          <span class="wrapper">Father</span>
+          <div class="layout">
+            <div class="row">
+              <div>
+                <label>Last Name</label>
+                <input type='text' formControlName='flastname' class='textAlign' name='lname' />
+              </div>
+              <div>
+                <label>First Name</label>
+                <input type='text' formControlName='ffirstname' class='textAlign' name='fname' />
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label>Date of Birth</label>
+                <input type='date' class='dateAlign' formControlName='fdob' name='lname' />
+              </div>
+              <div>
+                <label>Place of Birth</label>
+                <select id="exampleFormControlSelect1" formControlName='fpob'>
+                  
+                  <option>Jamica</option>
+                  <option>United States</option>
+                  <option>Uniked Kindom</option>
+                  <option>India</option>
+
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <span class="wrapper">Mother</span>
+          <div class="layout">
+            <div class="row">
+              <div>
+                <label>Last Name</label>
+                <input type='text' class='textAlign' formControlName='mlastname' name='lname' />
+              </div>
+              <div>
+                <label>First Name</label>
+                <input type='text' class='textAlign' formControlName='mfirstname' name='lname' />
+              </div>
+            </div>
+            <div class="row">
+              <div>
+                <label>Date of Birth</label>
+                <input type='date' class='dateAlign' formControlName='mdob' name='lname' />
+              </div>
+              <div>
+                <label>Place of Birth</label>
+                <select id="exampleFormControlSelect1" formControlName='mpob'>
+                  <option>select</option>
+                  <option>Jamica</option>
+                  <option>United States</option>
+                  <option>Uniked Kindom</option>
+                  <option>India</option>
+
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <span class="wrapperHeader">
+        Particulars Grand Parents<br />
+        <span style='font-size: 0.75rem;'>(If applicable)</span>
+      </span>
+      <span class="wrapper">Paternal</span>
+      <span class="wrapper">Maternal</span>
+      <div class="boxLayoutSmall">
+        <div class="boxSmall" style='border-left:0px'>
+          <div class="layout">
+            <div class="row">
+              <div>
+                <label>Last Name</label>
+                <input type='text' name='lname' formControlName='plastname1' class='textAlignSmall' />
+              </div>
+              <div>
+                <label>First Name</label>
+                <input type='text' name='lname' formControlName='pfirstname1' class='textAlignSmall' />
+              </div>
+              <!-- </div>
+              <div class="row"> -->
+              <div>
+                <label>Date of Birth</label>
+                <input type='date' formControlName='pdob1' name='lname' />
+              </div>
+              <div>
+                <label>Place of Birth</label>
+                <select class='dropDown' formControlName='ppob1' id="exampleFormControlSelect1">
+                 
+                  <option>Jamica</option>
+                  <option>United States</option>
+                  <option>Uniked Kindom</option>
+                  <option>India</option>
+
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="boxSmall">
+          <!-- <span class="wrapper">Father</span> -->
+          <div class="layout">
+            <div class="row">
+              <div>
+                <label>Last Name</label>
+                <input type='text' name='lname' formControlName='plastname2' class='textAlignSmall' />
+              </div>
+              <div>
+                <label>First Name</label>
+                <input type='text' name='lname' formControlName='pfirstname2' class='textAlignSmall' />
+              </div>
+              <!-- </div>
+              <div class="row"> -->
+              <div>
+                <label>Date of Birth</label>
+                <input type='date' name='lname' formControlName='pdob2' />
+              </div>
+              <div>
+                <label>Place of Birth</label>
+                <select class='dropDown' id="exampleFormControlSelect1" formControlName='ppob2'>
+                 
+                  <option>Jamica</option>
+                  <option>United States</option>
+                  <option>Uniked Kindom</option>
+                  <option>India</option>
+
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="boxSmall">
+          <!-- <span class="wrapper">Father</span> -->
+          <div class="layout">
+            <div class="row">
+              <div>
+                <label>Last Name</label>
+                <input type='text' name='lname' formControlName='mlastname1' class='textAlignSmall' />
+              </div>
+              <div>
+                <label>First Name</label>
+                <input type='text' name='lname' formControlName='mfirstname1' class='textAlignSmall' />
+              </div>
+              <!-- </div>
+              <div class="row"> -->
+              <div>
+                <label>Date of Birth</label>
+                <input type='date' name='lname' formControlName='mdob1' class='textAlignSmall' />
+              </div>
+              <div>
+                <label>Place of Birth</label>
+                <select class='dropDown' formControlName='mpob1' id="exampleFormControlSelect1">
+                 
+                  <option>Jamica</option>
+                  <option>United States</option>
+                  <option>Uniked Kindom</option>
+                  <option>India</option>
+
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="boxSmall">
+          <!-- <span class="wrapper">Mother</span> -->
+          <div class="layout">
+            <div class="row">
+              <div>
+                <label>Last Name</label>
+                <input type='text' class='textAlignSmall' formControlName='mlastname2' name='lname' />
+              </div>
+              <div>
+                <label>First Name</label>
+                <input type='text' class='textAlignSmall' formControlName='mfirstname2' name='lname' />
+              </div>
+              <!-- </div>
+              <div class="row"> -->
+              <div>
+                <label>Date of Birth</label>
+                <input type='date' name='lname' formControlName='mdob2' />
+              </div>
+              <div>
+                <label>Place of Birth</label>
+                <select class='dropDown' formControlName='mpob2' id="exampleFormControlSelect1">
+                  <option>Jamica</option>
+                  <option>United States</option>
+                  <option>Uniked Kindom</option>
+                  <option>India</option>
+
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='buttonAlign'>
+          <button type="button" class="btn btn-light">Cancel</button>&nbsp;&nbsp;
+          <button type="submit" class="btn btn-light">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+<div class='container' *ngIf='showDocumentUpload'>
+  <div class="documentBox">
+    <span class='documentTitle'>To complete the application process the following documents must be scanned and uploaded : </span>
+    <ol class='counter-increment' type="i">
+      <li>(i)the applicant 's Birth Certificate;</li>
+      <li>(ii) the applicant's father's or mother's Birth Certficate or Certificate of Jamaica Citizenship or Adoption
+        Certificate issued by the Registrar General Dept.</li>
+      <li>(iii) Two (2) passport sized pictures of the applicant certified by either a Justice of the Peace, Commissioner of
+        Oaths, Notary Public , Lawyer or Doctor.</li>
+      (the applicant's name along with the name, number and signature of the certifying officer and the certfication
+      date no older of than 6 months should be included).
+      <li> (iv)Marriage Certificate (if applicable);</li>
+      <li>(v) Applicant's valid ID ( if adult 18 years and olders);</li>
+      <li>(vi) Jamaican parent's government issued ID ( Valid Passport or Driver's Licence), if applicant is a minor;</li>
+      <li>(vii) Court issued document evidencing Legal Guardianship where applicable;</li>
+      <li>(viii) Official Change of Name Document ( Court Order, Deed Polls registered through the court or the country's
+        records office, etc) where applicable.</li>
+        the process of the application
+      </ol>
+      <span class='documentNote'>All documents must be originals. PICA reserves the right to request additional and/or updated information during</span>
+
+  </div>
+  
+  <form [formGroup]="uploadForm" (ngSubmit)="uploadSubmit()">
+  <div class="row">
+  <div class='documentUploadButton'>
+      <mat-card>
+            <mat-card-content>
+            
+              <div class="drop-zone" style='text-align: -webkit-center;'>
+                  <div ng2FileDrop [uploader]="uploader" class="drop-zone">
+                <span class="documentLable">Upload File</span>
+                <br/><br/>
+                       Drag and drop files to upload<br/>
+                       <span style='font-size:13px;'> Or</span><br/>
+                       <input class='btn' style='padding-left:8px;font-size: 14px;' formControlName="document" type="file" ng2FileSelect accept=".png,.jpg,.pdf" [uploader]="uploader" multiple/>
+                       <span styel='font-size:3px;'>supports (pdf,jpg and png)</span><br/>
+                       <button   class="btn uploadButton"  mat-raised-button color="accent"  type="submit">Upload Data</button>                 
+                      </div>
+              </div>
+             
+              <br>
+            </mat-card-content>
+          </mat-card>
+          
+        </div>
+        
+        <div class='documentUpload'>
+          <table>
+            <thead>
+              <tr>
+                <th width="90%">
+                  File Name
+                </th>
+                <th width="10%">
+                  Remove
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of uploader.queue">
+                <th width="90%">
+                  {{ item.file.name}}({{item.file.size/1000000}} MB)
+                </th>
+                <th class="text-center" width="10%">
+                  <mat-icon (click)="item.remove()" style='color:blue;cursor: pointer;'>delete</mat-icon>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- <button  mat-raised-button color="accent" [disabled]="!uploadForm.valid" type="submit">Upload Data</button> -->
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf='applicationCode>0'>
+    <pre>
+      You have successfully uploaded your application and supporting documents.  
+
+      Thank you for submitting an application for Citizenship by Descent. 
+      Your application number is <b>{{applicationCode}}</b> which may be used to track the progress of your application. 
+      Your application and supporting document will be reviewed and an email update provided to you within 5 working days. This email will outline the status of your application  
+    
+  </pre>
+  </div>
+
+</div>
