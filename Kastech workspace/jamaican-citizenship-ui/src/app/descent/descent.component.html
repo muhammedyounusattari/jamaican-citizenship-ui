@@ -12,7 +12,7 @@
     <span class="wrapperHeader">
       Particulars Parents
     </span>
-    <form [formGroup]='descentForm' (ngSubmit)='onSubmit(descentForm.value)'>
+    <form [formGroup]='descentForm' (ngSubmit)='onSubmit(descentForm.value)' autocomplete="off">
       <div class="boxLayout">
         <div class="box" style="border:0px">
           <span class="wrapper">Father</span>
@@ -30,7 +30,7 @@
             <div class="row">
               <div>
                 <label>Date of Birth</label>
-                <input type='date' class='dateAlign' formControlName='fdob' name='lname' />
+                <input type='text' bsDatepicker  [bsConfig]="datePickerConfig" bsDatepicker class='dateAlign' formControlName='fdob' name='lname' autocomplete="off" />
               </div>
               <div>
                 <label>Place of Birth</label>
@@ -63,7 +63,7 @@
             <div class="row">
               <div>
                 <label>Date of Birth</label>
-                <input type='date' class='dateAlign' formControlName='mdob' name='lname' />
+                <input type='text' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker class='dateAlign' formControlName='mdob' name='lname' autocomplete="off" />
               </div>
               <div>
                 <label>Place of Birth</label>
@@ -104,7 +104,7 @@
               <div class="row"> -->
               <div>
                 <label>Date of Birth</label>
-                <input type='date' formControlName='pdob1' name='lname' />
+                <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker formControlName='pdob1' name='lname' autocomplete="off" />
               </div>
               <div>
                 <label>Place of Birth</label>
@@ -137,7 +137,7 @@
               <div class="row"> -->
               <div>
                 <label>Date of Birth</label>
-                <input type='date' name='lname' formControlName='pdob2' />
+                <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker name='lname' formControlName='pdob2' autocomplete="off" />
               </div>
               <div>
                 <label>Place of Birth</label>
@@ -170,12 +170,11 @@
               <div class="row"> -->
               <div>
                 <label>Date of Birth</label>
-                <input type='date' name='lname' formControlName='mdob1' class='textAlignSmall' />
+                <input type='text' class='textAlignSmallPaternal' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker name='lname' formControlName='mdob1'  autocomplete="off" />
               </div>
               <div>
                 <label>Place of Birth</label>
                 <select class='dropDown' formControlName='mpob1' id="exampleFormControlSelect1">
-                 
                   <option>Jamica</option>
                   <option>United States</option>
                   <option>Uniked Kindom</option>
@@ -203,7 +202,7 @@
               <div class="row"> -->
               <div>
                 <label>Date of Birth</label>
-                <input type='date' name='lname' formControlName='mdob2' />
+                <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker name='lname' formControlName='mdob2' autocomplete="off" />
               </div>
               <div>
                 <label>Place of Birth</label>
@@ -248,7 +247,7 @@
 
   </div>
   
-  <form [formGroup]="uploadForm" (ngSubmit)="uploadSubmit()">
+  <form [formGroup]="uploadForm" (ngSubmit)="uploadSubmit()" autocomplete="off">
   <div class="row">
   <div class='documentUploadButton'>
       <mat-card>

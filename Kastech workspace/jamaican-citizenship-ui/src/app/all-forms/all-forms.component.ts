@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogoutService } from '../shared/services/logout.service';
 
 @Component({
   selector: 'app-all-forms',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllFormsComponent implements OnInit {
 
-  constructor() { }
+  loginStatus:boolean;
+  constructor(private logoutService:LogoutService) { }
 
   ngOnInit() {
+    this.logoutService.changeMessage(true);
   }
 
 }

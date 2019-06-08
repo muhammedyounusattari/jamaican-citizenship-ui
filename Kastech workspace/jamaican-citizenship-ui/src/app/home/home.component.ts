@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogoutService } from '../shared/services/logout.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  loginStatus:boolean;
+  constructor(private logoutService:LogoutService) { }
 
   ngOnInit() {
+    this.logoutService.currentMessage.subscribe(message=>{this.loginStatus = message});
   }
 
 }

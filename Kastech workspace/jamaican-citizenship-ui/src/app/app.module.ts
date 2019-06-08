@@ -18,6 +18,10 @@ import {FileDropDirective, FileSelectDirective} from "ng2-file-upload";
 import {HttpClientModule} from "@angular/common/http";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap';
+
+
+
 
 import {
   MatButtonModule, MatCardModule, MatCheckboxModule, MatInputModule, MatToolbarModule, MatProgressSpinnerModule,
@@ -28,6 +32,7 @@ import {
 } from '@angular/material';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +42,14 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     HomeComponent,
     DescentComponent,
     LoginComponent,
-    FileDropDirective, FileSelectDirective
+    FileDropDirective, FileSelectDirective, ForgotPasswordComponent
   ],
   imports: [
+    
+    
+    
+    
+    
     BrowserModule,
     AppRoutingModule,
     // ,
@@ -49,13 +59,14 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     FormsModule,
      MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatInputModule, MatProgressSpinnerModule, MatDialogModule, MatDatepickerModule,
     MatDividerModule, MatGridListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatNativeDateModule, MatIconModule, MatOptionModule, MatSelectModule,
-    MatMenuModule, MatFormFieldModule, MatChipsModule, MatAutocompleteModule, MatSidenavModule, MatListModule, MatRadioModule, MatSliderModule],
+    MatMenuModule, MatFormFieldModule, MatChipsModule, MatAutocompleteModule, MatSidenavModule, MatListModule, MatRadioModule, MatSliderModule,BsDatepickerModule.forRoot()],
   exports: [ MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatInputModule, MatProgressSpinnerModule, MatDialogModule,
     MatDatepickerModule, MatDividerModule, MatGridListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatNativeDateModule, MatIconModule, MatOptionModule, MatSelectModule,
      MatMenuModule, MatFormFieldModule, MatChipsModule, MatAutocompleteModule, MatSidenavModule, MatListModule, MatRadioModule, MatSliderModule],
    
 
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ForgotPasswordComponent]
 })
 export class AppModule { }

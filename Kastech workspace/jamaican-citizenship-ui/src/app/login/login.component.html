@@ -17,6 +17,7 @@
                         </div>
                         <button type="submit" id="sendlogin" class="btn" style="background-color:#eeeff1">Login</button>
                         <div *ngIf="showError" style="float:right"><a routerLink="/createProfile" class="badge badge-primary">Create Profile</a></div>
+                        &nbsp;&nbsp;<div *ngIf="showError" style="float:right"><a routerLink="#" (click)="forgotPassword()" class="badge badge-primary">Forgot Password</a></div>&nbsp;&nbsp;
                     </form>
                 </div>
             </div>

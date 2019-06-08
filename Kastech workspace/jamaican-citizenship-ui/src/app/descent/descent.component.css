@@ -45,6 +45,12 @@ div.layout{
     margin-left: 5px;
     margin-right: 7px;
 }
+.dateAlignGrandParents{
+    width: 150px;
+    height: 22px;
+    margin-left: 13px;
+    margin-right: 7px;
+}
 
 select{
     width: 162px;
@@ -196,4 +202,10 @@ div.documentBox{
         float: right;
         background-color:#e9ecef;
         margin-top: 7px;
+    }
+    .textAlignSmallPaternal {
+        overflow: visible;
+        width: 148px;
+        margin-left: 14px;
+        height: 22px;
     }

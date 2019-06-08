@@ -29,13 +29,12 @@
     <div class="row">
         <div class="col-5">
             <label>Date of Birth</label>
-            <input type="date" class="col-9" formControlName="dob"  placeholder="Select Date of Birth">
+            <input type="text" bsDatepicker [bsConfig]="datePickerConfig" class="col-9" formControlName="dob"  placeholder="Select Date of Birth">
           </div>
           
           <div class="col-sm">
             <label>Place of Birth</label>
             <select class="col-9 selectBoxAlign" formControlName="pob" id="exampleFormControlSelect1">
-               
                 <option>Jamica</option>
                 <option>United States</option>
                 <option>Uniked Kindom</option>
@@ -46,15 +45,25 @@
     </div>
     
     <div class="row">
+      <div class="col-5">
+          <label class="email-label">Address</label>
+          <span class="genderAlign">
+          <input type="text" class="col-9" formControlName="address" placeholder="Address">
+          </span>
+        </div>
+        <div class="col-sm">
+          <label>Telephone number</label>
+          <input type="text" class="col-9" formControlName="number"  placeholder="Telephone number">
+        </div>
+  </div>  
+
+    <div class="row">
         <div class="col-5">
             <label class="email-label">Email Address</label>
             <input type="text" class="col-9" formControlName="email" placeholder="Email address">
           </div>
           
-          <div class="col-sm">
-            <label>Telephone number</label>
-            <input type="text" class="col-9" formControlName="number"  placeholder="Telephone number">
-          </div>
+         
     </div>  
 
     <div class="row">
@@ -67,14 +76,7 @@
       </div>
     </div>
 
-    <div class="row">
-        <div class="col-5">
-            <label class="email-label">Address</label>
-            <span class="genderAlign">
-            <input type="text" class="col-9" formControlName="address" placeholder="Address">
-            </span>
-          </div>
-    </div>  
+   
 
     <div class="wrapper">
         <button type="button" class="btn btn-dark button">Cancel</button>

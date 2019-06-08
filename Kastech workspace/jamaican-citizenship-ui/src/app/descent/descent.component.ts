@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,FormBuilder, Validators } from '@angular/forms';
 import { DescentFormService } from '../shared/services/descent-form.service';
 import {FileUploader} from "ng2-file-upload";
+import { BsDatepickerConfig } from 'ngx-bootstrap';
+import { LogoutService } from '../shared/services/logout.service';
 
 @Component({
   selector: 'app-descent',
@@ -45,16 +47,21 @@ export class DescentComponent implements OnInit {
   applicationCode:number=0;
   showDescentForm:boolean = true;
   showDocumentUpload:boolean = false;
+  datePickerConfig: Partial<BsDatepickerConfig>;
 
   public uploader:FileUploader = new FileUploader({
     isHTML5: true
   });
   title: string = 'Angular File Upload';
-  
+  loginStatus:boolean;
 
-  constructor(private descentService:DescentFormService,private fb: FormBuilder) { }
+  constructor(private descentService:DescentFormService,private fb: FormBuilder,private logoutService:LogoutService) { 
+    this.datePickerConfig = Object.assign({},{containerClass:'theme-dark-blue',showWeekNumbers:false,dateInputFormat:'DD/MM/YYYY'})
+  }
 
   ngOnInit() {
+
+    this.logoutService.changeMessage(true);
     this.uploadForm = this.fb.group({
       document: [null, null],
       type:  [null, Validators.compose([Validators.required])]

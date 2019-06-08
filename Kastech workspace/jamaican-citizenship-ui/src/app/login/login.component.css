@@ -1,1 +1,10 @@
-
+.badge-primary {
+    color: #fff;
+    background-color: #a5aaaf;
+    margin: 21px 3px 0px 0px;
+}
+div.wrapper{
+    width: 200px;
+    height: 200px;
+    border:1px solid black;
+}

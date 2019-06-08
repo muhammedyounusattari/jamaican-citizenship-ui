@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CreateProfileService } from '../shared/services/create-profile.service';
 import { FormGroup, FormBuilder, Validators ,FormControl} from '@angular/forms';
 import {Router} from "@angular/router";
+import { BsDatepickerConfig } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-create-profile',
@@ -22,8 +23,9 @@ export class CreateProfileComponent implements OnInit {
     address:new FormControl()
 
   });
-
+  datePickerConfig: Partial<BsDatepickerConfig>;
   constructor(private profileService:CreateProfileService, private routing:Router) { 
+    this.datePickerConfig = Object.assign({},{containerClass:'theme-dark-blue',showWeekNumbers:false,dateInputFormat:'DD/MM/YYYY'})
   }
 
   ngOnInit() {
