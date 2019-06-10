@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../shared/services/login.service';
+import { MatDialogRef } from "@angular/material";
+import { NgBlockUI, BlockUI } from 'ng-block-ui';
 
 @Component({
   selector: 'app-forgot-password',
@@ -7,13 +10,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  constructor() { }
+  errorMessage:string;
+  successMessage:string;
+
+  @BlockUI() blockUI: NgBlockUI;
+  constructor(private loginService:LoginService,public dialogRef: MatDialogRef<ForgotPasswordComponent>) { 
+    dialogRef.disableClose=true;
+  }
 
   ngOnInit() {
   }
 
   validateEmail(email){
-    alert(email);
     
+    if(!email){
+      this.errorMessage='Email is required field';
+      return false;
+    }
+    if(!email.match('@')){
+      this.errorMessage='Invalid Email Address';
+      return false;
+    }
+    this.blockUI.start('loading...');  
+    this.loginService.validateEmail(email).subscribe(data=>{
+      if(data == null){
+       this.errorMessage = "Email id doesn't exist, please create your profile";    
+      }
+      else{
+        this.errorMessage = "";
+        this.successMessage = "Reset password link sent to your email ";
+      }
+    this.blockUI.stop();
+    })
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 }

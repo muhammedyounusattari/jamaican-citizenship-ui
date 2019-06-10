@@ -1,10 +1,15 @@
+<block-ui>
 
+<div class='container-fluid'>
 <div style="text-align: center">
     <h1>Welcome to the Citizenship</h1>
     <h2>Application Portal</h2>
     <h5 style="color:blue">Applicant Profile</h5>
 </div>
 <br/>
+<div *ngIf='showErrorMsg' class="alert alert-danger" role="alert">
+    Please fill the required fields
+  </div>
 <div class="container-fluid">
    
 <form [formGroup]="profile"  (ngSubmit)=onSubmit(profile.value) class="form-group" >
@@ -12,166 +17,81 @@
   
 
     <div class="row">
-        <div class="col">
-            <label>Last name </label> &nbsp;&nbsp;
-            <input type="text" class="col-8" formControlName="lastname" placeholder="Last name" required>
+          <div class="col">
+            <label>Last name<span class="glyphicon">&#x2a;</span> </label> &nbsp;&nbsp;
+            <input type="text" class="col-8 " formControlName="lastname" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" >
           </div>
           <div class="col">
             <label>Middle name</label> &nbsp;&nbsp;
-            <input type="text" class="col-8" formControlName="middlename" placeholder="Middle name">
+            <input type="text" class="col-7" formControlName="middlename" placeholder="Middle name" >
           </div>
           <div class="col">
-            <label>First name</label> &nbsp;&nbsp;
-            <input type="text" class="col-8" formControlName="firstname" placeholder="First name">
+            <label>First name<span class="glyphicon">&#x2a;</span></label> &nbsp;&nbsp;
+            <input type="text" class="col-8" formControlName="firstname" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" >
           </div>
     </div>
 
     <div class="row">
         <div class="col-5">
-            <label>Date of Birth</label>
-            <input type="text" bsDatepicker [bsConfig]="datePickerConfig" class="col-9" formControlName="dob"  placeholder="Select Date of Birth">
+            <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
+            <input type="text" bsDatepicker [bsConfig]="datePickerConfig" class="col-9" formControlName="dob"  placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" >
           </div>
           
           <div class="col-sm">
-            <label>Place of Birth</label>
-            <select class="col-9 selectBoxAlign" formControlName="pob" id="exampleFormControlSelect1">
-                <option>Jamica</option>
-                <option>United States</option>
-                <option>Uniked Kindom</option>
-                <option>India</option>
-                
+            <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+            
+            <select class="col-9 selectBoxAlign" formControlName="pob" id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.pob.errors }" >
+                <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
               </select>
           </div>
     </div>
     
     <div class="row">
       <div class="col-5">
-          <label class="email-label">Address</label>
+          <label class="email-label">Address<span class="glyphicon">&#x2a;</span></label>
           <span class="genderAlign">
-          <input type="text" class="col-9" formControlName="address" placeholder="Address">
+          <input type="text" class="col-9" formControlName="address" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" >
           </span>
         </div>
         <div class="col-sm">
-          <label>Telephone number</label>
-          <input type="text" class="col-9" formControlName="number"  placeholder="Telephone number">
+          <label>Telephone number<span class="glyphicon">&#x2a;</span></label>
+          <input type="text" class="col-9" formControlName="number"  placeholder="Telephone number" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" >
         </div>
   </div>  
 
     <div class="row">
         <div class="col-5">
-            <label class="email-label">Email Address</label>
-            <input type="text" class="col-9" formControlName="email" placeholder="Email address">
+            <label class="email-label">Email Address<span class="glyphicon">&#x2a;</span></label>
+            <input type="text" class="col-9" formControlName="email" placeholder="Email address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
           </div>
-          
-         
     </div>  
 
+
     <div class="row">
-      <div class="col-5">
-        <label>Gender</label>
-        <span class="genderAlign">
-        <label>Male</label> <input type="radio" formControlName="gender" name="gender"/>&nbsp;&nbsp;
-        <label>Female</label> <input type="radio" formControlName="gender" name="gender"/>
-        </span>
+        <div class="col-5">
+            <label>Gender<span class="glyphicon">&#x2a;</span></label>
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" value='male' id="customRadioInline1" name="gender" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline1">Male</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" value='female' id="customRadioInline2" name="gender" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline2">Female</label>
       </div>
     </div>
-
-   
-
+  </div>
+    
     <div class="wrapper">
-        <button type="button" class="btn btn-dark button">Cancel</button>
-        <button type="submit" class="btn btn-dark button">Submit</button>
+        <button type="submit" class="btn">Submit</button>
+        <button type="button" class="btn">Cancel</button>
     </div>
 
     <div class="wrapper">
       <textarea rows="5" placeholder="Welcome to the Passport, Immigration and Citizenship Agency - Citizenship Application Portal. All Applicants are required to create a profile before proceeding to completing the required application." cols="82" disabled ></textarea>
     </div>
  </form>
-
-  </div>
-
-<br/><br/>
-
-
-<!-- 
-<div style="text-align: center">
-    <h1>Welcome to the Citizenship</h1>
-    <h2>Application Portal</h2>
-    <h5 style="color:blue">Applicant Profile</h5>
 </div>
-<br/>
-<div class="container-fluid">
-   
-<form [formGroup]='profileForm' (ngSubmit)='onSubmit(profileForm.value)' class="form-group" >
-  ++{{profileForm | json }}
-  <label *ngIf="profileForm.invalid" [ngClass] = "'error'"> Name is required with 10 max character. </label>
-
-    <div class="row">
-        <div class="col">
-            <label>Last name </label> &nbsp;&nbsp;
-            <input type="text" class="col-8" placeholder="Last name" formControlName='lname'>
-          </div>
-          <div class="col">
-            <label>Middle name</label> &nbsp;&nbsp;
-            <input type="text" class="col-8" placeholder="Middle name" formControlName='mname'>
-          </div>
-          <div class="col">
-            <label>First name</label> &nbsp;&nbsp;
-            <input type="text" class="col-8" placeholder="First name" formControlName='fname'>
-          </div>
-    </div>
-
-    <div class="row">
-        <div class="col-5">
-            <label>Date of Birth</label>
-            <input type="date" class="col-9"  placeholder="Select Date of Birth" formControlName='dob'>
-          </div>
-          
-          <div class="col-sm">
-            <label>Place of Birth</label>
-            <select class="col-9 selectBoxAlign" id="exampleFormControlSelect1" formControlName='placeOfBirth'>
-                <option>select</option>
-                <option>Jamican</option>
-                <option>United States</option>
-                <option>Uniked Kindom</option>
-                <option>India</option>
-                
-              </select>
-          </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-5">
-            <label class="email-label">Email Address</label>
-            <input type="email" class="col-9"  placeholder="Email address" formControlName='email'>
-          </div>
-          
-          <div class="col-sm">
-            <label>Telephone number</label>
-            <input type="number" class="col-9"  placeholder="Telephone number" formControlName='phone'>
-          </div>
-    </div>  
-
-    <div class="row">
-      <div class="col-5">
-        <label>Gender</label>
-        <span class="genderAlign">
-        <label>Male</label> <input type="radio" formControlName="gender" name="gender"/>&nbsp;&nbsp;
-        <label>Female</label> <input type="radio" formControlName="gender" name="gender"/>
-        </span>
-      </div>
-    </div>
-
-    <div class="wrapper">
-        <button type="button" class="btn btn-dark button">Cancel</button>
-        <button type="submit" class="btn btn-dark button">Submit</button>
-    </div>
-
-    <div class="wrapper">
-      <textarea rows="5" placeholder="Welcome to the Passport, Immigration and Citizenship Agency - Citizenship Application Portal. All Applicants are required to create a profile before proceeding to completing the required application." cols="82" ></textarea>
-    </div>
- </form>
-
   </div>
 
-<br/><br/> -->
+<br/>
+</block-ui>

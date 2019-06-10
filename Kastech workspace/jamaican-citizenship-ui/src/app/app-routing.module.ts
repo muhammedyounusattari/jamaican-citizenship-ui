@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DescentComponent } from './descent/descent.component';
 import { LoginComponent } from './login/login.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'createProfile',component:CreateProfileComponent},
   {path:'allForms',component:AllFormsComponent},
   {path:'descentForm',component:DescentComponent},
-  {path:'login',component:LoginComponent}
+  {path:'login',component:LoginComponent},
+  {path:'resetPassword/:emailId',component:ResetPasswordComponent}
 
 ];
 

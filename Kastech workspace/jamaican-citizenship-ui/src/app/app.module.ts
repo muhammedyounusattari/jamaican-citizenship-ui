@@ -12,14 +12,14 @@ import { DescentComponent } from './descent/descent.component';
 
 import { LoginComponent } from './login/login.component';
 
-import {RouterModule} from "@angular/router";
+import {RouterModule, ActivatedRoute} from "@angular/router";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FileDropDirective, FileSelectDirective} from "ng2-file-upload";
 import {HttpClientModule} from "@angular/common/http";
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap';
-
+import { BlockUIModule } from 'ng-block-ui';
 
 
 
@@ -33,6 +33,7 @@ import {
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     HomeComponent,
     DescentComponent,
     LoginComponent,
-    FileDropDirective, FileSelectDirective, ForgotPasswordComponent
+    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent
   ],
   imports: [
     
@@ -55,7 +56,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     // ,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,BlockUIModule.forRoot(),
     FormsModule,
      MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatInputModule, MatProgressSpinnerModule, MatDialogModule, MatDatepickerModule,
     MatDividerModule, MatGridListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatNativeDateModule, MatIconModule, MatOptionModule, MatSelectModule,

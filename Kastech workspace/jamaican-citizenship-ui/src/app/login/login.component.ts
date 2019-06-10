@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { LogoutService } from '../shared/services/logout.service';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 
 @Component({
@@ -22,6 +23,8 @@ export class LoginComponent implements OnInit {
 
   });
   private loginStatus:boolean;
+
+  @BlockUI() blockUI: NgBlockUI;
   constructor(private loginService:LoginService,private router:Router, 
     private logoutService:LogoutService,public dialog: MatDialog) { }
 
@@ -37,17 +40,19 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/login']);
       return false;
     }
+    this.blockUI.start('loading...');
     this.loginService.authenticate(payload).subscribe(data=>{
       sessionStorage.setItem('profile',JSON.stringify(data));
       console.log("login result",data);
       if(data == null){
+        this.blockUI.stop();
         this.errorMsg='Email/Password is incorrect '; 
         this.router.navigate(['/login']);
         this.showError = true;
       }
       else{
         this.logoutService.changeMessage(true);
-        this.logoutService.currentMessage.subscribe(message=>{this.loginStatus = message}); 
+        this.logoutService.currentMessage.subscribe(message=>{this.loginStatus = message;this.blockUI.stop();}); 
         this.showError = false;
         this.router.navigate(['/allForms']);
       }

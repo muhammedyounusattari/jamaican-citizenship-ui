@@ -1,46 +1,101 @@
+<block-ui>
 <div class="container">
   <div *ngIf="showDescentForm">
     <h4 class="wrapper">DECENT APPLICATION FORM</h4>
-    <!-- <div class="jumbotron jumbotron-fluid personalInfo">
-          <div class="container">
-            <p class="lead">To be populated with profile information.</p>
-          </div>
-      </div> -->
+    <form [formGroup]='descentForm' (ngSubmit)='onSubmit(descentForm.value)' autocomplete="off">
     <div class="profileBox">
-      <p class="lead" style='text-align: center;padding-top:22px'>To be populated with profile information.</p>
+      <div class="row">
+          <div class="col">
+            <label>Last name<span class="glyphicon">&#x2a;</span> </label> &nbsp;&nbsp;
+            <input type="text" class="col-8 " formControlName="lastname" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" >
+          </div>
+          <div class="col">
+            <label>Middle name</label> &nbsp;&nbsp;
+            <input type="text" class="col-7" formControlName="middlename" placeholder="Middle name" >
+          </div>
+          <div class="col">
+            <label>First name<span class="glyphicon">&#x2a;</span></label> &nbsp;&nbsp;
+            <input type="text" class="col-8" formControlName="firstname" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" >
+          </div>
     </div>
+
+    <div class="row">
+        <div class="col-5">
+            <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
+            <input type="text" bsDatepicker [bsConfig]="datePickerConfig" class="col-9" formControlName="dob"  placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" >
+          </div>
+          
+          <div class="col-sm">
+            <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+            
+            <select class="col-9 selectBoxAlign" formControlName="pob" id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.pob.errors }" >
+                <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
+              </select>
+          </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-5">
+          <label class="email-label">Address<span class="glyphicon">&#x2a;</span></label>
+          <input type="text" class="col-9 address" formControlName="address" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" >
+          
+        </div>
+        <div class="col-sm">
+          <label>Telephone number<span class="glyphicon">&#x2a;</span></label>
+          <input type="text" class="col-9" formControlName="number"  placeholder="Telephone number" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" >
+        </div>
+    </div>  
+
+    <div class="row">
+        <div class="col-5">
+            <label class="email-label">Email Address<span class="glyphicon">&#x2a;</span></label>
+            <input type="text" class="col-8" formControlName="email" placeholder="Email address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+          </div>
+    
+        <div class="col-5">
+            <label>Gender<span class="glyphicon">&#x2a;</span></label>
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" value='male' id="customRadioInline1" name="gender" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline1">Male</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" value='female' id="customRadioInline2" name="gender" class="custom-control-input">
+        <label class="custom-control-label" for="customRadioInline2">Female</label>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+</div>
+
     <span class="wrapperHeader">
       Particulars Parents
     </span>
-    <form [formGroup]='descentForm' (ngSubmit)='onSubmit(descentForm.value)' autocomplete="off">
       <div class="boxLayout">
         <div class="box" style="border:0px">
           <span class="wrapper">Father</span>
           <div class="layout">
             <div class="row">
               <div>
-                <label>Last Name</label>
-                <input type='text' formControlName='flastname' class='textAlign' name='lname' />
+                <label>Last Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' formControlName='flastname' [ngClass]="{ 'is-invalid': submitted && f.flastname.errors }" class='textAlign' name='lname' />
               </div>
               <div>
-                <label>First Name</label>
-                <input type='text' formControlName='ffirstname' class='textAlign' name='fname' />
+                <label>First Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' formControlName='ffirstname' [ngClass]="{ 'is-invalid': submitted && f.ffirstname.errors }" class='textAlign' name='fname' />
               </div>
             </div>
             <div class="row">
               <div>
-                <label>Date of Birth</label>
-                <input type='text' bsDatepicker  [bsConfig]="datePickerConfig" bsDatepicker class='dateAlign' formControlName='fdob' name='lname' autocomplete="off" />
+                <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' bsDatepicker  [bsConfig]="datePickerConfig" bsDatepicker class='dateAlign' [ngClass]="{ 'is-invalid': submitted && f.fdob.errors }"
+                formControlName='fdob' name='lname' autocomplete="off" />
               </div>
               <div>
-                <label>Place of Birth</label>
-                <select id="exampleFormControlSelect1" formControlName='fpob'>
-                  
-                  <option>Jamica</option>
-                  <option>United States</option>
-                  <option>Uniked Kindom</option>
-                  <option>India</option>
-
+                <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                <select id="exampleFormControlSelect1" formControlName='fpob' [ngClass]="{ 'is-invalid': submitted && f.fpob.errors }">
+                    <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
                 </select>
               </div>
             </div>
@@ -52,28 +107,24 @@
           <div class="layout">
             <div class="row">
               <div>
-                <label>Last Name</label>
-                <input type='text' class='textAlign' formControlName='mlastname' name='lname' />
+                <label>Last Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' class='textAlign' formControlName='mlastname' name='lname' [ngClass]="{ 'is-invalid': submitted && f.mlastname.errors }" />
               </div>
               <div>
-                <label>First Name</label>
-                <input type='text' class='textAlign' formControlName='mfirstname' name='lname' />
+                <label>First Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' class='textAlign' formControlName='mfirstname' name='lname' [ngClass]="{ 'is-invalid': submitted && f.mfirstname.errors }" />
               </div>
             </div>
             <div class="row">
               <div>
-                <label>Date of Birth</label>
-                <input type='text' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker class='dateAlign' formControlName='mdob' name='lname' autocomplete="off" />
+                <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker class='dateAlign' [ngClass]="{ 'is-invalid': submitted && f.mdob.errors }"
+                formControlName='mdob' name='lname' autocomplete="off" />
               </div>
               <div>
-                <label>Place of Birth</label>
-                <select id="exampleFormControlSelect1" formControlName='mpob'>
-                  <option>select</option>
-                  <option>Jamica</option>
-                  <option>United States</option>
-                  <option>Uniked Kindom</option>
-                  <option>India</option>
-
+                <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                <select id="exampleFormControlSelect1" formControlName='mpob' [ngClass]="{ 'is-invalid': submitted && f.mpob.errors }">
+                    <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
                 </select>
               </div>
             </div>
@@ -93,28 +144,24 @@
           <div class="layout">
             <div class="row">
               <div>
-                <label>Last Name</label>
-                <input type='text' name='lname' formControlName='plastname1' class='textAlignSmall' />
+                <label>Last Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' name='lname' formControlName='plastname1' class='textAlignSmall' [ngClass]="{ 'is-invalid': submitted && f.plastname1.errors }" />
               </div>
               <div>
-                <label>First Name</label>
-                <input type='text' name='lname' formControlName='pfirstname1' class='textAlignSmall' />
+                <label>First Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' name='lname' formControlName='pfirstname1' class='textAlignSmall' [ngClass]="{ 'is-invalid': submitted && f.pfirstname1.errors }" />
               </div>
               <!-- </div>
               <div class="row"> -->
               <div>
-                <label>Date of Birth</label>
-                <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker formControlName='pdob1' name='lname' autocomplete="off" />
+                <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig" [ngClass]="{ 'is-invalid': submitted && f.pdob1.errors }"
+                bsDatepicker formControlName='pdob1' name='lname' autocomplete="off" />
               </div>
               <div>
-                <label>Place of Birth</label>
-                <select class='dropDown' formControlName='ppob1' id="exampleFormControlSelect1">
-                 
-                  <option>Jamica</option>
-                  <option>United States</option>
-                  <option>Uniked Kindom</option>
-                  <option>India</option>
-
+                <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                <select class='dropDown' formControlName='ppob1' id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.ppob1.errors }">
+                    <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
                 </select>
               </div>
             </div>
@@ -126,28 +173,24 @@
           <div class="layout">
             <div class="row">
               <div>
-                <label>Last Name</label>
-                <input type='text' name='lname' formControlName='plastname2' class='textAlignSmall' />
+                <label>Last Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' name='lname' formControlName='plastname2' class='textAlignSmall' [ngClass]="{ 'is-invalid': submitted && f.plastname2.errors }" />
               </div>
               <div>
-                <label>First Name</label>
-                <input type='text' name='lname' formControlName='pfirstname2' class='textAlignSmall' />
+                <label>First Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' name='lname' formControlName='pfirstname2' class='textAlignSmall'  [ngClass]="{ 'is-invalid': submitted && f.pfirstname2.errors }"/>
               </div>
               <!-- </div>
               <div class="row"> -->
               <div>
-                <label>Date of Birth</label>
-                <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker name='lname' formControlName='pdob2' autocomplete="off" />
+                <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig" [ngClass]="{ 'is-invalid': submitted && f.pdob2.errors }"
+                bsDatepicker name='lname' formControlName='pdob2' autocomplete="off" />
               </div>
               <div>
-                <label>Place of Birth</label>
-                <select class='dropDown' id="exampleFormControlSelect1" formControlName='ppob2'>
-                 
-                  <option>Jamica</option>
-                  <option>United States</option>
-                  <option>Uniked Kindom</option>
-                  <option>India</option>
-
+                <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                <select class='dropDown' id="exampleFormControlSelect1" formControlName='ppob2' [ngClass]="{ 'is-invalid': submitted && f.ppob2.errors }">
+                    <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
                 </select>
               </div>
             </div>
@@ -159,27 +202,24 @@
           <div class="layout">
             <div class="row">
               <div>
-                <label>Last Name</label>
-                <input type='text' name='lname' formControlName='mlastname1' class='textAlignSmall' />
+                <label>Last Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' name='lname' formControlName='mlastname1' [ngClass]="{ 'is-invalid': submitted && f.mlastname1.errors }" class='textAlignSmall' />
               </div>
               <div>
-                <label>First Name</label>
-                <input type='text' name='lname' formControlName='mfirstname1' class='textAlignSmall' />
+                <label>First Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' name='lname' formControlName='mfirstname1' class='textAlignSmall' [ngClass]="{ 'is-invalid': submitted && f.mfirstname1.errors }" />
               </div>
               <!-- </div>
               <div class="row"> -->
               <div>
-                <label>Date of Birth</label>
-                <input type='text' class='textAlignSmallPaternal' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker name='lname' formControlName='mdob1'  autocomplete="off" />
+                <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' class='textAlignSmallPaternal' bsDatepicker [bsConfig]="datePickerConfig" [ngClass]="{ 'is-invalid': submitted && f.mdob1.errors }"
+                bsDatepicker name='lname' formControlName='mdob1'  autocomplete="off" />
               </div>
               <div>
-                <label>Place of Birth</label>
-                <select class='dropDown' formControlName='mpob1' id="exampleFormControlSelect1">
-                  <option>Jamica</option>
-                  <option>United States</option>
-                  <option>Uniked Kindom</option>
-                  <option>India</option>
-
+                <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                <select class='dropDown' formControlName='mpob1' id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.mpob1.errors }">
+                    <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
                 </select>
               </div>
             </div>
@@ -191,27 +231,24 @@
           <div class="layout">
             <div class="row">
               <div>
-                <label>Last Name</label>
-                <input type='text' class='textAlignSmall' formControlName='mlastname2' name='lname' />
+                <label>Last Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' class='textAlignSmall' formControlName='mlastname2' name='lname' [ngClass]="{ 'is-invalid': submitted && f.mlastname2.errors }" />
               </div>
               <div>
-                <label>First Name</label>
-                <input type='text' class='textAlignSmall' formControlName='mfirstname2' name='lname' />
+                <label>First Name<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' class='textAlignSmall' formControlName='mfirstname2' name='lname'  [ngClass]="{ 'is-invalid': submitted && f.mfirstname2.errors }"/>
               </div>
               <!-- </div>
               <div class="row"> -->
               <div>
-                <label>Date of Birth</label>
-                <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker name='lname' formControlName='mdob2' autocomplete="off" />
+                <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
+                <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig" [ngClass]="{ 'is-invalid': submitted && f.mdob2.errors }"
+                bsDatepicker name='lname' formControlName='mdob2' autocomplete="off" />
               </div>
               <div>
-                <label>Place of Birth</label>
-                <select class='dropDown' formControlName='mpob2' id="exampleFormControlSelect1">
-                  <option>Jamica</option>
-                  <option>United States</option>
-                  <option>Uniked Kindom</option>
-                  <option>India</option>
-
+                <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                <select class='dropDown' formControlName='mpob2' id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.mpob2.errors }">
+                    <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
                 </select>
               </div>
             </div>
@@ -224,6 +261,8 @@
       </div>
     </form>
   </div>
+
+  
 <div class='container' *ngIf='showDocumentUpload'>
   <div class="documentBox">
     <span class='documentTitle'>To complete the application process the following documents must be scanned and uploaded : </span>
@@ -246,7 +285,9 @@
       <span class='documentNote'>All documents must be originals. PICA reserves the right to request additional and/or updated information during</span>
 
   </div>
-  
+  <div *ngIf="message" class="alert alert-danger" role="alert">
+     {{message}}
+    </div>
   <form [formGroup]="uploadForm" (ngSubmit)="uploadSubmit()" autocomplete="off">
   <div class="row">
   <div class='documentUploadButton'>
@@ -312,3 +353,4 @@
   </div>
 
 </div>
+</block-ui>
