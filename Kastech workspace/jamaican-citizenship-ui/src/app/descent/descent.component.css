@@ -1,4 +1,4 @@
-h4.wrapper  {
+h4.wrapper   {
     text-align: center;
     color:blue
 }
@@ -128,7 +128,7 @@ span.wrapperHeader {
 
 button.btn.btn-light {
     background-color:#8080802e;
-    margin-top: 11px;
+    margin-bottom: 17px;
 }
 
 div.documentBox{
@@ -238,4 +238,31 @@ div.documentBox{
         height: 27px;
         width: 75% !important;
         background-color: white;
+    }
+
+    span.wrapperBox {
+        text-align: center;
+        width: 255px;
+        align-items: center;
+        display: inline-block;
+        color:blue;
+       
+        font-weight: bold;
+        background-color: #e9ecef;
+    }
+
+    img.imgAlign{
+        align-content: center;
+    width: 654px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: center;
+    }
+
+    div.continue{
+        margin-bottom:190px;
+        text-align: center;
+        font-weight: bold;
+        font-size:20px;
     }

@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   showError:boolean=false;
   errorMsg:string ='Email/Password is incorrect ';
+  profile:any;
   login = new FormGroup({
     email:new FormControl(),
     password:new FormControl()
@@ -42,7 +43,6 @@ export class LoginComponent implements OnInit {
     }
     this.blockUI.start('loading...');
     this.loginService.authenticate(payload).subscribe(data=>{
-      sessionStorage.setItem('profile',JSON.stringify(data));
       console.log("login result",data);
       if(data == null){
         this.blockUI.stop();
@@ -51,10 +51,29 @@ export class LoginComponent implements OnInit {
         this.showError = true;
       }
       else{
-        this.logoutService.changeMessage(true);
-        this.logoutService.currentMessage.subscribe(message=>{this.loginStatus = message;this.blockUI.stop();}); 
+        // this.logoutService.changeMessage(true);
+        // this.logoutService.currentMessage.subscribe(message=>{this.loginStatus = message;this.blockUI.stop();}); 
+        this.profile = data;
+        sessionStorage.setItem('profile',JSON.stringify(data));
         this.showError = false;
-        this.router.navigate(['/allForms']);
+        if(this.profile.status !=null){
+          sessionStorage.setItem('appCode',this.profile.appCode);
+          this.blockUI.stop();
+          this.router.navigate(['/status'])
+          return false;
+        }else{
+          this.blockUI.stop();
+          // if(this.profile.status == 'Submitted' || this.profile.status == 'submitted'){
+          if(this.profile.status == null){
+            this.loginService.getDescentForm(this.profile.email).subscribe(data=>{            
+             if(data !=null )
+              sessionStorage.setItem('descentForm',JSON.stringify(data));
+            this.router.navigate(['/descentForm'])
+          })
+        }
+        }
+       
+       
       }
     })
     

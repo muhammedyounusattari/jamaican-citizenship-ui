@@ -12,6 +12,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   errorMessage:string;
   successMessage:string;
+  sentMail:boolean;
 
   @BlockUI() blockUI: NgBlockUI;
   constructor(private loginService:LoginService,public dialogRef: MatDialogRef<ForgotPasswordComponent>) { 
@@ -34,11 +35,13 @@ export class ForgotPasswordComponent implements OnInit {
     this.blockUI.start('loading...');  
     this.loginService.validateEmail(email).subscribe(data=>{
       if(data == null){
-       this.errorMessage = "Email id doesn't exist, please create your profile";    
+       this.errorMessage = "Email id doesn't exist, please create your profile";   
+       this.sentMail = false; 
       }
       else{
         this.errorMessage = "";
         this.successMessage = "Reset password link sent to your email ";
+        this.sentMail = true;
       }
     this.blockUI.stop();
     })

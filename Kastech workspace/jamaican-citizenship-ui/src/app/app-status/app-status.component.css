@@ -1,0 +1,86 @@
+.dialog{
+  width: 378px;
+    height: 106px;
+    border: 2px solid black;
+    margin: 200px 401px 240px 401px;
+    padding: 15px;
+}
+
+input[type='button']{
+  float: right;
+  margin: 10px 12px 0px 0px;
+}
+
+.is-invalid{
+  border-color: #dc3545;
+  padding-right: calc(1.5em + 0.75rem);;
+}
+
+.status{
+  border: 2px solid black;
+  width: 1100px;
+  height: 450px;
+  margin-bottom: 10px;
+  background-color:#eff0f2;
+}
+
+.inner-status{
+  width: 1060px;
+    height: 130px;
+    border: 1px solid black;
+    margin: 28px 11px 10px 17px;
+    background-color: white;
+    border-radius: 27px;
+    padding: 5px;
+}
+
+span.form-type {
+  display: block;
+    width: 218px;
+    height: 73px;
+    border: 1px solid black;
+    margin: 16px 0px 7px 36px;
+    padding: 18px 5px 5px 5px;
+    background: #eff0f2;
+    border-radius: 4px;
+    font-weight: bold;
+}
+img.statusImage{
+     vertical-align: middle;
+    border-style: none;
+    width: 801px;
+    height: 88px;
+    margin-top: 9px;
+}
+
+.dateSub{
+  font-weight: bold;
+    padding-left: 45px;
+}
+
+span.app-status{
+    font-size: 24px;
+    padding-left: 32px;
+    padding-top: 17px;
+    font-weight: bold;
+    font-family: none;
+    
+}
+
+span.app-number {
+  display: block;
+  width: 85px;
+  border: 1px solid black;
+  margin: 16px 0px 7px 36px;
+  padding: 5px 5px 5px 5px;
+  background: #eff0f2;
+  border-radius: 4px;
+  /* font-weight: bold; */
+  padding: 7px;
+}
+span.profile-name{
+  padding: 8px 0px 12px 39px;
+  /* color: white; */
+  font-size: 26px;
+  font-weight: bold;
+}

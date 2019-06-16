@@ -1,8 +1,13 @@
 <block-ui>
 <div class="container">
-  <div *ngIf="showDescentForm">
+    <div *ngIf="showDescentForm">
+    
     <h4 class="wrapper">DECENT APPLICATION FORM</h4>
-    <form [formGroup]='descentForm' (ngSubmit)='onSubmit(descentForm.value)' autocomplete="off">
+    <div *ngIf='showErrorMsg' class="alert alert-danger" role="alert">
+        {{showErrorMsg}}
+    </div>
+    
+    <form [formGroup]='descentForm'  autocomplete="off">
     <div class="profileBox">
       <div class="row">
           <div class="col">
@@ -89,7 +94,9 @@
             <div class="row">
               <div>
                 <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
-                <input type='text' bsDatepicker  [bsConfig]="datePickerConfig" bsDatepicker class='dateAlign' [ngClass]="{ 'is-invalid': submitted && f.fdob.errors }"
+                <input type='text' bsDatepicker  [bsConfig]="datePickerConfig" 
+                
+                bsDatepicker class='dateAlign' [ngClass]="{ 'is-invalid': submitted && f.fdob.errors }"
                 formControlName='fdob' name='lname' autocomplete="off" />
               </div>
               <div>
@@ -142,6 +149,7 @@
       <div class="boxLayoutSmall">
         <div class="boxSmall" style='border-left:0px'>
           <div class="layout">
+            <span class='wrapperBox'>Father</span>
             <div class="row">
               <div>
                 <label>Last Name<span class="glyphicon">&#x2a;</span></label>
@@ -171,6 +179,7 @@
         <div class="boxSmall">
           <!-- <span class="wrapper">Father</span> -->
           <div class="layout">
+            <span class='wrapperBox'>Mother</span>
             <div class="row">
               <div>
                 <label>Last Name<span class="glyphicon">&#x2a;</span></label>
@@ -200,6 +209,7 @@
         <div class="boxSmall">
           <!-- <span class="wrapper">Father</span> -->
           <div class="layout">
+            <span class='wrapperBox'>Father</span>
             <div class="row">
               <div>
                 <label>Last Name<span class="glyphicon">&#x2a;</span></label>
@@ -229,6 +239,7 @@
         <div class="boxSmall">
           <!-- <span class="wrapper">Mother</span> -->
           <div class="layout">
+            <span class='wrapperBox'>Mother</span>
             <div class="row">
               <div>
                 <label>Last Name<span class="glyphicon">&#x2a;</span></label>
@@ -254,16 +265,17 @@
             </div>
           </div>
         </div>
-        <div class='buttonAlign'>
-          <button type="button" class="btn btn-light">Cancel</button>&nbsp;&nbsp;
-          <button type="submit" class="btn btn-light">Submit</button>
-        </div>
       </div>
+          <div class='buttonAlign'>
+            <button (click)='onSave(descentForm.value)' type="button" class="btn btn-light">Save</button>&nbsp;&nbsp;
+            <button (click)='onSubmit(descentForm.value)' type="button" class="btn btn-light">Continue</button>
+          </div>
     </form>
   </div>
 
   
-<div class='container' *ngIf='showDocumentUpload'>
+  <div class='container' *ngIf='showDocumentUpload'>
+
   <div class="documentBox">
     <span class='documentTitle'>To complete the application process the following documents must be scanned and uploaded : </span>
     <ol class='counter-increment' type="i">
@@ -342,14 +354,20 @@
   </div>
 
   <div *ngIf='applicationCode>0'>
-    <pre>
-      You have successfully uploaded your application and supporting documents.  
+   
+       
+    <div class='continue'> 
+      <br/><br/><br/>
+      <pre>
+        You have successfully uploaded your application and supporting documents.  
 
-      Thank you for submitting an application for Citizenship by Descent. 
-      Your application number is <b>{{applicationCode}}</b> which may be used to track the progress of your application. 
-      Your application and supporting document will be reviewed and an email update provided to you within 5 working days. This email will outline the status of your application  
-    
-  </pre>
+        Thank you for submitting an application for Citizenship by Descent. 
+        Your application number is {{applicationCode}} which may be used to track the progress of your application.<br/> Your application and supporting document will be reviewed and an email update provided to you within
+        5 working days. This email will outline the status of your application  
+    </pre>
+      <br/>
+      <button type="button" (click)="home()" class="btn btn-light">Continue</button>
+    </div>
   </div>
 
 </div>

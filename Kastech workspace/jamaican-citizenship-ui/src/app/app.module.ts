@@ -34,6 +34,7 @@ import {
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AppStatusComponent } from './app-status/app-status.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     HomeComponent,
     DescentComponent,
     LoginComponent,
-    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent
+    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent, AppStatusComponent
   ],
   imports: [
     
