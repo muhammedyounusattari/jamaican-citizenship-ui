@@ -48,19 +48,21 @@ export class CreateProfileComponent implements OnInit {
       lastname:['',Validators.required],
       middlename:[''],
       dob:[this.dob,Validators.required],
-      pob:['Jamaica',Validators.required],
+      pob:['',Validators.required],
+      country:['Jamaica',Validators.required],
       email:['',[Validators.required,Validators.email]],
       number:['',[Validators.required]],
       gender:['',Validators.required],
-      address:['',Validators.required]
+      address1:['',Validators.required],
+      address2:['',Validators.required],
+      zip:['',Validators.required]
+
   
     });
   }
 
   get f() { return this.profile.controls; }
   onSubmit(payload){
-   
-    debugger;
 
     this.submitted = true;
     this.showErrorMsg= "Please fill the required fields";

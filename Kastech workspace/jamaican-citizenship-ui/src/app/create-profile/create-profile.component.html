@@ -22,11 +22,11 @@
             <input type="text" class="col-8 " formControlName="lastname" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" >
           </div>
           <div class="col">
-            <label>Middle name</label> &nbsp;&nbsp;
+            <label class='name'>Middle name</label>
             <input type="text" class="col-7" formControlName="middlename" placeholder="Middle name" >
           </div>
           <div class="col">
-            <label>First name<span class="glyphicon">&#x2a;</span></label> &nbsp;&nbsp;
+            <label class='name'>First name<span class="glyphicon">&#x2a;</span></label> 
             <input type="text" class="col-8" formControlName="firstname" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" >
           </div>
     </div>
@@ -39,38 +39,49 @@
           
           <div class="col-sm">
             <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
-            
-            <select class="col-9 selectBoxAlign" formControlName="pob" id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.pob.errors }" >
-                <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
-              </select>
+            <input type="text" class="col-9" formControlName="pob" placeholder="Place of birth" [ngClass]="{ 'is-invalid': submitted && f.pob.errors }" />
           </div>
     </div>
     
     <div class="row">
       <div class="col-5">
-          <label class="email-label">Address<span class="glyphicon">&#x2a;</span></label>
+          <label class="email-label">Address Line 1<span class="glyphicon">&#x2a;</span></label>
           <span class="genderAlign">
-          <input type="text" class="col-9" formControlName="address" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" >
+          <input type="text" class="col-9" formControlName="address1" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" >
           </span>
         </div>
         <div class="col-sm">
-          <label>Telephone number<span class="glyphicon">&#x2a;</span></label>
-          <input type="text" class="col-9" formControlName="number"  placeholder="Telephone number" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" >
+            <label>Country<span class="glyphicon">&#x2a;</span></label>
+            <select class="col-9 selectBoxAlign" formControlName="country" id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" >
+                <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
+            </select>
+        </div>
+  </div>  
+  
+  <div class="row">
+      <div class="col-5">
+          <label class="email-label">Address Line 2<span class="glyphicon">&#x2a;</span></label>
+          <span class="genderAlign">
+          <input type="text" class="col-9" formControlName="address2" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address2.errors }" >
+          </span>
+        </div>
+        <div class="col-sm">
+          <label class='number'>Phone number<span class="glyphicon">&#x2a;</span></label>
+          <input type="number" class="col-9" formControlName="number"  placeholder="Phone number" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" >
         </div>
   </div>  
 
+
     <div class="row">
+      
         <div class="col-5">
-            <label class="email-label">Email Address<span class="glyphicon">&#x2a;</span></label>
-            <input type="text" class="col-9" formControlName="email" placeholder="Email address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
-          </div>
-    </div>  
+            <label class="zip-code">Zip/Postal code<span class="glyphicon">&#x2a;</span></label>
+            <input type="number" class="col-9" formControlName="zip" placeholder="Zip / Postal Code" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" >
+        </div>
 
-
-    <div class="row">
         <div class="col-5">
             <label>Gender<span class="glyphicon">&#x2a;</span></label>
-    <div class="custom-control custom-radio custom-control-inline">
+        <div class="custom-control custom-radio custom-control-inline">
         <input type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" value='male' id="customRadioInline1" name="gender" class="custom-control-input">
         <label class="custom-control-label" for="customRadioInline1">Male</label>
       </div>
@@ -79,6 +90,18 @@
         <label class="custom-control-label" for="customRadioInline2">Female</label>
       </div>
     </div>
+
+
+    
+  </div>  
+  
+  
+  <div class="row">
+    <div class="col-5">
+        <label class="email-label1">Email Address<span class="glyphicon">&#x2a;</span></label>
+        <input type="text" class="col-9" formControlName="email" placeholder="Email address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+    </div>
+       
   </div>
     
     <div class="wrapper">

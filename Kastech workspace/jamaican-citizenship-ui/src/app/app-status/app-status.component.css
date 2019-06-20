@@ -84,3 +84,9 @@ span.profile-name{
   font-size: 26px;
   font-weight: bold;
 }
+button.btn{
+  margin-bottom: 5px;
+  background: #eff0f2;
+  margin-left: 7px;
+  display: inline-block;
+}

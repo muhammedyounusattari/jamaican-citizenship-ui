@@ -239,6 +239,7 @@ export class DescentComponent implements OnInit {
     }
     this.blockUI.stop();
     this.uploader.clearQueue();
+    sessionStorage.removeItem('descentForm');
   }
 
 

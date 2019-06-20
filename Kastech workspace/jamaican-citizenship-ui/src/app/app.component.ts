@@ -13,6 +13,8 @@ export class AppComponent implements OnInit{
   constructor(private logoutService:LogoutService){}
 
   ngOnInit(){
+    // sessionStorage.removeItem('profile');
+    sessionStorage.clear();
     // this.logoutService.changeMessage(true);
     // this.logoutService.currentMessage.subscribe(message=>{this.loginStatus = message});
   }

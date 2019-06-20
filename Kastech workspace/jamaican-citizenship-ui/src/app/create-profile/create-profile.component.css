@@ -5,7 +5,23 @@ label{
 }
 
 label.email-label {
+    margin-right: -37px;
+}
+
+label.zip-code{
+    margin-right: 0px;
+}
+
+label.email-label1 {
     margin-right: 11px;
+}
+
+label.number{
+    margin-right: 13px;
+}
+label.name{
+    margin-right: 10px;
+    margin-left: -11px;
 }
 
 select.selectBoxAlign{
