@@ -272,3 +272,32 @@ div.documentBox{
         color: #212529;
         text-decoration: none;
     }
+
+    label.dob{
+        margin-right: 20px;
+    }
+
+    label.email-label {
+        margin-right: 6px;
+    }
+    
+    label.zip-code{
+        margin-right: 0px;
+    }
+    
+    label.email-label1 {
+        margin-right: 11px;
+    }
+    
+    label.number{
+        margin-right: 13px;
+    }
+    label.name{
+        margin-right: 10px;
+        margin-left: -11px;
+    }
+
+    .buttonAlign1{
+        text-align: right;
+        padding: 20px 8px 10px 0px;
+    }

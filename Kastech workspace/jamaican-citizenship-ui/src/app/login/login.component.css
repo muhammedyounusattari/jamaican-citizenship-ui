@@ -9,3 +9,7 @@ div.wrapper{
     border:1px solid black;
 }
 
+a.badge-primary:focus, a.badge-primary:hover {
+    color: #fff;
+    background-color: #9da3ab;
+}

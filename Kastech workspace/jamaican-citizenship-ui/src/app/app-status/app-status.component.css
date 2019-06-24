@@ -1,6 +1,6 @@
 .dialog{
   width: 378px;
-    height: 106px;
+    height: 138px;
     border: 2px solid black;
     margin: 200px 401px 240px 401px;
     padding: 15px;
@@ -89,4 +89,11 @@ button.btn{
   background: #eff0f2;
   margin-left: 7px;
   display: inline-block;
+}
+label.dob {
+  margin-right: 48px;
+}
+
+.col-6{
+  padding-left: 0px; 
 }

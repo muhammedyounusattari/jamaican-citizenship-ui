@@ -1,36 +1,36 @@
 <block-ui>
-  <div class='container'>
-    <div *ngIf="showErrorMsg" class="alert alert-danger" role="alert">
-      {{showErrorMsg}}
-    </div>
-    <div *ngIf='appStatusPage'>
-      <div class='dialog'>
-        Application Number<span class="glyphicon">&#x2a;</span> :<input type='text' #appNumber
-          (keypress)="validate(appNumber.value)" /><br />
-        <input type='button' (click)='cancel()' value='Cancel' />
-        <input type='button' [disabled]='statusBtn' (click)='getApplicationStatus(appNumber.value)' value='Status' />
+    <div class='container'>
+      <div *ngIf="showErrorMsg" class="alert alert-danger" role="alert">
+        {{showErrorMsg}}
       </div>
-    </div>
-
-    <div *ngIf="appResultPage">
-      <div class='row'>
-        <span class='app-status'>Application Status</span>
-        <span class='app-number'> {{profile.appCode}}</span>
-      </div>
-      <div class='status'><br />
-        <span class='profile-name'>{{profile.lastname +","+profile.firstname}}</span>
-        <div class='inner-status'>
-          <div class='row'>
-            <span class='form-type'>
-              {{profile.appliedFor}}
-            </span>
-            <img class='statusImage' [src]='profile.status' alt='image not found' />
-          </div>
-          <span class='dateSub'> {{profile.appliedDate}}</span>
+      <div *ngIf='appStatusPage'>
+        <div class='dialog'>
+          Application Number<span class="glyphicon">&#x2a;</span> :<input type='text' #appNumber
+            (keypress)="validate(appNumber.value)" /><br />
+          <input type='button' (click)='cancel()' value='Cancel' />
+          <input type='button' [disabled]='statusBtn' (click)='getApplicationStatus(appNumber.value)' value='Status' />
         </div>
       </div>
-      <button  class='btn' (click)='cancel()' >Cancel</button>
-      <button  class='btn' (click)='contine(appNumber.value)' >Continue</button>
+  
+      <div *ngIf="appResultPage">
+        <div class='row'>
+          <span class='app-status'>Application Status</span>
+          <span class='app-number'> {{profile.appCode}}</span>
+        </div>
+        <div class='status'><br />
+          <span class='profile-name'>{{profile.lastname +","+profile.firstname}}</span>
+          <div class='inner-status'>
+            <div class='row'>
+              <span class='form-type'>
+                {{profile.appliedFor}}
+              </span>
+              <img class='statusImage' [src]='profile.status' alt='image not found' />
+            </div>
+            <span class='dateSub'> {{profile.appliedDate}}</span>
+          </div>
+        </div>
+        <button  class='btn' (click)='cancel()' >Cancel</button>
+        <button  class='btn' (click)='contine(appNumber.value)' >Continue</button>
+      </div>
     </div>
-  </div>
-</block-ui>
+  </block-ui>

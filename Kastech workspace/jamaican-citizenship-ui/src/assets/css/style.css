@@ -45,7 +45,8 @@
 .bottom_navi ul li a {margin-top: 1px;margin-right: 37px;margin-bottom: 0px;text-decoration: none;font-family: 'Lato', sans-serif;display: block;font-size: 16px;color: #252246;text-transform: uppercase;padding: 1px 16px;font-weight: 900;}
 .bottom_navi ul li a span.return_arrow{font-size: 120%;}
 .bottom_navi ul li.last{float:right;}
-.bottom_navi ul li.first{background: url(images/home.png) no-repeat 24px 6px; padding-left:29px;}
+/* .bottom_navi ul li.first{background: url(images/home.png) no-repeat 24px 6px; padding-left:29px;} */
+/* .bottom_navi ul li.first{background: url(images/home.png) no-repeat 24px 6px; padding-left:29px;} */
 
 /*======================= Banner ==========================*/
 .banner_wrapper{ position:relative; background-size:cover !important; width:100%; margin:0 auto; text-align:center; padding-bottom: 40px;}
@@ -175,7 +176,7 @@
 @media only screen and (max-width: 1024px) {
 	.header .main_content{bottom: 6%;}
 	.bottom_navi ul li a{font-size: 14px; padding: 1px 11px;}
-	.bottom_navi ul li.first {background: url(images/home.png) no-repeat 20px 6px;}
+	/* .bottom_navi ul li.first {background: url(images/home.png) no-repeat 20px 6px;} */
 	.bottom_navi ul li.last {margin-right: 10px;}
 	.banner_text{top:6%;}
 	.actionBlock{width: 23.5%;}	

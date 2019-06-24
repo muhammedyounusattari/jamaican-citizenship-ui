@@ -20,8 +20,8 @@ export class DescentComponent implements OnInit {
   showErrorMsg: string;
   dob: Date = new Date();
   profile = JSON.parse(sessionStorage.getItem('profile'));
-  message:string;
-
+  message: string;
+  submit:boolean= true;
 
   descentForm: FormGroup;
   uploadForm: FormGroup;
@@ -36,23 +36,29 @@ export class DescentComponent implements OnInit {
   title: string = 'Angular File Upload';
   loginStatus: boolean;
   countries: any;
-  descentFormSessoin:any;
-  
+  descentFormSessoin: any;
+
   @BlockUI() blockUI: NgBlockUI;
 
   constructor(private descentService: DescentFormService, private fb: FormBuilder, private logoutService: LogoutService,
-     private utilityService: UtilityService, private formBuilder: FormBuilder,private router:Router) {
-    this.datePickerConfig = Object.assign({}, { containerClass: 'theme-dark-blue', 
-    maxDate:this.dob,
-    showWeekNumbers: false, dateInputFormat: 'DD/MM/YYYY' })
+    private utilityService: UtilityService, private formBuilder: FormBuilder, private router: Router) {
+     if(this.profile==null){
+       this.router.navigate(['/home']);
+       
+     } 
+    this.datePickerConfig = Object.assign({}, {
+      containerClass: 'theme-dark-blue',
+      maxDate: this.dob,
+      showWeekNumbers: false, dateInputFormat: 'DD/MM/YYYY'
+    })
   }
 
   ngOnInit() {
 
     var descentFormLocal = sessionStorage.getItem('descentForm');
-    if(descentFormLocal != null){
+    if (descentFormLocal != null) {
       this.descentFormSessoin = JSON.parse(descentFormLocal);
-      
+
       this.descentForm = this.formBuilder.group({
 
         firstname: [this.descentFormSessoin.profile.firstname, [Validators.required, Validators.maxLength(10)]],
@@ -60,11 +66,14 @@ export class DescentComponent implements OnInit {
         middlename: [this.descentFormSessoin.profile.middlename],
         dob: [this.descentFormSessoin.profile.dob, Validators.required],
         pob: [this.descentFormSessoin.profile.pob, Validators.required],
+        country: [this.descentFormSessoin.profile.country, Validators.required],
         email: [{ value: this.descentFormSessoin.profile.email, disabled: true }, [Validators.required, Validators.email]],
         number: [this.descentFormSessoin.profile.number, [Validators.required]],
         gender: [this.descentFormSessoin.profile.gender, Validators.required],
-        address: [this.descentFormSessoin.profile.address, Validators.required],
-  
+        address1: [this.descentFormSessoin.profile.address1, Validators.required],
+        address2: [this.descentFormSessoin.profile.address2, Validators.required],
+        zip: [this.descentFormSessoin.profile.zip, Validators.required],
+
         flastname: [this.descentFormSessoin.father.lastName, Validators.required],
         ffirstname: [this.descentFormSessoin.father.firstName, Validators.required],
         fdob: [this.descentFormSessoin.father.dob, Validators.required],
@@ -74,72 +83,75 @@ export class DescentComponent implements OnInit {
         mfirstname: [this.descentFormSessoin.mother.firstName, Validators.required],
         mdob: [this.descentFormSessoin.mother.dob, Validators.required],
         mpob: [this.descentFormSessoin.mother.cob, Validators.required],
-  
-        plastname1: [this.descentFormSessoin.paternalFather.lastName, Validators.required],
-        pfirstname1: [this.descentFormSessoin.paternalFather.firstName, Validators.required],
-        pdob1: [this.descentFormSessoin.paternalFather.dob, Validators.required],
-        ppob1: [this.descentFormSessoin.paternalFather.cob, Validators.required],
-       
-        plastname2: [this.descentFormSessoin.paternalMother.lastName, Validators.required],
-        pfirstname2: [this.descentFormSessoin.paternalMother.firstName, Validators.required],
-        pdob2: [this.descentFormSessoin.paternalMother.dob, Validators.required],
-        ppob2: [this.descentFormSessoin.paternalMother.cob, Validators.required],
-  
-        mlastname1: [this.descentFormSessoin.maternalFather.lastName, Validators.required],
-        mfirstname1: [this.descentFormSessoin.maternalFather.firstName, Validators.required],
-        mdob1: [this.descentFormSessoin.maternalFather.dob, Validators.required],
-        mpob1: [this.descentFormSessoin.maternalFather.cob, Validators.required],
 
-        mlastname2: [this.descentFormSessoin.maternalMother.lastName, Validators.required],
-        mfirstname2: [this.descentFormSessoin.maternalMother.firstName, Validators.required],
-        mdob2: [this.descentFormSessoin.maternalMother.dob, Validators.required],
-        mpob2: [this.descentFormSessoin.maternalMother.cob, Validators.required]
-  
-  
+        plastname1: [this.descentFormSessoin.paternalFather.lastName],
+        pfirstname1: [this.descentFormSessoin.paternalFather.firstName],
+        pdob1: [this.descentFormSessoin.paternalFather.dob],
+        ppob1: [this.descentFormSessoin.paternalFather.cob],
+
+        plastname2: [this.descentFormSessoin.paternalMother.lastName],
+        pfirstname2: [this.descentFormSessoin.paternalMother.firstName],
+        pdob2: [this.descentFormSessoin.paternalMother.dob],
+        ppob2: [this.descentFormSessoin.paternalMother.cob],
+
+        mlastname1: [this.descentFormSessoin.maternalFather.lastName],
+        mfirstname1: [this.descentFormSessoin.maternalFather.firstName],
+        mdob1: [this.descentFormSessoin.maternalFather.dob],
+        mpob1: [this.descentFormSessoin.maternalFather.cob],
+
+        mlastname2: [this.descentFormSessoin.maternalMother.lastName],
+        mfirstname2: [this.descentFormSessoin.maternalMother.firstName],
+        mdob2: [this.descentFormSessoin.maternalMother.dob],
+        mpob2: [this.descentFormSessoin.maternalMother.cob]
+
+
       });
-    }else{
-    this.descentForm = this.formBuilder.group({
+    } else {
+      this.descentForm = this.formBuilder.group({
 
-      firstname: [this.profile.firstname, [Validators.required, Validators.maxLength(10)]],
-      lastname: [this.profile.lastname, Validators.required],
-      middlename: [this.profile.middlename],
-      dob: [this.utilityService.formatDate(new Date(this.profile.dob)), Validators.required],
-      pob: [this.profile.pob, Validators.required],
-      email: [{ value: this.profile.email, disabled: true }, [Validators.required, Validators.email]],
-      number: [this.profile.number, [Validators.required]],
-      gender: [this.profile.gender, Validators.required],
-      address: [this.profile.address, Validators.required],
+        firstname: [this.profile.firstname, [Validators.required, Validators.maxLength(10)]],
+        lastname: [this.profile.lastname, Validators.required],
+        middlename: [this.profile.middlename],
+        dob: [this.utilityService.formatDate(new Date(this.profile.dob)), Validators.required],
+        pob: [this.profile.pob, Validators.required],
+        country: [this.profile.country, Validators.required],
+        email: [{ value: this.profile.email, disabled: true }, [Validators.required, Validators.email]],
+        number: [this.profile.number, [Validators.required]],
+        gender: [this.profile.gender, Validators.required],
+        address1: [this.profile.address1, Validators.required],
+        address2: [this.profile.address2, Validators.required],
+        zip: [this.profile.zip, Validators.required],
 
-      flastname: ['', Validators.required],
-      ffirstname: ['', Validators.required],
-      fdob: [this.utilityService.enhancedDate(this.profile.dob,0,0,-13), Validators.required],
-      fpob: ['Jamaica', Validators.required],
-      mlastname: ['', Validators.required],
-      mfirstname: ['', Validators.required],
-      mdob: [this.utilityService.enhancedDate(this.profile.dob,0,0,-13), Validators.required],
-      mpob: ['Jamaica', Validators.required],
+        flastname: ['', Validators.required],
+        ffirstname: ['', Validators.required],
+        fdob: [this.utilityService.enhancedDate(this.profile.dob, 0, 0, -13), Validators.required],
+        fpob: ['Jamaica', Validators.required],
+        mlastname: ['', Validators.required],
+        mfirstname: ['', Validators.required],
+        mdob: [this.utilityService.enhancedDate(this.profile.dob, 0, 0, -13), Validators.required],
+        mpob: ['Jamaica', Validators.required],
 
-      plastname1: ['', Validators.required],
-      pfirstname1: ['', Validators.required],
-      pdob1: [this.utilityService.enhancedDate(this.profile.dob,0,0,-13*2), Validators.required],
-      ppob1: ['Jamaica', Validators.required],
-      plastname2: ['', Validators.required],
-      pfirstname2: ['', Validators.required],
-      pdob2: [this.utilityService.enhancedDate(this.profile.dob,0,0,-13*2), Validators.required],
-      ppob2: ['Jamaica', Validators.required],
+        plastname1: [''],
+        pfirstname1: [''],
+        pdob1: [''],
+        ppob1: [''],
+        plastname2: [''],
+        pfirstname2: [''],
+        pdob2: [''],
+        ppob2: [''],
 
-      mlastname1: ['', Validators.required],
-      mfirstname1: ['', Validators.required],
-      mdob1: [this.utilityService.enhancedDate(this.profile.dob,0,0,-13*2), Validators.required],
-      mpob1: ['Jamaica', Validators.required],
-      mlastname2: ['', Validators.required],
-      mfirstname2: ['', Validators.required],
-      mdob2: [this.utilityService.enhancedDate(this.profile.dob,0,0,-13*2), Validators.required],
-      mpob2: ['Jamaica', Validators.required]
+        mlastname1: [''],
+        mfirstname1: [''],
+        mdob1: [''],
+        mpob1: [''],
+        mlastname2: [''],
+        mfirstname2: [''],
+        mdob2: [''],
+        mpob2: ['']
 
 
-    })
-  }
+      })
+    }
     this.logoutService.changeMessage(true);
     this.uploadForm = this.fb.group({
       document: [null, null],
@@ -155,10 +167,55 @@ export class DescentComponent implements OnInit {
   onSubmit(payload) {
     debugger;
     this.submitted = true;
-    
+    this.submit = true;
+
     if (this.descentForm.invalid) {
-      this.showErrorMsg ="Please fill all mandatory fields";
+      this.showErrorMsg = "Please fill all mandatory fields";
       return;
+    }
+
+    if (this.descentForm.value.plastname1 || this.descentForm.value.pfirstname1 || this.descentForm.value.pdob1 || this.descentForm.value.ppob1) {
+      if (!this.descentForm.value.pfirstname1 || !this.descentForm.value.pdob1 || !this.descentForm.value.ppob1 || !this.descentForm.value.plastname1 || !this.descentForm.value.pfirstname1 || !this.descentForm.value.pdob1 || !this.descentForm.value.ppob1) {
+        this.submit = false;
+        alert('please fill all Paternal Father information ')
+      }
+    }
+
+    if (this.descentForm.value.plastname2 || this.descentForm.value.pfirstname2 || this.descentForm.value.pdob2 || this.descentForm.value.ppob2) {
+      if (!this.descentForm.value.plastname2 || !this.descentForm.value.pfirstname2 || !this.descentForm.value.pdob2 || !this.descentForm.value.ppob2 ) {
+        this.submit = false;
+        alert('please fill all Paternal Mother information ')
+      }
+    }
+
+    if (!this.descentForm.value.plastname1 && !this.descentForm.value.pfirstname1 && !this.descentForm.value.pdob1 && !this.descentForm.value.ppob1) {
+      if (!this.descentForm.value.plastname2 && !this.descentForm.value.pfirstname2 && !this.descentForm.value.pdob2 && !this.descentForm.value.ppob2){
+        this.submit = false;
+        alert('please fill either paternal father or mother information');
+      }
+    }
+
+
+    if (this.descentForm.value.mlastname1 || this.descentForm.value.mfirstname1 || this.descentForm.value.mdob1 || this.descentForm.value.mpob1) {
+      if (!this.descentForm.value.mfirstname1 || !this.descentForm.value.mdob1 || !this.descentForm.value.mpob1 || !this.descentForm.value.mlastname1 || !this.descentForm.value.mpob1) {
+        this.submit = false;
+        alert('please fill all Maternal Father information ')
+      }
+    }
+
+    if (this.descentForm.value.mlastname2 || this.descentForm.value.mfirstname2 || this.descentForm.value.mdob2 || this.descentForm.value.mpob2) {
+      if (!this.descentForm.value.mlastname2 || !this.descentForm.value.mfirstname2 || !this.descentForm.value.mdob2 || !this.descentForm.value.mpob2) {
+        this.submit = false;
+        alert('please fill all Maternal Mother information ')
+      }
+    }
+
+    if (!this.descentForm.value.mlastname1 && !this.descentForm.value.mfirstname1 && !this.descentForm.value.mdob1 && !this.descentForm.value.mpob1) {
+      if (!this.descentForm.value.mlastname2 && !this.descentForm.value.mfirstname2 && !this.descentForm.value.mdob2 && !this.descentForm.value.mpob2){
+        this.submit = false;
+        alert('please fill either maternal father or mother information');
+
+      }
     }
 
     // var profile = JSON.parse(sessionStorage.getItem('profile'));
@@ -166,38 +223,98 @@ export class DescentComponent implements OnInit {
     // data = this.jsonConcat(data,payload);
     // data = this.jsonConcat(data,profile);
     payload.email = this.profile.email;
-    this.blockUI.start('Loading......');
-    this.descentService.submitDescentForm(payload).subscribe(data => {
-      this.showDescentForm = false;
-      this.showDocumentUpload = true;
-      this.blockUI.stop();
-      console.log(data);
-    })
-    
+    if(this.submit){
+
+      this.blockUI.start('Loading......');
+      this.descentService.submitDescentForm(payload).subscribe(data => {
+        sessionStorage.setItem('descentForm',JSON.stringify(data));
+        this.showDescentForm = false;
+        this.showDocumentUpload = true;
+        this.blockUI.stop();
+        console.log(data);
+      })
+      
+    }
   }
 
   onSave(payload) {
     debugger;
     this.submitted = true;
-    
+    this.submit = true;
+
     if (this.descentForm.invalid) {
-      this.showErrorMsg ="Please fill all mandatory fields";
+      this.showErrorMsg = "Please fill all mandatory fields";
       return;
     }
+
+    if (this.descentForm.value.plastname1 || this.descentForm.value.pfirstname1 || this.descentForm.value.pdob1 || this.descentForm.value.ppob1) {
+      if (!this.descentForm.value.pfirstname1 || !this.descentForm.value.pdob1 || !this.descentForm.value.ppob1 || !this.descentForm.value.plastname1 || !this.descentForm.value.pfirstname1 || !this.descentForm.value.pdob1 || !this.descentForm.value.ppob1) {
+        this.submit = false;
+        alert('please fill all Paternal Father information ')
+      }
+    }
+
+    if (this.descentForm.value.plastname2 || this.descentForm.value.pfirstname2 || this.descentForm.value.pdob2 || this.descentForm.value.ppob2) {
+      if (!this.descentForm.value.plastname2 || !this.descentForm.value.pfirstname2 || !this.descentForm.value.pdob2 || !this.descentForm.value.ppob2 ) {
+        this.submit = false;
+        alert('please fill all Paternal Mother information ')
+      }
+    }
+
+    if (!this.descentForm.value.plastname1 && !this.descentForm.value.pfirstname1 && !this.descentForm.value.pdob1 && !this.descentForm.value.ppob1) {
+      if (!this.descentForm.value.plastname2 && !this.descentForm.value.pfirstname2 && !this.descentForm.value.pdob2 && !this.descentForm.value.ppob2){
+        this.submit = false;
+        alert('please fill either paternal father or mother information');
+      }
+    }
+
+
+    if (this.descentForm.value.mlastname1 || this.descentForm.value.mfirstname1 || this.descentForm.value.mdob1 || this.descentForm.value.mpob1) {
+      if (!this.descentForm.value.mfirstname1 || !this.descentForm.value.mdob1 || !this.descentForm.value.mpob1 || !this.descentForm.value.mlastname1 || !this.descentForm.value.mpob1) {
+        this.submit = false;
+        alert('please fill all Maternal Father information ')
+      }
+    }
+
+    if (this.descentForm.value.mlastname2 || this.descentForm.value.mfirstname2 || this.descentForm.value.mdob2 || this.descentForm.value.mpob2) {
+      if (!this.descentForm.value.mlastname2 || !this.descentForm.value.mfirstname2 || !this.descentForm.value.mdob2 || !this.descentForm.value.mpob2) {
+        this.submit = false;
+        alert('please fill all Maternal Mother information ')
+      }
+    }
+
+    if (!this.descentForm.value.mlastname1 && !this.descentForm.value.mfirstname1 && !this.descentForm.value.mdob1 && !this.descentForm.value.mpob1) {
+      if (!this.descentForm.value.mlastname2 && !this.descentForm.value.mfirstname2 && !this.descentForm.value.mdob2 && !this.descentForm.value.mpob2){
+        this.submit = false;
+        alert('please fill either maternal father or mother information');
+
+      }
+    }
+
+
+    // if(!this.descentForm.value.mlastname1 && !this.descentForm.value.mlastname2){
+    //   alert('please fill either maternal father or mother information');
+    // }
 
     // var profile = JSON.parse(sessionStorage.getItem('profile'));
     // var data ={};
     // data = this.jsonConcat(data,payload);
     // data = this.jsonConcat(data,profile);
+
+
+
     payload.email = this.profile.email;
+     
+    if(this.submit){
     this.blockUI.start('Loading......');
-    this.descentService.submitDescentForm(payload).subscribe(data => {
-      // this.showDescentForm = false;
-      // this.showDocumentUpload = true;
-      this.blockUI.stop();
-      console.log(data);
-    })
     
+     this.descentService.submitDescentForm(payload).subscribe(data => {
+       // this.showDescentForm = false;
+       // this.showDocumentUpload = true;
+       this.blockUI.stop();
+       console.log(data);
+     })
+    }
   }
 
   // jsonConcat(o1, o2) {
@@ -208,8 +325,8 @@ export class DescentComponent implements OnInit {
   //  }
 
   uploadSubmit() {
-    if(this.uploader.queue.length==0){
-      this.message="Please select documents to be uploaded";
+    if (this.uploader.queue.length == 0) {
+      this.message = "Please select documents to be uploaded";
       return false;
     }
     for (var i = 0; i < this.uploader.queue.length; i++) {
@@ -243,8 +360,17 @@ export class DescentComponent implements OnInit {
   }
 
 
-  home(){
+  home() {
     this.router.navigate(['/home']);
   }
 
+  back(descentForm){
+    this.showDescentForm = true;
+    this.showDocumentUpload = false;
+    // this.router.navigate(['/descentForm']);
+  }
+  next(descentForm){
+    this.uploadSubmit();
+
+  }
 }
