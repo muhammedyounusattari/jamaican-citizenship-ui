@@ -79,7 +79,7 @@
           <div class="row">
             <div class="col-5">
               <label class="zip-code">Zip/Postal Code<span class="glyphicon">&#x2a;</span></label>
-              <input type="number" class="col-8" formControlName="zip" placeholder="Zip / Postal Code"
+              <input type="text" class="col-8" formControlName="zip" placeholder="Zip / Postal Code"
                 [ngClass]="{ 'is-invalid': submitted && f.zip.errors }">
             </div>
 
@@ -139,18 +139,25 @@
               <div class="row">
                 <div>
                   <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
-                  <input type='text' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker class='dateAlign'
+                  <input type='text' bsDatepicker [bsConfig]="datePickerConfig" bsDatepicker class='dateAlign' (change)="dateChange()"
                     [ngClass]="{ 'is-invalid': submitted && f.fdob.errors }" formControlName='fdob' name='lname'
                     autocomplete="off" />
                 </div>
                 <div>
-                  <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
-                  <select id="exampleFormControlSelect1" formControlName='fpob'
-                    [ngClass]="{ 'is-invalid': submitted && f.fpob.errors }">
-                    <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">
-                      {{country.name }}</option>
-                  </select>
+                    <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                    <input type='text' formControlName='fpob'
+                      [ngClass]="{ 'is-invalid': submitted && f.fpob.errors }" class='pobAlign' name='fpob' />
                 </div>
+              </div>
+              <div class="row">
+                  <div>
+                      <label class='parentsCountry'>Country<span class="glyphicon">&#x2a;</span></label>
+                      <select class='parentsCountry' id="exampleFormControlSelect1" formControlName='fcountry'
+                        [ngClass]="{ 'is-invalid': submitted && f.fcountry.errors }">
+                        <option for="code" name="fcountry" *ngFor="let country of countries" [ngValue]="country.name">
+                          {{country.name }}</option>
+                      </select>
+                    </div>
               </div>
             </div>
           </div>
@@ -177,14 +184,22 @@
                     [ngClass]="{ 'is-invalid': submitted && f.mdob.errors }" formControlName='mdob' name='lname'
                     autocomplete="off" />
                 </div>
+
                 <div>
-                  <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
-                  <select id="exampleFormControlSelect1" formControlName='mpob'
-                    [ngClass]="{ 'is-invalid': submitted && f.mpob.errors }">
-                    <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">
-                      {{country.name }}</option>
-                  </select>
-                </div>
+                    <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                    <input type='text' formControlName='mpob'
+                      [ngClass]="{ 'is-invalid': submitted && f.pob.errors }" class='pobAlign' name='mpob' />
+                </div>               
+              </div>
+              <div class='row'>
+                  <div>
+                      <label class='parentsCountry'>Country<span class="glyphicon">&#x2a;</span></label>
+                      <select  id="exampleFormControlSelect1" formControlName='mcountry'
+                        [ngClass]="{ 'is-invalid': submitted && f.mpob.errors }">
+                        <option for="code" name="mcountry" *ngFor="let country of countries" [ngValue]="country.name">
+                          {{country.name }}</option>
+                      </select>
+                    </div>
               </div>
             </div>
           </div>
@@ -203,25 +218,25 @@
               <span class='wrapperBox'>Father</span>
               <div class="row">
                 <div>
-                  <label>Last Name<span class="glyphicon">&#x2a;</span></label>
+                  <label>Last Name</label>
                   <input type='text' name='lname' formControlName='plastname1' class='textAlignSmall'
                     [ngClass]="{ 'is-invalid': submitted && f.plastname1.errors }" />
                 </div>
                 <div>
-                  <label>First Name<span class="glyphicon">&#x2a;</span></label>
+                  <label>First Name</label>
                   <input type='text' name='lname' formControlName='pfirstname1' class='textAlignSmall'
                     [ngClass]="{ 'is-invalid': submitted && f.pfirstname1.errors }" />
                 </div>
                 <!-- </div>
               <div class="row"> -->
                 <div>
-                  <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
+                  <label>Date of Birth</label>
                   <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig"
                     [ngClass]="{ 'is-invalid': submitted && f.pdob1.errors }" bsDatepicker formControlName='pdob1'
                     name='lname' autocomplete="off" />
                 </div>
                 <div>
-                  <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                  <label>Country</label>
                   <select class='dropDown' formControlName='ppob1' id="exampleFormControlSelect1"
                     [ngClass]="{ 'is-invalid': submitted && f.ppob1.errors }">
                     <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">
@@ -238,25 +253,25 @@
               <span class='wrapperBox'>Mother</span>
               <div class="row">
                 <div>
-                  <label>Last Name<span class="glyphicon">&#x2a;</span></label>
+                  <label>Last Name</label>
                   <input type='text' name='lname' formControlName='plastname2' class='textAlignSmall'
                     [ngClass]="{ 'is-invalid': submitted && f.plastname2.errors }" />
                 </div>
                 <div>
-                  <label>First Name<span class="glyphicon">&#x2a;</span></label>
+                  <label>First Name</label>
                   <input type='text' name='lname' formControlName='pfirstname2' class='textAlignSmall'
                     [ngClass]="{ 'is-invalid': submitted && f.pfirstname2.errors }" />
                 </div>
                 <!-- </div>
               <div class="row"> -->
                 <div>
-                  <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
-                  <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig"
+                  <label>Date of Birth</label>
+                  <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig1"
                     [ngClass]="{ 'is-invalid': submitted && f.pdob2.errors }" bsDatepicker name='lname'
                     formControlName='pdob2' autocomplete="off" />
                 </div>
                 <div>
-                  <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                  <label>Country</label>
                   <select class='dropDown' id="exampleFormControlSelect1" formControlName='ppob2'
                     [ngClass]="{ 'is-invalid': submitted && f.ppob2.errors }">
                     <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">
@@ -273,25 +288,25 @@
               <span class='wrapperBox'>Father</span>
               <div class="row">
                 <div>
-                  <label>Last Name<span class="glyphicon">&#x2a;</span></label>
+                  <label>Last Name</label>
                   <input type='text' name='lname' formControlName='mlastname1'
                     [ngClass]="{ 'is-invalid': submitted && f.mlastname1.errors }" class='textAlignSmall' />
                 </div>
                 <div>
-                  <label>First Name<span class="glyphicon">&#x2a;</span></label>
+                  <label>First Name</label>
                   <input type='text' name='lname' formControlName='mfirstname1' class='textAlignSmall'
                     [ngClass]="{ 'is-invalid': submitted && f.mfirstname1.errors }" />
                 </div>
                 <!-- </div>
               <div class="row"> -->
                 <div>
-                  <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
+                  <label>Date of Birth</label>
                   <input type='text' class='textAlignSmallPaternal' bsDatepicker [bsConfig]="datePickerConfig"
                     [ngClass]="{ 'is-invalid': submitted && f.mdob1.errors }" bsDatepicker name='lname'
                     formControlName='mdob1' autocomplete="off" />
                 </div>
                 <div>
-                  <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                  <label>Country</label>
                   <select class='dropDown' formControlName='mpob1' id="exampleFormControlSelect1"
                     [ngClass]="{ 'is-invalid': submitted && f.mpob1.errors }">
                     <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">
@@ -308,25 +323,25 @@
               <span class='wrapperBox'>Mother</span>
               <div class="row">
                 <div>
-                  <label>Last Name<span class="glyphicon">&#x2a;</span></label>
+                  <label>Last Name</label>
                   <input type='text' class='textAlignSmall' formControlName='mlastname2' name='lname'
                     [ngClass]="{ 'is-invalid': submitted && f.mlastname2.errors }" />
                 </div>
                 <div>
-                  <label>First Name<span class="glyphicon">&#x2a;</span></label>
+                  <label>First Name</label>
                   <input type='text' class='textAlignSmall' formControlName='mfirstname2' name='lname'
                     [ngClass]="{ 'is-invalid': submitted && f.mfirstname2.errors }" />
                 </div>
                 <!-- </div>
               <div class="row"> -->
                 <div>
-                  <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
+                  <label>Date of Birth</label>
                   <input type='text' class='dateAlignGrandParents' bsDatepicker [bsConfig]="datePickerConfig"
                     [ngClass]="{ 'is-invalid': submitted && f.mdob2.errors }" bsDatepicker name='lname'
                     formControlName='mdob2' autocomplete="off" />
                 </div>
                 <div>
-                  <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
+                  <label>Country</label>
                   <select class='dropDown' formControlName='mpob2' id="exampleFormControlSelect1"
                     [ngClass]="{ 'is-invalid': submitted && f.mpob2.errors }">
                     <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">
@@ -429,13 +444,24 @@
           </div>
           <!-- <button  mat-raised-button color="accent" [disabled]="!uploadForm.valid" type="submit">Upload Data</button> -->
         </div>
-      </form>
+      
       <div class="documentBox">
         <div class='buttonAlign1'>
+          <div>
+          <span class='accept'><input type='checkbox' formControlName='accept' [ngClass]="{ 'is-invalid': true}" /></span>
+          <div class='declaration'>
+          Declaration: This declaration would appear beside a checkbox at the end of the summary page, which summarizes all of the information entered by the applicant.
+I declare that the information given in this application is complete and accurate to the best of my knowledge and belief and that the photo submitted is my true likeness.  
+WARNING: It is an offense to make a false and misleading statement in support of a passport application.<br/>
+            <span style='color:red;'> WARNING: It is an offense to make a false and misleading statement in support of a passport application.
+              </span>
+</div>
+          </div>
           <button (click)='back(descentForm.value)' type="button" class="btn btn-light">Back</button>&nbsp;&nbsp;
           <button (click)='next(descentForm.value)' type="button" class="btn btn-light">Next</button>
         </div>
       </div>
+    </form>
     </div>
     <div *ngIf='applicationCode>0'>
 

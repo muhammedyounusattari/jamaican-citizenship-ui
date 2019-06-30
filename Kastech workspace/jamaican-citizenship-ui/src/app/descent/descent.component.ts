@@ -7,6 +7,8 @@ import { LogoutService } from '../shared/services/logout.service';
 import { UtilityService } from '../shared/services/utility.service';
 import { BlockUI, NgBlockUI } from "ng-block-ui";
 import { Router } from '@angular/router';
+import { MatDialogConfig, MatDialog } from '@angular/material';
+import { DescentSaveComponent } from '../descent-save/descent-save.component';
 
 @Component({
   selector: 'app-descent',
@@ -16,12 +18,13 @@ import { Router } from '@angular/router';
 export class DescentComponent implements OnInit {
 
 
-  submitted: boolean; ß
+  submitted: boolean; 
   showErrorMsg: string;
   dob: Date = new Date();
-  profile = JSON.parse(sessionStorage.getItem('profile'));
+  profile:any;
   message: string;
   submit:boolean= true;
+  declaration:boolean = false;
 
   descentForm: FormGroup;
   uploadForm: FormGroup;
@@ -41,8 +44,9 @@ export class DescentComponent implements OnInit {
   @BlockUI() blockUI: NgBlockUI;
 
   constructor(private descentService: DescentFormService, private fb: FormBuilder, private logoutService: LogoutService,
-    private utilityService: UtilityService, private formBuilder: FormBuilder, private router: Router) {
-     if(this.profile==null){
+    private utilityService: UtilityService, private formBuilder: FormBuilder, private router: Router,public dialog:MatDialog) {
+      this.profile  = JSON.parse(sessionStorage.getItem('profile'));
+      if(this.profile==null){
        this.router.navigate(['/home']);
        
      } 
@@ -77,31 +81,33 @@ export class DescentComponent implements OnInit {
         flastname: [this.descentFormSessoin.father.lastName, Validators.required],
         ffirstname: [this.descentFormSessoin.father.firstName, Validators.required],
         fdob: [this.descentFormSessoin.father.dob, Validators.required],
-        fpob: [this.descentFormSessoin.father.cob, Validators.required],
+        fpob: [this.descentFormSessoin.father.pob, Validators.required],
+        fcountry:[this.descentFormSessoin.father.cob, Validators.required],
 
         mlastname: [this.descentFormSessoin.mother.lastName, Validators.required],
         mfirstname: [this.descentFormSessoin.mother.firstName, Validators.required],
         mdob: [this.descentFormSessoin.mother.dob, Validators.required],
-        mpob: [this.descentFormSessoin.mother.cob, Validators.required],
+        mpob: [this.descentFormSessoin.mother.pob, Validators.required],
+        mcountry: [this.descentFormSessoin.mother.cob, Validators.required],
 
         plastname1: [this.descentFormSessoin.paternalFather.lastName],
         pfirstname1: [this.descentFormSessoin.paternalFather.firstName],
-        pdob1: [this.descentFormSessoin.paternalFather.dob],
+        pdob1: [this.utilityService.enhancedDate(this.descentFormSessoin.paternalFather.dob,0,0,0)],
         ppob1: [this.descentFormSessoin.paternalFather.cob],
 
         plastname2: [this.descentFormSessoin.paternalMother.lastName],
         pfirstname2: [this.descentFormSessoin.paternalMother.firstName],
-        pdob2: [this.descentFormSessoin.paternalMother.dob],
+        pdob2: [this.utilityService.enhancedDate(this.descentFormSessoin.paternalMother.dob,0,0,0)],
         ppob2: [this.descentFormSessoin.paternalMother.cob],
 
         mlastname1: [this.descentFormSessoin.maternalFather.lastName],
         mfirstname1: [this.descentFormSessoin.maternalFather.firstName],
-        mdob1: [this.descentFormSessoin.maternalFather.dob],
+        mdob1: [this.utilityService.enhancedDate(this.descentFormSessoin.maternalFather.dob, 0, 0, 0) ],
         mpob1: [this.descentFormSessoin.maternalFather.cob],
 
         mlastname2: [this.descentFormSessoin.maternalMother.lastName],
         mfirstname2: [this.descentFormSessoin.maternalMother.firstName],
-        mdob2: [this.descentFormSessoin.maternalMother.dob],
+        mdob2: [this.utilityService.enhancedDate(this.descentFormSessoin.maternalMother.dob, 0, 0, 0) ],
         mpob2: [this.descentFormSessoin.maternalMother.cob]
 
 
@@ -125,11 +131,13 @@ export class DescentComponent implements OnInit {
         flastname: ['', Validators.required],
         ffirstname: ['', Validators.required],
         fdob: [this.utilityService.enhancedDate(this.profile.dob, 0, 0, -13), Validators.required],
-        fpob: ['Jamaica', Validators.required],
+        fpob: ['', Validators.required],
+        fcountry:['Jamaica',Validators.required],
         mlastname: ['', Validators.required],
         mfirstname: ['', Validators.required],
         mdob: [this.utilityService.enhancedDate(this.profile.dob, 0, 0, -13), Validators.required],
-        mpob: ['Jamaica', Validators.required],
+        mpob: ['', Validators.required],
+        mcountry: ['Jamaica', Validators.required],
 
         plastname1: [''],
         pfirstname1: [''],
@@ -155,7 +163,8 @@ export class DescentComponent implements OnInit {
     this.logoutService.changeMessage(true);
     this.uploadForm = this.fb.group({
       document: [null, null],
-      type: [null, Validators.compose([Validators.required])]
+      type: [null, Validators.compose([Validators.required])],
+      accept:['',Validators.required]
     });
     this.utilityService.loadCountriesFromJson().subscribe(data => {
       this.countries = data;
@@ -173,7 +182,7 @@ export class DescentComponent implements OnInit {
       this.showErrorMsg = "Please fill all mandatory fields";
       return;
     }
-
+/*
     if (this.descentForm.value.plastname1 || this.descentForm.value.pfirstname1 || this.descentForm.value.pdob1 || this.descentForm.value.ppob1) {
       if (!this.descentForm.value.pfirstname1 || !this.descentForm.value.pdob1 || !this.descentForm.value.ppob1 || !this.descentForm.value.plastname1 || !this.descentForm.value.pfirstname1 || !this.descentForm.value.pdob1 || !this.descentForm.value.ppob1) {
         this.submit = false;
@@ -216,14 +225,14 @@ export class DescentComponent implements OnInit {
         alert('please fill either maternal father or mother information');
 
       }
-    }
+    } */
 
     // var profile = JSON.parse(sessionStorage.getItem('profile'));
     // var data ={};
     // data = this.jsonConcat(data,payload);
     // data = this.jsonConcat(data,profile);
     payload.email = this.profile.email;
-    if(this.submit){
+    //if(this.submit){
 
       this.blockUI.start('Loading......');
       this.descentService.submitDescentForm(payload).subscribe(data => {
@@ -235,62 +244,10 @@ export class DescentComponent implements OnInit {
       })
       
     }
-  }
+ // }
 
   onSave(payload) {
-    debugger;
-    this.submitted = true;
-    this.submit = true;
-
-    if (this.descentForm.invalid) {
-      this.showErrorMsg = "Please fill all mandatory fields";
-      return;
-    }
-
-    if (this.descentForm.value.plastname1 || this.descentForm.value.pfirstname1 || this.descentForm.value.pdob1 || this.descentForm.value.ppob1) {
-      if (!this.descentForm.value.pfirstname1 || !this.descentForm.value.pdob1 || !this.descentForm.value.ppob1 || !this.descentForm.value.plastname1 || !this.descentForm.value.pfirstname1 || !this.descentForm.value.pdob1 || !this.descentForm.value.ppob1) {
-        this.submit = false;
-        alert('please fill all Paternal Father information ')
-      }
-    }
-
-    if (this.descentForm.value.plastname2 || this.descentForm.value.pfirstname2 || this.descentForm.value.pdob2 || this.descentForm.value.ppob2) {
-      if (!this.descentForm.value.plastname2 || !this.descentForm.value.pfirstname2 || !this.descentForm.value.pdob2 || !this.descentForm.value.ppob2 ) {
-        this.submit = false;
-        alert('please fill all Paternal Mother information ')
-      }
-    }
-
-    if (!this.descentForm.value.plastname1 && !this.descentForm.value.pfirstname1 && !this.descentForm.value.pdob1 && !this.descentForm.value.ppob1) {
-      if (!this.descentForm.value.plastname2 && !this.descentForm.value.pfirstname2 && !this.descentForm.value.pdob2 && !this.descentForm.value.ppob2){
-        this.submit = false;
-        alert('please fill either paternal father or mother information');
-      }
-    }
-
-
-    if (this.descentForm.value.mlastname1 || this.descentForm.value.mfirstname1 || this.descentForm.value.mdob1 || this.descentForm.value.mpob1) {
-      if (!this.descentForm.value.mfirstname1 || !this.descentForm.value.mdob1 || !this.descentForm.value.mpob1 || !this.descentForm.value.mlastname1 || !this.descentForm.value.mpob1) {
-        this.submit = false;
-        alert('please fill all Maternal Father information ')
-      }
-    }
-
-    if (this.descentForm.value.mlastname2 || this.descentForm.value.mfirstname2 || this.descentForm.value.mdob2 || this.descentForm.value.mpob2) {
-      if (!this.descentForm.value.mlastname2 || !this.descentForm.value.mfirstname2 || !this.descentForm.value.mdob2 || !this.descentForm.value.mpob2) {
-        this.submit = false;
-        alert('please fill all Maternal Mother information ')
-      }
-    }
-
-    if (!this.descentForm.value.mlastname1 && !this.descentForm.value.mfirstname1 && !this.descentForm.value.mdob1 && !this.descentForm.value.mpob1) {
-      if (!this.descentForm.value.mlastname2 && !this.descentForm.value.mfirstname2 && !this.descentForm.value.mdob2 && !this.descentForm.value.mpob2){
-        this.submit = false;
-        alert('please fill either maternal father or mother information');
-
-      }
-    }
-
+    
 
     // if(!this.descentForm.value.mlastname1 && !this.descentForm.value.mlastname2){
     //   alert('please fill either maternal father or mother information');
@@ -305,16 +262,18 @@ export class DescentComponent implements OnInit {
 
     payload.email = this.profile.email;
      
-    if(this.submit){
+    
     this.blockUI.start('Loading......');
     
      this.descentService.submitDescentForm(payload).subscribe(data => {
        // this.showDescentForm = false;
        // this.showDocumentUpload = true;
        this.blockUI.stop();
+       const dialogConfig = new MatDialogConfig();
+       this.dialog.open(DescentSaveComponent, dialogConfig);
        console.log(data);
-     })
-    }
+     });
+    
   }
 
   // jsonConcat(o1, o2) {
@@ -325,10 +284,18 @@ export class DescentComponent implements OnInit {
   //  }
 
   uploadSubmit() {
-    if (this.uploader.queue.length == 0) {
+
+    if (!this.uploadForm.controls.accept.value) {
+      this.message = "Please confirm decleration ";
+      this.declaration = true;
+      return false;
+    }
+
+    if (this.uploader.queue.length === 0 ) {
       this.message = "Please select documents to be uploaded";
       return false;
     }
+   
     for (var i = 0; i < this.uploader.queue.length; i++) {
       let fileItem = this.uploader.queue[i]._file;
       if (fileItem.size > 10000000) {
@@ -347,6 +314,7 @@ export class DescentComponent implements OnInit {
 
 
       this.descentService.uploadFile(data).subscribe(data => {
+        this.blockUI.stop();
         this.showDescentForm = false;
         this.showDocumentUpload = false;
         this.applicationCode = data.id;
@@ -354,11 +322,14 @@ export class DescentComponent implements OnInit {
       });
       // this.uploadFile(data).subscribe(data => alert(data.message));
     }
-    this.blockUI.stop();
     this.uploader.clearQueue();
     sessionStorage.removeItem('descentForm');
   }
 
+
+  dateChange(){
+    alert();
+  }
 
   home() {
     this.router.navigate(['/home']);

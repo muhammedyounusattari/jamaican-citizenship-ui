@@ -35,6 +35,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AppStatusComponent } from './app-status/app-status.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { DescentSaveComponent } from './descent-save/descent-save.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,7 @@ import { AppStatusComponent } from './app-status/app-status.component';
     HomeComponent,
     DescentComponent,
     LoginComponent,
-    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent, AppStatusComponent
+    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent, AppStatusComponent, ChangePasswordComponent, DescentSaveComponent
   ],
   imports: [
     
@@ -69,6 +71,6 @@ import { AppStatusComponent } from './app-status/app-status.component';
 
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ForgotPasswordComponent]
+  entryComponents: [ForgotPasswordComponent,DescentSaveComponent]
 })
 export class AppModule { }

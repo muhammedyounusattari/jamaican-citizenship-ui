@@ -13,6 +13,9 @@ export class UtilityService {
   }
 
    enhancedDate(input, days, months, years) {
+    if(!input){
+      return null;
+    }
     var date = new Date(input);
     date.setDate(date.getDate() + days);
     date.setMonth(date.getMonth() + months);
@@ -21,6 +24,8 @@ export class UtilityService {
    }  
 
    formatDate(date){
-    return ( date.getDate()+ '/' +(date.getMonth() + 1)+  '/' +  date.getFullYear());
+   var dateFormated = ( date.getDate()+ '/' +(date.getMonth() + 1)+  '/' +  date.getFullYear());
+   console.log(dateFormated);
+   return dateFormated;
   }
 }

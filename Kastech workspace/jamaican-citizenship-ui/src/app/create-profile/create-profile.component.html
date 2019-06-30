@@ -52,7 +52,8 @@
         </div>
         <div class="col-sm">
             <label>Country<span class="glyphicon">&#x2a;</span></label>
-            <select class="col-9 selectBoxAlign" formControlName="country" id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" >
+            <select class="col-9 selectBoxAlign" formControlName="country" (change)="loadPhoneNumber()"
+             id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" >
                 <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
             </select>
         </div>
@@ -76,7 +77,7 @@
       
         <div class="col-5">
             <label class="zip-code">Zip/Postal code<span class="glyphicon">&#x2a;</span></label>
-            <input type="number" class="col-9" formControlName="zip" placeholder="Zip / Postal Code" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" >
+            <input type="text" class="col-9" formControlName="zip" placeholder="Zip / Postal Code" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" >
         </div>
 
         <div class="col-5">
