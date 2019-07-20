@@ -13,3 +13,13 @@ a.badge-primary:focus, a.badge-primary:hover {
     color: #fff;
     background-color: #9da3ab;
 }
+
+
+div.loginType {
+        border: 2px solid gray;
+        padding: 5px;
+        margin-bottom: 6px;
+    }
+input[type='radio']{
+    margin-right: 5px;
+}

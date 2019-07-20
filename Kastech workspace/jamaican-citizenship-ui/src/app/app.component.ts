@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     // sessionStorage.removeItem('profile');
-   sessionStorage.clear();
+    sessionStorage.clear();
     // this.logoutService.changeMessage(true);
     // this.logoutService.currentMessage.subscribe(message=>{this.loginStatus = message});
   }

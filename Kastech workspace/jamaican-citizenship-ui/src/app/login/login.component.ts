@@ -18,7 +18,9 @@ export class LoginComponent implements OnInit {
   showError: boolean = false;
   errorMsg: string = 'Email/Password is incorrect ';
   profile: any;
+  loginLabel: string = 'Email';
   login = new FormGroup({
+    loginType: new FormControl(),
     email: new FormControl(),
     password: new FormControl()
 
@@ -35,13 +37,45 @@ export class LoginComponent implements OnInit {
 
   onSubmit(payload) {
 
-    if (payload.email == null || payload.password == null) {
+    if (!payload.loginType) {
       this.showError = true;
-      this.errorMsg = 'email and password are required';
-      this.router.navigate(['/login']);
+      this.errorMsg = 'Please select type of login';
+      return false;
+    }
+
+    if (!payload.email || !payload.password) {
+      this.showError = true;
+      this.errorMsg = 'Email and Password are required';
+      //      this.router.navigate(['/login']);
       return false;
     }
     this.blockUI.start('Loading...');
+
+    if (payload.loginType === 'offical') {
+      if (payload.email === 'admin' && payload.password === 'admin') {
+        this.blockUI.stop();
+        this.router.navigate(['/officalForms']);
+        return false;
+      } else {
+        // this.blockUI.stop();
+        // this.errorMsg = 'Userid/Password is incorrect ';
+        // return false;
+
+        //open agent page.
+        this.loginService.validateAgent(payload).subscribe(data=>{
+          if(data){
+            localStorage.setItem('agent',JSON.stringify(data));
+            this.router.navigate(['/agentView']);
+          }else
+            return false
+        })
+
+      }
+    }
+
+
+    //authentication for normal user
+
     this.loginService.authenticate(payload).subscribe(data => {
       console.log("login result", data);
       if (data == null) {
@@ -84,6 +118,13 @@ export class LoginComponent implements OnInit {
 
   }
 
+  changeLabel(value) {
+    if (value === 'offical') {
+      this.loginLabel = 'Userid';
+    } else {
+      this.loginLabel = 'Email';
+    }
+  }
   forgotPassword(payload) {
     const dialogConfig = new MatDialogConfig();
     this.dialog.open(ForgotPasswordComponent, dialogConfig);

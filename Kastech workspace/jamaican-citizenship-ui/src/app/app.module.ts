@@ -37,6 +37,12 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { AppStatusComponent } from './app-status/app-status.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DescentSaveComponent } from './descent-save/descent-save.component';
+import { AdminFormsComponent } from './admin-forms/admin-forms.component';
+import { SupervisorViewComponent } from './supervisor-view/supervisor-view.component';
+import { ReviewFormsComponent } from './review-forms/review-forms.component';
+import { AgentComponent } from './agent/agent.component';
+import { ReviewApplicantComponent } from './review-applicant/review-applicant.component';
+import { ReviewDailogComponentComponent } from './review-dailog-component/review-dailog-component.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +52,7 @@ import { DescentSaveComponent } from './descent-save/descent-save.component';
     HomeComponent,
     DescentComponent,
     LoginComponent,
-    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent, AppStatusComponent, ChangePasswordComponent, DescentSaveComponent
+    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent, AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent, SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent, ReviewDailogComponentComponent
   ],
   imports: [
     
@@ -71,6 +77,6 @@ import { DescentSaveComponent } from './descent-save/descent-save.component';
 
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ForgotPasswordComponent,DescentSaveComponent]
+  entryComponents: [ForgotPasswordComponent,DescentSaveComponent,ReviewDailogComponentComponent]
 })
 export class AppModule { }

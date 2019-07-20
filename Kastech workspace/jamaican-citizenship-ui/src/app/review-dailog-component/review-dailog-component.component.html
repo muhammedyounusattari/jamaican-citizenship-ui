@@ -1,0 +1,18 @@
+<block-ui>
+    <div class='container'>
+    <h2 mat-dialog-title> <i class="far fa-save"></i> Comments</h2>
+    
+    <mat-dialog-content>
+       
+    <div class='row'>
+    <textarea rows="5" cols="100" #comments ></textarea>
+    
+    </div>
+    </mat-dialog-content>
+    
+    <mat-dialog-actions>
+        <button class="btn" (click)="save(comments.value)">Save</button>&nbsp;&nbsp;
+        <button class="btn" (click)="close()">Close</button>
+    </mat-dialog-actions>
+    </div>
+    </block-ui>

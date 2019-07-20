@@ -1,0 +1,38 @@
+<section>
+    <div class="container">
+      <div class="header-tag text-center">
+        <h2 class="m-4">Agent Application Review</h2>
+      </div>
+     
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 p-0">
+            <label class="sr-only" for="inlineFormInputGroup">Type text here...</label>
+            <div class="input-group mb-4">
+              <div class="input-group-prepend">
+                <div class="input-group-text"><h5>Agent Name</h5></div>
+              </div>
+              <input type="text" class="form-control" id="inlineFormInputGroup" [ngModel]='agent.name' placeholder="Type text here...">
+            </div>
+            </div>
+         
+      <div class="Asset_mang_block">
+      <table class="table table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Application Number</th>
+                <th>Profile Name</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody class="text-size">
+              <tr *ngFor='let applicant of agent.applications'> 
+                <td>{{applicant.applicantId}}</td>
+                <td>{{applicant.name}}</td>
+                <td><button type="button" class="clr-btn" (click)="getReviewForm(applicant.applicantId)" >REVIEW</button></td>
+              </tr>
+             
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </section>
+  <br/><br/>

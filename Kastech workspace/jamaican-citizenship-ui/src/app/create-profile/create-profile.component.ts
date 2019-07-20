@@ -29,7 +29,7 @@ export class CreateProfileComponent implements OnInit {
     private formBuilder: FormBuilder) {
     this.datePickerConfig = Object.assign({}, {
       containerClass: 'theme-dark-blue', showWeekNumbers: false,
-      maxDate: this.dob
+      maxDate: this.dob,dateInputFormat: 'DD/MM/YYYY'
     })
   }
 
@@ -52,7 +52,7 @@ export class CreateProfileComponent implements OnInit {
       pob: ['', Validators.required],
       country: ['Jamaica', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      number: ['875', [Validators.required]],
+      number: ['876', [Validators.required]],
       gender: ['', Validators.required],
       address1: ['', Validators.required],
       address2: ['', Validators.required],
@@ -65,7 +65,7 @@ export class CreateProfileComponent implements OnInit {
   loadPhoneNumber() {
     var controls = this.profile.controls;
     if (controls.country.value && controls.country.value == 'Jamaica') {
-      this.profile.controls.number.setValue('875')
+      this.profile.controls.number.setValue('876')
     } else {
       this.profile.controls.number.setValue('')
     }
@@ -91,6 +91,7 @@ export class CreateProfileComponent implements OnInit {
       } else {
         // payload.dob = this.utilityService.formatDate(payload.dob);
         this.showErrorMsg='';
+        payload.dob = this.utilityService.formatDate(payload.dob);
         this.profileService.createProfile(payload).subscribe(data => {
           sessionStorage.setItem('profile', JSON.stringify(data));
           this.routing.navigate(['/allForms']);

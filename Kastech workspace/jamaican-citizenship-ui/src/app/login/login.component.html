@@ -4,13 +4,16 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-body">
+               
                 <div *ngIf="showError" class="alert alert-danger" role="alert">
                     {{errorMsg}}
                 </div>
                     <form [formGroup]="login"  (ngSubmit)=onSubmit(login.value) class="form-group" >
+                            <div class='loginType'><input formControlName="loginType" type='radio' value='offical' (click)='changeLabel("offical")' name='loginType'/>PICA Official &nbsp;&nbsp;
+                                <input formControlName="loginType" type='radio' (click)='changeLabel("user")'  name='loginType' value='regular'/>Users </div>
                         <div class="form-group">
-                            <label>Email</label>
-                            <input formControlName="email" type="email" class="form-control" name="email">
+                            <label>{{loginLabel}}</label>
+                            <input formControlName="email" type="text" class="form-control" name="email">
                         </div>
                         <div class="form-group">
                             <label>Password</label>

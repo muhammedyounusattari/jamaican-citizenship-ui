@@ -5,6 +5,7 @@
       <h4 class="wrapper">DECENT APPLICATION FORM</h4>
       <div *ngIf='showErrorMsg' class="alert alert-danger" role="alert">
         {{showErrorMsg}}
+        <span *ngIf="submitted && f.dob.errors"><br/>Date of birth <b>should not be a future date</b>, please select correct date</span>
       </div>
 
       <form [formGroup]='descentForm' autocomplete="off">
@@ -30,7 +31,8 @@
             <div class="col-5">
               <label class='dob'>Date of Birth<span class="glyphicon">&#x2a;</span></label>
               <input type="text" bsDatepicker [bsConfig]="datePickerConfig" class="col-8" formControlName="dob"
-                placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">
+                placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"
+                [maxDate]="datePickerConfig.maxDate">
             </div>
 
 
@@ -188,14 +190,14 @@
                 <div>
                     <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
                     <input type='text' formControlName='mpob'
-                      [ngClass]="{ 'is-invalid': submitted && f.pob.errors }" class='pobAlign' name='mpob' />
+                      [ngClass]="{ 'is-invalid': submitted && f.mpob.errors }" class='pobAlign' name='mpob' />
                 </div>               
               </div>
               <div class='row'>
                   <div>
                       <label class='parentsCountry'>Country<span class="glyphicon">&#x2a;</span></label>
                       <select  id="exampleFormControlSelect1" formControlName='mcountry'
-                        [ngClass]="{ 'is-invalid': submitted && f.mpob.errors }">
+                        [ngClass]="{ 'is-invalid': submitted && f.mcountry.errors }">
                         <option for="code" name="mcountry" *ngFor="let country of countries" [ngValue]="country.name">
                           {{country.name }}</option>
                       </select>
@@ -353,8 +355,10 @@
           </div>
         </div>
         <div class='buttonAlign'>
+            <button (click)='onHome()' type="button" class="btn btn-light">Cancel</button>&nbsp;&nbsp;
           <button (click)='onSave(descentForm.value)' type="button" class="btn btn-light">Save</button>&nbsp;&nbsp;
           <button (click)='onSubmit(descentForm.value)' type="button" class="btn btn-light">Continue</button>
+
         </div>
       </form>
     </div>
@@ -391,7 +395,7 @@
 
       </div>
       <div *ngIf="message" class="alert alert-danger" role="alert">
-        {{message}}
+        <b>{{message}}</b>
       </div>
       <form [formGroup]="uploadForm" (ngSubmit)="uploadSubmit()" autocomplete="off">
         <div class="row">

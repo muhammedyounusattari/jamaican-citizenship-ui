@@ -68,7 +68,7 @@ export class DescentComponent implements OnInit {
         firstname: [this.descentFormSessoin.profile.firstname, [Validators.required, Validators.maxLength(10)]],
         lastname: [this.descentFormSessoin.profile.lastname, Validators.required],
         middlename: [this.descentFormSessoin.profile.middlename],
-        dob: [this.descentFormSessoin.profile.dob, Validators.required],
+        dob: [this.utilityService.formatDate(this.descentFormSessoin.profile.dob), Validators.required],
         pob: [this.descentFormSessoin.profile.pob, Validators.required],
         country: [this.descentFormSessoin.profile.country, Validators.required],
         email: [{ value: this.descentFormSessoin.profile.email, disabled: true }, [Validators.required, Validators.email]],
@@ -78,17 +78,17 @@ export class DescentComponent implements OnInit {
         address2: [this.descentFormSessoin.profile.address2, Validators.required],
         zip: [this.descentFormSessoin.profile.zip, Validators.required],
 
-        flastname: [this.descentFormSessoin.father.lastName, Validators.required],
-        ffirstname: [this.descentFormSessoin.father.firstName, Validators.required],
-        fdob: [this.descentFormSessoin.father.dob, Validators.required],
-        fpob: [this.descentFormSessoin.father.pob, Validators.required],
-        fcountry:[this.descentFormSessoin.father.cob, Validators.required],
+        flastname: [this.descentFormSessoin.father.lastName],
+        ffirstname: [this.descentFormSessoin.father.firstName],
+        fdob: [this.utilityService.formatDate(this.descentFormSessoin.father.dob)],
+        fpob: [this.descentFormSessoin.father.pob],
+        fcountry:[this.descentFormSessoin.father.cob],
 
-        mlastname: [this.descentFormSessoin.mother.lastName, Validators.required],
-        mfirstname: [this.descentFormSessoin.mother.firstName, Validators.required],
-        mdob: [this.descentFormSessoin.mother.dob, Validators.required],
-        mpob: [this.descentFormSessoin.mother.pob, Validators.required],
-        mcountry: [this.descentFormSessoin.mother.cob, Validators.required],
+        mlastname: [this.descentFormSessoin.mother.lastName],
+        mfirstname: [this.descentFormSessoin.mother.firstName],
+        mdob: [this.utilityService.formatDate(this.descentFormSessoin.mother.dob)],
+        mpob: [this.descentFormSessoin.mother.pob],
+        mcountry: [this.descentFormSessoin.mother.cob],
 
         plastname1: [this.descentFormSessoin.paternalFather.lastName],
         pfirstname1: [this.descentFormSessoin.paternalFather.firstName],
@@ -118,7 +118,7 @@ export class DescentComponent implements OnInit {
         firstname: [this.profile.firstname, [Validators.required, Validators.maxLength(10)]],
         lastname: [this.profile.lastname, Validators.required],
         middlename: [this.profile.middlename],
-        dob: [this.utilityService.formatDate(new Date(this.profile.dob)), Validators.required],
+        dob: [this.utilityService.formatDate(this.profile.dob), Validators.required],
         pob: [this.profile.pob, Validators.required],
         country: [this.profile.country, Validators.required],
         email: [{ value: this.profile.email, disabled: true }, [Validators.required, Validators.email]],
@@ -128,16 +128,16 @@ export class DescentComponent implements OnInit {
         address2: [this.profile.address2, Validators.required],
         zip: [this.profile.zip, Validators.required],
 
-        flastname: ['', Validators.required],
-        ffirstname: ['', Validators.required],
-        fdob: [this.utilityService.enhancedDate(this.profile.dob, 0, 0, -13), Validators.required],
-        fpob: ['', Validators.required],
-        fcountry:['Jamaica',Validators.required],
-        mlastname: ['', Validators.required],
-        mfirstname: ['', Validators.required],
-        mdob: [this.utilityService.enhancedDate(this.profile.dob, 0, 0, -13), Validators.required],
-        mpob: ['', Validators.required],
-        mcountry: ['Jamaica', Validators.required],
+        flastname: [''],
+        ffirstname: [''],
+        fdob: [this.utilityService.enhancedDate(this.profile.dob, 0, 0, -13)],
+        fpob: [''],
+        fcountry:['Jamaica'],
+        mlastname: [''],
+        mfirstname: [''],
+        mdob: [this.utilityService.enhancedDate(this.profile.dob, 0, 0, -13)],
+        mpob: [''],
+        mcountry: ['Jamaica'],
 
         plastname1: [''],
         pfirstname1: [''],
@@ -235,6 +235,29 @@ export class DescentComponent implements OnInit {
     //if(this.submit){
 
       this.blockUI.start('Loading......');
+      if(!payload.dob){
+        payload.dob = this.utilityService.formatDate(payload.dob);
+      }
+     
+      if(payload.mdob){
+        payload.mdob = this.utilityService.formatDate(payload.mdob);
+      }
+      if(payload.fdob){
+        payload.fdob = this.utilityService.formatDate(payload.fdob);
+      }
+      if(payload.mdob1){
+        payload.mdob1 = this.utilityService.formatDate(payload.mdob1);
+      }
+      if(payload.mdob2){
+        payload.dob = this.utilityService.formatDate(payload.mdob2);
+      }
+      if(payload.pdob1){
+        payload.pdob1 = this.utilityService.formatDate(payload.pdob1);
+      }
+      if(payload.podb2){
+        payload.podb2 = this.utilityService.formatDate(payload.podb2);
+      }
+
       this.descentService.submitDescentForm(payload).subscribe(data => {
         sessionStorage.setItem('descentForm',JSON.stringify(data));
         this.showDescentForm = false;
@@ -265,6 +288,29 @@ export class DescentComponent implements OnInit {
     
     this.blockUI.start('Loading......');
     
+    if(payload.dob){
+      payload.dob = this.utilityService.formatDate(payload.dob);
+    }
+   
+    if(payload.mdob){
+      payload.mdob = this.utilityService.formatDate(payload.mdob);
+    }
+    if(payload.fdob){
+      payload.fdob = this.utilityService.formatDate(payload.fdob);
+    }
+    if(payload.mdob1){
+      payload.mdob1 = this.utilityService.formatDate(payload.mdob1);
+    }
+    if(payload.mdob2){
+      payload.dob = this.utilityService.formatDate(payload.mdob2);
+    }
+    if(payload.pdob1){
+      payload.pdob1 = this.utilityService.formatDate(payload.pdob1);
+    }
+    if(payload.podb2){
+      payload.podb2 = this.utilityService.formatDate(payload.podb2);
+    }
+
      this.descentService.submitDescentForm(payload).subscribe(data => {
        // this.showDescentForm = false;
        // this.showDocumentUpload = true;
@@ -286,7 +332,7 @@ export class DescentComponent implements OnInit {
   uploadSubmit() {
 
     if (!this.uploadForm.controls.accept.value) {
-      this.message = "Please confirm decleration ";
+      this.message = "Please confirm Declaration ";
       this.declaration = true;
       return false;
     }
@@ -314,8 +360,8 @@ export class DescentComponent implements OnInit {
 
 
       this.descentService.uploadFile(data).subscribe(data => {
-        this.blockUI.stop();
         this.showDescentForm = false;
+        this.blockUI.stop();
         this.showDocumentUpload = false;
         this.applicationCode = data.id;
 
@@ -328,7 +374,7 @@ export class DescentComponent implements OnInit {
 
 
   dateChange(){
-    alert();
+  //  alert();
   }
 
   home() {
@@ -343,5 +389,9 @@ export class DescentComponent implements OnInit {
   next(descentForm){
     this.uploadSubmit();
 
+  }
+
+  onHome(){
+    this.router.navigate(['/home'])
   }
 }

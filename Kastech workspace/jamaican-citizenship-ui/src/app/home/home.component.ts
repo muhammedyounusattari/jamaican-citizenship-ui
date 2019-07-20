@@ -8,7 +8,10 @@ import { LogoutService } from '../shared/services/logout.service';
 })
 export class HomeComponent implements OnInit {
   loginStatus:boolean;
-  constructor(private logoutService:LogoutService) { }
+  constructor(private logoutService:LogoutService) { 
+    sessionStorage.clear();
+    localStorage.clear();
+  }
 
   ngOnInit() {
     this.logoutService.currentMessage.subscribe(message=>{this.loginStatus = message});

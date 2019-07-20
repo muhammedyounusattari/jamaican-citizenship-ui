@@ -42,4 +42,9 @@ export class LoginService {
     const url = HOST_URL.name+"/descent-form/"+email+"/";
     return this.http.get(url,this.httpOptions);
   }
+
+  validateAgent(payload){
+    const url = HOST_URL.name+"/validate-agent";
+    return this.http.post(url,payload,this.httpOptions);
+  }
 }

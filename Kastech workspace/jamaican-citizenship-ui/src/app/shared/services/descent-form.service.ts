@@ -22,10 +22,10 @@ export class DescentFormService {
     return this.httpClient.post(url,payload,this.httpOptions);
   }
 
-  uploadFile(data: FormData): Observable<any> {
+  uploadFile(payload): Observable<any> {
     var info = JSON.parse(sessionStorage.getItem('profile'));
     const url = HOST_URL.name+"/descent-form-documents/"+info.email+"/";
-    return this.httpClient.post<any>(url, data);
+    return this.httpClient.post<any>(url, payload);
   }
 
 }
