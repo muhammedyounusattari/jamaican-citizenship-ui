@@ -1,2 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+.hint-text {
+    color: #ec2d38;
+    font-size: 12px;
+}
+.bm-1 {
+    border: 1px solid #ccc;
+    width: 98%;
+    margin-bottom: 10px !important;
+    margin: auto;
+}
+.btn.btn-theme {
+    background: #1a9332;
+    border: none;
+    color: #fff;
+    padding: 6px 33px;
+    margin-left:5px;
+ }
+ .btn-danger {
+    background-color: #ec2d38;
+    border-color: #ec2d38;
+    color: #fff;
+}
+.btn.btn-theme:hover {
+    background: #157d2a;
+    box-shadow: 0px 1px 7px -1px #333;
+    color: #fff;
+}
+.btn-danger:hover {
+    box-shadow: 0px 1px 7px -1px #333;
+    color: #fff;
+}
+.glyphicon{
+    color: red;
+}

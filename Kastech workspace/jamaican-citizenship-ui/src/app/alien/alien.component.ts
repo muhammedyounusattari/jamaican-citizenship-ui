@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 import { BsDatepickerConfig } from 'ngx-bootstrap';
 import { UtilityService } from '../shared/services/utility.service';
 import { BlockUI, NgBlockUI } from "ng-block-ui";
-import { LoginService } from '../shared/services/login.service';
+
 
 @Component({
   selector: 'app-alien',
@@ -32,7 +32,6 @@ export class AlienComponent implements OnInit {
   section7: boolean;
 
   constructor(private profileService: CreateProfileService, private utilityService: UtilityService, private routing: Router,
-    private loginService: LoginService,
     private formBuilder: FormBuilder) { 
    
   }
@@ -135,6 +134,7 @@ showprevioussection5(){
 
 
 loadForm() {
+  alert('hi');
   this.alienRegistrationForm = this.formBuilder.group({ //new FormGroup({
     firstname: ['', [Validators.required, Validators.maxLength(10)]],
     lastname: ['', Validators.required],
@@ -148,8 +148,6 @@ loadForm() {
     address1: ['', Validators.required],
     address2: ['', Validators.required],
     zip: ['', Validators.required]
-
-
   });
 }
 
@@ -163,6 +161,18 @@ loadPhoneNumber() {
 
 
 }
+
+addalienRegistrationForm(payload) {
+
+    this.submitted = true;
+    this.showErrorMsg = "Please fill the required fields";
+    if (this.alienRegistrationForm.invalid) {
+      return;
+    }
+    else {
+        console.log(payload);
+    }
+  }
 
 get f() { return this.alienRegistrationForm.controls; }
 onSubmit(payload) {
