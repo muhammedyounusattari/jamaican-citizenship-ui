@@ -56,7 +56,10 @@ export class AppStatusComponent implements OnInit {
             this.profile.status = 'assets/images/submitted.jpg';
           } else if (this.profile.status == 'in_progress') {
             this.profile.status = 'assets/images/processing.jpg';
+          } else if (this.profile.status == 'completed') {
+            this.profile.status = 'assets/images/completed.jpg';
           }
+
           console.log(data);
         } else {
           this.showErrorMsg = 'Invalid Application Number';

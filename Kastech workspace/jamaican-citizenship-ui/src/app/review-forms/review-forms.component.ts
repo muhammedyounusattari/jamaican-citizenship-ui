@@ -2,7 +2,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AdminService } from '../shared/services/admin.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-//import {NgbTooltipConfig} from '@ng-bootstrap/ng-bootstrap';
+import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material';
+
+export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
+  showDelay: 1000,
+  hideDelay: 1000,
+  touchendHideDelay: 1000,
+};
 
 
 @Component({
@@ -10,14 +16,17 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './review-forms.component.html',
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['./review-forms.component.css'],
- // providers: [NgbTooltipConfig]
+  providers: [
+    {provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults}
+  ]
 })
+
 
 export class ReviewFormsComponent implements OnInit {
   forms: any = ["one", "two", "three"];
   agents: any;
   applications: FormGroup;
-  showApplicantErrorMsg: string;npm 
+  showApplicantErrorMsg: string;
   showApplicantQueueMessage: string
   private formType: string;
 

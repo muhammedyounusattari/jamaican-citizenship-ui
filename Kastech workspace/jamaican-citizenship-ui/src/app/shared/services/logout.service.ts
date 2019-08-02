@@ -7,12 +7,18 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class LogoutService {
 
-  private messageSource = new BehaviorSubject<boolean>(false);
-  currentMessage = this.messageSource.asObservable();
+  public title = new BehaviorSubject('Title');
 
-  constructor() { }
+  // private messageSource = new BehaviorSubject<boolean>(false);
+  // currentMessage = this.messageSource.asObservable();
 
-  changeMessage(message:boolean){
-    this.messageSource.next(message); 
+  // constructor() { }
+
+  // changeMessage(message:boolean){
+  //   this.messageSource.next(message); 
+  // }
+
+  setTitle(title){
+    this.title.next(title);
   }
 }

@@ -28,7 +28,7 @@ import {
   MatDialogModule, MatPaginatorModule, MatSortModule,
   MatTableModule, MatNativeDateModule, MatIconModule, MatOptionModule, MatSelectModule, MatMenuModule,
   MatFormFieldModule, MatChipsModule, MatAutocompleteModule, MatDividerModule, MatGridListModule, MatGridList,
-  MatGridTile, MatSidenavModule, MatListModule, MatRadioModule, MatSliderModule
+  MatGridTile, MatSidenavModule, MatListModule, MatRadioModule, MatSliderModule,MatTooltipDefaultOptions
 } from '@angular/material';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -43,6 +43,10 @@ import { ReviewFormsComponent } from './review-forms/review-forms.component';
 import { AgentComponent } from './agent/agent.component';
 import { ReviewApplicantComponent } from './review-applicant/review-applicant.component';
 import { ReviewDailogComponentComponent } from './review-dailog-component/review-dailog-component.component';
+import { SchedulerComponent } from './scheduler/scheduler.component';
+import { IndividualScheduleComponent } from './individual-schedule/individual-schedule.component';
+import { GroupScheduleComponent } from './group-schedule/group-schedule.component';
+import { IndividualApointmentConfirmationComponent } from './individual-apointment-confirmation/individual-apointment-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,7 @@ import { ReviewDailogComponentComponent } from './review-dailog-component/review
     HomeComponent,
     DescentComponent,
     LoginComponent,
-    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent, AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent, SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent, ReviewDailogComponentComponent
+    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent, AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent, SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent, ReviewDailogComponentComponent, SchedulerComponent, IndividualScheduleComponent, GroupScheduleComponent, IndividualApointmentConfirmationComponent
   ],
   imports: [
     

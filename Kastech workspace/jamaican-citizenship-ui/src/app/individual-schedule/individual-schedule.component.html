@@ -1,0 +1,78 @@
+<div class="">
+    <div class="container">
+        <div class=" pad-0">
+
+            <div class="row">
+                <!-- <div class="col-lg-3 col-sm-12 text-left SCA-left_box">
+                    <a href="#" class="SCA_side_menu">Cancel Appointment</a>
+                    <a href="#" class="SCA_side_menu">Reschedule Appointment</a>
+                    <a href="#" class="SCA_side_menu">Update Profile</a>
+                    <a href="#">Logout</a>
+                </div> -->
+                <div class="col-lg-12 col-sm-12 SCA-right_box">
+                    <div class="row">
+                        <div class="col-lg-12 text-center SCA_title">
+                            <h3>Schedule Citizenship Appointment</h3>
+                            <p>Applicants for citizenship are required to appear in person at the Passport Immigration
+                                and Citizenship Agency office.</p>
+                        </div>
+                        <div class="col-lg-12 col-sm-12 text-right  avilable_block">
+                            <button class="btn btn-shows"></button><span>Available</span>
+                            <button class="btn btn-shows Fill-btn"></button><span>Fill</span>
+                        </div>
+                        <div class="col-lg-4 col-sm-3 text-right">
+                            <bs-datepicker-inline [(bsConfig)]="datePickerConfig1" [(bsValue)]="cal1"
+                                (bsValueChange)="changeDate('cal1',$event)"></bs-datepicker-inline>
+                        </div>
+                        <div class="col-lg-4 col-sm-3 text-center">
+                            <bs-datepicker-inline [(bsConfig)]="datePickerConfig2" [(bsValue)]="cal2"
+                                (bsValueChange)="changeDate('cal2',$event)"></bs-datepicker-inline>
+                        </div>
+                        <!-- <div class="col-lg-4 col-sm-12"><div class="calendar_afternext"></div> -->
+                        <div class="col-lg-4 col-sm-3 text-left">
+                            <bs-datepicker-inline [(bsConfig)]="datePickerConfig3" [(bsValue)]="cal3"
+                                (bsValueChange)='changeDate("cal3",$event)'></bs-datepicker-inline>
+                        </div>
+
+                        <div class="col-lg-12 col-sm-12 my-3">
+                            <div class="table-responsive">
+                                <table class="table SCA_table table-hover">
+
+                                    <tr class="bg-dark text-light " *ngIf="sloths">
+                                        <th>Select</th>
+                                        <th>Time</th>
+                                        <th>Date</th>
+                                        <th>Available</th>
+
+                                    </tr>
+                                    <tbody *ngFor='let slot of sloths'>
+
+                                        <tr>
+                                            <td>
+                                                <input class="form-check-input checkbox" name='sloth' type="radio"
+                                                    value="" id="rememberMe"></td>
+
+                                            <td>{{slot.time}}</td>
+                                            <td>{{sloths.date}}</td>
+                                            <td>{{slot.sloth}}</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+
+                        </div>
+                        <div class="col-lg-12 col-sm-12 text-right">
+                            <button (click)="back()" class="btn btn-theme mx-1 my-3">Back</button>
+                            <button (click)="next()" class="btn btn-theme mx-1 my-3">Next</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

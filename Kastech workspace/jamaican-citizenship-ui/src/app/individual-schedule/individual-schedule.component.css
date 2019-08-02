@@ -1,0 +1,126 @@
+.SCA-12 {
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    min-height: 100vh;
+    z-index: 999;
+    opacity: 1;
+    position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    padding: 40px 0;
+    background: #f1f1f1;
+}
+
+.SCA-box-12 {
+    margin: 0 103px 0 143px;
+    max-width: 851px;
+    border-radius: 10px;
+    background: #fff;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+    text-align: center;
+    box-shadow: 0px 0px 5px -2px #333;
+    padding: 20px;
+}
+.SCA-right_box{
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 0px 5px -2px #333;
+    padding: 10px;
+}
+.SCA-right_box{
+
+}
+.SCA-left_box a{
+    display: block;
+    padding: 8px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    transition: all 0.5s;
+}
+.SCA-left_box a:hover, .SCA-left_box a.active{
+    background-color: #1a9332;
+    color: #fff;
+}
+.SCA-left_box a:last-child{
+    border-bottom: none;
+}
+.p-r-0{
+    padding-right: 0;
+}
+.avilable_block{
+    padding-right: 20px;
+    margin-bottom: 15px;
+}
+.btn-shows:first-child{
+    background-color: #8fb569;
+    border:1px solid #8fb569;
+    color: #fff;
+    box-shadow: 0px 1px 9px -2px #000;
+    margin-left: 15px;
+    margin-right: 5px;
+    width: 16px;
+    height: 15px;
+    padding: 0;
+    border-radius: 19px;
+    cursor: default !important;
+}
+.btn-shows.Fill-btn{
+    background-color: #FFA400;
+    border:1px solid #FFA400;
+    color: #fff;
+    box-shadow: 0px 1px 9px -2px #000;
+    margin-right: 5px;
+    margin-left: 15px;
+    width: 16px;
+    height: 15px;
+    padding: 0;
+    border-radius: 19px;
+    cursor: default !important;
+
+}
+
+.SCA_table  .form-check-input {
+    margin-left: 0;
+}
+.SCA_table td:nth-child(1){
+    width: 12%;
+}
+.SCA_table td:nth-child(2){
+    width: 17%;
+}
+.SCA_table td:nth-child(3){
+    width: 38%;
+}
+.btn.btn-theme {
+    background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364);
+    border: none;
+    color: #fff;
+    padding: 6px 50px;
+        box-shadow: 1px 1px 6px -2px #333;
+}
+.btn.btn-theme:hover {
+    background: #fff;
+    color: #0F2027;
+}
+.SCA_title p{
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 992px) {
+    .SCA-box-12{
+        margin: 0;
+    }
+}

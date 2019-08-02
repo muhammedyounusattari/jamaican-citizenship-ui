@@ -1,0 +1,70 @@
+.appointment-c {
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    min-height: 100vh;
+    z-index: 999;
+    opacity: 1;
+    position: relative;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*    padding: 30px 0;*/
+    /*background: #f1f1f1;*/
+}
+
+.appointment-c-box-12 {
+    margin: 0 103px 0 143px;
+    max-width: 851px;
+    border-radius: 10px;
+    background: #fff;
+    background-size: cover;
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+    text-align: center;
+    box-shadow: 0px 0px 5px -2px #333;
+    padding: 20px;
+}
+.btn.btn-theme {
+    background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364);
+    border: none;
+    color: #fff;
+    padding: 6px 50px;
+    box-shadow: 0px 0px 5px -2px #333;
+}
+.btn.btn-theme:hover {
+    background: #fff;
+    color: #0F2027;
+}
+ul.appointment_con_list {
+  list-style: none;  
+  padding-left: 0
+}
+ul.appointment_con_list li{
+    line-height: 30px;
+}
+
+.appointment_con_list li:before {
+  content: "\f00c"; 
+  font-family: FontAwesome;
+  display: inline-block;
+  width: 1.3em; 
+  margin-right: 5px;
+}
+.appointment_c_para p span{
+    color: #1a9332;
+    font-weight: 600;
+    font-size: 17px;  
+}
+
+
+@media (max-width: 992px) {
+    .appointment-c{
+        margin: 0;
+    }
+}

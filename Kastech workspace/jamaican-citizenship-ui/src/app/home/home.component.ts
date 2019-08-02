@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.logoutService.currentMessage.subscribe(message=>{this.loginStatus = message});
+    this.logoutService.setTitle('home...');
+   // this.logoutService.currentMessage.subscribe(message=>{this.loginStatus = message});
   }
 
 }

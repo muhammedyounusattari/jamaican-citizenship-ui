@@ -14,6 +14,10 @@ import { SupervisorViewComponent } from './supervisor-view/supervisor-view.compo
 import { ReviewFormsComponent } from './review-forms/review-forms.component';
 import { AgentComponent } from './agent/agent.component';
 import { ReviewApplicantComponent } from './review-applicant/review-applicant.component';
+import { SchedulerComponent } from './scheduler/scheduler.component';
+import { IndividualScheduleComponent } from './individual-schedule/individual-schedule.component';
+import { GroupScheduleComponent } from './group-schedule/group-schedule.component';
+import { IndividualApointmentConfirmationComponent } from './individual-apointment-confirmation/individual-apointment-confirmation.component';
 
 
 const routes: Routes = [
@@ -34,7 +38,12 @@ const routes: Routes = [
   {path:'reviewForms/:formType', component:ReviewFormsComponent},
 
   {path:'agentView', component:AgentComponent},
-  {path:'reviewApplicantForm', component:ReviewApplicantComponent}
+  {path:'reviewApplicantForm', component:ReviewApplicantComponent},
+  {path:'scheduleAppointment/:applicantId',component:SchedulerComponent},
+  {path:'login/:schedule',component:LoginComponent},
+  {path:'individualSchedule', component:IndividualScheduleComponent},
+  {path:'groupSchedule', component:GroupScheduleComponent},
+  {path:'individualAppointmentConf', component:IndividualApointmentConfirmationComponent  }
 ];
 
  

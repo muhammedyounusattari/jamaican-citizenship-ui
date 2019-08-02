@@ -59,7 +59,7 @@ export class ReviewApplicantComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.logoutService.setTitle('All-Forms...');
     var descentFormLocal = localStorage.getItem('descentForm');
     if (descentFormLocal != null) {
       this.descentFormSessoin = JSON.parse(descentFormLocal);
@@ -163,7 +163,7 @@ export class ReviewApplicantComponent implements OnInit {
       })
       this.descentForm.disable();
     }
-    this.logoutService.changeMessage(true);
+   // this.logoutService.changeMessage(true);
     this.uploadForm = this.fb.group({
       document: [null, null],
       type: [null, Validators.compose([Validators.required])],
