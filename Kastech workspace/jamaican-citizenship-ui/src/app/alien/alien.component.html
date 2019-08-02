@@ -34,12 +34,12 @@
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="form-group alien_form_inline">
-                                <label>Date of Birth</label>
+                                <label>Date of Birth <span class="glyphicon">&#x2a;</span></label>
                                 <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dob"  
                                 placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" [maxDate]="datePickerConfig.maxDate" >
                             </div>
                             <div class="form-group alien_form_inline">
-                                <label>Place of Birth</label>                               
+                                <label>Place of Birth <span class="glyphicon">&#x2a;</span></label>                               
                                 <!-- <select class="form-control" id="inputGroupSelect01">
                                     <option  selected>Select City</option>
                                     <option>New value 1</option>
@@ -50,32 +50,30 @@
 
                             </div>
                             <div class="form-group alien_form_inline">
-                                <label>Gender</label>
-                                
-
+                                <label>Gender <span class="glyphicon">&#x2a;</span></label>
                                 <div class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
-                                  <input class="form-check-input" name="gender" type="radio" value="gender" id="Male">
-                                  <label class="form-check-label" for="Male">MALE</label>
+                                    <input class="form-check-input" name="gender" type="radio" value="male" id="Male"  formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                                    <label class="form-check-label" for="Male">MALE</label>
                               </div>
                               <div class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
-                                  <input class="form-check-input" name="gender" type="radio" value="gender" id="Female">
-                                  <label class="form-check-label" for="Female">FEMALE</label>
+                                  <input type="radio" class="form-check-input" formControlName="gender" value="female" id="female" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                                  <label class="form-check-label" for="female">Female</label>
                               </div>
                           </div>
                       </div>
                       <div class="col-lg-6 col-sm-12">
                         <div class="form-group alien_form_inline">
-                            <label>Address</label>
-                            <input type="text" name="" class="form-control">
+                            <label>Address <span class="glyphicon">&#x2a;</span></label>
+                            <input type="text" name="" class="form-control" formControlName="address" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
                         </div>
                         <div class="form-group alien_form_inline">
-                            <label>Telephone Number</label>
-                            <input type="text" name="" class="form-control">
-                        </div>
+                            <label>Telephone Number <span class="glyphicon">&#x2a;</span></label>
+                            <input type="number" class="form-control" formControlName="number"  placeholder="Phone number" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" >
+                          </div>
                         <div class="form-group alien_form_inline">
-                            <label>Email Address</label>
-                            <input type="text" name="" class="form-control">
-                        </div>
+                            <label>Email Address <span class="glyphicon">&#x2a;</span></label>
+                            <input type="text" class="form-control" formControlName="email" placeholder="Email address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+                          </div>
                     </div>
                 </div>
             </div>
@@ -93,22 +91,22 @@
                         <div class="col-lg-6 col-sm-12">
                             <div class="form-group alien_form_inline">
                                 <label>Name</label>
-                                <input type="text" name="" class="form-control">
+                                <input type="text" name="" class="form-control" formControlName="name" placeholder="Email address">
                                 <p>(If different from above)</p>
                             </div>
                             <div class="form-group alien_form_inline">
                                 <label>Occupation</label>
-                                <input type="text" name="" class="form-control">
+                                <input type="text" name="" class="form-control" formControlName="occupation" placeholder="Occupation">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-12">
                             <div class="form-group alien_form_inline">
                                 <label>Other Name for private purposes</label>
-                                <input type="text" name="" class="form-control">
+                                <input type="text" name="" class="form-control" formControlName="othername" >
                             </div>
                             <div class="form-group alien_form_inline">
                                 <label>Business Address</label>
-                                <input type="text" name="" class="form-control">
+                                <input type="text" name="" class="form-control" formControlName="businessaddress" placeholder="Business Address">
                             </div>
                         </div>
                     </div>
@@ -146,7 +144,7 @@
                         <div class="col-lg-6 col-sm-12">
                             <div class="form-group alien_form_inline labl-list txt-box">
                                 <label class=" labl-list State-how-Nationality">State how Nationality was changed </label>
-                                <input type="text" name="" class="form-control">
+                                <input type="text" name="" class="form-control" >
                                 <p>(If Applicable)</p>
                             </div>
                             <div class="form-group alien_form_inline labl-list txt-box">
@@ -163,7 +161,7 @@
     </div>
     <div class="p-4 text-right">
         <button class="btn btn-danger">Logout</button>
-        <button class="btn btn-theme" type="submit">Save</button>
+        <button class="btn btn-theme" >Save</button>
         <button class="btn btn-theme" (click)="showsection2()">Next</button>
     </div>
     </div>
@@ -179,7 +177,7 @@
                           <div class="col-lg-6 col-sm-12">
                               <div class="form-group alien_form_inline">
                                   <label>f ) British  Territory </label>
-                                  <select class="form-control" id="inputGroupSelect01">
+                                  <select class="form-control" id="inputGroupSelect01" formControlName="britishterritory">
                                       <option value="1">New value 1</option>
                                       <option value="2">New value 2</option>
                                       <option value="3">New value 3</option>
@@ -189,13 +187,13 @@
                           <div class="col-lg-6 col-sm-12">
                               <div class="form-group alien_form_inline">
                                   <label class="lbl-list">State how status was acquired</label>
-                                  <input type="text" name="" class="form-control">
+                                  <input type="text" name="" class="form-control" formControlName="status">
                               </div>
                           </div>
                           <div class="col-lg-6 col-sm-12">
                               <div class="form-group alien_form_inline">
                                   <label>h ) Other Nationality Status</label>
-                                  <input type="text" name="" class="form-control">
+                                  <input type="text" name="" class="form-control" formControlName="Nationalitystatus">
                               </div>
                           </div>
                       </div>
@@ -279,7 +277,7 @@
                           <div class="col-lg-4 col-sm-12">
                               <div class="form-group alien_form_inline">
                                 <label for="" class="">Date of Marriage</label>
-                                <input class="form-control" type="date">
+                                <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
                             </div>
                         </div>
                         <div class="col-lg-4 col-sm-12">
@@ -299,7 +297,7 @@
                           <p class="hint-text">If Wife of Husband is dead please indicated date and place of death</p>
                           <div class="form-group alien_form_inline">
                             <label for="" class="">Date</label>
-                            <input class="form-control" type="date">
+                            <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
                         </div>
                         <div class="form-group alien_form_inline"> 
                           <label>Place Of Death</label>
@@ -315,7 +313,7 @@
                       <p class="hint-text">If marriage dissolved, give date and place of decree</p>
                       <div class="form-group alien_form_inline">
                           <label for="" class="">Date</label>
-                          <input class="form-control" type="date">
+                          <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
                       </div>
                       <div class="form-group alien_form_inline"> 
                           <label>Place Of Decree</label>
@@ -407,8 +405,8 @@
                                   </tr>
                                   <tr class="feild-block">
                                       <td>Full postal Address in Jamaica</td>
-                                      <td><textarea class="form-control"  row="1" max-row="2"></textarea></td>                   
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><textarea class="form-control"  row="1" max-row="2" formControlName="fulladdress" ></textarea></td>                   
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td> <input class="form-control" type="date" placeholder="To Dte" > </td>
 
                                   </tr>
@@ -416,8 +414,8 @@
                                       <td>Full postal Address in Jamaica
                                           <span class="hint-text">(If you ever resided at another address)</span>
                                       </td>
-                                      <td><textarea class="form-control"  row="1" max-row="2"></textarea></td>                   
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><textarea class="form-control"  row="1" max-row="2" formControlName="fulladdress2" ></textarea></td>                   
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td> <input class="form-control" type="date" placeholder="To Dte" > </td>
 
                                   </tr>
@@ -425,8 +423,8 @@
                                       <td>Full postal Address in Jamaica
                                           <span class="hint-text">(If you ever resided at another address)</span>
                                       </td>
-                                      <td><textarea class="form-control"  row="1" max-row="2"></textarea></td>                   
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><textarea class="form-control"  row="1" max-row="2" formControlName="fulladdres3" ></textarea></td>                   
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td> <input class="form-control" type="date" placeholder="To Dte" > </td>
 
                                   </tr>
@@ -435,7 +433,7 @@
                                           <label>Total Residence in Jamaica</label>
                                       </td>
                                       <td colspan="3">
-                                          <input type="text" name="" class="form-control years_block"><span>Years</span>
+                                          <input type="text" name="" class="form-control years_block" formControlName="years_block"><span>Years</span>
                                       </td>
                                   </tr>
                               </tbody>
@@ -463,40 +461,40 @@
                                           <span>1. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                   </tr>
                                   <tr class="countries_visited_block">
                                       <td>
                                           <span>2. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                   </tr>
                                   <tr class="countries_visited_block">
                                       <td>
                                           <span>3. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                   </tr>
                                   <tr class="countries_visited_block">
                                       <td>
                                           <span>4. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                   </tr>
                                   <tr class="countries_visited_block">
                                       <td>
                                           <span>5. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                   </tr>
                               </tbody>
                           </table>
@@ -534,9 +532,10 @@
                                   <tr class="proceeding_names_block">
                                       <td>
                                           <span>1. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
+                                          <input type="text" class="form-control" name="" formControlName="" >
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName=""  
+                                        placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -545,8 +544,8 @@
                                           <span>2. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
-                                      <td><input type="text" class="form-control" name=""></td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
+                                      <td><input type="text" class="form-control" name="" formControlName=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
                                   <tr class="proceeding_names_block">
@@ -554,7 +553,7 @@
                                           <span>3. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -563,7 +562,7 @@
                                           <span>4. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -572,7 +571,7 @@
                                           <span>5. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -590,17 +589,17 @@
                           <div class="col-lg-6 col-sm-12">
                               <div class="form-group alien_form_inline">
                                   <label>Date of any composition made with creditors</label>
-                                  <input class="form-control" type="date">
+                                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
                               </div>
                               <div class="form-group alien_form_inline">
                                   <label>Date of Discharge from Bankruptcy</label>
-                                  <input class="form-control" type="date">
+                                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
                               </div>
                           </div> 
                           <div class="col-lg-6 col-sm-12">
                               <div class="form-group alien_form_inline">
                                   <label>Date of Bankruptcy</label>
-                                  <input class="form-control" type="date">
+                                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
                               </div>
                           </div> 
                       </div>
@@ -655,7 +654,7 @@
                                           <span>1. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -664,7 +663,7 @@
                                           <span>2. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -673,7 +672,7 @@
                                           <span>3. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -682,7 +681,7 @@
                                           <span>4. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -691,7 +690,7 @@
                                           <span>5. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -716,7 +715,7 @@
                                           <span>1. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -725,7 +724,7 @@
                                           <span>2. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -734,7 +733,7 @@
                                           <span>3. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -743,7 +742,7 @@
                                           <span>4. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -752,7 +751,7 @@
                                           <span>5. &nbsp;</span>
                                           <input type="text" class="form-control" name="">
                                       </td>
-                                      <td><input class="form-control" type="date"> </td>
+                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
                                       <td><input type="text" class="form-control" name=""></td>
                                       <td><input type="text" class="form-control" name=""></td>
                                   </tr>
@@ -804,7 +803,7 @@
                           <div class="col-md-6">
                               <form method="post" action="#" id="#" class="support-text-block">
                               <div class="form-group files">
-                                  <input type="file" class="form-control" multiple="">
+                                  <input type="file" class="form-control" multiple=""     formControlName="file">
                               </div>
                               <span class="support-text">supports file .pdf, jpg and png</span>
                           </form>
@@ -812,7 +811,7 @@
                       <div class="col-md-6">
                           <div class="form-group documents-stauts">
                             <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+                              <input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx" formControlName="birth">
                               <label class="custom-control-label" for="customRadio"><img src="../../assets/images/agreement.png">
                                   <span>Birth Certficate.pdf</span>
                                   <div class="progress">
@@ -824,7 +823,7 @@
                           </label>
                       </div> 
                       <div class="custom-control custom-radio">
-                          <input type="radio" class="custom-control-input" id="Passport" name="example1" value="customEx">
+                          <input type="radio" class="custom-control-input" id="Passport" name="example1" value="customEx" formControlName="passport">
                           <label class="custom-control-label" for="Passport"><img src="../../assets/images/agreement.png">
                               <span>Passport Pic.jpg</span>
                               <div class="progress">
@@ -836,7 +835,7 @@
                       </label>
                   </div> 
                   <div class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" id="DriverLicence" name="example1" value="customEx">
+                      <input type="radio" class="custom-control-input" id="DriverLicence" name="example1" value="customEx" formControlName="driving">
                       <label class="custom-control-label" for="DriverLicence"><img src="../../assets/images/agreement.png">
                           <span>Driver Licence.pdf</span>
                           <div class="progress">
@@ -851,7 +850,7 @@
       </div>
       <div class="col-lg-12 col-sm-12 declaration_block">
         <div class="form-check checkbox-theme p-l-0 text-left ">
-          <input class="form-check-input" type="checkbox" value="" id="declaration">
+          <input class="form-check-input" type="checkbox" value="" id="declaration" formControlName="declaration">
           <label class="form-check-label" for="declaration">
               <strong>Declaration:</strong> This declaration would appear beside a checkbox at the end of the summary page, which summarizes all of the information entered by the applicant.<br/>
               <span>I declare that the information given in this application is complete and accurate to the best of my knowledge and belief and that the photo submitted is my true likeness.  
@@ -866,7 +865,7 @@
     </div>
     <div class="p-4 text-right">
     <button class="btn btn-theme" (click)="showprevioussection5()">Back</button>
-    <button class="btn btn-theme" (click)="showsection7()" type="submit">Submit</button>
+    <button class="btn btn-theme" type="submit"  >Submit</button>
     </div>
     </div>
     </div>

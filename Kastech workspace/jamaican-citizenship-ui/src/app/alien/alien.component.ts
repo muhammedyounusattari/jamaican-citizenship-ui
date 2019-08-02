@@ -134,7 +134,7 @@ showprevioussection5(){
 
 
 loadForm() {
-  alert('hi');
+  // alert('hi');
   this.alienRegistrationForm = this.formBuilder.group({ //new FormGroup({
     firstname: ['', [Validators.required, Validators.maxLength(10)]],
     lastname: ['', Validators.required],
@@ -145,9 +145,22 @@ loadForm() {
     email: ['', [Validators.required, Validators.email]],
     number: ['876', [Validators.required]],
     gender: ['', Validators.required],
-    address1: ['', Validators.required],
-    address2: ['', Validators.required],
-    zip: ['', Validators.required]
+    address: ['', Validators.required],
+    zip: ['', Validators.required],
+    name:['', Validators.required],
+    occupation:['', Validators.required],
+    othername:['', Validators.required],
+    businessaddress:['', Validators.required],
+    britishterritory:['', Validators.required],
+    status:['', Validators.required],
+    Nationalitystatus:['', Validators.required],
+    fulladdress:['', Validators.required],
+    fulladdress2:['', Validators.required],
+    fulladdress3:['', Validators.required],
+    file:['', Validators.required],
+    passport:['', Validators.required],
+    driving:['', Validators.required],
+    declaration:['', Validators.required],
   });
 }
 

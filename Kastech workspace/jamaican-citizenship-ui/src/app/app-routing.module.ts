@@ -18,7 +18,8 @@ import { SchedulerComponent } from './scheduler/scheduler.component';
 import { IndividualScheduleComponent } from './individual-schedule/individual-schedule.component';
 import { GroupScheduleComponent } from './group-schedule/group-schedule.component';
 import { IndividualApointmentConfirmationComponent } from './individual-apointment-confirmation/individual-apointment-confirmation.component';
-
+import { AlienComponent } from './alien/alien.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -42,7 +43,9 @@ const routes: Routes = [
   {path:'login/:schedule',component:LoginComponent},
   {path:'individualSchedule', component:IndividualScheduleComponent},
   {path:'groupSchedule', component:GroupScheduleComponent},
-  {path:'individualAppointmentConf', component:IndividualApointmentConfirmationComponent}
+  {path:'individualAppointmentConf', component:IndividualApointmentConfirmationComponent},
+  {path:'alienApplicationForm', component:AlienComponent},
+  {path:'registrationApplicationForm', component:RegistrationComponent}
 ];
 
  
