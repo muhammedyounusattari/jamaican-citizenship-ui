@@ -14,7 +14,8 @@ import { SupervisorViewComponent } from './supervisor-view/supervisor-view.compo
 import { ReviewFormsComponent } from './review-forms/review-forms.component';
 import { AgentComponent } from './agent/agent.component';
 import { ReviewApplicantComponent } from './review-applicant/review-applicant.component';
-
+import { AlienComponent } from './alien/alien.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -32,9 +33,11 @@ const routes: Routes = [
   // {path:'reviewForms', component:ReviewFormsComponent},
   //{path:'adminReview/:formType',component:SupervisorViewComponent},
   {path:'reviewForms/:formType', component:ReviewFormsComponent},
-
   {path:'agentView', component:AgentComponent},
-  {path:'reviewApplicantForm', component:ReviewApplicantComponent}
+  {path:'reviewApplicantForm', component:ReviewApplicantComponent},
+  {path:'alienApplicationForm', component:AlienComponent},
+  {path:'registrationApplicationForm', component:RegistrationComponent}
+
 ];
 
  

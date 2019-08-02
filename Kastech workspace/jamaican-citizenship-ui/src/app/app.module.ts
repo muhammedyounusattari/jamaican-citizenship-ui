@@ -43,6 +43,8 @@ import { ReviewFormsComponent } from './review-forms/review-forms.component';
 import { AgentComponent } from './agent/agent.component';
 import { ReviewApplicantComponent } from './review-applicant/review-applicant.component';
 import { ReviewDailogComponentComponent } from './review-dailog-component/review-dailog-component.component';
+import { AlienComponent } from './alien/alien.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,7 @@ import { ReviewDailogComponentComponent } from './review-dailog-component/review
     HomeComponent,
     DescentComponent,
     LoginComponent,
-    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent, AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent, SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent, ReviewDailogComponentComponent
+    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent, AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent, SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent, ReviewDailogComponentComponent, AlienComponent, RegistrationComponent
   ],
   imports: [
     
