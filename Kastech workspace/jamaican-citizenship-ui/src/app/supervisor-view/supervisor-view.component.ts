@@ -20,6 +20,7 @@ export class SupervisorViewComponent implements OnInit {
        
      })
   }
+  
 
 
 }

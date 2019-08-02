@@ -160,7 +160,7 @@ export class DescentComponent implements OnInit {
 
       })
     }
-    this.logoutService.changeMessage(true);
+  //  this.logoutService.changeMessage(true);
     this.uploadForm = this.fb.group({
       document: [null, null],
       type: [null, Validators.compose([Validators.required])],

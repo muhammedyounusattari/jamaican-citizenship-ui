@@ -40,8 +40,10 @@ export class ReviewDailogComponentComponent implements OnInit {
         localStorage.removeItem('status');
         localStorage.removeItem('applicantId');
         this.router.navigate(['/agentView']);
+        this.dialogRef.close();
         return false;
       }
+      this.dialogRef.close();
       this.router.navigate(['/reviewApplicantForm']);
     })
   }

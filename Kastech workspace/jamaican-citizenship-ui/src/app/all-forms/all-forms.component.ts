@@ -12,7 +12,8 @@ export class AllFormsComponent implements OnInit {
   constructor(private logoutService:LogoutService) { }
 
   ngOnInit() {
-    this.logoutService.changeMessage(true);
+    //this.logoutService.changeMessage(true);
+    this.logoutService.setTitle('All-Forms...');
   }
 
 }
