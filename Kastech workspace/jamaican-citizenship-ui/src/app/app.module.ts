@@ -43,15 +43,12 @@ import { ReviewFormsComponent } from './review-forms/review-forms.component';
 import { AgentComponent } from './agent/agent.component';
 import { ReviewApplicantComponent } from './review-applicant/review-applicant.component';
 import { ReviewDailogComponentComponent } from './review-dailog-component/review-dailog-component.component';
-<<<<<<< HEAD
-import { AlienComponent } from './alien/alien.component';
-import { RegistrationComponent } from './registration/registration.component';
-=======
 import { SchedulerComponent } from './scheduler/scheduler.component';
 import { IndividualScheduleComponent } from './individual-schedule/individual-schedule.component';
 import { GroupScheduleComponent } from './group-schedule/group-schedule.component';
 import { IndividualApointmentConfirmationComponent } from './individual-apointment-confirmation/individual-apointment-confirmation.component';
->>>>>>> 0ce3c64dbff8772ac1cb234094c05e3f17bc914a
+import { AlienComponent } from './alien/alien.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -61,11 +58,11 @@ import { IndividualApointmentConfirmationComponent } from './individual-apointme
     HomeComponent,
     DescentComponent,
     LoginComponent,
-<<<<<<< HEAD
-    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent, AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent, SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent, ReviewDailogComponentComponent, AlienComponent, RegistrationComponent
-=======
-    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent, AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent, SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent, ReviewDailogComponentComponent, SchedulerComponent, IndividualScheduleComponent, GroupScheduleComponent, IndividualApointmentConfirmationComponent
->>>>>>> 0ce3c64dbff8772ac1cb234094c05e3f17bc914a
+    FileDropDirective, FileSelectDirective, ForgotPasswordComponent, ResetPasswordComponent,
+     AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent,
+      SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent,
+       ReviewDailogComponentComponent, SchedulerComponent, IndividualScheduleComponent,
+        GroupScheduleComponent, IndividualApointmentConfirmationComponent, AlienComponent, RegistrationComponent 
   ],
   imports: [
     
