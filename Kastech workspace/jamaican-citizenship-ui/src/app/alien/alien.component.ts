@@ -31,7 +31,9 @@ export class AlienComponent implements OnInit {
   section6: boolean;
   section7: boolean;
 
-  constructor(private profileService: CreateProfileService, private utilityService: UtilityService, private routing: Router,
+  constructor(private profileService: CreateProfileService,
+     private utilityService: UtilityService,
+      private routing: Router,
     private formBuilder: FormBuilder) { 
    
   }
@@ -175,17 +177,6 @@ loadPhoneNumber() {
 
 }
 
-addalienRegistrationForm(payload) {
-
-    this.submitted = true;
-    this.showErrorMsg = "Please fill the required fields";
-    if (this.alienRegistrationForm.invalid) {
-      return;
-    }
-    else {
-        console.log(payload);
-    }
-  }
 
 get f() { return this.alienRegistrationForm.controls; }
 onSubmit(payload) {
@@ -196,26 +187,7 @@ onSubmit(payload) {
     return;
   }
 
-  // this.blockUI.start('Loading.....');
-  // payload.isPasswordChanged='false';
-  // this.loginService.validateEmailAddress(payload.email).subscribe(data => {
-  //   if (data != null) {
-  //     this.blockUI.stop();
-  //     this.showErrorMsg = "An account already exists with this email id";
-  //   } else {
-  //     // payload.dob = this.utilityService.formatDate(payload.dob);
-  //     this.showErrorMsg='';
-  //     payload.dob = this.utilityService.formatDate(payload.dob);
-  //     this.profileService.createProfile(payload).subscribe(data => {
-  //       sessionStorage.setItem('alienRegistrationForm', JSON.stringify(data));
-  //       this.routing.navigate(['/allForms']);
-  //       console.log('+++++', data);
-  //       this.blockUI.stop();
-  //     });
-
-  //   }
-  // })
-
+  
   console.log(payload);
 }
 
