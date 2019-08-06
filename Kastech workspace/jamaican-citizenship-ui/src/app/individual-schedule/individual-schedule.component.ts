@@ -31,9 +31,9 @@ export class IndividualScheduleComponent implements OnInit {
   cal3_min: Date = new Date(this.today.getFullYear(), this.today.getMonth() + 2, 1);
   cal3_max: Date = new Date(this.today.getFullYear(), this.today.getMonth() + 2, 31);
 
-  // cal1: string = '';
-  // cal2: string = '';
-  // cal3: string = '';
+  cal1: string = '';
+  cal2: string = '';
+  cal3: string = '';
 
   sloths: any;
   disabledDatesCal1: any;
@@ -50,8 +50,8 @@ export class IndividualScheduleComponent implements OnInit {
   ngOnInit() {
 
     this.disabledDates = [
-      new Date('2019-07-29'),
-      new Date('2019-07-30')
+      new Date('2019-08-29'),
+      new Date('2019-09-30')
     ]
 
 
@@ -87,7 +87,7 @@ export class IndividualScheduleComponent implements OnInit {
     var month = this.utilityService.getMonth(calendar.getMonth());
 
     this.scheduleService.getResult().toPromise().then((data) => {
-      debugger;
+      //debugger;
       this.dates = [];
       var info = data["appointment"][month.toLowerCase()];
       for (var key in info) {
@@ -104,6 +104,23 @@ export class IndividualScheduleComponent implements OnInit {
 
 
   changeDate(calendarSelected, event) {
+
+    console.log(calendarSelected);
+    if(calendarSelected == 'cal1'){
+      console.log('cal1');
+      this.cal2 = '';
+      this.cal3 = '';
+    }
+    else if(calendarSelected == 'cal2'){
+      console.log('cal2');
+      this.cal1 = '';
+      this.cal3 = '';
+    }
+    else if(calendarSelected == 'cal3'){
+      console.log('cal3');
+      this.cal1 = '';
+      this.cal2 = '';
+    }
 
     var month = this.utilityService.getMonth(event.getMonth());
     var date = event.getDate() + "/" + (event.getMonth() + 1) + "/" + event.getFullYear();

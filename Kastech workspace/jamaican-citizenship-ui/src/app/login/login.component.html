@@ -1,5 +1,5 @@
 <block-ui>
-<div style='background-color: #eeeff1' class="container">
+<!-- <div style='background-color: #eeeff1' class="container">
     <div class="row justify-content-center align-items-center" style="height:64vh;margin-bottom:40px">
         <div class="col-4">
             <div class="card">
@@ -23,6 +23,69 @@
                         <div  style="float:right"><a routerLink="/createProfile" class="badge badge-primary">Create Profile</a></div>
                         &nbsp;&nbsp;<div style="float:right"><a routerLink="#" (click)="forgotPassword(login.value)" class="badge badge-primary">Forgot Password</a></div>&nbsp;&nbsp;
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="login-12">
+    <div class="container">
+        <div class="col-md-12 pad-0">
+                <div *ngIf="showError" class="alert alert-danger" role="alert" data-auto-dismiss="100" >
+                        {{errorMsg}}
+                    </div>
+            <div class="row login-box-12">
+                <div class="col-lg-6 col-sm-12 col-pad-0 align-self-center">
+
+                    <div class="login-inner-form">
+                        <div class="details">
+                            <h3 class="text-left">Sign into your account</h3>
+                            <form [formGroup]="login"  (ngSubmit)=onSubmit(login.value) class="form-group">
+                                    <div class="form-group" style="width:100%;float: left">
+                                        <div class="form-check form-check-inline">
+                                            <input formControlName="loginType" type='radio' value='offical' (click)='changeLabel("offical")' name='loginType'/>PICA Official &nbsp;&nbsp;
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                                <input formControlName="loginType" type='radio' (click)='changeLabel("user")'  name='loginType' value='regular'/>Users
+                                        </div>
+                                    </div> 
+                                <div class="form-group">
+                                    <!-- <label>{{loginLabel}}</label> -->
+                                    <input formControlName="email" type="text" class="form-control" name="email"  placeholder="{{loginLabel}}">
+                                </div>
+                                <div class="form-group">
+                                    <input formControlName="password" type="password" class="form-control" name="password" placeholder="Password">
+                                </div>
+                                <div class="checkbox clearfix ">
+                                    <div class="form-check checkbox-theme p-l-0">
+                                        <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                    <a  routerLink="#" (click)="forgotPassword(login.value)">Forgot Password?</a>
+                                </div>
+                                <!-- <div class="form-group m-b-0 m-t-10">
+                        <div id="contactus-recaptcha" class="g-recaptcha" data-callback="vcc" style="padding-bottom:0px;"><div style="width: 304px; height: 78px;"><div><iframe src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeHCFcUAAAAANuzFArL_uhCdzmW4DvNaTbi9n5t&amp;co=ZmlsZTo.&amp;hl=en&amp;v=v1563777128698&amp;size=normal&amp;cb=u3ej5fun3u3z" width="304" height="78" role="presentation" name="a-rrvh7go95hz0" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div>
+                        <span class="msg-error"></span>
+                    </div> -->
+                                
+                                <div class="form-group">
+                                    <button type="submit" class="btn-md btn-theme btn-block"  id="sendlogin">Login</button>
+                                </div>
+                            </form>
+                            <p class="btm_line">
+                               <a href="#">Term and Conditions</a>
+                                <!-- <a routerLink="#" (click)="forgotPassword(login.value)" class="badge badge-primary">Forgot Password</a> -->
+                                <a href="#" routerLink="/createProfile" > Create New Account</a>
+                            
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-pad-0 bg-img align-self-center none-992">
+
+                    <p>To schedule a citizenship appointment, you will need to register and create a profile online. If you already have a profile, please do not create a new one. You can always modify your existing profile by logging in using your user ID and password. If you have lost your password, please simply retrieve it by clicking  Forgot Your Password? If you are a first time user, click New User? to create your profile.</p>
                 </div>
             </div>
         </div>
