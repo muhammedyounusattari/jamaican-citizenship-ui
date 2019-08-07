@@ -41,7 +41,7 @@ const routes: Routes = [
   {path:'reviewApplicantForm', component:ReviewApplicantComponent},
   {path:'scheduleAppointment/:applicantId',component:SchedulerComponent},
   {path:'login/:schedule',component:LoginComponent},
-  {path:'individualSchedule', component:IndividualScheduleComponent},
+  {path:'individualSchedule/:applicantId', component:IndividualScheduleComponent},
   {path:'groupSchedule', component:GroupScheduleComponent},
   {path:'individualAppointmentConf', component:IndividualApointmentConfirmationComponent},
   {path:'alienApplicationForm', component:AlienComponent},

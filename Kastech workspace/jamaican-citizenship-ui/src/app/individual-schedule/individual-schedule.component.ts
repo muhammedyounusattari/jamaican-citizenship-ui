@@ -5,7 +5,7 @@ import { BsDatepickerConfig, MonthPickerComponent } from 'ngx-bootstrap';
 import { UtilityService } from '../shared/services/utility.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { SchedulerService } from '../shared/services/scheduler.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -36,13 +36,23 @@ export class IndividualScheduleComponent implements OnInit {
   cal2: string = '';
   cal3: string = '';
 
+  slothSelected:string;
+  model='';
   sloths: any;
   disabledDatesCal1: any;
   disabledDates: any;
   dates: Array<Date>;
+  applicantId:string;
+  
   // bsInlineValue = new Date();
-  constructor(private utilityService: UtilityService, private cdr: ChangeDetectorRef, private formBuilder: FormBuilder, private scheduleService: SchedulerService,
-    private router: Router) {
+  constructor(private utilityService: UtilityService, private cdr: ChangeDetectorRef, 
+    private formBuilder: FormBuilder, private scheduleService: SchedulerService,
+    private router: Router,private activatedRoute:ActivatedRoute) {
+      this.activatedRoute.params.subscribe((param)=>{
+        this.applicantId = param.applicantId;
+      })
+
+
   }
 
   ngOnInit() {
@@ -85,7 +95,7 @@ export class IndividualScheduleComponent implements OnInit {
     var month = this.utilityService.getMonth(calendar.getMonth());
 
     this.scheduleService.getResult().toPromise().then((data) => {
-      //debugger;
+    
       this.dates = [];
       var info = data["appointment"][month.toLowerCase()];
       for (var key in info) {
@@ -128,7 +138,7 @@ export class IndividualScheduleComponent implements OnInit {
     //this.sloths = this.scheduleService.getSlothResult(month,date);
 
     this.scheduleService.getResult().toPromise().then((data) => {
-      this.sloths = data["appointment"][month.toLowerCase()][date];
+      this.sloths = data["appointment"][month.toLowerCase()][date].sloths;
       this.sloths.date = fullDate;
     })
   }
@@ -136,6 +146,17 @@ export class IndividualScheduleComponent implements OnInit {
 
   next() {
     //localStorage.setItem('date',)
+   // debugger;
+   var data =  this.model.split("_")
+   var payload ={
+
+      'time':data[0],
+      'date':data[1],
+      'applicantId':this.applicantId
+    };
+    this.scheduleService.confirmAppointment(payload).subscribe((data)=>{
+
+    })
     this.router.navigate(['/individualAppointmentConf']);
   }
 

@@ -49,12 +49,12 @@
                                         <th>Available</th>
 
                                     </tr>
-                                    <tbody *ngFor='let slot of sloths.sloths'>
+                                    <tbody *ngFor='let slot of sloths'>
 
                                         <tr>
                                             <td>
                                                 <input class="form-check-input checkbox" name='sloth' type="radio"
-                                                    value="" id="rememberMe"></td>
+                                                    [value]="slot.time+'_'+sloths.date" id="rememberMe" [(ngModel)]="model" ></td>
 
                                             <td>{{slot.time}}</td>
                                             <td>{{sloths.date}}</td>
