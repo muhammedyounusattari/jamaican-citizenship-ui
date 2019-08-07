@@ -1,11 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HOST_URL } from '../config/host.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SchedulerService {
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+  
   constructor(private http:HttpClient) { }
 
   getSlothResult(month,day){
@@ -18,5 +25,10 @@ export class SchedulerService {
 
   getResult(){
     return this.http.get('assets/json/scheduler.json');
+  }
+
+  confirmAppointment(payload){
+    const URL = HOST_URL.name +'/'
+    return this.http.post(URL,payload,this.httpOptions);
   }
 }

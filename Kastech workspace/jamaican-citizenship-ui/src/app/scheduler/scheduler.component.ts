@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-scheduler',
@@ -8,14 +8,20 @@ import { Router } from '@angular/router';
 })
 export class SchedulerComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  private applicantId:string;
+
+  constructor(private router:Router, private activatedRoute:ActivatedRoute) {
+    this.activatedRoute.params.subscribe((param)=>{
+      this.applicantId = param.applicantId;
+    })
+   }
 
   ngOnInit() {
 
   }
 
   individualForm(){
-    this.router.navigate(['/individualSchedule']);
+    this.router.navigate(['/individualSchedule/'+this.applicantId]);
   }
 
   groupForm(){
