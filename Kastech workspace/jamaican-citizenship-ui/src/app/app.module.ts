@@ -50,6 +50,7 @@ import { IndividualApointmentConfirmationComponent } from './individual-apointme
 import { AlienComponent } from './alien/alien.component';
 import { RegistrationComponent } from './registration/registration.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,11 +66,6 @@ import { RegistrationComponent } from './registration/registration.component';
         GroupScheduleComponent, IndividualApointmentConfirmationComponent, AlienComponent, RegistrationComponent 
   ],
   imports: [
-    
-    
-    
-    
-    
     BrowserModule,
     AppRoutingModule,
     // ,

@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { SchedulerService } from '../shared/services/scheduler.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-individual-schedule',
   templateUrl: './individual-schedule.component.html',
@@ -42,9 +43,6 @@ export class IndividualScheduleComponent implements OnInit {
   // bsInlineValue = new Date();
   constructor(private utilityService: UtilityService, private cdr: ChangeDetectorRef, private formBuilder: FormBuilder, private scheduleService: SchedulerService,
     private router: Router) {
-
-
-
   }
 
   ngOnInit() {
@@ -102,9 +100,8 @@ export class IndividualScheduleComponent implements OnInit {
     return this.dates;
   }
 
-
   changeDate(calendarSelected, event) {
-
+    
     console.log(calendarSelected);
     if(calendarSelected == 'cal1'){
       console.log('cal1');
@@ -115,6 +112,8 @@ export class IndividualScheduleComponent implements OnInit {
       console.log('cal2');
       this.cal1 = '';
       this.cal3 = '';
+      //debugger;
+     
     }
     else if(calendarSelected == 'cal3'){
       console.log('cal3');
