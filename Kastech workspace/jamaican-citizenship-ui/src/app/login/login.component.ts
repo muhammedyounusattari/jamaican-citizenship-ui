@@ -162,7 +162,7 @@ export class LoginComponent implements OnInit {
 
   changeLabel(value) {
     if (value === 'offical') {
-      this.loginLabel = 'Userid';
+      this.loginLabel = 'UserId';
     } else {
       this.loginLabel = 'Email';
     }
