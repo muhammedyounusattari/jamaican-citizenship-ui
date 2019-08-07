@@ -55,10 +55,7 @@ export class AppComponent implements OnInit {
     // this.logoutService.currentMessage.subscribe(message => { 
     //   this.loginStatus = message 
     // });
-
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
-
-
   }
 }

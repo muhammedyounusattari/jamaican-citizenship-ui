@@ -2074,9 +2074,639 @@
         ]
       }
     },
-    "october":{
-      "21/10/2019":{
-        "disable": "true",
+    "october": {
+      "1/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "2/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "3/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "4/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "5/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "6/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "7/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "8/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "9/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "10/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "11/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "12/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "13/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "14/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "15/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "16/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "17/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "18/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "19/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "20/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "21/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "22/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "23/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "24/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "25/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "26/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "27/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "28/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "29/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "30/10/2019": {
+        "disable": "false",
+        "sloths": [
+          {
+            "time": "10:00am",
+            "sloth": "15"
+          },
+          {
+            "time": "12:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "02:00pm",
+            "sloth": "10"
+          },
+          {
+            "time": "08:00am",
+            "sloth": "15"
+          }
+        ]
+      },
+      "31/10/2019": {
+        "disable": "false",
         "sloths": [
           {
             "time": "10:00am",

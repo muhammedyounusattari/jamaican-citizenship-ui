@@ -48,9 +48,19 @@ export class IndividualScheduleComponent implements OnInit {
   ngOnInit() {
 
     this.disabledDates = [
-      new Date('2019-08-29'),
-      new Date('2019-09-30')
+       new Date('2019-01-21'),
+       new Date('2019-03-06'),
+       new Date('2019-04-19'),
+       new Date('2019-04-22'),
+       new Date('2019-05-23'),
+       new Date('2019-08-01'),
+       new Date('2019-08-06'),
+       new Date('2019-10-21'),
+       new Date('2019-12-25'),
+       new Date('2019-12-26')
     ]
+
+    
 
 
 
@@ -59,22 +69,27 @@ export class IndividualScheduleComponent implements OnInit {
       showWeekNumbers: false, dateInputFormat: 'DD/MM/YYYY',
       minDate: this.cal1_min,
       maxDate: this.cal1_max,
-      //aysDisabled: [29,30]      // maxDate:new Date(2019,08,24)
-      datesDisabled: this.holidaysDates(this.cal1_min)
+      daysDisabled: [6,0],
+      datesDisabled: this.disabledDates
+      
     })
 
     this.datePickerConfig2 = Object.assign({}, {
-      showWeekNumbers: false, dateInputFormat: 'DD/MM/YYYY',
+      showWeekNumbers: false,
+      dateInputFormat: 'DD/MM/YYYY',
       minDate: this.cal2_min,
       maxDate: this.cal2_max,
-      datesDisabled: this.holidaysDates(this.cal2_min)
+      daysDisabled: [6,0],
+      datesDisabled: this.disabledDates
     })
 
     this.datePickerConfig3 = Object.assign({}, {
-      showWeekNumbers: false, dateInputFormat: 'DD/MM/YYYY',
+      showWeekNumbers: false,
+      dateInputFormat: 'DD/MM/YYYY',
       minDate: this.cal3_min,
       maxDate: this.cal3_max,
-      datesDisabled: this.holidaysDates(this.cal3_min)
+      daysDisabled: [6,0],
+      datesDisabled: this.disabledDates
     })
 
 
@@ -102,7 +117,7 @@ export class IndividualScheduleComponent implements OnInit {
 
   changeDate(calendarSelected, event) {
     
-    console.log(calendarSelected);
+    //console.log(calendarSelected);
     if(calendarSelected == 'cal1'){
       console.log('cal1');
       this.cal2 = '';
