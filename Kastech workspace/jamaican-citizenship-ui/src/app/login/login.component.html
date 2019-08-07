@@ -1,37 +1,9 @@
 <block-ui>
-<!-- <div style='background-color: #eeeff1' class="container">
-    <div class="row justify-content-center align-items-center" style="height:64vh;margin-bottom:40px">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-               
-                <div *ngIf="showError" class="alert alert-danger" role="alert">
-                    {{errorMsg}}
-                </div>
-                    <form [formGroup]="login"  (ngSubmit)=onSubmit(login.value) class="form-group" >
-                            <div class='loginType'><input formControlName="loginType" type='radio' value='offical' (click)='changeLabel("offical")' name='loginType'/>PICA Official &nbsp;&nbsp;
-                                <input formControlName="loginType" type='radio' (click)='changeLabel("user")'  name='loginType' value='regular'/>Users </div>
-                        <div class="form-group">
-                            <label>{{loginLabel}}</label>
-                            <input formControlName="email" type="text" class="form-control" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input formControlName="password" type="password" class="form-control" name="password">
-                        </div>
-                        <button type="submit" id="sendlogin" class="btn" style="background-color:#eeeff1">Login</button>
-                        <div  style="float:right"><a routerLink="/createProfile" class="badge badge-primary">Create Profile</a></div>
-                        &nbsp;&nbsp;<div style="float:right"><a routerLink="#" (click)="forgotPassword(login.value)" class="badge badge-primary">Forgot Password</a></div>&nbsp;&nbsp;
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div class="login-12">
     <div class="container">
         <div class="col-md-12 pad-0">
-                <div *ngIf="showError" class="alert alert-danger" role="alert" data-auto-dismiss="100" >
+                <div *ngIf="showError" class="alert alert-danger" role="alert" >
+                        <a  routerLink="#" class="close" data-dismiss="alert" aria-label="close" (click)="onCloseClick()">&times;</a>
                         {{errorMsg}}
                     </div>
             <div class="row login-box-12">

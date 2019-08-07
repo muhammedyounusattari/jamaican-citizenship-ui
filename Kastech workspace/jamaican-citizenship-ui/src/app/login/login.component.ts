@@ -39,6 +39,9 @@ export class LoginComponent implements OnInit {
 
       this.currentUserSubject = new BehaviorSubject<Profile>(JSON.parse(localStorage.getItem('currentUser')));
       this.currentUser = this.currentUserSubject.asObservable();
+      // setInterval(() => {
+      //   this.showError = false;
+      // }, 3000);
     }
 
   ngOnInit() {
@@ -47,9 +50,12 @@ export class LoginComponent implements OnInit {
 
     this.activateRoute.params.subscribe(param => {
       this.fromSchedule = param.schedule;
-
       console.log('params', param.schedule);
     })
+  }
+
+  public onCloseClick(): void {
+    this.showError = false;
   }
 
   onSubmit(payload) {
