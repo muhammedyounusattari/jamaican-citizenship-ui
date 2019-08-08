@@ -57,4 +57,9 @@
     font-size: 14px;
     color: #000000;
 }
-
+.mat-form-field{
+    display: block !important;
+}
+.mat-dialog-actions .mat-button+.mat-button, .mat-dialog-actions .mat-button+.mat-raised-button, .mat-dialog-actions .mat-raised-button+.mat-button, .mat-dialog-actions .mat-raised-button+.mat-raised-button {
+    margin-left: 8px;
+}

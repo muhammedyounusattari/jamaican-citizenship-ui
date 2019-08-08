@@ -3,16 +3,26 @@
       <div *ngIf="showErrorMsg" class="alert alert-danger" role="alert">
         {{showErrorMsg}}
       </div>
+      
       <div *ngIf='appStatusPage'>
-        <div class='dialog'>
-          Application Number<span class="glyphicon">&#x2a;</span> :<input type='text' #appNumber
-            (keypress)="validate(appNumber.value)" /><br />
-          <input type='button' (click)='cancel()' value='Cancel' />
-          <input type='button' [disabled]='statusBtn' (click)='getApplicationStatus(appNumber.value)' value='Status' />
-        </div>
+     
+        <mat-card class="dialog">
+       
+            <mat-form-field>
+                <input matInput placeholder="Application Number" #appNumber
+                (keypress)="validate(appNumber.value)" value="" type="number">
+              </mat-form-field>
+         
+              <mat-dialog-actions align="end">
+                <button mat-button mat-raised-button (click)='cancel()'>Cancel</button>
+                <button mat-button mat-raised-button [disabled]='statusBtn' (click)='getApplicationStatus(appNumber.value)'>Status</button>
+            </mat-dialog-actions>
+        </mat-card>
+     
       </div>
   
       <div *ngIf="appResultPage">
+        <mat-card>
         <div class='row'>
           <span class='app-status'>Application Status: <b>{{profile.appCode}}</b></span>
           <!-- <span class='app-number'> </span> -->
@@ -31,6 +41,8 @@
         </div>
         <button  class='btn' (click)='cancel()' >Cancel</button>
         <button  class='btn' (click)='continue()' >Continue</button>
+      </mat-card>
       </div>
+   
     </div>
   </block-ui>

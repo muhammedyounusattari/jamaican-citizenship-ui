@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppStatusService } from '../shared/services/app-status.service';
 import { Router } from '@angular/router';
 import { BlockUI, NgBlockUI } from "ng-block-ui";
+import { MatDialogRef } from "@angular/material";
 
 @Component({
   selector: 'app-app-status',
