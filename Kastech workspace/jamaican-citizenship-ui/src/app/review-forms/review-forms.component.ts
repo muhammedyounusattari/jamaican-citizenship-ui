@@ -39,37 +39,43 @@ export class ReviewFormsComponent implements OnInit {
 
   ngOnInit() {
     this.formType = this.activatedRoute.snapshot.paramMap.get('formType');
+    this.getData();
     setInterval(() => {
-      this.adminService.getFormsForReview(this.formType).subscribe((data:any) => {
-
-        if (!data.data) {
-          this.showApplicantQueueMessage = 'No Applicant available';
-        } else {
-          this.forms = data;
-          var applicationFormGroup = [];
-          for (let data of this.forms.data) {
-            applicationFormGroup.push(data.id + '_' + data.profile.lastname + '-' + data.profile.firstname);
-          }
-          applicationFormGroup.push('agent');
-
-          let group = {};
-          for (let eduFormControl of applicationFormGroup) {
-            group[eduFormControl] = new FormControl('');
-          }
-          this.applications = new FormGroup(group);
-        }
-
-        this.adminService.loadAgentsDetails().subscribe((data:any) => {
-        
-          this.agents = data.data;
-
-
-        })
-
-
-        // }
-      })
+      this.getData();
     }, 20000);
+  }
+
+  getData(){
+    //alert(1);
+    this.adminService.getFormsForReview(this.formType).subscribe((data:any) => {
+
+      if (!data.data) {
+        this.showApplicantQueueMessage = 'No Applicant available';
+      } else {
+        this.forms = data;
+        var applicationFormGroup = [];
+        for (let data of this.forms.data) {
+          applicationFormGroup.push(data.id + '_' + data.profile.lastname + '-' + data.profile.firstname);
+        }
+        applicationFormGroup.push('agent');
+
+        let group = {};
+        for (let eduFormControl of applicationFormGroup) {
+          group[eduFormControl] = new FormControl('');
+        }
+        this.applications = new FormGroup(group);
+      }
+
+      this.adminService.loadAgentsDetails().subscribe((data:any) => {
+      
+        this.agents = data.data;
+
+
+      })
+
+
+      // }
+    });
   }
 
   assignToAgent(payload) {
