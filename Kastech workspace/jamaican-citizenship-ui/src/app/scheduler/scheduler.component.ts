@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { SchedulerService } from '../shared/services/scheduler.service';
 
 @Component({
   selector: 'app-scheduler',
@@ -10,10 +11,19 @@ export class SchedulerComponent implements OnInit {
 
   private applicantId:string;
 
-  constructor(private router:Router, private activatedRoute:ActivatedRoute) {
+  constructor(private router:Router, private activatedRoute:ActivatedRoute, private schedulerService:SchedulerService) {
     this.activatedRoute.params.subscribe((param)=>{
       this.applicantId = param.applicantId;
     })
+    if(this.applicantId)
+      this.schedulerService.isValidToSchedule(this.applicantId).subscribe(data=>{
+        if(data == null){
+          alert('either invalid applicant or already your appointment is scheduled ')
+          this.router.navigate(['/home']);
+        }
+      })
+   
+
    }
 
   ngOnInit() {

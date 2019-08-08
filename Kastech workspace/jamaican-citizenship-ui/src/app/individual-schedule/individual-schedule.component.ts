@@ -126,7 +126,8 @@ export class IndividualScheduleComponent implements OnInit {
   }
 
   changeDate(calendarSelected, event) {
-    
+   if(!event)
+    return false; 
     //console.log(calendarSelected);
     if(calendarSelected == 'cal1'){
       console.log('cal1');
@@ -166,13 +167,13 @@ export class IndividualScheduleComponent implements OnInit {
    var payload ={
 
       'time':data[0],
-      'date':data[1],
+      'date':data[1].split(",")[1],
       'applicantId':this.applicantId
     };
     this.scheduleService.confirmAppointment(payload).subscribe((data)=>{
-
+      sessionStorage.setItem('profile',JSON.stringify(data));
+      this.router.navigate(['/individualAppointmentConf']);
     })
-    this.router.navigate(['/individualAppointmentConf']);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Profile } from '../Profile';
 
 @Component({
   selector: 'app-individual-apointment-confirmation',
@@ -10,11 +11,16 @@ export class IndividualApointmentConfirmationComponent implements OnInit {
 
   date:string;
   time:string;
-  constructor(private router:Router) { }
+  profile:any;
+  constructor(private router:Router) { 
+    var  data = sessionStorage.getItem('profile');
+    this.profile = (data!=null)? JSON.parse(data):data;
+  }
 
   ngOnInit() {
-   this.date =  localStorage.getItem('date');
-   this.time = localStorage.getItem('time');
+debugger;
+   this.date =  this.profile.date;
+   this.time = this.profile.time;
   }
 
   home(){

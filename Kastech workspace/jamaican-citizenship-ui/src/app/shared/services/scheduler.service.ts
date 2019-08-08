@@ -28,7 +28,12 @@ export class SchedulerService {
   }
 
   confirmAppointment(payload){
-    const URL = HOST_URL.name +'/'
+    const URL = HOST_URL.name +'/schedule-appointment/'
     return this.http.post(URL,payload,this.httpOptions);
+  }
+
+  isValidToSchedule(applicantId){
+    const URL = HOST_URL.name +'/validate-schedule-appointment/'+applicantId+"/";
+    return this.http.get(URL,this.httpOptions);
   }
 }
