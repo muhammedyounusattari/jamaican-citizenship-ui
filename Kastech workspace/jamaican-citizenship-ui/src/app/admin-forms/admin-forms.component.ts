@@ -48,7 +48,7 @@ export class AdminFormsComponent implements OnInit {
         }
         else{
           localStorage.setItem('agent',JSON.stringify(data));
-          this.router.navigate(['/agentView']);
+          this.router.navigate(['/agentView/'+this.loginType+'/']);
         }
 
        });
@@ -56,13 +56,38 @@ export class AdminFormsComponent implements OnInit {
       else if(this.loginType==="deskClerk"){
        this.adminService.getDeskClerkApplicantList(this.id,formType).subscribe((data:any)=>{
         if(data == null){
-          alert('there are not application assinged to you ');
+          alert('there are no application assinged to you ');
         }else{
           localStorage.setItem('agent',JSON.stringify(data));
-          this.router.navigate(['/agentView']);
+          this.router.navigate(['/agentView/'+this.loginType+'/']);
         }
        });
-      }else{
+      // this.loginType === "operationsmanager"
+      }else if(this.loginType === "localdeskclerk" ){
+        this.adminService.getFormsForReview(formType,this.loginType).subscribe((data:any)=>{
+          // if(data == null){
+            // alert('there are no application assinged to you ');
+          // }
+          // else{
+            localStorage.setItem('agent',JSON.stringify(data));
+            // this.router.navigate(['/agentView/'+this.loginType+'/']);
+            this.router.navigate(['/localDeskClerk/'+formType+'/'+this.loginType])
+          // }
+  
+         });
+      }else if(this.loginType === "operationsmanager" ){
+        this.adminService.getFormsForReview(formType,this.loginType).subscribe((data:any)=>{
+          // if(data == null){
+            // alert('there are no application assinged to you ');
+          // }
+          // else{
+            localStorage.setItem('agent',JSON.stringify(data));
+            this.router.navigate(['/agentView/'+this.loginType+'/']);
+            // this.router.navigate(['/localDeskClerk/'+formType+'/'+this.loginType])
+          // }
+  
+         });
+      }else {
         this.router.navigate(['/reviewForms/'+formType+'/'+this.loginType])
       }
 

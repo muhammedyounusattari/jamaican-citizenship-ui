@@ -417,7 +417,10 @@
           </div>
 
           <div class="document_btns text-right">
-            <button type="button" class="clr-btn style-btn" (click)="complete('complete')" >Process Scheduled Appointment</button>
+            <button *ngIf="loginType==='localdeskclerk'" type="button" class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('cs')" >Refer for Approval</button>
+            <button *ngIf="loginType==='deskClerk'" type="button" class="clr-btn style-btn" style='width:200px;' (click)="updateStatus('pas')" >Process Scheduled Appointment</button>
+            <button *ngIf="loginType==='agentView'" type="button" class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('om')" >Refer for Approval</button>
+
             <button type="button" class="clr-btn style-btn" (click)="incomplete('incomplete')">Incomplete</button>
             <button type="button" class="clr-btn style-btn" (click)="refer('refer')">Refer</button>
             <button type="button" class="clr-btn style-btn" (click)="nextClick('next')">Next</button>

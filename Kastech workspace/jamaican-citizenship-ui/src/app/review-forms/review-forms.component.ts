@@ -46,19 +46,19 @@ export class ReviewFormsComponent implements OnInit {
   ngOnInit() {
    // this.formType = this.activatedRoute.snapshot.paramMap.get('formType');
 
-   if(this.type==='supervisor'){
-     this.getData();
-   }
+  //  if(this.type==='supervisor'){
+  //    this.getData();
+  //  }
 
     this.getData();
     setInterval(() => {
       this.getData();
-    }, 20000);
+    }, 2000000);
   }
 
   getData(){
     //alert(1);
-    this.adminService.getFormsForReview(this.formType).subscribe((data:any) => {
+    this.adminService.getFormsForReview(this.formType,this.type).subscribe((data:any) => {
 
       if (!data.data) {
         this.showApplicantQueueMessage = 'No Applicant available';
@@ -81,7 +81,7 @@ export class ReviewFormsComponent implements OnInit {
         this.adminService.loadDeskClerk().subscribe((data:any) => {
           this.agents = data.data;
         })
-      }else if(this.type==="localdeskclerk"){
+      }else if(this.type==="compliancesupervisor"){
           this.adminService.loadAgentsDetails().subscribe((data:any) => {
             this.agents = data.data;
           })
@@ -114,7 +114,7 @@ export class ReviewFormsComponent implements OnInit {
 
     console.log(this.applications)
 
-    this.adminService.assignToAgent(payload).subscribe(data => {
+    this.adminService.assignToAgent(payload,this.type).subscribe(data => {
       console.log(data);
       location.reload();
     })

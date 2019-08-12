@@ -20,6 +20,7 @@ export class AgentService {
   }
 
   updateApplicantStatus(payload){
+    debugger;
     const url = HOST_URL.name+"/update-applicant/";
     return this.http.post(url,payload,this.httpOptions);
   }

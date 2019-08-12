@@ -26,10 +26,14 @@ export class ReviewDailogComponentComponent implements OnInit {
 
 
   save(comments) {
-    var payload = { applicantId: '', status: '', agentId: '', comments: '' };
+    var payload = { applicantId: '', status: '', agentId: '', comments: '',type:'' };
     payload.applicantId = localStorage.getItem('applicantId');
     payload.status = localStorage.getItem('status');
-    payload.agentId = JSON.parse(localStorage.getItem('agent'))._id;
+
+    var data = localStorage.getItem('agent');
+    if(data != null)
+    payload.agentId = JSON.parse(data)._id;
+    payload.type = localStorage.getItem('type');
     payload.comments = comments;
 
 
@@ -39,12 +43,14 @@ export class ReviewDailogComponentComponent implements OnInit {
         localStorage.setItem('agent', JSON.stringify(data));
         localStorage.removeItem('status');
         localStorage.removeItem('applicantId');
+        localStorage.removeItem('type');
         this.router.navigate(['/agentView']);
         this.dialogRef.close();
-        return false;
+        // this.router.navigate(['/agentView/'+payload.type]);
+ //       return false;
       }
       this.dialogRef.close();
-      this.router.navigate(['/reviewApplicantForm']);
+      this.router.navigate(['/agentView/'+payload.type]);
     })
   }
 

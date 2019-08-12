@@ -37,35 +37,26 @@
 		</div>
 		
 		<div class="Asset_mang_block">
-		<table class="table table-hover table-striped">
-					<thead>
-						<tr>
+				<table class="table table-hover table-striped">
+						<thead>
+						  <tr>
 							<th>Application Number</th>
 							<th>Profile Name</th>
 							<th></th>
-						</tr>
-					</thead>
-					<tbody class="text-size">
-						<tr>
-							<td>111110</td>
-							<td>Jhon Brown</td>
-							<td><button type="button" class="clr-btn">REVIEW</button></td>
-						</tr>
-						<tr>
-							<td>111111</td>
-							<td>Kerry Smith</td>
-							<td><button type="button" class="clr-btn">REVIEW</button></td>
-						</tr>
-							<td>111112</td>
-							<td>Kevin Lue</td>
-							<td><button type="button" class="clr-btn">REVIEW</button></td>
-						<tr>
-							<td>111113</td>
-							<td>Ken Smooth</td>
-							<td><button type="button" class="clr-btn">REVIEW</button></td>
-						</tr>
-					</tbody>
-				</table>
+						  </tr>
+						</thead>
+						<tbody class="text-size">
+						
+						  <tr *ngFor='let applicant of applicants.data'> 
+							<td>====={{applicant.id}}</td>
+							<td>{{applicant.profile.lastname +' '+applicant.profile.firstname}}</td>
+							<td><button type="button" class="clr-btn" (click)="getReviewForm(applicant.id)" >REVIEW</button></td>
+						  </tr>
+						 
+						</tbody>
+					  </table>
+
+	
 			</div>
 	</div>
 </section>

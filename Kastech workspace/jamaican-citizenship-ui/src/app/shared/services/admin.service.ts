@@ -14,8 +14,8 @@ export class AdminService {
 
   constructor(private httpClient:HttpClient) { }
 
-  getFormsForReview(formType){
-    const url = HOST_URL.name+"/forms-review/"+formType+"/";
+  getFormsForReview(formType,type){
+    const url = HOST_URL.name+"/forms-review/"+formType+"/"+type+"/";
     return this.httpClient.get(url,this.httpOptions);
   }
 
@@ -30,12 +30,16 @@ export class AdminService {
   }
 
 
-  assignToAgent(payload){
-    const url = HOST_URL.name + "/assign-to-agent";
+  assignToAgent(payload,type){
+    var url;
+    if(type==="supervisor")
+       url = HOST_URL.name + "/assign-to-deskclerk";
+    if(type==="compliancesupervisor")
+      url = HOST_URL.name + "/assign-to-agent";
+
     return this.httpClient.post(url,payload,this.httpOptions);
   }
-
-  getAgentApplicantList(agentId,formType){
+getAgentApplicantList(agentId,formType){
     const url = HOST_URL.name + "/agent-applicant/"+agentId+"/"+formType+"/";
     return this.httpClient.get(url,this.httpOptions);
   }

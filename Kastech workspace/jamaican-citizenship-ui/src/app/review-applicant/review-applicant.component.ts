@@ -6,7 +6,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap';
 import { LogoutService } from '../shared/services/logout.service';
 import { UtilityService } from '../shared/services/utility.service';
 import { BlockUI, NgBlockUI } from "ng-block-ui";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialogConfig, MatDialog } from '@angular/material';
 import { DescentSaveComponent } from '../descent-save/descent-save.component';
 import { ReviewDailogComponentComponent } from '../review-dailog-component/review-dailog-component.component';
@@ -41,21 +41,28 @@ export class ReviewApplicantComponent implements OnInit {
   loginStatus: boolean;
   countries: any;
   descentFormSessoin: any;
+  loginType:string;
 
   @BlockUI() blockUI: NgBlockUI;
 
   constructor(private descentService: DescentFormService, private fb: FormBuilder, private logoutService: LogoutService,
-    private utilityService: UtilityService, private formBuilder: FormBuilder, private router: Router,public dialog:MatDialog) {
+    private activateRoute:ActivatedRoute ,private utilityService: UtilityService, private formBuilder: FormBuilder, private router: Router,public dialog:MatDialog) {
       this.profile  = JSON.parse(localStorage.getItem('profile'));
       if(this.profile==null){
        this.router.navigate(['/home']);
-       
      } 
     this.datePickerConfig = Object.assign({}, {
       containerClass: 'theme-dark-blue',
       maxDate: this.dob,
       showWeekNumbers: false, dateInputFormat: 'DD/MM/YYYY'
     })
+
+    this.activateRoute.params.subscribe((params)=>{
+      this.loginType = params.type;
+    })
+
+
+    
   }
 
   ngOnInit() {
@@ -398,30 +405,37 @@ export class ReviewApplicantComponent implements OnInit {
     this.router.navigate(['/home'])
   }
 
-  complete(value){
+  updateStatus(value){
     const dialogConfig = new MatDialogConfig();
-    localStorage.setItem('status','completed');
+    localStorage.setItem('status',value);
+    localStorage.setItem('type',this.loginType);
     localStorage.setItem('applicantId',""+this.descentFormSessoin.id);
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
   }
 
   incomplete(value){
     const dialogConfig = new MatDialogConfig();
-    localStorage.setItem('status','incomplete');
+//    localStorage.setItem('status','incomplete');
+localStorage.setItem('status',value);
+localStorage.setItem('type',this.loginType);
     localStorage.setItem('applicantId',""+this.descentFormSessoin.id);
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
   }
 
   refer(value){
     const dialogConfig = new MatDialogConfig();
-    localStorage.setItem('status','reffered');
+    // localStorage.setItem('status','reffered');
+    localStorage.setItem('status',value);
+    localStorage.setItem('type',this.loginType);
     localStorage.setItem('applicantId',""+this.descentFormSessoin.id);
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
   }
 
   nextClick(value){
     const dialogConfig = new MatDialogConfig();
-    localStorage.setItem('status','complete');
+    // localStorage.setItem('status','complete');
+    localStorage.setItem('status',value);
+    localStorage.setItem('type',this.loginType);
     localStorage.setItem('applicantId',""+this.descentFormSessoin.id);
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
   }

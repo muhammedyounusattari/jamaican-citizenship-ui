@@ -48,7 +48,9 @@
         <div class="col-md-5">
 
           <div class="assign_block p-5">
+
             <select class="form-control" formControlName="agent" >
+              <option [ngValue]="undefined" disabled>Select Any </option>
               <option   *ngFor="let agent of agents" [value]="agent._id">
                 {{agent._id +"-"+agent.name}}
               </option>

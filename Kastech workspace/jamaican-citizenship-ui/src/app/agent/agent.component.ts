@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AgentService } from 'src/shared/services/agent.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-agent',
@@ -11,10 +11,15 @@ export class AgentComponent implements OnInit {
 
   agent:any;
   roles:any;
-  constructor(private agentService:AgentService,private router:Router) { 
+  type:string;
+  constructor(private agentService:AgentService,private router:Router,private activateRoute:ActivatedRoute) { 
     var data = localStorage.getItem('agent');
     var info = sessionStorage.getItem('roles');
     this.roles = (info!=null)?JSON.parse(info):info;
+
+    this.activateRoute.params.subscribe((params)=>{
+      this.type = params.type;
+    });
 
     if(data){
       this.agent = JSON.parse(data);
@@ -42,7 +47,7 @@ export class AgentComponent implements OnInit {
         localStorage.setItem('profile',JSON.stringify(this.agent.profile));
         localStorage.setItem('descentForm', JSON.stringify(data));
       }
-      this.router.navigate(['/reviewApplicantForm'])
+      this.router.navigate(['/reviewApplicantForm/'+this.type+'/'])
     })  
    
   }

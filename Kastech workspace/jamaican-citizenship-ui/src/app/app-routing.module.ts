@@ -42,8 +42,8 @@ const routes: Routes = [
   //{path:'adminReview/:formType',component:SupervisorViewComponent},
   {path:'reviewForms/:formType', component:ReviewFormsComponent},
   {path:'reviewForms/:formType/:type', component:ReviewFormsComponent},
-  {path:'agentView', component:AgentComponent},
-  {path:'reviewApplicantForm', component:ReviewApplicantComponent},
+  {path:'agentView/:type', component:AgentComponent},
+  {path:'reviewApplicantForm/:type', component:ReviewApplicantComponent},
   {path:'scheduleAppointment/:applicantId',component:SchedulerComponent},
   {path:'login/:schedule',component:LoginComponent},
   {path:'individualSchedule/:applicantId', component:IndividualScheduleComponent},
@@ -51,7 +51,7 @@ const routes: Routes = [
   {path:'individualAppointmentConf', component:IndividualApointmentConfirmationComponent},
   {path:'alienApplicationForm', component:AlienComponent},
   {path:'registrationApplicationForm', component:RegistrationComponent},
-  {path:'localDeskClerk',component:LocalDeskClerkComponent},
+  {path:'localDeskClerk/:formType/:type',component:LocalDeskClerkComponent},
   {path:'localDeskClerkProcess',component:LocalDeskClerkProcessComponent}
 ];
 

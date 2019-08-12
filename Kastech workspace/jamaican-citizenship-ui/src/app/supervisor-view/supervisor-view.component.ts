@@ -14,7 +14,7 @@ export class SupervisorViewComponent implements OnInit {
 
   ngOnInit() {
     this.formType = this.activatedRoute.snapshot.paramMap.get('formType');
-     this.adminService.getFormsForReview(this.formType).subscribe(data=>{
+     this.adminService.getFormsForReview(this.formType,'superviosr').subscribe(data=>{
        localStorage.setItem('reviewForms',JSON.stringify(data));
        this.router.navigate(['/reviewForms']);
        
