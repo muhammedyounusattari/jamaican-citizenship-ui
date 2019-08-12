@@ -1,0 +1,109 @@
+<div class="container">
+  <h3 class="text-center Renapp_heading">Appointment Schedule</h3> 
+  <div class="Renapp_Form">
+      <div class="row">
+         <div class="col-md-10 offset-md-1">
+          <div class="section-card">                   
+              <div class="section-body p-3">
+                  <div class="row">                         
+
+                    <div class="col-lg-6 col-sm-12 text-left App_shed_form_inline">
+                      <label>Date <span class="glyphicon">&#x2a;</span></label>
+                      <input type="text" bsDatepicker [bsConfig]="datePickerConfig"
+                      (bsValueChange)="changeMenu($event)"
+                      [(bsValue)]="todaysDate" class="col-8" 
+                         [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"
+                        [maxDate]="datePickerConfig.maxDate">
+                    </div>
+
+
+                      <!-- <div class="col-lg-6 col-sm-12">
+                          <div class="form-group App_shed_form_inline">
+                              <label>Date</label>
+                              <input class="form-control" type="date" placeholder="yyyy-MM-dd">
+                          </div>
+                      </div> -->
+                      <div class="col-lg-6 col-sm-12">
+                          <div class="form-group App_shed_form_inline">
+                              <label>Time</label>
+                                <select [(ngModel)] ="selected"
+                                name="valueCheck" (change)="changeMenu($event)"> 
+                                
+                                <option [ngValue]="undefined" disabled>Select Any </option>
+                                <option *ngFor="let obj of timeSlots"  [ngValue]="obj.value" > {{obj.name}} </option>
+                                </select>
+
+
+
+                              <!-- <select class="form-control" >
+                                  <option selected>Select Schedule Time</option>
+                                  <option>8 am - 9 am</option>
+                                  <option>9 am - 10 am</option>
+                                  <option>10 am - 11 am</option>
+                              </select> -->
+                          </div>                                 
+                      </div>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+
+
+<div class="Renapp_Form" *ngIf='showFilteredResult'>
+  <div class="row">
+     <div class="col-md-12">
+      <div class="section-card">                   
+          <div class="section-body ">
+              <div class="row">                         
+               <div class="col-md-12">
+                   <div class="Asset_mang_block">
+                      <table class="table table-hover table-striped">
+                          <thead>
+                              <tr>
+                                  <th>Appointment ID</th>
+                                  <th>Application #</th>
+                                  <th>Time</th>
+                                  <th>First Name</th>
+                                  <th>Last Name</th>
+                                  <th>Review Application</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>APP001</td>
+                                  <td>000001</td>
+                                  <td>9:00 am</td>
+                                  <td>Marlon </td>
+                                  <td>Greene</td>
+                                  <td> <a href="#"> MGreene_App</a></td>
+                              </tr>
+                               <tr>
+                                  <td>APP002</td>
+                                  <td>000002</td>
+                                  <td>9:00 am</td>
+                                  <td>Karen </td>
+                                  <td>Smith</td>
+                                  <td> <a href="#"> KSmith_App</a></td>
+                              </tr>
+                               <tr>
+                                  <td>APP003</td>
+                                  <td>000003</td>
+                                  <td>10:00 am</td>
+                                  <td>Twain </td>
+                                  <td>Twain</td>
+                                  <td> <a href="#"> MTwain_App</a></td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>                            
+          </div>
+      </div>
+  </div>
+  <button type="button" class="clr-btn" (click)="back()" >BACK</button>
+</div>

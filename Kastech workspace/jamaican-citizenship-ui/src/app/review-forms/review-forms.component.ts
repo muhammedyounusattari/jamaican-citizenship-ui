@@ -29,8 +29,14 @@ export class ReviewFormsComponent implements OnInit {
   showApplicantErrorMsg: string;
   showApplicantQueueMessage: string
   private formType: string;
+  private type:string;
 
   constructor(private adminService: AdminService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) {
+
+    this.activatedRoute.params.subscribe(param=>{
+      this.formType = param.formType;
+      this.type = param.type;
+    })
 
     this.applications = this.formBuilder.group({
       agent: ['',Validators.required]
@@ -38,7 +44,12 @@ export class ReviewFormsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.formType = this.activatedRoute.snapshot.paramMap.get('formType');
+   // this.formType = this.activatedRoute.snapshot.paramMap.get('formType');
+
+   if(this.type==='supervisor'){
+     this.getData();
+   }
+
     this.getData();
     setInterval(() => {
       this.getData();
@@ -60,21 +71,21 @@ export class ReviewFormsComponent implements OnInit {
         applicationFormGroup.push('agent');
 
         let group = {};
-        for (let eduFormControl of applicationFormGroup) {
-          group[eduFormControl] = new FormControl('');
+        for (let formControl of applicationFormGroup) {
+          group[formControl] = new FormControl('');
         }
         this.applications = new FormGroup(group);
       }
 
-      this.adminService.loadAgentsDetails().subscribe((data:any) => {
-      
-        this.agents = data.data;
-
-
-      })
-
-
-      // }
+      if(this.type==="supervisor"){
+        this.adminService.loadDeskClerk().subscribe((data:any) => {
+          this.agents = data.data;
+        })
+      }else if(this.type==="localdeskclerk"){
+          this.adminService.loadAgentsDetails().subscribe((data:any) => {
+            this.agents = data.data;
+          })
+      }
     });
   }
 

@@ -20,6 +20,8 @@ import { GroupScheduleComponent } from './group-schedule/group-schedule.componen
 import { IndividualApointmentConfirmationComponent } from './individual-apointment-confirmation/individual-apointment-confirmation.component';
 import { AlienComponent } from './alien/alien.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { LocalDeskClerkComponent } from './local-desk-clerk/local-desk-clerk.component';
+import { LocalDeskClerkProcessComponent } from './local-desk-clerk-process/local-desk-clerk-process.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -32,11 +34,14 @@ const routes: Routes = [
   {path:'status',component:AppStatusComponent},
   {path:'statusResults',component:AppStatusComponent},
   {path:'changePassword',component:ChangePasswordComponent},
-  {path:'officalForms', component:AdminFormsComponent},
+  {path:'officalForms/:type/:id', component:AdminFormsComponent},
+  {path:'officalForms/:type', component:AdminFormsComponent},
+  
   // {path:'adminReview/:formType',component:SupervisorViewComponent},
   // {path:'reviewForms', component:ReviewFormsComponent},
   //{path:'adminReview/:formType',component:SupervisorViewComponent},
   {path:'reviewForms/:formType', component:ReviewFormsComponent},
+  {path:'reviewForms/:formType/:type', component:ReviewFormsComponent},
   {path:'agentView', component:AgentComponent},
   {path:'reviewApplicantForm', component:ReviewApplicantComponent},
   {path:'scheduleAppointment/:applicantId',component:SchedulerComponent},
@@ -45,7 +50,9 @@ const routes: Routes = [
   {path:'groupSchedule', component:GroupScheduleComponent},
   {path:'individualAppointmentConf', component:IndividualApointmentConfirmationComponent},
   {path:'alienApplicationForm', component:AlienComponent},
-  {path:'registrationApplicationForm', component:RegistrationComponent}
+  {path:'registrationApplicationForm', component:RegistrationComponent},
+  {path:'localDeskClerk',component:LocalDeskClerkComponent},
+  {path:'localDeskClerkProcess',component:LocalDeskClerkProcessComponent}
 ];
 
  

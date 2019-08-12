@@ -10,12 +10,23 @@ import { Router } from '@angular/router';
 export class AgentComponent implements OnInit {
 
   agent:any;
-
+  roles:any;
   constructor(private agentService:AgentService,private router:Router) { 
     var data = localStorage.getItem('agent');
+    var info = sessionStorage.getItem('roles');
+    this.roles = (info!=null)?JSON.parse(info):info;
+
     if(data){
       this.agent = JSON.parse(data);
     }
+   
+      // if(this.roles.type==="agent"){
+
+      // }
+      // if(this.roles.type==="deskClerk"){
+
+      // }
+    
   }
   
   ngOnInit() {

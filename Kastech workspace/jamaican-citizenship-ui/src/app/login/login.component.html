@@ -13,14 +13,14 @@
                         <div class="details">
                             <h3 class="text-left">Sign into your account</h3>
                             <form [formGroup]="login"  (ngSubmit)=onSubmit(login.value) class="form-group">
-                                    <div class="form-group" style="width:100%;float: left">
+                                    <!-- <div class="form-group" style="width:100%;float: left">
                                         <div class="form-check form-check-inline">
                                             <input formControlName="loginType" type='radio' value='offical' (click)='changeLabel("offical")' name='loginType'/>PICA Official &nbsp;&nbsp;
                                         </div>
                                         <div class="form-check form-check-inline">
                                                 <input formControlName="loginType" type='radio' (click)='changeLabel("user")'  name='loginType' value='regular'/>Users
                                         </div>
-                                    </div> 
+                                    </div>  -->
                                 <div class="form-group">
                                     <!-- <label>{{loginLabel}}</label> -->
                                     <input formControlName="email" type="text" class="form-control" name="email"  placeholder="{{loginLabel}}">

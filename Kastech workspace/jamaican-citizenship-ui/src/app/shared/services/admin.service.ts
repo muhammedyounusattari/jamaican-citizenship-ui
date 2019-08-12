@@ -24,8 +24,24 @@ export class AdminService {
     return this.httpClient.get(url,this.httpOptions);
   }
 
+  loadDeskClerk(){
+    const url = HOST_URL.name+"/load-deskclerk/";
+    return this.httpClient.get(url,this.httpOptions);
+  }
+
+
   assignToAgent(payload){
     const url = HOST_URL.name + "/assign-to-agent";
     return this.httpClient.post(url,payload,this.httpOptions);
+  }
+
+  getAgentApplicantList(agentId,formType){
+    const url = HOST_URL.name + "/agent-applicant/"+agentId+"/"+formType+"/";
+    return this.httpClient.get(url,this.httpOptions);
+  }
+
+  getDeskClerkApplicantList(clerkId,formType){
+    const url = HOST_URL.name + "/deskclerk-applicant/"+clerkId+"/"+formType+"/";
+    return this.httpClient.get(url,this.httpOptions);
   }
 }

@@ -23,6 +23,12 @@ export class LoginService {
     return this.http.post(url,payload,this.httpOptions);
   }
 
+  authenticateOffical(payload){
+    const url = HOST_URL.name+"/validate-offical-login";
+    return this.http.post(url,payload,this.httpOptions);
+  }
+
+
   validateEmail(email){
     const url = HOST_URL.name+"/validate-email/"+email+"/";
     return this.http.get(url,this.httpOptions);

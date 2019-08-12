@@ -49,6 +49,8 @@ import { GroupScheduleComponent } from './group-schedule/group-schedule.componen
 import { IndividualApointmentConfirmationComponent } from './individual-apointment-confirmation/individual-apointment-confirmation.component';
 import { AlienComponent } from './alien/alien.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { LocalDeskClerkComponent } from './local-desk-clerk/local-desk-clerk.component';
+import { LocalDeskClerkProcessComponent } from './local-desk-clerk-process/local-desk-clerk-process.component';
 
 
 @NgModule({
@@ -63,7 +65,7 @@ import { RegistrationComponent } from './registration/registration.component';
      AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent,
       SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent,
        ReviewDailogComponentComponent, SchedulerComponent, IndividualScheduleComponent,
-        GroupScheduleComponent, IndividualApointmentConfirmationComponent, AlienComponent, RegistrationComponent 
+        GroupScheduleComponent, IndividualApointmentConfirmationComponent, AlienComponent, RegistrationComponent, LocalDeskClerkComponent, LocalDeskClerkProcessComponent 
   ],
   imports: [
     BrowserModule,

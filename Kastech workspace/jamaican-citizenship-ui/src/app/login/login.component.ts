@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
   @BlockUI() blockUI: NgBlockUI;
   constructor(private loginService: LoginService, private router: Router,
     private logoutService: LogoutService, public dialog: MatDialog, private activateRoute: ActivatedRoute) { 
+      
 
       this.currentUserSubject = new BehaviorSubject<Profile>(JSON.parse(localStorage.getItem('currentUser')));
       this.currentUser = this.currentUserSubject.asObservable();
@@ -47,35 +48,69 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     // if(localStorage.getItem('isLoggedIn'))
     // this.logoutService.setTitle('login');
+    
 
     this.activateRoute.params.subscribe(param => {
       this.fromSchedule = param.schedule;
       console.log('params', param.schedule);
     })
+
+    if (this.fromSchedule === 'offical') {
+      this.loginLabel = 'UserId';
+    } else {
+      this.loginLabel = 'Email';
+    }
   }
 
   public onCloseClick(): void {
     this.showError = false;
   }
 
-  onSubmit(payload) {
-
-    if (!payload.loginType) {
-      this.showError = true;
-      this.errorMsg = 'Please select type of login';
-      return false;
+  onSubmit(payload){
+    if(this.fromSchedule === 'offical'){
+      this.authenticateOffical(payload);
+    }else{
+      this.authenticateUser(payload);
     }
+  }
+
+  authenticateOffical(payload) {
+
+    // if (!payload.loginType) {
+    //   this.showError = true;
+    //   this.errorMsg = 'Please select type of login';
+    //   return false;
+    // }
 
     if (!payload.email || !payload.password) {
       this.showError = true;
-      this.errorMsg = 'Email and Password are required';
+      this.errorMsg = 'Userid and Password are required';
       //      this.router.navigate(['/login']);
       return false;
     }
     this.blockUI.start('Loading...');
 
-    if (payload.loginType === 'offical') {
-      if (payload.email === 'admin' && payload.password === 'admin') {
+    //code for offical login
+    if (this.fromSchedule === 'offical') {
+      payload.loginType = this.fromSchedule;
+      payload.userId = payload.email;
+      this.loginService.authenticateOffical(payload).subscribe((data:any)=>{
+       if(data == null){
+         this.errorMsg = "Invalid UserId/Password ";
+        this.blockUI.stop();
+        
+        }else{
+           var url = data.url;
+          sessionStorage.setItem('roles',JSON.stringify(data));
+         
+        // if(url==="/officalForms/deskClerk" || url==="/officalForms/agentView")
+          url+="/"+data.userId+"/"
+          
+          this.router.navigate([url]);  
+        }
+      });
+
+   /*   if (payload.email === 'admin' && payload.password === 'admin') {
         localStorage.setItem('isLoggedIn', 'true');
         this.blockUI.stop();
         this.router.navigate(['/officalForms']);
@@ -93,13 +128,26 @@ export class LoginComponent implements OnInit {
             return false
         })
 
-      }
+      } */
     }
 
 
     //authentication for normal user
 
-    if (this.fromSchedule) {
+   
+
+  }
+
+  authenticateUser(payload){
+
+    if (!payload.email || !payload.password) {
+      this.showError = true;
+      this.errorMsg = 'Userid and Password are required';
+      //      this.router.navigate(['/login']);
+      return false;
+    }
+
+    if (this.fromSchedule==="schedule") {
       this.loginService.authenticate(payload).subscribe(data => {
         sessionStorage.setItem('profile', JSON.stringify(data));
         this.currentUserSubject.next(data)
@@ -108,7 +156,7 @@ export class LoginComponent implements OnInit {
       });
     }
 
-
+    
     this.loginService.authenticate(payload).subscribe(data => {
       console.log("login result", data);
       if (data == null) {
@@ -157,16 +205,15 @@ export class LoginComponent implements OnInit {
 
       }
     })
-
   }
 
-  changeLabel(value) {
-    if (value === 'offical') {
-      this.loginLabel = 'UserId';
-    } else {
-      this.loginLabel = 'Email';
-    }
-  }
+  // changeLabel(value) {
+  //   if (value === 'offical') {
+  //     this.loginLabel = 'UserId';
+  //   } else {
+  //     this.loginLabel = 'Email';
+  //   }
+  // }
   forgotPassword(payload) {
     const dialogConfig = new MatDialogConfig();
     this.dialog.open(ForgotPasswordComponent, dialogConfig);
