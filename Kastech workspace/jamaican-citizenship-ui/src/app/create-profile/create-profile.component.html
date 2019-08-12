@@ -1,124 +1,99 @@
 <block-ui>
-
-<div class='container-fluid'>
-<div style="text-align: center">
-    <h1>Welcome to the Citizenship</h1>
-    <h2>Application Portal</h2>
-    <h5 style="color:blue">Applicant Profile</h5>
-</div>
-<br/>
-<div *ngIf='showErrorMsg' class="alert alert-danger" role="alert">
-    {{showErrorMsg}}<br/>
-    <span *ngIf="submitted && f.dob.errors">Date of birth <b>should not be a future date</b>, please select correct date</span>
-  </div>
-<div class="container-fluid">
-   
-<form [formGroup]="profile"  (ngSubmit)=onSubmit(profile.value) class="form-group" >
-
-  
-
-    <div class="row">
-          <div class="col">
-            <label>Last name<span class="glyphicon">&#x2a;</span> </label> &nbsp;&nbsp;
-            <input type="text" class="col-8 " formControlName="lastname" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }" >
+    <div class='container'>
+       <h3 class="text-center alien_heading">Welcome to the Citizenship <br> Application Portal</h3>
+       <h5 class="text-center" style="color:blue">Applicant Profile</h5>
+       <br/>
+       <div *ngIf='showErrorMsg' class="alert alert-danger" role="alert">
+          {{showErrorMsg}}<br/>
+          <span *ngIf="submitted && f.dob.errors">Date of birth <b>should not be a future date</b>, please select correct date</span>
+       </div>
+       <form [formGroup]="profile"  (ngSubmit)=onSubmit(profile.value) class="form-group" >
+          <div class="form_section">
+             <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                   <div class="section-card">
+                      <div class="section-body p-3">
+                         <div class="row">
+                            <div class="col-lg-4 col-sm-12">
+                               <div class="form-group alien_form_inline">
+                                  <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                                  <input type="text" name="" class="form-control" formControlName="lastname" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }">
+                               </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-12">
+                               <div class="form-group alien_form_inline">
+                                  <label>Middle Name <span class="glyphicon">&#x2a;</span></label>
+                                  <input type="text" name="" class="form-control"  placeholder="Middle name" formControlName="middlename">
+                               </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-12">
+                               <div class="form-group alien_form_inline">
+                                  <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                                  <input type="text" name="" class="form-control" formControlName="firstname" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }">
+                               </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                               <div class="form-group alien_form_inline">
+                                  <label>Date of Birth <span class="glyphicon">&#x2a;</span></label>
+                                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dob"  
+                                  placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" [maxDate]="datePickerConfig.maxDate" >
+                               </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                               <div class="form-group alien_form_inline">
+                                  <label>Place of Birth <span class="glyphicon">&#x2a;</span></label>                               
+                                  <input type="text" class="form-control" formControlName="pob" placeholder="Place of birth" [ngClass]="{ 'is-invalid': submitted && f.pob.errors }" />
+                               </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group alien_form_inline">
+                                    <label>Gender <span class="glyphicon">&#x2a;</span></label><br>
+                                    <div class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
+                                       <input class="form-check-input" name="gender" type="radio" value="male" id="customRadioInline1"  formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                                       <label class="form-check-label" for="customRadioInline1">MALE</label>
+                                    </div>
+                                    <div class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
+                                       <input type="radio" class="form-check-input" formControlName="gender" value="female" id="customRadioInline2" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                                       <label class="form-check-label" for="customRadioInline2">Female</label>
+                                    </div>
+                                 </div>
+                               <div class="form-group alien_form_inline">
+                                  <label>Address Line 1 <span class="glyphicon">&#x2a;</span></label>
+                                  <input type="text" name="" class="form-control" formControlName="address1" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }">
+                               </div>
+                               <div class="form-group alien_form_inline">
+                                  <label>Address Line 1 <span class="glyphicon">&#x2a;</span></label>
+                                  <input type="text" class="form-control" formControlName="address2"  placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" >
+                               </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                               <div class="form-group alien_form_inline">
+                                  <label>Phone number <span class="glyphicon">&#x2a;</span></label>
+                                  <input type="number" name="" class="form-control" formControlName="number" placeholder="Phone number" 
+                                     [ngClass]="{ 'is-invalid': submitted && f.number.errors }">
+                               </div>
+                               <div class="form-group alien_form_inline">
+                                  <label>Zip/Postal code<span class="glyphicon">&#x2a;</span></label>
+                                  <input type="text" class="form-control" formControlName="zip"  placeholder="Zip / Postal Code" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" >
+                               </div>
+                               <div class="form-group alien_form_inline">
+                                  <label>Email Address<span class="glyphicon">&#x2a;</span></label>
+                                  <input type="text" class="form-control" formControlName="email"  placeholder="Email Address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <div class="text-right">
+                <button type="button" (click)="onReset()" class="btn  btn-danger">Cancel</button>
+                <button type="submit" class="btn btn-theme">Submit</button>
+             </div>
+             <div  class="row text-center p-3">
+                <textarea rows="5" class="form-control" placeholder="Welcome to the Passport, Immigration and Citizenship Agency - Citizenship Application Portal. All Applicants are required to create a profile before proceeding to completing the required application." cols="82" disabled ></textarea>
+             </div>
           </div>
-          <div class="col">
-            <label class='name'>Middle name</label>
-            <input type="text" class="col-7" formControlName="middlename" placeholder="Middle name" >
-          </div>
-          <div class="col">
-            <label class='name'>First name<span class="glyphicon">&#x2a;</span></label> 
-            <input type="text" class="col-8" formControlName="firstname" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" >
-          </div>
+      </form>    
     </div>
-
-    <div class="row">
-        <div class="col-5">
-            <label>Date of Birth<span class="glyphicon">&#x2a;</span></label>
-            
-            <input type="text" bsDatepicker [bsConfig]="datePickerConfig" class="col-9" formControlName="dob"  
-            placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" [maxDate]="datePickerConfig.maxDate" >
-          </div>
-          
-          <div class="col-sm">
-            <label>Place of Birth<span class="glyphicon">&#x2a;</span></label>
-            <input type="text" class="col-9" formControlName="pob" placeholder="Place of birth" [ngClass]="{ 'is-invalid': submitted && f.pob.errors }" />
-          </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-5">
-          <label class="email-label">Address Line 1<span class="glyphicon">&#x2a;</span></label>
-          <span class="genderAlign">
-          <input type="text" class="col-9" formControlName="address1" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" >
-          </span>
-        </div>
-        <div class="col-sm">
-            <label>Country<span class="glyphicon">&#x2a;</span></label>
-            <select class="col-9 selectBoxAlign" formControlName="country" (change)="loadPhoneNumber()"
-             id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" >
-                <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
-            </select>
-        </div>
-  </div>  
-  
-  <div class="row">
-      <div class="col-5">
-          <label class="email-label">Address Line 2<span class="glyphicon">&#x2a;</span></label>
-          <span class="genderAlign">
-          <input type="text" class="col-9" formControlName="address2" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address2.errors }" >
-          </span>
-        </div>
-        <div class="col-sm">
-          <label class='number'>Phone number<span class="glyphicon">&#x2a;</span></label>
-          <input type="number" class="col-9" formControlName="number"  placeholder="Phone number" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" >
-        </div>
-  </div>  
-
-
-    <div class="row">
-      
-        <div class="col-5">
-            <label class="zip-code">Zip/Postal code<span class="glyphicon">&#x2a;</span></label>
-            <input type="text" class="col-9" formControlName="zip" placeholder="Zip / Postal Code" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" >
-        </div>
-
-        <div class="col-5">
-            <label>Gender<span class="glyphicon">&#x2a;</span></label>
-        <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" value='male' id="customRadioInline1" name="gender" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline1">Male</label>
-      </div>
-      <div class="custom-control custom-radio custom-control-inline">
-        <input type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" value='female' id="customRadioInline2" name="gender" class="custom-control-input">
-        <label class="custom-control-label" for="customRadioInline2">Female</label>
-      </div>
-    </div>
-
-
-    
-  </div>  
-  
-  
-  <div class="row">
-    <div class="col-5">
-        <label class="email-label1">Email Address<span class="glyphicon">&#x2a;</span></label>
-        <input type="text" class="col-9" formControlName="email" placeholder="Email address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
-    </div>
-       
-  </div>
-    
-    <div class="wrapper">
-        <button type="button" (click)="onReset()" class="btn">Cancel</button>
-        <button type="submit" class="btn">Submit</button>
-    </div>
-
-    <div class="wrapper">
-      <textarea rows="5" placeholder="Welcome to the Passport, Immigration and Citizenship Agency - Citizenship Application Portal. All Applicants are required to create a profile before proceeding to completing the required application." cols="82" disabled ></textarea>
-    </div>
- </form>
-</div>
-  </div>
-
-<br/>
-</block-ui>
+ </block-ui>

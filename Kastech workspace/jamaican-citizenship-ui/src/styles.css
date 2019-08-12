@@ -63,3 +63,19 @@
 .mat-dialog-actions .mat-button+.mat-button, .mat-dialog-actions .mat-button+.mat-raised-button, .mat-dialog-actions .mat-raised-button+.mat-button, .mat-dialog-actions .mat-raised-button+.mat-raised-button {
     margin-left: 8px;
 }
+@media only screen and (max-width:1200px) {
+body{
+    min-width: 100%;
+}
+}
+@media only screen and (max-width: 768px) {
+    
+    .header_img img{
+        height: 138px;
+    }
+    .header .main_content{
+        bottom: -6%;
+    }
+
+}
+
