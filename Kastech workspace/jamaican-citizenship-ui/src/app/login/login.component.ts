@@ -70,7 +70,6 @@ export class LoginComponent implements OnInit {
 
     if(this.fromSchedule === 'offical'){
       this.authenticateOffical(payload);
-      
     }else{
       this.authenticateUser(payload);
     }
@@ -99,7 +98,8 @@ export class LoginComponent implements OnInit {
       //this.router.navigate(['/officalForms/agentView']);
       this.loginService.authenticateOffical(payload).subscribe((data:any)=>{
        if(data == null){
-         this.errorMsg = "Invalid UserId/Password ";
+        this.showError = true;
+        this.errorMsg = "Invalid UserId/Password ";
         this.blockUI.stop();
         
         }else{
@@ -157,7 +157,6 @@ export class LoginComponent implements OnInit {
 
         this.router.navigate(['/scheduleAppointment/111'])
       });
-
     }
 
     
