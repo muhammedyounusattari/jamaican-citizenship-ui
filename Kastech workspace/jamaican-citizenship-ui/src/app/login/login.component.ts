@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     // if(localStorage.getItem('isLoggedIn'))
     // this.logoutService.setTitle('login');
     
-
+    
     this.activateRoute.params.subscribe(param => {
       this.fromSchedule = param.schedule;
       console.log('params', param.schedule);
@@ -67,8 +67,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(payload){
+
     if(this.fromSchedule === 'offical'){
       this.authenticateOffical(payload);
+      
     }else{
       this.authenticateUser(payload);
     }
@@ -94,6 +96,7 @@ export class LoginComponent implements OnInit {
     if (this.fromSchedule === 'offical') {
       payload.loginType = this.fromSchedule;
       payload.userId = payload.email;
+      //this.router.navigate(['/officalForms/agentView']);
       this.loginService.authenticateOffical(payload).subscribe((data:any)=>{
        if(data == null){
          this.errorMsg = "Invalid UserId/Password ";
@@ -154,11 +157,13 @@ export class LoginComponent implements OnInit {
 
         this.router.navigate(['/scheduleAppointment/111'])
       });
+
     }
 
     
     this.loginService.authenticate(payload).subscribe(data => {
       console.log("login result", data);
+     
       if (data == null) {
         this.blockUI.stop();
         this.errorMsg = 'Email/Password is incorrect ';
