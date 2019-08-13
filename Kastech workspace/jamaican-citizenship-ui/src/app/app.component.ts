@@ -73,4 +73,6 @@ export class AppComponent implements OnInit {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }
+
+  
 }

@@ -75,7 +75,7 @@ export class AdminFormsComponent implements OnInit {
           // }
   
          });
-      }else if(this.loginType === "operationsmanager" ){
+      }else if(this.loginType === "operationsmanager" || this.loginType === "director" ){
         this.adminService.getFormsForReview(formType,this.loginType).subscribe((data:any)=>{
           // if(data == null){
             // alert('there are no application assinged to you ');

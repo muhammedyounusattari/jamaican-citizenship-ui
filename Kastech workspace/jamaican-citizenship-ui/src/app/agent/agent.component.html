@@ -4,7 +4,7 @@
         <h2 class="m-4">Agent Application Review</h2>
       </div>
      
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 p-0">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 p-0" *ngIf='type != "operationsmanager" && type != "director" '>
             <label class="sr-only" for="inlineFormInputGroup">Type text here...</label>
             <div class="input-group mb-4">
               <div class="input-group-prepend">
@@ -23,15 +23,25 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody class="text-size">
-             ++++ {{agnet | json}}
-              <tr *ngFor='let applicant of agent.applications'> 
-                <td>{{applicant.applicantId}}</td>
-                <td>{{applicant.name}}</td>
-                <td><button type="button" class="clr-btn" (click)="getReviewForm(applicant.applicantId)" >REVIEW</button></td>
+            <tbody class="text-size" *ngIf='type === "operationsmanager" || type === "director" '>
+           
+              <tr *ngFor='let applicant of agent.data'> 
+                <td>{{applicant.id}}</td>
+                <td>{{applicant.profile.lastname +' '+applicant.profile.firstname}}</td>
+                <td><button type="button" class="clr-btn" (click)="getReviewForm(applicant.id)" >REVIEW</button></td>
               </tr>
              
             </tbody>
+
+            <tbody class="text-size" *ngIf='type != "operationsmanager"'>
+           
+                <tr *ngFor='let applicant of agent.applications'> 
+                  <td>{{applicant.applicantId}}</td>
+                  <td>{{applicant.name}}</td>
+                  <td><button type="button" class="clr-btn" (click)="getReviewForm(applicant.applicantId)" >REVIEW</button></td>
+                </tr>
+               
+              </tbody>
           </table>
         </div>
     </div>
