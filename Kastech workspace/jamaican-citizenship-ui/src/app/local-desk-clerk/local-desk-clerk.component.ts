@@ -17,8 +17,8 @@ export class LocalDeskClerkComponent implements OnInit {
   
   menuDropValue = [
     
-    {name:'Review Applications',value:"ra"},
-    {name:'View Appointment Schedule',value:"vas"}
+    {name:'Review Applications',value:"ra"}
+//    {name:'View Appointment Schedule',value:"vas"}
   ];
 
 
