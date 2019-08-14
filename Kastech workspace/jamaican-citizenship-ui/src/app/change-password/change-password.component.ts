@@ -53,8 +53,9 @@ export class ChangePasswordComponent implements OnInit {
         if (this.profile.status != null) {
           sessionStorage.setItem('appCode', this.profile.appCode);
           this.blockUI.stop();
-          this.router.navigate(['/status'])
-          return false;
+         // this.router.navigate(['/status'])
+         this.router.navigate(['/home']);
+         return false;
         }
         else {
           this.blockUI.stop();

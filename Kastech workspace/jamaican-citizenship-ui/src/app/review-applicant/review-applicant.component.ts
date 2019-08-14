@@ -179,6 +179,7 @@ export class ReviewApplicantComponent implements OnInit {
     this.utilityService.loadCountriesFromJson().subscribe(data => {
       this.countries = data;
     })
+    this.blockUI.stop();
   }
 
   get f() { return this.descentForm.controls; }
