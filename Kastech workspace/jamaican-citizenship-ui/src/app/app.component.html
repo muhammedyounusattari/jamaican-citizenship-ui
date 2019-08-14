@@ -30,13 +30,17 @@
                 <ul class="">
                   <li class="first" style="color:#145173;"><a href="/" class="home">Home</a></li>
                   <li class="first" *ngIf="!loginStatus" style="color:#145173;"><a href="/login/offical" class="home">Login</a></li>
-          <!--
+
+                  <!--
           <li class="menu-325"><a href="getting-started.html" target="popup" onclick="window.open('getting-started.html','popup','width=auto,height=600'); return false;" class="begin">Getting Started</a></li>
           <li class="menu-327"><a href="about.html" target="popup" onclick="window.open('about.html','popup','width=auto,height=600'); return false;" class="about">About</a></li>
           -->
           <!-- {{loginStatus}} -->
           <li class="last" *ngIf="loginStatus"><a href="#" (click)='logout()' class="return"> Logout </a></li>
+          <li class="last" *ngIf="loginStatus"><a class="return"> {{userName}}</a></li>
           <li class="last"><a href="http://www.pica.gov.jm" target="_blank" class="return"><span class="return_arrow">&#8658;</span> Return to PICA.GOV.JM</a></li>
+
+
         </ul>
 
             </div><!---main_content-->

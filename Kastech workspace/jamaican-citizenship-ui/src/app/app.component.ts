@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
   title: string = '';// = 'jamaican-citizenship-ui';
   loginStatus: boolean = false;
   currentUser;
+  roles: any;
+  userName: string;
   private currentUserSubject: BehaviorSubject<Profile>;
 
   constructor(private logoutService: LogoutService, private router: Router,
@@ -25,13 +27,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.roles = JSON.parse(localStorage.getItem('roles'));
+    console.log(this.roles);
    
-
+    this.userName = this.roles.name;
+    console.log(this.userName);
     this.router.events.forEach((event) => {
-     
       if (event instanceof NavigationStart) {
         //console.log(event);
-          if (event['url'] === '/login' || event['url'] === '/' || event['url'] === '/home' || event['url'] === '/login/offical' || event['url'] === '/status' || event['url'] === '/login/scheduleAppointment') {
+          if (event['url'] === '/login' || event['url'] === '/' || event['url'] === '/home' ||
+           event['url'] === '/login/offical' || event['url'] === '/status' || event['url'] === '/login/scheduleAppointment') {
             this.loginStatus = false;
           } else {
             this.loginStatus = true;

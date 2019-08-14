@@ -10,6 +10,7 @@ import { Profile } from '../Profile';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
   profile: any;
   loginLabel: string = 'Email';
   fromSchedule: string;
+  public roles: any;
   private currentUserSubject: BehaviorSubject<Profile>;
   public currentUser: Observable<Profile>;
 
@@ -104,8 +106,10 @@ export class LoginComponent implements OnInit {
         
         }else{
            var url = data.url;
-          sessionStorage.setItem('roles',JSON.stringify(data));
-         
+          localStorage.setItem('roles',JSON.stringify(data));
+          this.roles = JSON.parse(localStorage.getItem('roles'));
+         console.log(this.roles);
+         console.log(this.roles.name);
         // if(url==="/officalForms/deskClerk" || url==="/officalForms/agentView")
           url+="/"+data.userId+"/"
           
