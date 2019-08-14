@@ -14,7 +14,7 @@ export class AgentComponent implements OnInit {
   type:string;
   constructor(private agentService:AgentService,private router:Router,private activateRoute:ActivatedRoute) { 
     var data = localStorage.getItem('agent');
-    var info = sessionStorage.getItem('roles');
+    var info = localStorage.getItem('roles');
     this.roles = (info!=null)?JSON.parse(info):info;
 
     this.activateRoute.params.subscribe((params)=>{
@@ -23,6 +23,7 @@ export class AgentComponent implements OnInit {
 
     if(data){
       this.agent = JSON.parse(data);
+      console.log(data);
     }
    
       // if(this.roles.type==="agent"){

@@ -263,6 +263,7 @@ export class DescentComponent implements OnInit {
         this.showDescentForm = false;
         this.showDocumentUpload = true;
         this.blockUI.stop();
+        localStorage.setItem('roles',JSON.stringify(data));
         console.log(data);
       })
       

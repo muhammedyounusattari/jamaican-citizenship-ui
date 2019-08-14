@@ -101,7 +101,8 @@ export class CreateProfileComponent implements OnInit {
 
       }
     })
-
+    localStorage.setItem('roles',JSON.stringify(payload));
+    //this.roles = JSON.parse(localStorage.getItem('roles'));
     console.log(payload);
   }
 

@@ -27,12 +27,7 @@ export class AppComponent implements OnInit {
     console.log('........' + this.loginStatus); 
   }
 
-  ngOnInit() {
-    this.roles = JSON.parse(localStorage.getItem('roles'));
-    console.log(this.roles);
-   
-    this.userName = this.roles.name;
-    console.log(this.userName);    
+  ngOnInit() {  
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         //console.log(event);
@@ -47,23 +42,9 @@ export class AppComponent implements OnInit {
       }
     });
 
-    this.router.events.forEach((event) => {
-      if (event instanceof NavigationStart) {
-        //console.log(event);
-          if (event['url'] === '/home' || event['url'] === '/status' || event['url'] === '/login/scheduleAppointment') {
-            this.loginStatus = false;
-          } else {
-            this.logoutStatus = false;
-          }
-      }
-    });
-
-
-    
-    
     this.roles = JSON.parse(localStorage.getItem('roles'));
     console.log(this.roles);
-    this.userName = this.roles.name;
+    this.userName = this.roles.name || this.roles.firstname || this.roles.profile.firstname;
     console.log(this.userName);
     // if (localStorage.getItem('isLoggedIn'))
     // this.logoutService.title.subscribe(title => {

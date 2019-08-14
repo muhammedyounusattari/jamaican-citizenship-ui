@@ -21,12 +21,13 @@
     padding:3px 10px;
     margin:11px 0px;
     border: 2px solid black;
-    height: 107px;
-    overflow: scroll;
+    /* height: 107px;
+    overflow: scroll; */
 }
 
 .box-part:hover{
     background:#4183D7;
+    cursor: pointer;
 }
 
 .box-part:hover .fa , 

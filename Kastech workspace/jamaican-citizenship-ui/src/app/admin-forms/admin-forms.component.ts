@@ -58,6 +58,7 @@ export class AdminFormsComponent implements OnInit {
         if(data == null){
           alert('there are no application assinged to you ');
         }else{
+          localStorage.setItem('roles',JSON.stringify(data));
           localStorage.setItem('agent',JSON.stringify(data));
           this.router.navigate(['/agentView/'+this.loginType+'/']);
         }
