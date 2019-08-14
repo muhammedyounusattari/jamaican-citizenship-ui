@@ -48,7 +48,7 @@
 						<tbody class="text-size">
 						
 						  <tr *ngFor='let applicant of applicants.data'> 
-							<td>====={{applicant.id}}</td>
+							<td>{{applicant.id}}</td>
 							<td>{{applicant.profile.lastname +' '+applicant.profile.firstname}}</td>
 							<td><button type="button" class="clr-btn" (click)="getReviewForm(applicant.id)" >REVIEW</button></td>
 						  </tr>

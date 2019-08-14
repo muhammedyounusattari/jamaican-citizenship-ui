@@ -103,7 +103,7 @@ export class LoginComponent implements OnInit {
         this.showError = true;
         this.errorMsg = "Invalid UserId/Password ";
         this.blockUI.stop();
-        
+        return false;
         }else{
            var url = data.url;
           localStorage.setItem('roles',JSON.stringify(data));
@@ -154,12 +154,12 @@ export class LoginComponent implements OnInit {
       return false;
     }
 
-    if (this.fromSchedule==="schedule") {
-      this.loginService.authenticate(payload).subscribe(data => {
+    if (this.fromSchedule==="scheduleAppointment") {
+      this.loginService.authenticate(payload).subscribe((data:any) => {
         sessionStorage.setItem('profile', JSON.stringify(data));
         this.currentUserSubject.next(data)
 
-        this.router.navigate(['/scheduleAppointment/111'])
+        this.router.navigate(['/scheduleAppointment/'+data.appCode])
       });
     }
 
