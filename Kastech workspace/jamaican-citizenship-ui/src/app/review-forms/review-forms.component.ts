@@ -30,6 +30,7 @@ export class ReviewFormsComponent implements OnInit {
   showApplicantQueueMessage: string
   private formType: string;
   private type:string;
+  private selectLanguage: any;
 
   constructor(private adminService: AdminService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) {
 
@@ -78,12 +79,17 @@ export class ReviewFormsComponent implements OnInit {
       }
 
       if(this.type==="supervisor"){
+       
         this.adminService.loadDeskClerk().subscribe((data:any) => {
           this.agents = data.data;
+          debugger;
+          this.selectLanguage = this.agents[0].name;
+          console.log(this.selectLanguage);
         })
       }else if(this.type==="compliancesupervisor"){
           this.adminService.loadAgentsDetails().subscribe((data:any) => {
             this.agents = data.data;
+            this.selectLanguage = this.agents[0].name;
           })
       }
     });
