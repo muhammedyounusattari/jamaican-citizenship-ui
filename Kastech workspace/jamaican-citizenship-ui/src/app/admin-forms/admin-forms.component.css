@@ -21,19 +21,22 @@
     padding:3px 10px;
     margin:11px 0px;
     border: 2px solid black;
-    height: 129px;
-    overflow: scroll;
+    height: auto;
+    /* overflow: scroll; */
 }
 
 .box-part:hover{
     background:#4183D7;
+    cursor: pointer;
 }
+
 
 .box-part:hover .fa , 
 .box-part:hover .title , 
 .box-part:hover .text ,
 .box-part:hover a{
     color:#FFF;
+    
     -webkit-transition: all 1s ease-out;
     -moz-transition: all 1s ease-out;
     -o-transition: all 1s ease-out;
