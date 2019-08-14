@@ -13,6 +13,7 @@ import { Profile } from './Profile';
 export class AppComponent implements OnInit {
   title: string = '';// = 'jamaican-citizenship-ui';
   loginStatus: boolean = false;
+  logoutStatus: boolean = true;
   currentUser;
   roles: any;
   userName: string;
@@ -23,7 +24,7 @@ export class AppComponent implements OnInit {
     //this.loginStatus = localStorage.getItem('isLoggedIn')
 
     this.authentication.currentUser.subscribe(x => this.currentUser = x);
-    console.log('........' + this.loginStatus);
+    console.log('........' + this.loginStatus); 
   }
 
   ngOnInit() {
@@ -31,7 +32,7 @@ export class AppComponent implements OnInit {
     console.log(this.roles);
    
     this.userName = this.roles.name;
-    console.log(this.userName);
+    console.log(this.userName);    
     this.router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         //console.log(event);
@@ -45,6 +46,25 @@ export class AppComponent implements OnInit {
           }
       }
     });
+
+    this.router.events.forEach((event) => {
+      if (event instanceof NavigationStart) {
+        //console.log(event);
+          if (event['url'] === '/home' || event['url'] === '/status' || event['url'] === '/login/scheduleAppointment') {
+            this.loginStatus = false;
+          } else {
+            this.logoutStatus = false;
+          }
+      }
+    });
+
+
+    
+    
+    this.roles = JSON.parse(localStorage.getItem('roles'));
+    console.log(this.roles);
+    this.userName = this.roles.name;
+    console.log(this.userName);
     // if (localStorage.getItem('isLoggedIn'))
     // this.logoutService.title.subscribe(title => {
     //   this.title = title;
