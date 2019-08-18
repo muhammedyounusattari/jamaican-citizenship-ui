@@ -107,8 +107,10 @@ export class CreateProfileComponent implements OnInit {
   }
 
   onReset() {
-    this.profile.reset();
-    this.loadForm();
+    if(confirm('would like to reset all fields?')){
+      this.profile.reset();
+      this.loadForm();
+    }
   }
 
   onCancel(){

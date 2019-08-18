@@ -24,6 +24,8 @@ export class DescentFormService {
 
   uploadFile(payload): Observable<any> {
     var info = JSON.parse(sessionStorage.getItem('profile'));
+    if(!info.email)
+      info.email = info.profile.email;
     const url = HOST_URL.name+"/descent-form-documents/"+info.email+"/";
     return this.httpClient.post<any>(url, payload);
   }

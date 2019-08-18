@@ -18,7 +18,7 @@ export class SchedulerComponent implements OnInit {
     if(this.applicantId)
       this.schedulerService.isValidToSchedule(this.applicantId).subscribe(data=>{
         if(data == null){
-          alert('either invalid applicant or already your appointment is scheduled ')
+          alert('Error! this may be due to an invalid application or your appointment may have already been scheduled')
           this.router.navigate(['/home']);
         }
       })

@@ -26,6 +26,7 @@ export class ReviewDailogComponentComponent implements OnInit {
 
 
   save(comments) {
+	  debugger;
     var payload = { applicantId: '', status: '', agentId: '', comments: '',type:'' };
     payload.applicantId = localStorage.getItem('applicantId');
     payload.status = localStorage.getItem('status');

@@ -231,7 +231,10 @@ export class DescentComponent implements OnInit {
     // var data ={};
     // data = this.jsonConcat(data,payload);
     // data = this.jsonConcat(data,profile);
-    payload.email = this.profile.email;
+    if(!this.profile.email)
+       payload.email = this.profile.profile.email;
+    else
+      payload.email = this.profile.email;
     //if(this.submit){
 
       this.blockUI.start('Loading......');
@@ -284,8 +287,10 @@ export class DescentComponent implements OnInit {
 
 
 
-    payload.email = this.profile.email;
-     
+	if(!this.profile.email)
+    	payload.email = this.profile.profile.email;
+	else
+		 payload.email = this.profile.email;
     
     this.blockUI.start('Loading......');
     
@@ -359,7 +364,7 @@ export class DescentComponent implements OnInit {
       data.append('fileSeq', 'seq' + j);
       data.append('dataType', this.uploadForm.controls.type.value);
 
-
+debugger;
       this.descentService.uploadFile(data).subscribe(data => {
         this.showDescentForm = false;
         this.blockUI.stop();
@@ -393,6 +398,7 @@ export class DescentComponent implements OnInit {
   }
 
   onHome(){
-    this.router.navigate(['/home'])
+    if(confirm('do you wish to cancel all your changes'))
+      this.router.navigate(['/home'])
   }
 }

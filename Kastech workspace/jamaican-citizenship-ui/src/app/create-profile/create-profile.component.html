@@ -44,13 +44,22 @@
                                   <label>Place of Birth <span class="glyphicon">&#x2a;</span></label>                               
                                   <input type="text" class="form-control" formControlName="pob" placeholder="Place of birth" [ngClass]="{ 'is-invalid': submitted && f.pob.errors }" />
                                </div>
-                            </div>
+							</div>
+						   <div class="col-lg-6 col-sm-12">
+                                <div class="form-group alien_form_inline">
+				<label>Country<span class="glyphicon">&#x2a;</span></label>
+				<select class="col-9 selectBoxAlign" formControlName="country" (change)="loadPhoneNumber()"
+				id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" >
+					<option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>
+				</select>
+			</div>
+		</div>
                             <div class="col-lg-6 col-sm-12">
                                 <div class="form-group alien_form_inline">
                                     <label>Gender <span class="glyphicon">&#x2a;</span></label><br>
                                     <div class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
                                        <input class="form-check-input" name="gender" type="radio" value="male" id="customRadioInline1"  formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
-                                       <label class="form-check-label" for="customRadioInline1">MALE</label>
+                                       <label class="form-check-label" for="customRadioInline1">Male</label>
                                     </div>
                                     <div class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
                                        <input type="radio" class="form-check-input" formControlName="gender" value="female" id="customRadioInline2" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
@@ -62,7 +71,7 @@
                                   <input type="text" name="" class="form-control" formControlName="address1" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }">
                                </div>
                                <div class="form-group alien_form_inline">
-                                  <label>Address Line 1 <span class="glyphicon">&#x2a;</span></label>
+                                  <label>Address Line 2 <span class="glyphicon">&#x2a;</span></label>
                                   <input type="text" class="form-control" formControlName="address2"  placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" >
                                </div>
                             </div>

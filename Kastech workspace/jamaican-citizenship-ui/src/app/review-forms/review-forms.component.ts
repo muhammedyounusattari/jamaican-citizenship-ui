@@ -127,6 +127,11 @@ export class ReviewFormsComponent implements OnInit {
 
 
   }
+
+  cancel(){
+    this.showApplicantErrorMsg ="";
+    window.location.reload();
+  }
 }
 
 /*
