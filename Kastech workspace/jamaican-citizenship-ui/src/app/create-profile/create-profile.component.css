@@ -1,6 +1,69 @@
 label{
     font-weight: normal;
     /* margin: 0px 24px 28px 0px; */
-
+}
+.m-b-30{
+	margin-bottom: 32px;
+}
+.section-card .card-header {
+    background: none;
+    padding: 0.5rem 1.5rem;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 3.5rem;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top-left-radius: 7px !important;
+    border-top-right-radius: 7px !important;
+    border-left: 2px solid #02a94f;
+    border-bottom: 1px solid rgba(107,122,144,0.1);
+}
+.section-card .card-header .section-title{
+    font-size: 1.185rem;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 0;
 }
 
+.gender-block .form-check-input {
+    position: absolute;
+    margin-left: 0;
+
+}
+.gender-block.form-check label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    margin-left: -25px;
+    border: 1px solid #c5c3c3;
+    border-radius: 3px;
+    background-color: #fff;
+    margin-top: 3px;
+}
+
+.gender-block .form-check-label {
+    padding-left: 25px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.gender-block.checkbox-theme input[type="radio"]:checked + label::before {
+    background-color: #1a9332;
+    border-color: #1a9332;
+}
+
+.gender-block input[type=radio]:checked + label:before {
+    font-weight: 300;
+    color: #f3f3f3;
+    line-height: 15px;
+    font-size: 14px;
+    content: "\2713";
+    padding-left: 2px;
+}
+
+.gender-block  input[type=radio]{
+    margin-top: 4px;
+}

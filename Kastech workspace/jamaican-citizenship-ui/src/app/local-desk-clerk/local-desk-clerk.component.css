@@ -25,24 +25,26 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-        min-height: 30vh;
+        min-height: 17vh;
     /* padding: 30px 0; */
 }
 .center-box{
     margin: 0 103px 0 143px;
     max-width: 851px;
     border-radius: 10px;
-    background: #fff;
+    /*background: #fff;*/
     background-size: cover;
-    top: 10vh;
+    /*top: 10vh;*/
     bottom: 0;
     opacity: 1;
     text-align: center;
-    box-shadow: 0px 0px 5px -2px #333;
-    padding: 40px 0;
+    /*box-shadow: 0px 0px 5px -2px #333;*/
+    /*padding: 40px 0;*/
 }
 
-
+.Required_form_inline.form-group{
+ margin-bottom: 0;   
+}
 
 
 .Required_form_inline label{
@@ -114,7 +116,7 @@ select{
     padding: 5px;
     font-size: 16px;
     line-height: 1;
-    border: 0;
+    /*border: 0;*/
     border-radius: 5px;
     height: 34px;
     background: url(../../assets/images/down.png) no-repeat right;
