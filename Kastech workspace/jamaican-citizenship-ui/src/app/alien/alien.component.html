@@ -2,890 +2,827 @@
 <div class="container">
   <h3 class="text-center alien_heading">APPLICATION BY AN ALIEN OR BRITISH PROTECTED PERSON <br> FOR A CERTIFICATE OF NATURALISATION</h3> 
   <br/>
-<div *ngIf='showErrorMsg' class="alert alert-danger" role="alert">
+ 
+    <div *ngIf='showErrorMsg' class="alert alert-danger" role="alert">
     {{showErrorMsg}}<br/>
-    <span *ngIf="submitted && f.dob.errors">Date of birth <b>should not be a future date</b>, please select correct date</span>
+  <!-- <span *ngIf="submitted && f.dob.errors">Date of birth <b>should not be a future date</b>, please select correct date</span> -->
   </div>
-  <form [formGroup]="alienRegistrationForm"  (ngSubmit)=onSubmit(alienRegistrationForm.value) class="form-group" >
-    <div class="Alien_Formone section1" *ngIf="section1">
-        <div class="row">
-        <div class="col-lg-12 col-sm-12">
-            <div class="section-card">
-                <!-- <div class="card-header"></div> -->
-                <div class="section-body p-3">
-                    <div class="row">
-                        <div class="col-lg-4 col-sm-12">
-                            <div class="form-group alien_form_inline">
-                                <label>Last Name <span class="glyphicon">&#x2a;</span></label>
-                                <input type="text" name="" class="form-control" formControlName="lastname" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }">
+  <form [formGroup]="alienRegistrationForm" class="form-group" (ngSubmit)=onSubmit(alienRegistrationForm.value) *ngIf="section1">
+        <div class="Alien_Formone section1"  formGroupName="personalData" >
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <div class="section-card">
+                        <!-- <div class="card-header"></div> -->
+                        <div class="section-body p-3">
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-12">
+                                    <div class="form-group alien_form_inline">
+                                        <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" name="" class="form-control" formControlName="lastname" placeholder="Last name" [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.lastname.errors }"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-12">
+                                    <div class="form-group alien_form_inline">
+                                        <label>Middle Name </label>
+                                        <input type="text" name="" class="form-control"  placeholder="Middle name" formControlName="middlename"/>
+                                    </div>
+                                </div> 
+                                <div class="col-lg-4 col-sm-12">
+                                    <div class="form-group alien_form_inline">
+                                        <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" name="" class="form-control" formControlName="firstname" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.firstname.errors }"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group alien_form_inline">
+                                        <label>Date of Birth <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dob"  
+                                        placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.dob.errors }" [maxDate]="datePickerConfig.maxDate" >
+                                    </div>
+                                    <div class="form-group alien_form_inline">
+                                        <label>Place of Birth <span class="glyphicon">&#x2a;</span></label>   
+                                        <input type="text" class="form-control" formControlName="pob" placeholder="Place of birth" [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.pob.errors }" />
+                                    </div>
+                                    <div class="form-group alien_form_inline">
+                                        <label>Gender <span class="glyphicon">&#x2a;</span></label>
+                                        <div class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
+                                            <input class="form-check-input" name="gender" type="radio" value="male" id="Male"  formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.gender.errors }">
+                                            <label class="form-check-label" for="Male">MALE</label>
+                                    </div>
+                                    <div class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
+                                        <input type="radio" class="form-check-input" formControlName="gender" value="female" id="female" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.gender.errors }">
+                                        <label class="form-check-label" for="female">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group alien_form_inline">
+                                    <label>Address <span class="glyphicon">&#x2a;</span></label>
+                                    <input type="text" name="" class="form-control" formControlName="address" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.address.errors }">
+                                </div>
+                                <div class="form-group alien_form_inline">
+                                    <label>Telephone Number <span class="glyphicon">&#x2a;</span></label>
+                                    <input type="number" class="form-control" formControlName="number"  placeholder="Phone number" [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.number.errors }" >
+                                </div>
+                                <div class="form-group alien_form_inline">
+                                    <label>Email Address <span class="glyphicon">&#x2a;</span></label>
+                                    <input type="text" class="form-control" formControlName="email" placeholder="Email address" [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.email.errors }" >
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-sm-12">
-                            <div class="form-group alien_form_inline">
-                                <label>Middle Name <span class="glyphicon">&#x2a;</span></label>
-                                <input type="text" name="" class="form-control"  placeholder="Middle name" formControlName="middlename">
-                            </div>
-                        </div> 
-                        <div class="col-lg-4 col-sm-12">
-                            <div class="form-group alien_form_inline">
-                                <label>First Name <span class="glyphicon">&#x2a;</span></label>
-                                <input type="text" name="" class="form-control" formControlName="firstname" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="form-group alien_form_inline">
-                                <label>Date of Birth <span class="glyphicon">&#x2a;</span></label>
-                                <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dob"  
-                                placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" [maxDate]="datePickerConfig.maxDate" >
-                            </div>
-                            <div class="form-group alien_form_inline">
-                                <label>Place of Birth <span class="glyphicon">&#x2a;</span></label>                               
-                                <!-- <select class="form-control" id="inputGroupSelect01">
-                                    <option  selected>Select City</option>
-                                    <option>New value 1</option>
-                                    <option>New value 2</option>
-                                    <option>New value 3</option>
-                                </select> -->
-                                <input type="text" class="form-control" formControlName="pob" placeholder="Place of birth" [ngClass]="{ 'is-invalid': submitted && f.pob.errors }" />
-
-                            </div>
-                            <div class="form-group alien_form_inline">
-                                <label>Gender <span class="glyphicon">&#x2a;</span></label>
-                                <div class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
-                                    <input class="form-check-input" name="gender" type="radio" value="male" id="Male"  formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
-                                    <label class="form-check-label" for="Male">MALE</label>
-                              </div>
-                              <div class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
-                                  <input type="radio" class="form-check-input" formControlName="gender" value="female" id="female" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
-                                  <label class="form-check-label" for="female">Female</label>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-6 col-sm-12">
-                        <div class="form-group alien_form_inline">
-                            <label>Address <span class="glyphicon">&#x2a;</span></label>
-                            <input type="text" name="" class="form-control" formControlName="address" placeholder="Address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }">
-                        </div>
-                        <div class="form-group alien_form_inline">
-                            <label>Telephone Number <span class="glyphicon">&#x2a;</span></label>
-                            <input type="number" class="form-control" formControlName="number"  placeholder="Phone number" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" >
-                          </div>
-                        <div class="form-group alien_form_inline">
-                            <label>Email Address <span class="glyphicon">&#x2a;</span></label>
-                            <input type="text" class="form-control" formControlName="email" placeholder="Email address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" >
-                          </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="row">                    
-        <div class="col-lg-12 col-sm-12">
-            <div class="section-card">
-                <div class="card-header">
-                    <h3 class="section-title">Section 1</h3>
                 </div>
-                <div class="section-body p-3">
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="form-group alien_form_inline">
-                                <label>Name</label>
-                                <input type="text" name="" class="form-control" formControlName="name" placeholder="Email address">
-                                <p>(If different from above)</p>
-                            </div>
-                            <div class="form-group alien_form_inline">
-                                <label>Occupation</label>
-                                <input type="text" name="" class="form-control" formControlName="occupation" placeholder="Occupation">
-                            </div>
+            </div>
+            <div class="row">                    
+                <div class="col-lg-12 col-sm-12">
+                    <div class="section-card">
+                        <div class="card-header">
+                            <h3 class="section-title">Section 1</h3>
                         </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="form-group alien_form_inline">
-                                <label>Other Name for private purposes</label>
-                                <input type="text" name="" class="form-control" formControlName="othername" >
-                            </div>
-                            <div class="form-group alien_form_inline">
-                                <label>Business Address</label>
-                                <input type="text" name="" class="form-control" formControlName="businessaddress" placeholder="Business Address">
+                        <div class="section-body p-3">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group alien_form_inline">
+                                        <label>Email</label>
+                                        <input type="email" name="" class="form-control" formControlName="name" placeholder="Email address">
+                                        <p>(If different from above)</p>
+                                    </div>
+                                    <div class="form-group alien_form_inline">
+                                        <label>Occupation <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" name="" class="form-control" formControlName="occupation" placeholder="Occupation"  [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.occupation.errors }">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group alien_form_inline">
+                                        <label>Other Name for private purposes</label>
+                                        <input type="text" name="" class="form-control" formControlName="othername" >
+                                    </div>
+                                    <div class="form-group alien_form_inline">
+                                        <label>Business Address <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" name="" class="form-control" formControlName="businessaddress" placeholder="Business Address"  [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.businessaddress.errors }">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row">                    
-        <div class="col-lg-12 col-sm-12">
-            <div class="section-card mb-nonelayer">
-                <div class="card-header">
-                    <h3 class="section-title">Section 2</h3>
+            <div class="row">                    
+                <div class="col-lg-12 col-sm-12">
+                    <div class="section-card mb-nonelayer">
+                        <div class="card-header">
+                            <h3 class="section-title">Section 2</h3>
+                        </div>
+                        <div class="section-body p-3">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group alien_form_inline">
+                                        <label>b) Nationality at Birth <span class="glyphicon">&#x2a;</span></label>
+                                        <select class="form-control" formControlName="nationalityControl" [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.nationalityControl.errors }">
+                                            <!-- <option>New value 1</option>
+                                            <option>New value 2</option>
+                                            <option>New value 3</option> -->
+                                            <option [value]="country" *ngFor="let country of nationalities">             {{country}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group alien_form_inline">
+                                        <label>c) Present Nationality</label>
+                                        <select class="form-control" formControlName="presentnationalityControl" >
+                                                <option [value]="country" *ngFor="let country of personalitynationalities"> {{country}}</option>
+                                        </select>
+                                        <p>(If different from above)</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group alien_form_inline labl-list txt-box">
+                                        <label class=" labl-list State-how-Nationality">State how Nationality was changed </label>
+                                        <input type="text" name="" class="form-control" >
+                                        <p>(If Applicable)</p>
+                                    </div>
+                                    <div class="form-group alien_form_inline labl-list txt-box">
+                                        <label class=" labl-list If-Stateless">If Stateless, say how nationality
+                                        was lost</label>
+                                        <input type="text" name="" class="form-control">
+                                        <p>(If Applicable)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="section-body p-3">
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="form-group alien_form_inline">
-                                <label>b) Nationality at Birth</label>
-                                <select class="form-control" id="inputGroupSelect01">
-                                    <option>New value 1</option>
-                                    <option>New value 2</option>
-                                    <option>New value 3</option>
+            </div>
+       
+            <div class="p-4 text-right">
+                <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+                <button class="btn btn-theme" (click)='onSave(alienRegistrationForm.value)' >Save</button>
+                <!-- <button class="btn btn-theme" (click)='onSave(alienRegistrationForm.value)' [disabled]="!alienRegistrationForm.controls.personalData.valid">Save</button> -->
+                <button class="btn btn-theme" type="submit" [disabled]="!alienRegistrationForm.controls.personalData.valid">Next</button>
+                <!-- <button class="btn btn-theme" (click)="showsection2(alienRegistrationForm.value)">Next</button> -->
+            </div>
+        </div>
+    </form>
+    <form [formGroup]="alienRegistrationForm" class="form-group" (ngSubmit)=onSubmit(alienRegistrationForm.value) *ngIf="section2">
+        <div class="Alien_formtwo section2"   formGroupName="section2">
+        <div class="row">                    
+            <div class="col-lg-12 col-sm-12">
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3 class="section-title">Section 2b</h3>
+                    </div>
+                    <div class="section-body p-3">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group alien_form_inline">
+                                    <label>f ) British  Territory <span class="glyphicon">&#x2a;</span></label>
+                                    <select class="form-control"  formControlName="britishterritory" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.britishterritory.errors }">
+                                            <option [value]="country" *ngFor="let country of personalitynationalities"> {{country}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group alien_form_inline">
+                                    <label class="lbl-list">State how status was acquired</label>
+                                    <input type="text" name="" class="form-control" formControlName="status">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <div class="form-group alien_form_inline">
+                                    <label>h ) Other Nationality Status</label>
+                                    <input type="text" name="" class="form-control" formControlName="Nationalitystatus">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3 class="section-title">Section 3</h3>
+                    </div>
+                    <div class="section-body p-3">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12 ">
+                                <div class="br-1">
+                                    <h5 class="text-center"><strong>Father</strong></h5>
+                                    <div class="form-group alien_form_inline">
+                                        <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" name="" class="form-control" formControlName="fatherLastName" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.fatherLastName.errors }">
+                                    </div>
+                                    <div class="form-group alien_form_inline">
+                                        <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" name="" class="form-control" formControlName="fatherFirstName" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.fatherFirstName.errors }">
+                                    </div>
+                                    <div class="form-group alien_form_inline">
+                                        <label class="valign-top">Address <span class="glyphicon">&#x2a;</span></label>
+                                        <textarea class="form-control" rows="3" name="text" formControlName="FatherAddress" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.FatherAddress.errors }"></textarea>
+                                    </div>
+                                    <div class="form-group alien_form_inline">
+                                        <label>Country of Birth <span class="glyphicon">&#x2a;</span></label>
+                                        <select class="form-control" formControlName="FatherCOB" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.FatherCOB.errors }">
+                                                <option [value]="country" *ngFor="let country of nationalities"> {{country}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <h5 class="text-center"><strong>Mother</strong></h5>
+                                <div class="form-group alien_form_inline">
+                                    <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                                    <input type="text" name="" class="form-control" formControlName="motherLastName" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.motherLastName.errors }">
+                                </div>
+                                <div class="form-group alien_form_inline">
+                                    <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                                    <input type="text" name="" class="form-control" formControlName="motherFirstName" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.motherLastName.errors }">
+                                </div>
+                                <div class="form-group alien_form_inline">
+                                    <label class="valign-top">Address <span class="glyphicon">&#x2a;</span></label>
+                                    <textarea class="form-control" rows="3" name="text" formControlName="motherAddress" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.motherLastName.errors }"></textarea>
+                                </div>
+                                <div class="form-group alien_form_inline">
+                                    <label>Country of Birth <span class="glyphicon">&#x2a;</span></label>
+                                    <select class="form-control" formControlName="motherCOB" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.motherCOB.errors }">
+                                            <option [value]="country" *ngFor="let country of nationalities">{{country}}</option>
+                                    </select>
+                                </div>
+                            </div>                                
+                        </div>
+                    </div>
+                </div>
+                <div class="section-card mb-nonelayer">
+                    <div class="card-header">
+                        <h3 class="section-title">Section 4</h3>
+                    </div>
+                    <div class="section-body p-3">
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-12">
+                                <div class="form-group alien_form_inline">
+                                    <label>Marital Status <span class="glyphicon">&#x2a;</span></label>
+                                    <select class="form-control"  formControlName="maritalStatus" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.maritalStatus.errors }">
+                                            <option [value]="country" *ngFor="let country of maritalStatus">{{country}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-12">
+                                <div class="form-group alien_form_inline">
+                                    <label for="" class="">Date of Marriage <span class="glyphicon">&#x2a;</span></label>
+                                    <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dom" placeholder=""  [maxDate]="datePickerConfig.maxDate" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.dom.errors }"> 
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-12">
+                                <div class="form-group alien_form_inline"> 
+                                <label>Place where marriage <span class="glyphicon">&#x2a;</span></label>
+                                <select class="form-control"  formControlName="pom" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.pom.errors }">
+                                        <option [value]="country" *ngFor="let country of nationalities">             {{country}}</option>
                                 </select>
                             </div>
-                            <div class="form-group alien_form_inline">
-                                <label>c) Present Nationality</label>
-                                <select class="form-control" id="inputGroupSelect01">
-                                    <option>New value 1</option>
-                                    <option>New value 2</option>
-                                    <option>New value 3</option>
-                                </select>
-                                <p>(If different from above)</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12">
-                            <div class="form-group alien_form_inline labl-list txt-box">
-                                <label class=" labl-list State-how-Nationality">State how Nationality was changed </label>
-                                <input type="text" name="" class="form-control" >
-                                <p>(If Applicable)</p>
-                            </div>
-                            <div class="form-group alien_form_inline labl-list txt-box">
-                                <label class=" labl-list If-Stateless">If Stateless, say how nationality
-                                was lost</label>
-                                <input type="text" name="" class="form-control">
-                                <p>(If Applicable)</p>
-                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="p-4 text-right">
-        <button class="btn btn-danger">Logout</button>
-        <button class="btn btn-theme" >Save</button>
-        <button class="btn btn-theme" (click)="showsection2()">Next</button>
-    </div>
-    </div>
-    <div class="Alien_formtwo section2" *ngIf="section2">
-      <div class="row">                    
-          <div class="col-lg-12 col-sm-12">
-              <div class="section-card">
-                  <div class="card-header">
-                      <h3 class="section-title">Section 2b</h3>
-                  </div>
-                  <div class="section-body p-3">
-                      <div class="row">
-                          <div class="col-lg-6 col-sm-12">
-                              <div class="form-group alien_form_inline">
-                                  <label>f ) British  Territory </label>
-                                  <select class="form-control" id="inputGroupSelect01" formControlName="britishterritory">
-                                      <option value="1">New value 1</option>
-                                      <option value="2">New value 2</option>
-                                      <option value="3">New value 3</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="col-lg-6 col-sm-12">
-                              <div class="form-group alien_form_inline">
-                                  <label class="lbl-list">State how status was acquired</label>
-                                  <input type="text" name="" class="form-control" formControlName="status">
-                              </div>
-                          </div>
-                          <div class="col-lg-6 col-sm-12">
-                              <div class="form-group alien_form_inline">
-                                  <label>h ) Other Nationality Status</label>
-                                  <input type="text" name="" class="form-control" formControlName="Nationalitystatus">
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="section-card">
-                  <div class="card-header">
-                      <h3 class="section-title">Section 3</h3>
-                  </div>
-                  <div class="section-body p-3">
-                      <div class="row">
-                          <div class="col-lg-6 col-sm-12 ">
-                              <div class="br-1">
-                                  <h5 class="text-center"><strong>Father</strong></h5>
-                                  <div class="form-group alien_form_inline">
-                                      <label>Last Name</label>
-                                      <input type="text" name="" class="form-control">
-                                  </div>
-                                  <div class="form-group alien_form_inline">
-                                      <label>First Name</label>
-                                      <input type="text" name="" class="form-control">
-                                  </div>
-                                  <div class="form-group alien_form_inline">
-                                      <label class="valign-top">Address</label>
-                                      <textarea class="form-control" rows="3" name="text"></textarea>
-                                  </div>
-                                  <div class="form-group alien_form_inline">
-                                      <label>Country of Birth</label>
-                                      <select class="form-control">
-                                          <option  selected>Select City</option>
-                                          <option>City One</option>
-                                          <option>City Two</option>
-                                          <option>City Three</option>
-                                      </select>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-6 col-sm-12">
-                              <h5 class="text-center"><strong>Mother</strong></h5>
-                              <div class="form-group alien_form_inline">
-                                  <label>Last Name</label>
-                                  <input type="text" name="" class="form-control">
-                              </div>
-                              <div class="form-group alien_form_inline">
-                                  <label>First Name</label>
-                                  <input type="text" name="" class="form-control">
-                              </div>
-                              <div class="form-group alien_form_inline">
-                                  <label class="valign-top">Address</label>
-                                  <textarea class="form-control" rows="3" name="text"></textarea>
-                              </div>
-                              <div class="form-group alien_form_inline">
-                                  <label>Country of Birth</label>
-                                  <select class="form-control">
-                                      <option  selected>Select City</option>
-                                      <option>City One</option>
-                                      <option>City Two</option>
-                                      <option>City Three</option>
-                                  </select>
-                              </div>
-                          </div>                                
-                      </div>
-                  </div>
-              </div>
-              <div class="section-card mb-nonelayer">
-                  <div class="card-header">
-                      <h3 class="section-title">Section 4</h3>
-                  </div>
-                  <div class="section-body p-3">
-                      <div class="row">
-                          <div class="col-lg-4 col-sm-12">
-                              <div class="form-group alien_form_inline">
-                                  <label>Marital Status</label>
-                                  <select class="form-control">
-                                      <option  selected>Select Marital Status</option>
-                                      <option>Single</option>
-                                      <option>Married</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="col-lg-4 col-sm-12">
-                              <div class="form-group alien_form_inline">
-                                <label for="" class="">Date of Marriage</label>
-                                <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-12"> 
+                            <p class="hint-text">If Wife of Husband is dead please indicated date and place of death</p>
+                            <div class="form-group alien_form_inline">
+                                <label for="" class="">Date</label>
+                                <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dod" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-sm-12">
                             <div class="form-group alien_form_inline"> 
-                              <label>Place where marriage</label>
-                              <select class="form-control">
-                                  <option  selected>Select City</option>
-                                  <option>City One</option>
-                                  <option>City Two</option>
-                                  <option>City Three</option>
-                              </select>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-lg-6 col-sm-12"> 
-                          <p class="hint-text">If Wife of Husband is dead please indicated date and place of death</p>
-                          <div class="form-group alien_form_inline">
+                            <label>Place Of Death</label>
+                            <select class="form-control" formControlName="pod">
+                                <option  selected>Select Place</option>
+                                <option [value]="country" *ngFor="let country of nationalities">{{country}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12"> 
+                        <p class="hint-text">If marriage dissolved, give date and place of decree</p>
+                        <div class="form-group alien_form_inline">
                             <label for="" class="">Date</label>
-                            <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                            <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dodissolved" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
                         </div>
                         <div class="form-group alien_form_inline"> 
-                          <label>Place Of Death</label>
-                          <select class="form-control">
-                              <option  selected>Select Place</option>
-                              <option>City One</option>
-                              <option>City Two</option>
-                              <option>City Three</option>
-                          </select>
-                      </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-12"> 
-                      <p class="hint-text">If marriage dissolved, give date and place of decree</p>
-                      <div class="form-group alien_form_inline">
-                          <label for="" class="">Date</label>
-                          <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
-                      </div>
-                      <div class="form-group alien_form_inline"> 
-                          <label>Place Of Decree</label>
-                          <select class="form-control">
-                              <option  selected>Select Place</option>
-                              <option>City One</option>
-                              <option>City Two</option>
-                              <option>City Three</option>
-                          </select>
-                      </div>
-                  </div>
-                  <span class="bm-1"></span>
-              </div>
-              <div class="row">
-                  <div class="col-lg-6 col-sm-12">
-                      <h5 class="text-center"><strong>Wife</strong></h5>
-                      <div class="form-group alien_form_inline">
-                          <label>Last Name</label>
-                          <input type="text" name="" class="form-control">
-                      </div>
-                      <div class="form-group alien_form_inline">
-                          <label>First Name</label>
-                          <input type="text" name="" class="form-control">
-                      </div>
-                      <div class="form-group alien_form_inline">
-                          <label class="valign-top">Address</label>
-                          <textarea class="form-control" rows="3" name="text"></textarea>
-                      </div>
-                      <div class="form-group alien_form_inline">
-                          <label>Country of Birth</label>
-                          <select class="form-control">
-                              <option  selected>Select Country</option>
-                              <option>City One</option>
-                              <option>City Two</option>
-                              <option>City Three</option>
-                          </select>
-                      </div>
-                  </div>
-                  <div class="col-lg-6 col-sm-12">
-                      <h5 class="text-center"><strong>Husband</strong></h5>
-                      <div class="form-group alien_form_inline">
-                          <label>Last Name</label>
-                          <input type="text" name="" class="form-control">
-                      </div>
-                      <div class="form-group alien_form_inline">
-                          <label>First Name</label>
-                          <input type="text" name="" class="form-control">
-                      </div>
-                      <div class="form-group alien_form_inline">
-                          <label class="valign-top">Address</label>
-                          <textarea class="form-control" rows="3" name="text"></textarea>
-                      </div>
-                      <div class="form-group alien_form_inline">
-                          <label>Country of Birth</label>
-                          <select class="form-control">
-                              <option  selected>Select Country</option>
-                              <option>City One</option>
-                              <option>City Two</option>
-                              <option>City Three</option>
-                          </select>
-                      </div>
-                  </div>
-              </div>                   
-          </div>
-      </div>
-      <div class="p-4 text-right">
-          <button class="btn btn-danger">Logout</button>
-          <button class="btn btn-theme" (click)="showprevioussection1()">Back</button>
-          <button class="btn btn-theme" (click)="showsection3()">Next</button>
-      </div>
-      </div>
-  </div>
-    </div>
-    <div class="Alien_formthree section3"  *ngIf="section3">
-      <div class="row">
-          <div class="col-lg-12 col-sm-12">
-              <div class="section-card">
-                  <div class="card-header">
-                      <h3 class="section-title">Section 5</h3>
-                  </div>
-                  <div class="section-body p-3">
-                      <div class="table-responsive">
-                          <table class="table Section5_table">
-                              <tbody>
-                                  <tr class="feildtoheading">
-                                      <td colspan="2"></td>
-                                      <td><label>From (Date)</label></td>
-                                      <td><label>To (Date)</label></td>
-                                  </tr>
-                                  <tr class="feild-block">
-                                      <td>Full postal Address in Jamaica</td>
-                                      <td><textarea class="form-control"  row="1" max-row="2" formControlName="fulladdress" ></textarea></td>                   
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td> <input class="form-control" type="date" placeholder="To Dte" > </td>
+                            <label>Place Of Decree</label>
+                            <select class="form-control" formControlName="podissolved">
+                                <option [value]="country" *ngFor="let country of nationalities">             {{country}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <span class="bm-1"></span>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <h5 class="text-center"><strong>Wife</strong></h5>
+                        <div class="form-group alien_form_inline">
+                            <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                            <input type="text" name="" class="form-control" formControlName="wifeLastname" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.wifeLastname.errors }">
+                        </div>
+                        <div class="form-group alien_form_inline">
+                            <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                            <input type="text" name="" class="form-control" formControlName="wifeFirstname" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.wifeFirstname.errors }">
+                        </div>
+                        <div class="form-group alien_form_inline">
+                            <label class="valign-top">Address <span class="glyphicon">&#x2a;</span></label>
+                            <textarea class="form-control" rows="3" name="text" formControlName="wifeAddress" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.wifeAddress.errors }"></textarea>
+                        </div>
+                        <div class="form-group alien_form_inline">
+                            <label>Country of Birth <span class="glyphicon">&#x2a;</span></label>
+                            <select class="form-control" formControlName="wifeCOB" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.wifeCOB.errors }">
+                                <option>City One</option>
+                                <option>City Two</option>
+                                <option>City Three</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <h5 class="text-center"><strong>Husband</strong></h5>
+                        <div class="form-group alien_form_inline">
+                            <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                            <input type="text" name="" class="form-control" formControlName="husbandLastname" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.husbandLastname.errors }">
+                        </div>
+                        <div class="form-group alien_form_inline">
+                            <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                            <input type="text" name="" class="form-control" formControlName="husbandFirstname" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.husbandFirstname.errors }">
+                        </div>
+                        <div class="form-group alien_form_inline">
+                            <label class="valign-top">Address <span class="glyphicon">&#x2a;</span></label>
+                            <textarea class="form-control" rows="3" name="text" formControlName="husbandaddress" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.husbandaddress.errors }"></textarea>
+                        </div>
+                        <div class="form-group alien_form_inline">
+                            <label>Country of Birth <span class="glyphicon">&#x2a;</span></label>
+                            <select class="form-control" formControlName="husbandCOB" [ngClass]="{ 'is-invalid': submitted && f.section2.controls.husbandCOB.errors }">
+                                <option  selected>Select Country</option>
+                                <option [value]="country" *ngFor="let country of nationalities">             {{country}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>                   
+            </div>
+        </div>
+        <div class="p-4 text-right">
+            <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+            <button class="btn btn-theme" (click)="showprevioussection1()">Back</button>
+            <!-- <button class="btn btn-theme" (click)="showprevioussection1()" [disabled]="!alienRegistrationForm.controls.section1.valid">Back</button> -->
+            <button class="btn btn-theme" type="submit" [disabled]="!alienRegistrationForm.controls.section2.valid">Next</button>
+            <!-- <button class="btn btn-theme" (click)="showsection3()">Next</button> -->
+        </div>
+        </div>
+        </div>
+        </div>
+    </form>
+    <form [formGroup]="alienRegistrationForm" class="form-group" (ngSubmit)=onSubmit(alienRegistrationForm.value) *ngIf="section3"> 
+        <div class="Alien_formthree section3"   formGroupName="section3">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3 class="section-title">Section 5</h3>
+                    </div>
+                    <div class="section-body p-3">
+                        <div class="table-responsive">
+                            <table class="table Section5_table">
+                                <tbody>
+                                    <tr class="feildtoheading">
+                                        <td colspan="2">Address</td>
+                                        <td><label>From (Date)</label></td>
+                                        <td><label>To (Date)</label></td>
+                                    </tr>
+                                    <tr class="feild-block">
+                                        <td>Full postal Address in Jamaica <span class="glyphicon">&#x2a;</span></td>
+                                        <td><textarea class="form-control"  row="1" max-row="1" formControlName="residentaddress" [ngClass]="{ 'is-invalid': submitted && f.section3.controls.residentaddress.errors }"></textarea></td>                   
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" [ngClass]="{ 'is-invalid': submitted && f.section3.controls.residentfrom.errors }"/>  </td>
+                                        <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto" placeholder=""  [maxDate]="datePickerConfig.maxDate" [ngClass]="{ 'is-invalid': submitted && f.section3.controls.residentto.errors }"/> </td>
 
-                                  </tr>
-                                  <tr class="feild-block">
-                                      <td>Full postal Address in Jamaica
-                                          <span class="hint-text">(If you ever resided at another address)</span>
-                                      </td>
-                                      <td><textarea class="form-control"  row="1" max-row="2" formControlName="fulladdress2" ></textarea></td>                   
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td> <input class="form-control" type="date" placeholder="To Dte" > </td>
+                                    </tr>
+                                    <tr class="feild-block">
+                                        <td>Full postal Address in Jamaica
+                                            <span class="hint-text">(If you ever resided at another address)</span>
+                                        </td>
+                                        <td><textarea class="form-control"  row="1" max-row="1" formControlName="residentanotheraddress" ></textarea></td>                   
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentanotherfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                                        <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentanotherto" placeholder=""  [maxDate]="datePickerConfig.maxDate"/> </td>
 
-                                  </tr>
-                                  <tr class="feild-block">
-                                      <td>Full postal Address in Jamaica
-                                          <span class="hint-text">(If you ever resided at another address)</span>
-                                      </td>
-                                      <td><textarea class="form-control"  row="1" max-row="2" formControlName="fulladdres3" ></textarea></td>                   
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td> <input class="form-control" type="date" placeholder="To Dte" > </td>
+                                    </tr>
+                                    <tr class="feild-block">
+                                        <td>Full postal Address in Jamaica
+                                            <span class="hint-text">(If you ever resided at another address)</span>
+                                        </td>
+                                        <td><textarea class="form-control"  row="1" max-row="1" formControlName="residentanotheraddress" ></textarea></td>                   
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentanotherfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                                        <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentanotherto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label>Total Residence in Jamaica <span class="glyphicon">&#x2a;</span></label>
+                                        </td>
+                                        <td colspan="3">
+                                            <input type="text" name="" class="form-control years_block" formControlName="years_block" [ngClass]="{ 'is-invalid': submitted && f.section3.controls.years_block.errors }"><span>Years</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-card mb-nonelayer">
+                    <div class="card-header">
+                        <h3 class="section-title">Section 6</h3>
+                    </div>
+                    <div class="section-body p-3">
+                        <div class="table-responsive">
+                            <table class="table section6_table">
+                                <thead>
+                                    <tr class="countries_visited_block">
+                                        <td><label>Countries Visited During Residence</label></td>
+                                        <td><label>From (Date)</label></td>
+                                        <td><label>To (Date)</label></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="countries_visited_block">
+                                        <td>
+                                            <span>1. &nbsp;</span>
+                                            <input type="text" class="form-control" name="" formControlName="visitedCountries">
+                                        </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                                        <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                                    </tr>
+                                    <tr class="countries_visited_block">
+                                        <td>
+                                            <span>2. &nbsp;</span>
+                                            <input type="text" class="form-control" name="" formControlName="visitedCountries">
+                                        </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                                        <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                                    </tr>
+                                    <tr class="countries_visited_block">
+                                        <td>
+                                            <span>3. &nbsp;</span>
+                                            <input type="text" class="form-control" name="" formControlName="visitedCountries">
+                                        </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                                        <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                                    </tr>
+                                    <tr class="countries_visited_block">
+                                        <td>
+                                            <span>4. &nbsp;</span>
+                                            <input type="text" class="form-control" name="" formControlName="visitedCountries">
+                                        </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                                        <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                                    </tr>
+                                    <tr class="countries_visited_block">
+                                        <td>
+                                            <span>5. &nbsp;</span>
+                                            <input type="text" class="form-control" name="" formControlName="visitedCountries">
+                                        </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                                        <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 text-right">
+                    <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+                    <button class="btn btn-theme" (click)="showprevioussection2()" [disabled]="!alienRegistrationForm.controls.section2.valid">Back</button>
+                    <button class="btn btn-theme" type="submit" [disabled]="!alienRegistrationForm.controls.section3.valid">Next</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
+    <form [formGroup]="alienRegistrationForm" class="form-group" (ngSubmit)=onSubmit(alienRegistrationForm.value) *ngIf="section4">
+        <div class="Alien_Formfour section4" formGroupName="section4">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <div class="section-card">
+                        <div class="card-header">
+                            <h3 class="section-title">Section 7</h3>
+                        </div>
+                        <h6 class="p-2 my-0"><b>Details of any proceedings taken against you in Civil or Criminal court</b></h6>
+                        <div class="section-body p-3">
+                            <div class="table-responsive">
+                                <table class="table section7_table">
+                                    <thead>
+                                        <tr class="proceeding_names_block">
+                                            <td><label>Name of Proceedings</label></td>
+                                            <td><label>Date</label></td>
+                                            <td><label>Place</label></td>
+                                            <td><label>Result</label></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="proceeding_names_block">
+                                            <td>
+                                                <span>1. &nbsp;</span>
+                                                <input type="text" class="form-control" name="" formControlName="proceedingsname" >
+                                            </td>
+                                            <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="proceedingsDate" placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
+                                            <td><input type="text" class="form-control" name="" formControlName="proceedingsPlace"></td>
+                                            <td><input type="text" class="form-control" name="" formControlName="proceedingsResult"></td>
+                                        </tr>
+                                        <tr class="proceeding_names_block">
+                                            <td>
+                                                <span>2. &nbsp;</span>
+                                                <input type="text" class="form-control" name="" formControlName="proceedingsname" >
+                                            </td>
+                                            <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="proceedingsDate"  
+                                                placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
+                                            <td><input type="text" class="form-control" name="" formControlName="proceedingsPlace"></td>
+                                            <td><input type="text" class="form-control" name="" formControlName="proceedingsResult"></td>
+                                        </tr>
+                                        <tr class="proceeding_names_block">
+                                            <td>
+                                                <span>3. &nbsp;</span>
+                                                <input type="text" class="form-control" name="" formControlName="proceedingsname" >
+                                            </td>
+                                            <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="proceedingsDate"  
+                                                placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
+                                            <td><input type="text" class="form-control" name="" formControlName="proceedingsPlace"></td>
+                                            <td><input type="text" class="form-control" name="" formControlName="proceedingsResult"></td>
+                                        </tr>
+                                        <tr class="proceeding_names_block">
+                                            <td>
+                                                <span>4. &nbsp;</span>
+                                                <input type="text" class="form-control" name="" formControlName="proceedingsname" >
+                                            </td>
+                                            <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="proceedingsDate"  
+                                                placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
+                                            <td><input type="text" class="form-control" name="" formControlName="proceedingsPlace"></td>
+                                            <td><input type="text" class="form-control" name="" formControlName="proceedingsResult"></td>
+                                        </tr>
+                                        <tr class="proceeding_names_block">
+                                            <td>
+                                                <span>5. &nbsp;</span>
+                                                <input type="text" class="form-control" name="" formControlName="proceedingsname" >
+                                            </td>
+                                            <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="proceedingsDate"  
+                                                placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
+                                            <td><input type="text" class="form-control" name="" formControlName="proceedingsPlace"></td>
+                                            <td><input type="text" class="form-control" name="" formControlName="proceedingsResult"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="card-header">
+                            <h3 class="section-title">Section 8</h3>
+                        </div>
+                        <div class="section-body p-3">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group alien_form_inline">
+                                        <label>Date of any composition made with creditors</label>
+                                        <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="proceedingsname" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                                    </div>
+                                    <div class="form-group alien_form_inline">
+                                        <label>Date of Discharge from Bankruptcy</label>
+                                        <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dischargeBankruptcy" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                                    </div>
+                                </div> 
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group alien_form_inline">
+                                        <label>Date of Bankruptcy</label>
+                                        <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="bankruptcyDate" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-card mb-nonelayer">
+                        <div class="card-header">
+                            <h3 class="section-title">Section 9</h3>
+                        </div>
+                        <div class="section-body p-3">
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12">
+                                    <div class="form-group alien_form_inline">
+                                        <label>Approximate Date of any previous application for Naturalization <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="previousAppDate" placeholder=""  [maxDate]="datePickerConfig.maxDate"  [ngClass]="{ 'is-invalid': submitted && f.section4.controls.previousAppDate.errors }"> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="p-4 text-right">
+                        <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+                        <button class="btn btn-theme" (click)="showprevioussection3()" >Back</button>
+                        <button class="btn btn-theme" type="submit" [disabled]="!alienRegistrationForm.controls.section4.valid">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form [formGroup]="alienRegistrationForm" class="form-group" (ngSubmit)=onSubmit(alienRegistrationForm.value) *ngIf="section5">
+        <div class="Alien_Formfive section5" formGroupName="section5">
+        <div class="row">                    
+            <div class="col-lg-12 col-sm-12">
+                <div class="section-card mb-nonelayer">
+                    <div class="card-header">
+                        <h3 class="section-title">Section 10</h3>
+                    </div>
+                    <h6 class="p-2 my-0"><b>Particulars of Children</b></h6>
+                    <div class="section-body p-3">
+                        <div class="table-responsive ">
+                            <table class="table section10_table">
+                                <thead>
+                                    <tr class="particular_children_block">
+                                        <td><label>(a) Full name(s) of child(ren) under 21 years of age
+                                        to be registered <span class="glyphicon">&#x2a;</span></label></td>
+                                        <td><label>Date of Birth <span class="glyphicon">&#x2a;</span></label></td>
+                                        <td><label>Place of Birth <span class="glyphicon">&#x2a;</span></label></td>
+                                        <td><label>Current Residence <span class="glyphicon">&#x2a;</span></label></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="particular_children_block">
+                                        <td>
+                                            <span>1. &nbsp;</span>
+                                            <input type="text" class="form-control" name="" formControlName="childrenName" [ngClass]="{ 'is-invalid': submitted && f.section5.controls.childrenName.errors }">
+                                        </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="childrenDob" placeholder=""  [maxDate]="datePickerConfig.maxDate" [ngClass]="{ 'is-invalid': submitted && f.section5.controls.childrenDob.errors }">  </td>
+                                        <td><input type="text" class="form-control" formControlName="childrenPob" name="" [ngClass]="{ 'is-invalid': submitted && f.section5.controls.childrenPob.errors }"></td>
+                                        <td><input type="text" class="form-control" formControlName="childrenresidence" name="" [ngClass]="{ 'is-invalid': submitted && f.section5.controls.childrenresidence.errors }"></td>
+                                    </tr>
+                                    <tr class="particular_children_block">
+                                        <td>
+                                            <span>2. &nbsp;</span>
+                                            <input type="text" class="form-control" name="" formControlName="childrenName" [ngClass]="{ 'is-invalid': submitted && f.section5.controls.childrenName.errors }">
+                                        </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="childrenDob" placeholder=""  [maxDate]="datePickerConfig.maxDate" [ngClass]="{ 'is-invalid': submitted && f.section5.controls.childrenDob.errors }">  </td>
+                                        <td><input type="text" class="form-control" formControlName="childrenPob" name="" [ngClass]="{ 'is-invalid': submitted && f.section5.controls.childrenPob.errors }"></td>
+                                        <td><input type="text" class="form-control" formControlName="childrenresidence" name="" [ngClass]="{ 'is-invalid': submitted && f.section5.controls.childrenresidence.errors }"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="border"></div>
 
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          <label>Total Residence in Jamaica</label>
-                                      </td>
-                                      <td colspan="3">
-                                          <input type="text" name="" class="form-control years_block" formControlName="years_block"><span>Years</span>
-                                      </td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-              <div class="section-card mb-nonelayer">
-                  <div class="card-header">
-                      <h3 class="section-title">Section 6</h3>
-                  </div>
-                  <div class="section-body p-3">
-                      <div class="table-responsive">
-                          <table class="table section6_table">
-                              <thead>
-                                  <tr class="countries_visited_block">
-                                      <td><label>Countries Visited During Residence</label></td>
-                                      <td><label>From (Date)</label></td>
-                                      <td><label>To (Date)</label></td>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr class="countries_visited_block">
-                                      <td>
-                                          <span>1. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                  </tr>
-                                  <tr class="countries_visited_block">
-                                      <td>
-                                          <span>2. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                  </tr>
-                                  <tr class="countries_visited_block">
-                                      <td>
-                                          <span>3. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                  </tr>
-                                  <tr class="countries_visited_block">
-                                      <td>
-                                          <span>4. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                  </tr>
-                                  <tr class="countries_visited_block">
-                                      <td>
-                                          <span>5. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-              <div class="p-4 text-right">
-                  <button class="btn btn-danger">Logout</button>
-                  <button class="btn btn-theme" (click)="showprevioussection2()">Back</button>
-                  <button class="btn btn-theme" (click)="showsection4()">Next</button>
-              </div>
-          </div>
-      </div>
-    </div>
-    <div class="Alien_Formfour section4"  *ngIf="section4">
-      <div class="row">
-          <div class="col-lg-12 col-sm-12">
-              <div class="section-card">
-                  <div class="card-header">
-                      <h3 class="section-title">Section 7</h3>
-                  </div>
-                  <h6 class="p-2 my-0"><b>Details of any proceedings taken against you in Civil or Criminal court</b></h6>
-                  <div class="section-body p-3">
-                      <div class="table-responsive">
-                          <table class="table section7_table">
-                              <thead>
-                                  <tr class="proceeding_names_block">
-                                      <td><label>Name of Proceedings</label></td>
-                                      <td><label>Date</label></td>
-                                      <td><label>Place</label></td>
-                                      <td><label>Result</label></td>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr class="proceeding_names_block">
-                                      <td>
-                                          <span>1. &nbsp;</span>
-                                          <input type="text" class="form-control" name="" formControlName="" >
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName=""  
-                                        placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="proceeding_names_block">
-                                      <td>
-                                          <span>2. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name="" formControlName=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="proceeding_names_block">
-                                      <td>
-                                          <span>3. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="proceeding_names_block">
-                                      <td>
-                                          <span>4. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="proceeding_names_block">
-                                      <td>
-                                          <span>5. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-              <div class="section-card">
-                  <div class="card-header">
-                      <h3 class="section-title">Section 8</h3>
-                  </div>
-                  <div class="section-body p-3">
-                      <div class="row">
-                          <div class="col-lg-6 col-sm-12">
-                              <div class="form-group alien_form_inline">
-                                  <label>Date of any composition made with creditors</label>
-                                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
-                              </div>
-                              <div class="form-group alien_form_inline">
-                                  <label>Date of Discharge from Bankruptcy</label>
-                                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
-                              </div>
-                          </div> 
-                          <div class="col-lg-6 col-sm-12">
-                              <div class="form-group alien_form_inline">
-                                  <label>Date of Bankruptcy</label>
-                                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
-                              </div>
-                          </div> 
-                      </div>
-                  </div>
-              </div>
-              <div class="section-card mb-nonelayer">
-                  <div class="card-header">
-                      <h3 class="section-title">Section 9</h3>
-                  </div>
-                  <div class="section-body p-3">
-                      <div class="row">
-                          <div class="col-lg-12 col-sm-12">
-                              <div class="form-group alien_form_inline">
-                                  <label>Approximate Date of any previous application for Naturalization</label>
-                                  <input class="form-control calender-space" type="date">
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>  
-              <div class="p-4 text-right">
-                  <button class="btn btn-danger">Logout</button>
-                  <button class="btn btn-theme" (click)="showprevioussection3()">Back</button>
-                  <button class="btn btn-theme" (click)="showsection5()">Next</button>
-              </div>
-          </div>
-      </div>
-    </div>
-    <div class="Alien_Formfive section5"  *ngIf="section5">
-      <div class="row">                    
-          <div class="col-lg-12 col-sm-12">
-              <div class="section-card mb-nonelayer">
-                  <div class="card-header">
-                      <h3 class="section-title">Section 10</h3>
-                  </div>
-                  <h6 class="p-2 my-0"><b>Particulars of Children</b></h6>
-                  <div class="section-body p-3">
-                      <div class="table-responsive ">
-                          <table class="table section10_table">
-                              <thead>
-                                  <tr class="particular_children_block">
-                                      <td><label>(a) Full name(s) of child(ren) under 21 years of age
-                                      to be registered</label></td>
-                                      <td><label>Date of Birth</label></td>
-                                      <td><label>Place of Birth</label></td>
-                                      <td><label>Current Residence</label></td>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr class="particular_children_block">
-                                      <td>
-                                          <span>1. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="particular_children_block">
-                                      <td>
-                                          <span>2. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="particular_children_block">
-                                      <td>
-                                          <span>3. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="particular_children_block">
-                                      <td>
-                                          <span>4. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="particular_children_block">
-                                      <td>
-                                          <span>5. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                      <div class="border"></div>
+                        <div class="table-responsive">
+                            <table class="table section10_table">
+                                <thead>
+                                    <tr class="particular_children_block">
+                                        <td>(a) Full name(s) of other children</td>
+                                        <td>Date of Birth</td>
+                                        <td>Place of Birth</td>
+                                        <td>Current Residence</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="particular_children_block">
+                                        <td>
+                                            <span>1. &nbsp;</span>
+                                            <input type="text" class="form-control" name="" formControlName="childrenNameother">
+                                        </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="childrenDobother" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
+                                        <td><input type="text" class="form-control" formControlName="childrenPobother" name="" ></td>
+                                        <td><input type="text" class="form-control" formControlName="childrenresidenceother" name=""></td>
+                                    </tr>
+                                    <tr class="particular_children_block">
+                                        <td>
+                                            <span>2. &nbsp;</span>
+                                            <input type="text" class="form-control" name="" formControlName="childrenNameother">
+                                        </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="childrenDobother" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
+                                        <td><input type="text" class="form-control" formControlName="childrenPobother" name="" ></td>
+                                        <td><input type="text" class="form-control" formControlName="childrenresidenceother" name="" ></td>
+                                    </tr>
 
-                      <div class="table-responsive">
-                          <table class="table section10_table">
-                              <thead>
-                                  <tr class="particular_children_block">
-                                      <td>(a) Full name(s) of other children</td>
-                                      <td>Date of Birth</td>
-                                      <td>Place of Birth</td>
-                                      <td>Current Residence</td>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr class="particular_children_block">
-                                      <td>
-                                          <span>1. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="particular_children_block">
-                                      <td>
-                                          <span>2. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="particular_children_block">
-                                      <td>
-                                          <span>3. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="particular_children_block">
-                                      <td>
-                                          <span>4. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                                  <tr class="particular_children_block">
-                                      <td>
-                                          <span>5. &nbsp;</span>
-                                          <input type="text" class="form-control" name="">
-                                      </td>
-                                      <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                      <td><input type="text" class="form-control" name=""></td>
-                                  </tr>
-                              </tbody>
-                          </table>
-                      </div>
-                  </div>
-              </div>
-              <div class="p-4 text-right">
-                  <button class="btn btn-danger">Logout</button>
-                  <button class="btn btn-theme" (click)="showprevioussection4()">Back</button>
-                  <button class="btn btn-theme" (click)="showsection6()">Next</button>
-              </div>
-          </div>
-      </div>
-    </div>
-    <div class="Alien_formsix section6"  *ngIf="section6">
-      <div class="row">
-          <div class="col-lg-12 col-sm-12">
-              <div class="section-card">
-                  <div class="card-header">
-                      <h3 class="section-title">To complete the application process the following documents must be scanned and uploaded : </h3>
-                  </div>
-                  <div class="section-body p-3">
-                      <ul class="scanned-documents-block">
-                          <li>The applicant 's Birth Certificate;</li>
-                          <li>The applicant's father's or mother's Birth Certficate or Certificate of Jamaica Citizenship or Adoption Certificate issued by the Registrar General Dept.</li>
-                          <li>Two (2) passport sized pictures of the applicant certified by either a<strong> Justice of the Peace, Commissioner of Oaths, Notary Public , Lawyer or Doctor.</strong>
-                              <p class="text-success my-0">(The applicant's name along with the name, number and signature of the certifying officer and the certfication date no older of than 6 months should be included).
-                              </p>
-                          </li>
-                          <li>Marriage Certificate (if applicable);</li>
-                          <li>Applicant's valid ID ( if adult 18 years and olders);</li>
-                          <li>Jamaican parent's government issued ID ( Valid Passport or Driver's Licence), if applicant is a minor;</li>
-                          <li>Court issued document  evidencing Legal Guardianship where applicable;</li>
-                          <li> Official Change of Name Document ( Court Order, Deed Polls registered through the court or the country's records office, etc) where applicable.</li>
-                      </ul>
-                      <p class="hint-text">
-                          All documents must be originals. PICA reserves the right to request additional and/or updated information during the process of the application
-                      </p>
-                  </div>
-              </div>
-              <div class="section-card mb-nonelayer">
-                  <div class="card-header">
-                      <h3 class="section-title">Upload Your Documents</h3>
-                  </div>
-                  <div class="section-body p-3">
-                      <div class="row">
-                          <div class="col-md-6">
-                              <form method="post" action="#" id="#" class="support-text-block">
-                              <div class="form-group files">
-                                  <input type="file" class="form-control" multiple=""     formControlName="file">
-                              </div>
-                              <span class="support-text">supports file .pdf, jpg and png</span>
-                          </form>
-                      </div>
-                      <div class="col-md-6">
-                          <div class="form-group documents-stauts">
-                            <div class="custom-control custom-radio">
-                              <input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx" formControlName="birth">
-                              <label class="custom-control-label" for="customRadio"><img src="../../assets/images/agreement.png">
-                                  <span>Birth Certficate.pdf</span>
-                                  <div class="progress">
-                                      <div class="progress-bar progress-bar-striped active bg-success" role="progressbar"
-                                      aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                                      <span>40%</span>
-                                  </div>
-                              </div>
-                          </label>
-                      </div> 
-                      <div class="custom-control custom-radio">
-                          <input type="radio" class="custom-control-input" id="Passport" name="example1" value="customEx" formControlName="passport">
-                          <label class="custom-control-label" for="Passport"><img src="../../assets/images/agreement.png">
-                              <span>Passport Pic.jpg</span>
-                              <div class="progress">
-                                  <div class="progress-bar progress-bar-striped active bg-success" role="progressbar"
-                                  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
-                                  <span>10%</span>
-                              </div>
-                          </div>
-                      </label>
-                  </div> 
-                  <div class="custom-control custom-radio">
-                      <input type="radio" class="custom-control-input" id="DriverLicence" name="example1" value="customEx" formControlName="driving">
-                      <label class="custom-control-label" for="DriverLicence"><img src="../../assets/images/agreement.png">
-                          <span>Driver Licence.pdf</span>
-                          <div class="progress">
-                              <div class="progress-bar progress-bar-striped active bg-success" role="progressbar"
-                              aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:60%">
-                              <span>60%</span>
-                          </div>
-                      </div>
-                  </label>
-              </div> 
-          </div>
-      </div>
-      <div class="col-lg-12 col-sm-12 declaration_block">
-        <div class="form-check checkbox-theme p-l-0 text-left ">
-          <input class="form-check-input" type="checkbox" value="" id="declaration" formControlName="declaration">
-          <label class="form-check-label" for="declaration">
-              <strong>Declaration:</strong> This declaration would appear beside a checkbox at the end of the summary page, which summarizes all of the information entered by the applicant.<br/>
-              <span>I declare that the information given in this application is complete and accurate to the best of my knowledge and belief and that the photo submitted is my true likeness.  
-              </span><br/>
-              <span class="hint-text"><strong>WARNING:</strong> It is an offense to make a false and misleading statement in support of a passport application.
-              </span>
-          </label>
-      </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="p-4 text-right">
-    <button class="btn btn-theme" (click)="showprevioussection5()">Back</button>
-    <button class="btn btn-theme" type="submit"  >Submit</button>
-    </div>
-    </div>
-    </div>
-    </div>
-    <div class="Alien_formseven section7"  *ngIf="section7">
-      <div class="container">
-          <div class="row pad-0">
-              <div class="col-md-12 Alien_form_box">             
-                  <h5 class="text-success">You have successfully uploaded your application and supporting documents.</h5>
-                  <p>Thank you for submitting an application for Citizenship by Descent. 
-                      Your application number is <strong>010100</strong> which may be used to track the progress of your application. Your application and supporting document will be reviewed and an email update provided to you within
-                  5 working days. This email will outline the status of your application </p> 
-                  <div class="text-center">
-                      <button class="btn btn-theme">Continue</button>
-                  </div>               
-              </div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 text-right">
+                    <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+                    <button class="btn btn-theme" (click)="showprevioussection4()" [disabled]="!alienRegistrationForm.controls.section4.valid">Back</button>
+                    <button class="btn btn-theme" type="submit" [disabled]="!alienRegistrationForm.controls.section5.valid">Next</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
+    <form [formGroup]="alienRegistrationForm" class="form-group" (ngSubmit)=onSubmit(alienRegistrationForm.value) *ngIf="section6">
+        <div class="Alien_formsix section6"  formGroupName="section6">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3 class="section-title">To complete the application process the following documents must be scanned and uploaded : </h3>
+                    </div>
+                    <div class="section-body p-3">
+                        <ul class="scanned-documents-block">
+                            <li>The applicant 's Birth Certificate;</li>
+                            <li>The applicant's father's or mother's Birth Certficate or Certificate of Jamaica Citizenship or Adoption Certificate issued by the Registrar General Dept.</li>
+                            <li>Two (2) passport sized pictures of the applicant certified by either a<strong> Justice of the Peace, Commissioner of Oaths, Notary Public , Lawyer or Doctor.</strong>
+                                <p class="text-success my-0">(The applicant's name along with the name, number and signature of the certifying officer and the certfication date no older of than 6 months should be included).
+                                </p>
+                            </li>
+                            <li>Marriage Certificate (if applicable);</li>
+                            <li>Applicant's valid ID ( if adult 18 years and olders);</li>
+                            <li>Jamaican parent's government issued ID ( Valid Passport or Driver's Licence), if applicant is a minor;</li>
+                            <li>Court issued document  evidencing Legal Guardianship where applicable;</li>
+                            <li> Official Change of Name Document ( Court Order, Deed Polls registered through the court or the country's records office, etc) where applicable.</li>
+                        </ul>
+                        <p class="hint-text">
+                            All documents must be originals. PICA reserves the right to request additional and/or updated information during the process of the application
+                        </p>
+                    </div>
+                </div>
+                <div class="section-card mb-nonelayer">
+                    <div class="card-header">
+                        <h3 class="section-title">Upload Your Documents</h3>
+                    </div>
+                    <div class="section-body p-3">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form method="post" action="#" id="#" class="support-text-block">
+                                <div class="form-group files">
+                                    <input type="file" class="form-control" multiple=""     formControlName="file">
+                                </div>
+                                <span class="support-text">supports file .pdf, jpg and png</span>
+                            </form>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group documents-stauts">
+                                <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx" formControlName="birthCert">
+                                <label class="custom-control-label" for="customRadio"><img src="../../assets/images/agreement.png">
+                                    <span>Birth Certficate.pdf</span>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped active bg-success" role="progressbar"
+                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                        <span>40%</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div> 
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="Passport" name="example1" value="customEx" formControlName="passport">
+                            <label class="custom-control-label" for="Passport"><img src="../../assets/images/agreement.png">
+                                <span>Passport Pic.jpg</span>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active bg-success" role="progressbar"
+                                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:10%">
+                                    <span>10%</span>
+                                </div>
+                            </div>
+                        </label>
+                    </div> 
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" id="DriverLicence" name="example1" value="customEx" formControlName="driving">
+                        <label class="custom-control-label" for="DriverLicence"><img src="../../assets/images/agreement.png">
+                            <span>Driver Licence.pdf</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped active bg-success" role="progressbar"
+                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                                <span>60%</span>
+                            </div>
+                        </div>
+                    </label>
+                </div> 
+            </div>
+        </div>
+        <div class="col-lg-12 col-sm-12 declaration_block">
+            <div class="form-check checkbox-theme p-l-0 text-left ">
+            <input class="form-check-input" type="checkbox" value="" id="declaration" formControlName="declaration">
+            <label class="form-check-label" for="declaration">
+                <strong>Declaration:</strong> This declaration would appear beside a checkbox at the end of the summary page, which summarizes all of the information entered by the applicant.<br/>
+                <span>I declare that the information given in this application is complete and accurate to the best of my knowledge and belief and that the photo submitted is my true likeness.  
+                </span><br/>
+                <span class="hint-text"><strong>WARNING:</strong> It is an offense to make a false and misleading statement in support of a passport application.
+                </span>
+            </label>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="p-4 text-right">
+                <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+        <button class="btn btn-theme" (click)="showprevioussection5()" [disabled]="!alienRegistrationForm.controls.section5.valid">Back</button>
+        <button class="btn btn-theme" type="submit"  [disabled]="!alienRegistrationForm.controls.section6.valid">Submit</button>
+        </div>
+        </div>
+        </div>
+        </div>
+    </form>
+    <div class="Alien_formseven section7" *ngIf="section7">
+        <div class="container">
+            <div class="row pad-0">
+                <div class="col-md-12 Alien_form_box">             
+                    <h5 class="text-success">You have successfully uploaded your application and supporting documents.</h5>
+                    <p>Thank you for submitting an application for Citizenship by Descent. 
+                        Your application number is <strong>010100</strong> which may be used to track the progress of your application. Your application and supporting document will be reviewed and an email update provided to you within
+                    5 working days. This email will outline the status of your application </p> 
+                    <div class="text-center">
+                        <button class="btn btn-theme" (click)="onHome()">Continue</button>
+                    </div>               
+                </div>
 
-          </div>
-      </div>
+            </div>
+        </div>
     </div>
-  </form>
 </div>
 </block-ui>
