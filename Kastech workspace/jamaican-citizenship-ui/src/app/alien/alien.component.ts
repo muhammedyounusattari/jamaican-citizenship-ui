@@ -6,6 +6,10 @@ import { UtilityService } from '../shared/services/utility.service';
 import { BlockUI, NgBlockUI } from "ng-block-ui";
 import { IfStmt } from '@angular/compiler';
 
+import { FileUploader } from "ng2-file-upload";
+
+import { DescentFormService } from '../shared/services/descent-form.service';
+
 
 @Component({
   selector: 'app-alien',
@@ -21,8 +25,17 @@ export class AlienComponent implements OnInit {
    showErrorMsg: any;
    dob: Date = new Date();
    countries: any;
+   declaration:boolean = false;
 
   alienRegistrationForm: FormGroup;
+
+// alienRegistrationFormPayload: object;
+  personalDataPayload: any;
+  section2Payload: any;
+  section3Payload: any;
+  section4Payload: any;
+  section5Payload: any;
+  section6Payload: any;
 
   nationalities = ['Indian', 'German', 'Italian'];
   maritalStatus = ['Married', 'Unmarried'];
@@ -36,6 +49,14 @@ export class AlienComponent implements OnInit {
   section6: boolean;
   section7: boolean;
 
+  naturalisationPayload: any;
+  isDisabled: boolean = false;
+  public uploader: FileUploader = new FileUploader({
+    isHTML5: true
+  });
+
+  checkStatus: boolean;
+
   constructor(
      private utilityService: UtilityService,
       private routing: Router,
@@ -44,10 +65,11 @@ export class AlienComponent implements OnInit {
 
  
 
+ 
+
   ngOnInit() {
-
-    //sessionStorage.clear();
-
+    this.checkStatus = this.sessionStorageItem();
+    //alert(this.checkStatus);
     this.section1 = true;
     this.section2 = false;
     this.section3 = false;
@@ -62,11 +84,24 @@ export class AlienComponent implements OnInit {
     })
 
     // //this.loadForm();
-     this.loadForm();
+    this.loadForm();
 
     this.countries = this.utilityService.loadCountriesFromJson().subscribe(data => {
       this.countries = data;
-    })
+    });
+  }
+
+  public sessionStorageItem(): boolean {
+    if (sessionStorage.getItem("payload") === null) {
+      //console.log('nodata');
+      return false;
+    } else {
+      
+      this.naturalisationPayload = JSON.parse(sessionStorage.getItem('payload'));
+      //console.log(this.naturalisationPayload);
+      this.loadData();
+      return true;
+    };
   }
 
   showsection2() {
@@ -187,12 +222,15 @@ loadForm() {
         number: ['876', [Validators.required]],
         gender: ['', Validators.required],
         address: ['', Validators.required],
-        name:['', Validators.required],
+        alternateemail:['', Validators.email],
         occupation:['', Validators.required],
         othername:[''],
         businessaddress:['', Validators.required],
         nationalityControl:['', Validators.required],
         presentnationalityControl: [''],
+        nationalityState: [''],
+        nationalityStateless: ['']
+
       }),
        section2: this.formBuilder.group({
         britishterritory:['', Validators.required],
@@ -255,14 +293,12 @@ loadForm() {
         childrenresidenceother:['']
       }),
       section6: this.formBuilder.group({
-        file:[''],
-        birthCert:[''],
-        passport:[''],
-        driving:[''],
-        declaration:['', Validators.required]
+        accept:['', Validators.required]
       })
   });
 }
+
+
 
 loadPhoneNumber() {
   var controls = this.alienRegistrationForm.controls;
@@ -273,6 +309,8 @@ loadPhoneNumber() {
   }
 
 }
+
+
 
 
 get f () { 
@@ -290,7 +328,6 @@ onSubmit(payload) {
     sessionStorage.setItem('personalData',JSON.stringify(this.alienRegistrationForm.controls.personalData.value));
     this.showErrorMsg = false;
     this.submitted = false;
-   
     this.showsection2();
     //console.log(payload);
   } if(this.alienRegistrationForm.controls.section2.status == "INVALID" && this.alienRegistrationForm.controls.section2.touched == true){
@@ -321,14 +358,12 @@ onSubmit(payload) {
     this.showErrorMsg = "Please fill the required fields";
     this.submitted = true;
   } if(this.alienRegistrationForm.controls.section4.status == "VALID") {
-    console.log('section4 =' + this.alienRegistrationForm.controls.section4);
-    console.log('section4 =' + this.alienRegistrationForm.controls.section4.status);
     sessionStorage.setItem('section4',JSON.stringify(this.alienRegistrationForm.controls.section4.value));
     this.showErrorMsg = false;
     this.submitted = false;
     this.showsection5();
     //console.log(payload);
-  } if(this.alienRegistrationForm.controls.section5.status == "INVALID" &&      this.alienRegistrationForm.controls.section5.touched == true){
+  } if(this.alienRegistrationForm.controls.section5.status == "INVALID" && this.alienRegistrationForm.controls.section5.touched == true){
     console.log('section5 =' + this.alienRegistrationForm.controls.section4.status);
     this.showErrorMsg = "Please fill the required fields";
     this.submitted = true;
@@ -339,7 +374,10 @@ onSubmit(payload) {
     this.submitted = false;
     this.showsection6();
     //console.log(payload);
-  } if(this.alienRegistrationForm.controls.section6.status == "INVALID" &&      this.alienRegistrationForm.controls.section6.touched == true){
+    debugger;
+  } if(this.alienRegistrationForm.controls.section6.status == "INVALID" && this.alienRegistrationForm.controls.uploadForm.touched == true){
+    console.log('section6 =' + JSON.stringify(this.alienRegistrationForm.controls.section6));
+
     console.log('section6 =' + this.alienRegistrationForm.controls.section6.status);
     this.showErrorMsg = "Please fill the required fields";
     this.submitted = true;
@@ -349,13 +387,10 @@ onSubmit(payload) {
     this.showErrorMsg = false;
     this.submitted = false;
     this.showsection7();
-    console.log(payload);
+    //console.log(payload);
     sessionStorage.setItem('payload',JSON.stringify(payload));
   } 
-  
-
  }
-
 
 onReset() {
   this.alienRegistrationForm.reset();
@@ -369,6 +404,27 @@ onCancel(){
 }
 onHome(){
   this.routing.navigate(['/home'])
+}
+
+loadData(){
+  this.personalDataPayload = this.naturalisationPayload.personalData;
+//console.log('personalDataPayload =',  this.personalDataPayload);
+
+  this.section2Payload = this.naturalisationPayload.section2;
+ //console.log('section2Payload =',  this.section2Payload);
+
+  this.section3Payload = this.naturalisationPayload.section3;
+  //console.log('section3Payload =',  this.section3Payload);
+
+  this.section4Payload = this.naturalisationPayload.section4;
+  //console.log('section4Payload =',  this.section4Payload);
+
+  this.section5Payload = this.naturalisationPayload.section5;
+  //console.log('section5Payload =',  this.section5Payload);
+
+  this.section6Payload = this.naturalisationPayload.section6;
+  //this.alienRegistrationForm.controls.section6.disable();
+  //console.log('section6Payload =',  this.section6Payload);
 }
 
 }

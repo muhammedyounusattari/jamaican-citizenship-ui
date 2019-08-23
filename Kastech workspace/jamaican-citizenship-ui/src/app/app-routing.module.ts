@@ -49,7 +49,7 @@ const routes: Routes = [
   {path:'individualSchedule/:applicantId', component:IndividualScheduleComponent},
   {path:'groupSchedule', component:GroupScheduleComponent},
   {path:'individualAppointmentConf', component:IndividualApointmentConfirmationComponent},
-  {path:'alienApplicationForm', component:AlienComponent},
+  {path:'naturalisationForm', component:AlienComponent},
   {path:'registrationApplicationForm', component:RegistrationComponent},
   {path:'localDeskClerk/:formType/:type',component:LocalDeskClerkComponent},
   {path:'localDeskClerkProcess',component:LocalDeskClerkProcessComponent}

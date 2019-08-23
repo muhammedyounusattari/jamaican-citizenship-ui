@@ -45,7 +45,6 @@ export class AppComponent implements OnInit {
     this.roles = JSON.parse(localStorage.getItem('roles'));
     console.log(this.roles);
     this.userName = this.roles.name || this.roles.firstname || this.roles.profile.firstname;
-    window.location.reload();
     console.log(this.userName);
     // if (localStorage.getItem('isLoggedIn'))
     // this.logoutService.title.subscribe(title => {
