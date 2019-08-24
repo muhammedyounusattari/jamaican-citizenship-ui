@@ -404,11 +404,11 @@ h3.alien_heading{
     display: inline-block;
 }
 .section10_table .particular_children_block td:nth-child(1){
-    width: 580px;
+    width: 250px;
     font-size:14px;
 }
 .section10_table .particular_children_block td:nth-child(2){
-    width: 70px;
+    width: 150px;
     font-size:14px;
 }
 .section10_table .particular_children_block td:nth-child(3){
