@@ -252,13 +252,13 @@ export class DescentComponent implements OnInit {
         payload.mdob1 = this.utilityService.formatDate(payload.mdob1);
       }
       if(payload.mdob2){
-        payload.dob = this.utilityService.formatDate(payload.mdob2);
+        payload.mdob2 = this.utilityService.formatDate(payload.mdob2);
       }
       if(payload.pdob1){
         payload.pdob1 = this.utilityService.formatDate(payload.pdob1);
       }
-      if(payload.podb2){
-        payload.podb2 = this.utilityService.formatDate(payload.podb2);
+      if(payload.pdob2){
+        payload.pdob2 = this.utilityService.formatDate(payload.pdob2);
       }
 
       this.descentService.submitDescentForm(payload).subscribe(data => {
@@ -308,13 +308,13 @@ export class DescentComponent implements OnInit {
       payload.mdob1 = this.utilityService.formatDate(payload.mdob1);
     }
     if(payload.mdob2){
-      payload.dob = this.utilityService.formatDate(payload.mdob2);
+      payload.mdob2 = this.utilityService.formatDate(payload.mdob2);
     }
     if(payload.pdob1){
       payload.pdob1 = this.utilityService.formatDate(payload.pdob1);
     }
-    if(payload.podb2){
-      payload.podb2 = this.utilityService.formatDate(payload.podb2);
+    if(payload.pdob2){
+      payload.pdob2 = this.utilityService.formatDate(payload.pdob2);
     }
 
      this.descentService.submitDescentForm(payload).subscribe(data => {
@@ -350,6 +350,7 @@ export class DescentComponent implements OnInit {
    
     for (var i = 0; i < this.uploader.queue.length; i++) {
       let fileItem = this.uploader.queue[i]._file;
+debugger;
       if (fileItem.size > 10000000) {
         alert("Each File should be less than 10 MB of size.");
         return;
@@ -364,7 +365,6 @@ export class DescentComponent implements OnInit {
       data.append('fileSeq', 'seq' + j);
       data.append('dataType', this.uploadForm.controls.type.value);
 
-debugger;
       this.descentService.uploadFile(data).subscribe(data => {
         this.showDescentForm = false;
         this.blockUI.stop();
