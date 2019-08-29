@@ -1,0 +1,200 @@
+h3.alien_head{
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+    font-size: 22px;
+}
+.Alien_formthree .section-card{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    box-shadow: 0 0 30px 0 rgba(115, 77, 191, 0.2);
+    border-radius: 7px;
+    border: 0;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    font-size: 14px;
+}
+.Alien_formthree .section-card.mb-nonelayer{
+    margin-bottom: 1px;
+    box-shadow: 0 0px 30px 0 rgba(115, 77, 191, 0.2);
+}
+.Alien_formthree .section-card .card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+.Alien_formthree .section-card .card-header {
+    background: none;
+    padding: 0.5rem 1.5rem;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 3.5rem;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top-left-radius: 7px !important;
+    border-top-right-radius: 7px !important;
+    border-left: 2px solid #02a94f;
+    border-bottom: 1px solid rgba(107,122,144,0.1);
+}
+.Alien_formthree .section-card .card-header .section-title{
+    font-size: 1.185rem;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.btn.btn-theme {
+    background: #1a9332;
+    border: none;
+    color: #fff;
+    padding: 6px 33px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn.btn-theme:hover {
+    background: #157d2a;
+    box-shadow: 0px 1px 7px -1px #333;
+}
+.btn-danger:hover {
+    box-shadow: 0px 1px 7px -1px #333;
+}
+.btn-danger{
+    background-color: #ec2d38;
+    border-color: #ec2d38;
+    color: #fff;
+    padding: 6px 33px;
+}
+.form-group .form-control{
+    font-size: 14px;
+}
+.btns-bglayer{
+    background-color: #fff;
+    box-shadow: 0 0 30px 0 rgba(115, 77, 191, 0.2);
+    border-radius: 7px;
+    border: 0;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    padding: 12px;
+}
+.Section5_table tr td{
+    border:none;
+    vertical-align: middle;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    font-size: 14px;
+}
+.Section5_table tr.feild-block td:nth-child(1){
+    width: 222px;
+    font-size: 14px;
+}
+.Section5_table tr.feild-block td:nth-child(2){
+    width: 422px;
+    font-size: 14px;
+}
+.Section5_table tr.feild-block td:nth-child(2) textarea{
+    resize: none;
+}
+.Section5_table tr.feild-block td:nth-child(3){
+    width:100px;
+    font-size: 14px;
+}
+.Section5_table tr.feild-block td:nth-child(4){
+   width:100px;
+   font-size: 14px;
+}
+.Section5_table tr.feildtoheading td:nth-child(2), .Section5_table tr.feildtoheading td:nth-child(3){
+    font-weight: 500;
+    padding-bottom: 0;
+}
+.form-control{
+    font-size: 14px;
+}
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #02a94f;
+    outline: 0;
+    box-shadow: 0 0 10px -1px #ccc;
+}
+.hint-text{
+    color: #ec2d38;
+    font-size: 12px;
+}
+
+.form-control.years_block{
+    width: 10%;
+    display: inline-block;
+    margin-right: 10px;
+}
+.section6_table .countries_visited_block th{
+    border:none;
+    text-align: center;
+    padding: 8px;
+}
+.section6_table .countries_visited_block td{
+    border:none;
+    padding: 8px;
+}
+.section6_table .countries_visited_block td input{
+    width: 90%;
+    display: inline-block;
+}
+.section6_table .countries_visited_block td:nth-child(1){
+    width: 580px;
+}
+.section6_table .countries_visited_block td:nth-child(2){
+    width: 100px;
+}
+.section6_table .countries_visited_block td:nth-child(3){
+    width: 100px;
+}
+
+.table thead th {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background-color: #353637;
+    color: #fff;
+    font-size: 13px;
+}
+.footer span:nth-child(2){
+    float: right;
+    text-align: right;
+}
+
+.footer span a{
+    color: #fff;
+}
+@media (max-width: 992px) {
+    .header{
+    min-height: 65px;
+    }
+    body{
+
+    margin-bottom: 100px; 
+    }
+    footer{
+    min-height: 100px;
+    }
+    .Section5_table tr.feild-block td:nth-child(1){
+    min-width: 200px;
+    }
+    .Section5_table tr.feild-block td:nth-child(2){
+    min-width: 250px;
+    }
+    .section6_table .countries_visited_block td:nth-child(1) {
+    min-width: 280px;
+    }
+}

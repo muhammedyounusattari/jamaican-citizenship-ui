@@ -1,0 +1,127 @@
+<div class="container">
+  <h3 class="text-center alien_head">APPLICATION BY AN ALIEN OR BRITISH PROTECTED PERSON <br/> FOR
+  A CERTIFICATE OF NATURALISATION</h3>
+
+<form [formGroup]="process4" class="form-group"  autocomplete="off">
+  <div class="Alien_Formfour section4" >
+    <div class="row">
+      <div class="col-lg-12 col-sm-12">
+        <div class="section-card">
+          <div class="card-header">
+            <h3 class="section-title">Section 7</h3>
+          </div>
+          <h6 class="p-2 my-0"><b>Details of any proceedings taken against you in Civil or Criminal court</b></h6>
+          <div class="section-body p-3">
+            <div class="table-responsive">
+              <table class="table section7_table">
+                <thead>
+                  <tr class="proceeding_names_block">
+                    <td><label>Name of Proceedings</label></td>
+                    <td><label>Date</label></td>
+                    <td><label>Place</label></td>
+                    <td><label>Result</label></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="proceeding_names_block">
+                    <td>
+                      <span>1. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="proceedingsname1"  replaceText="section4Payload.proceedingsname">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="proceedingsDate1"  replaceText="section4Payload.proceedingsDate" placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
+                    <td><input type="text" class="form-control" name="" formControlName="proceedingsPlace1"  replaceText="section4Payload.proceedingsPlace"></td>
+                    <td><input type="text" class="form-control" name="" formControlName="proceedingsResult1"  replaceText="section4Payload.proceedingsResult"></td>
+                  </tr>
+                  <tr class="proceeding_names_block">
+                    <td>
+                      <span>2. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="proceedingsname2"  replaceText="section4Payload.proceedingsname">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="proceedingsDate2"  replaceText="section4Payload.proceedingsDate" placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
+                    <td><input type="text" class="form-control" name="" formControlName="proceedingsPlace2"  replaceText="section4Payload.proceedingsPlace"></td>
+                    <td><input type="text" class="form-control" name="" formControlName="proceedingsResult2"  replaceText="section4Payload.proceedingsResult"></td>
+                  </tr>
+                  <tr class="proceeding_names_block">
+                    <td>
+                      <span>3. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="proceedingsname3"  replaceText="section4Payload.proceedingsname">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="proceedingsDate3"  replaceText="section4Payload.proceedingsDate" placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
+                    <td><input type="text" class="form-control" name="" formControlName="proceedingsPlace3"  replaceText="section4Payload.proceedingsPlace"></td>
+                    <td><input type="text" class="form-control" name="" formControlName="proceedingsResult3"  replaceText="section4Payload.proceedingsResult"></td>
+                  </tr>
+                  <tr class="proceeding_names_block">
+                    <td>
+                      <span>4. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="proceedingsname4"  replaceText="section4Payload.proceedingsname">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="proceedingsDate4"  replaceText="section4Payload.proceedingsDate" placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
+                    <td><input type="text" class="form-control" name="" formControlName="proceedingsPlace4"  replaceText="section4Payload.proceedingsPlace"></td>
+                    <td><input type="text" class="form-control" name="" formControlName="proceedingsResult4"  replaceText="section4Payload.proceedingsResult"></td>
+                  </tr>
+                  <tr class="proceeding_names_block">
+                    <td>
+                      <span>5. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="proceedingsname5"  replaceText="section4Payload.proceedingsname">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="proceedingsDate5"  replaceText="section4Payload.proceedingsDate" placeholder=""  [maxDate]="datePickerConfig.maxDate" ></td>
+                    <td><input type="text" class="form-control" name="" formControlName="proceedingsPlace5"  replaceText="section4Payload.proceedingsPlace"></td>
+                    <td><input type="text" class="form-control" name="" formControlName="proceedingsResult5"  replaceText="section4Payload.proceedingsResult"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="section-card">
+          <div class="card-header">
+            <h3 class="section-title">Section 8</h3>
+          </div>
+          <div class="section-body p-3">
+            <div class="row">
+              <div class="col-lg-6 col-sm-12">
+                <div class="form-group alien_form_inline">
+                  <label>Date of any composition made with creditors</label>
+                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="compositionCreditors"  replaceText="section4Payload.proceedingsname" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                </div>
+                <div class="form-group alien_form_inline">
+                  <label>Date of Discharge from Bankruptcy</label>
+                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dischargeBankruptcy"   replaceText="section4Payload.dischargeBankruptcy" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12">
+                <div class="form-group alien_form_inline">
+                  <label>Date of Bankruptcy</label>
+                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="bankruptcyDate"  replaceText="section4Payload.bankruptcyDate" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-card mb-nonelayer">
+          <div class="card-header">
+            <h3 class="section-title">Section 9</h3>
+          </div>
+          <div class="section-body p-3">
+            <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                <div class="form-group alien_form_inline">
+                  <label>Approximate Date of any previous application for Naturalization <span class="glyphicon">&#x2a;</span></label>
+                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="previousAppDate"  replaceText="section4Payload.previousAppDate" placeholder=""  [maxDate]="datePickerConfig.maxDate"  [ngClass]="{ 'is-invalid': submitted && f.section4.controls.previousAppDate.errors }"> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 text-right">
+          <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+          <button class="btn btn-theme" (click)="back()" >Back</button>
+         
+          <button class="btn btn-theme" (click)="next()">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+</div>

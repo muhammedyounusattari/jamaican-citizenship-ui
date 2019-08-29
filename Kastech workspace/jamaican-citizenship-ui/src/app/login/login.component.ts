@@ -193,20 +193,23 @@ export class LoginComponent implements OnInit {
         } else if (this.profile.status != null) {
           sessionStorage.setItem('appCode', this.profile.appCode);
           this.blockUI.stop();
-          this.router.navigate(['/status'])
+          this.router.navigate(['/allForms'])
           return false;
         }
         else {
           this.blockUI.stop();
           // if(this.profile.status == 'Submitted' || this.profile.status == 'submitted'){
           if (this.profile.status == null) {
-            this.loginService.getDescentForm(this.profile.email).subscribe(data => {
+            localStorage.setItem('roles',JSON.stringify(this.profile)); 
+            this.router.navigate(['/allForms']);
+
+          /*  this.loginService.getDescentForm(this.profile.email).subscribe(data => {
               if (data != null)
               sessionStorage.setItem('profile', JSON.stringify(data));
               this.currentUserSubject.next(data)
                 sessionStorage.setItem('descentForm', JSON.stringify(data));
-              this.router.navigate(['/descentForm'])
-            })
+              this.router.navigate(['/allForms'])
+            }) */
           }
         }
 

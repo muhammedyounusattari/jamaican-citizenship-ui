@@ -25,7 +25,7 @@
         </div>
         <div class="col-lg-4 col-sm-12">
          <div class="form-group alien_form_inline">
-          <label>Middle Name <span class="glyphicon">&#x2a;</span></label>
+          <label>Middle Name </label>
           <input type="text" name="" class="form-control"  placeholder="Middle name" formControlName="middlename">
         </div>
       </div>
@@ -51,6 +51,7 @@
 <div class="col-lg-6 col-sm-12">
   <div class="form-group alien_form_inline">
     <label>Country<span class="glyphicon">&#x2a;</span></label>
+    <!-- <pre>{{countries |json}}</pre> -->
     <select class="col-lg-12 selectBoxAlign form-control" formControlName="country" (change)="loadPhoneNumber()"
     id="exampleFormControlSelect1" [ngClass]="{ 'is-invalid': submitted && f.country.errors }" >
     <option for="code" name="pob" *ngFor="let country of countries" [ngValue]="country.name">{{country.name }}</option>

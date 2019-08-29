@@ -942,7 +942,7 @@
                           <div class="col-lg-6 col-sm-12">
                             <div class="form-group alien_form_inline">
                               <label>b) Nationality at Birth <span class="glyphicon">&#x2a;</span></label>
-                              <select class="form-control" formControlName="nationalityControl" [(ngModel)]="personalDataPayload.nationalityControl" [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.nationalityControl.errors }">
+                              <select class="form-control" formControlName="nationalityControl"  [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.nationalityControl.errors }">
                               <!-- <option>New value 1</option>
                                 <option>New value 2</option>
                                 <option>New value 3</option> -->

@@ -1,0 +1,93 @@
+<div class="container">
+  <h3 class="text-center alien_head">APPLICATION BY AN ALIEN OR BRITISH PROTECTED PERSON <br/> FOR
+  A CERTIFICATE OF NATURALISATION</h3>
+<form [formGroup]="process5" class="form-group" autocomplete="off">
+  <div class="Alien_Formfive process5" >
+    <div class="row">
+      <div class="col-lg-12 col-sm-12">
+        <div class="section-card mb-nonelayer">
+          <div class="card-header">
+            <h3 class="section-title">Section 10</h3>
+          </div>
+          <h6 class="p-2 my-0"><b>Particulars of Children</b></h6>
+          <div class="section-body p-3">
+            <div class="table-responsive ">
+              <table class="table section10_table">
+                <thead>
+                  <tr class="particular_children_block">
+                    <td><label>(a) Full name(s) of child(ren) under 21 years of age
+                      to be registered <span class="glyphicon">&#x2a;</span></label>
+                    </td>
+                    <td><label>Date of Birth <span class="glyphicon">&#x2a;</span></label></td>
+                    <td><label>Place of Birth <span class="glyphicon">&#x2a;</span></label></td>
+                    <td><label>Current Residence <span class="glyphicon">&#x2a;</span></label></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="particular_children_block">
+                    <td>
+                      <span>1. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="childrenName1" textReplace="process5Payload.childrenName"  [ngClass]="{ 'is-invalid': submitted && f.process5.controls.childrenName.errors }">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="childrenDob1"  textReplace="process5Payload.childrenDob1" placeholder=""  [maxDate]="datePickerConfig.maxDate" [ngClass]="{ 'is-invalid': submitted && f.process5.controls.childrenDob1.errors }">  </td>
+                    <td><input type="text" class="form-control" formControlName="childrenPob1"  textReplace="process5Payload.childrenPob"  name="" [ngClass]="{ 'is-invalid': submitted && f.process5.controls.childrenPob1.errors }"></td>
+                    <td><input type="text" class="form-control" formControlName="childrenresidence1"  textReplace="process5Payload.childrenresidence" name="" [ngClass]="{ 'is-invalid': submitted && f.process5.controls.childrenresidence1.errors }"></td>
+                  </tr>
+                  <tr class="particular_children_block">
+                    <td>
+                      <span>2. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="childrenName2"  textReplace="process5Payload.childrenName" [ngClass]="{ 'is-invalid': submitted && f.process5.controls.childrenName.errors }">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="childrenDob2"  textReplace="process5Payload.childrenDob2" placeholder=""  [maxDate]="datePickerConfig.maxDate" [ngClass]="{ 'is-invalid': submitted && f.process5.controls.childrenDob.errors }">  </td>
+                    <td><input type="text" class="form-control" formControlName="childrenPob2"  textReplace="process5Payload.childrenPob"  name="" [ngClass]="{ 'is-invalid': submitted && f.process5.controls.childrenPob2.errors }"></td>
+                    <td><input type="text" class="form-control" formControlName="childrenresidence2"  textReplace="process5Payload.childrenresidence" name="" [ngClass]="{ 'is-invalid': submitted && f.process5.controls.childrenresidence2.errors }"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="border"></div>
+            <div class="table-responsive">
+              <table class="table section10_table">
+                <thead>
+                  <tr class="particular_children_block">
+                    <td>(a) Full name(s) of other children</td>
+                    <td>Date of Birth</td>
+                    <td>Place of Birth</td>
+                    <td>Current Residence</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="particular_children_block">
+                    <td>
+                      <span>1. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="childrenNameother1"  textReplace="process5Payload.childrenNameother">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="childrenDobother1"  textReplace="process5Payload.childrenDobother" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
+                    <td><input type="text" class="form-control" formControlName="childrenPobother1"  textReplace="process5Payload.childrenPobother" name="" ></td>
+                    <td><input type="text" class="form-control" formControlName="childrenresidenceother1"  textReplace="process5Payload.childrenresidenceother" name="" ></td>
+                  </tr>
+                  <tr class="particular_children_block">
+                    <td>
+                      <span>2. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="childrenNameother2"  textReplace="process5Payload.childrenNameother">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="childrenDobother2"  textReplace="process5Payload.childrenDobother" placeholder=""  [maxDate]="datePickerConfig.maxDate" >  </td>
+                    <td><input type="text" class="form-control" formControlName="childrenPobother2"  textReplace="process5Payload.childrenPobother" name="" ></td>
+                    <td><input type="text" class="form-control" formControlName="childrenresidenceother2"  textReplace="process5Payload.childrenresidenceother" name="" ></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 text-right">
+          <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+          <button class="btn btn-theme" (click)="back()">Back</button>
+         
+          <button class="btn btn-theme" (click)="next()">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>

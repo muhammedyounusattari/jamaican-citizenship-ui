@@ -1,0 +1,126 @@
+<div class="container">
+  <h3 class="text-center alien_head">APPLICATION BY AN ALIEN OR BRITISH PROTECTED PERSON <br/> FOR
+  A CERTIFICATE OF NATURALISATION</h3>
+ 
+<form [formGroup]="process3" class="form-group"  autocomplete="off"> 
+  <div class="Alien_formthree process3"   >
+    <div class="row">
+      <div class="col-lg-12 col-sm-12">
+        <div class="section-card">
+          <div class="card-header">
+            <h3 class="section-title">Section 5</h3>
+          </div>
+          <div class="section-body p-3">
+            <div class="table-responsive">
+              <table class="table Section5_table">
+                <tbody>
+                  <tr class="feildtoheading">
+                    <td colspan="2">Address</td>
+                    <td><label>From (Date)</label></td>
+                    <td><label>To (Date)</label></td>
+                  </tr>
+                  <tr class="feild-block">
+                    <td>Full postal Address in Jamaica <span class="glyphicon">&#x2a;</span></td>
+                    <td><textarea class="form-control"  row="1" max-row="1" formControlName="residentaddress1"  [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentaddress.errors }"></textarea></td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentfrom1" placeholder=""  [maxDate]="datePickerConfig.maxDate"   [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentfrom.errors }"/>  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto1" placeholder=""  [maxDate]="datePickerConfig.maxDate"  textReplace="process3Payload.residentto" [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentto.errors }"/> </td>
+                  </tr>
+                  <tr class="feild-block">
+                    <td>Full postal Address in Jamaica
+                      <span class="hint-text">(If you ever resided at another address)</span>
+                    </td>
+                    <td><textarea class="form-control"  row="1" max-row="1" formControlName="residentaddress2"  ></textarea></td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentfrom2"  textReplace="process3Payload.residentanotherfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto2"  textReplace="process3Payload.residentanotherto" placeholder=""  [maxDate]="datePickerConfig.maxDate"/> </td>
+                  </tr>
+                  <tr class="feild-block">
+                    <td>Full postal Address in Jamaica
+                      <span class="hint-text">(If you ever resided at another address)</span>
+                    </td>
+                    <td><textarea class="form-control"  row="1" max-row="1" formControlName="residentaddress3" textReplace="process3Payload.residentanotheraddress" ></textarea></td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentfrom3"  textReplace="process3Payload.residentanotherfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto3"  textReplace="process3Payload.residentanotherto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>Total Residence in Jamaica <span class="glyphicon">&#x2a;</span></label>
+                    </td>
+                    <td colspan="3">
+                      <input type="text" name="" class="form-control years_block" formControlName="years_block"  textReplace="process3Payload.years_block" [ngClass]="{ 'is-invalid': submitted && f.process3.controls.years_block.errors }"><span>Years</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="section-card mb-nonelayer">
+          <div class="card-header">
+            <h3 class="section-title">Section 6</h3>
+          </div>
+          <div class="section-body p-3">
+            <div class="table-responsive">
+              <table class="table section6_table">
+                <thead>
+                  <tr class="countries_visited_block">
+                    <td><label>Countries Visited During Residence</label></td>
+                    <td><label>From (Date)</label></td>
+                    <td><label>To (Date)</label></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="countries_visited_block">
+                    <td>
+                      <span>1. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="visitedCountries1"  textReplace="process3Payload.visitedCountries">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom1"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto1"  textReplace="process3Payload.visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                  </tr>
+                  <tr class="countries_visited_block">
+                    <td>
+                      <span>2. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="visitedCountries2"  textReplace="process3Payload.visitedCountries">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom2"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto2"  textReplace="process3Payload.visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                  </tr>
+                  <tr class="countries_visited_block">
+                    <td>
+                      <span>3. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="visitedCountries3" textReplace="process3Payload.visitedCountries">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom3"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto3"  textReplace="process3Payload.visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                  </tr>
+                  <tr class="countries_visited_block">
+                    <td>
+                      <span>4. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="visitedCountries4"  textReplace="process3Payload.visitedCountries">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom4"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto4"  textReplace="process3Payload.visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                  </tr>
+                  <tr class="countries_visited_block">
+                    <td>
+                      <span>5. &nbsp;</span>
+                      <input type="text" class="form-control" name="" formControlName="visitedCountries5" textReplace="process3Payload.visitedCountries">
+                    </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom5"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto5"  textReplace="process3Payload.visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 text-right">
+          <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+          <button class="btn btn-theme" (click)="back()" >Back</button>
+          <button class="btn btn-theme" (click)="next()">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>

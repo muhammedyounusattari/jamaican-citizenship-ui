@@ -1,0 +1,181 @@
+<div class="container">
+  <h3 class="text-center alien_heading">APPLICATION BY AN ALIEN OR BRITISH PROTECTED PERSON <br> FOR A CERTIFICATE OF
+    NATURALISATION</h3>
+  <br />
+  <div *ngIf='showErrorMsg' class="alert alert-danger" role="alert">
+    {{showErrorMsg}}<br />
+    <!-- <span *ngIf="submitted && f.dob.errors">Date of birth <b>should not be a future date</b>, please select correct date</span> -->
+  </div>
+  <form [formGroup]="process1" class="form-group" autocomplete="off">
+    <div class="Alien_Formone section1" >
+      <div class="row">
+        <div class="col-lg-12 col-sm-12">
+          <div class="section-card">
+            <!-- <div class="card-header"></div> -->
+            <div class="section-body p-3">
+              <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                  <div class="form-group alien_form_inline">
+                    <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                    <input type="text" name="" class="form-control" formControlName="lastname" 
+                      placeholder="Last name" />
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                  <div class="form-group alien_form_inline">
+                    <label>Middle Name </label>
+                    <input type="text" name="" class="form-control" placeholder="Middle name"
+                      formControlName="middlename"  />
+                  </div>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                  <div class="form-group alien_form_inline">
+                    <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                    <input type="text" name="" class="form-control" formControlName="firstname" placeholder="First name"
+                       />
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group alien_form_inline">
+                    <label>Date of Birth <span class="glyphicon">&#x2a;</span></label>
+                    <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"
+                      formControlName="dob" placeholder="Select Date of Birth" 
+                       [maxDate]="datePickerConfig.maxDate">
+                  </div>
+                  <div class="form-group alien_form_inline">
+                    <label>Place of Birth <span class="glyphicon">&#x2a;</span></label>
+                    <input type="text" class="form-control" formControlName="pob" 
+                      placeholder="Place of birth"/>
+                  </div>
+                  <div class="form-group alien_form_inline">
+                    <label>Gender <span class="glyphicon">&#x2a;</span></label>
+                    <div
+                      class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
+                      <input class="form-check-input" name="gender" type="radio" value="male" id="Male"
+                        formControlName="gender" >
+                      <label class="form-check-label" for="Male">Male</label>
+                    </div>
+                    <div
+                      class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
+                      <input type="radio" class="form-check-input" formControlName="gender" value="female" id="female"
+                        formControlName="gender">
+                      <label class="form-check-label" for="female">Female</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group alien_form_inline">
+                    <label>Address <span class="glyphicon">&#x2a;</span></label>
+                    <input type="text" name="" class="form-control" formControlName="address"
+                      >
+                  </div>
+                  <div class="form-group alien_form_inline">
+                    <label>Telephone Number <span class="glyphicon">&#x2a;</span></label>
+                    <input type="number"  class="form-control"
+                      formControlName="number" placeholder="Phone number" 
+                      [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.number.errors }">
+                  </div>
+                  <div class="form-group alien_form_inline">
+                    <label>Email Address <span class="glyphicon">&#x2a;</span></label>
+                    <input type="text" class="form-control" formControlName="email"
+                      placeholder="Email address" 
+                      [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.email.errors }">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-sm-12">
+          <div class="section-card">
+            <div class="card-header">
+              <h3 class="section-title">Section 1</h3>
+            </div>
+            <div class="section-body p-3">
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group alien_form_inline">
+                    <label>Email</label>
+                    <input type="email" name="" class="form-control" formControlName="alternateemail"  placeholder="Email address">
+                    <p>(If different from above)</p>
+                  </div>
+                  <div class="form-group alien_form_inline">
+                    <label>Occupation <span class="glyphicon">&#x2a;</span></label>
+                    <input type="text" name="" class="form-control" formControlName="occupation" placeholder="Occupation" 
+                      [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.occupation.errors }">
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group alien_form_inline">
+                    <label>Other Name for private purposes</label>
+                    <input type="text" name="" class="form-control" formControlName="othername">
+                  </div>
+                  <div class="form-group alien_form_inline">
+                    <label>Business Address <span class="glyphicon">&#x2a;</span></label>
+                    <input type="text" name="" class="form-control" formControlName="businessaddress"  placeholder="Business Address"
+                      [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.businessaddress.errors }">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 col-sm-12">
+          <div class="section-card mb-nonelayer">
+            <div class="card-header">
+              <h3 class="section-title">Section 2</h3>
+            </div>
+            <div class="section-body p-3">
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group alien_form_inline">
+                    <label>b) Nationality at Birth <span class="glyphicon">&#x2a;</span></label>
+                    
+                  
+                    <select class="form-control" style='border:1px solid #ced4da' formControlName="nationalityControl"
+                      [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.nationalityControl.errors }">
+                      <option  [ngValue]="country" *ngFor="let country of nationalities">{{country}}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group alien_form_inline">
+                    <label>c) Present Nationality</label>
+                    <select class="form-control" style='border:1px solid #ced4da' formControlName="presentnationalityControl"
+                    [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.nationalityControl.errors }">
+                    <option  [ngValue]="country" *ngFor="let country of personalitynationalities">{{country}}
+                    </option>
+                  </select>
+                    <p>(If different from above)</p>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group alien_form_inline labl-list txt-box">
+                    <label class="labl-list State-how-Nationality">State how Nationality was changed </label>
+                    <input type="text" name="" class="form-control" formControlName="nationalityState" >
+                    <p>(If Applicable)</p>
+                  </div>
+                  <div class="form-group alien_form_inline labl-list txt-box">
+                    <label class=" labl-list If-Stateless">If Stateless, say how nationality
+                      was lost</label>
+                    <input type="text" name="" class="form-control" formControlName="nationalityStateless">
+                    <p>(If Applicable)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 text-right">
+        <button class="btn btn-danger" (click)='onCancel()'>Logout</button>
+        <button class="btn btn-theme" (click)='onSave(process1.value)'>Save</button>
+        <!-- <button class="btn btn-theme" (click)='onSave(alienRegistrationForm.value)' [disabled]="!alienRegistrationForm.controls.personalData.valid">Save</button> -->
+        <button class="btn btn-theme" (click)="next(process1.value)">Next</button>
+      </div>
+    </div>
+  </form>
+</div>

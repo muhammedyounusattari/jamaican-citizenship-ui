@@ -22,6 +22,13 @@ import { AlienComponent } from './alien/alien.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LocalDeskClerkComponent } from './local-desk-clerk/local-desk-clerk.component';
 import { LocalDeskClerkProcessComponent } from './local-desk-clerk-process/local-desk-clerk-process.component';
+import { NaturalisationComponent } from './naturalisation/naturalisation.component';
+import { NatrualizationProcessRequest2Component } from './naturalisation/natrualization-process-request2/natrualization-process-request2.component';
+import { NatrualizationProcessRequest3Component } from './naturalisation/natrualization-process-request3/natrualization-process-request3.component';
+import { NatrualizationProcessRequest4Component } from './naturalisation/natrualization-process-request4/natrualization-process-request4.component';
+import { NatrualizationProcessRequest5Component } from './naturalisation/natrualization-process-request5/natrualization-process-request5.component';
+import { NatrualizationProcessRequest6Component } from './naturalisation/natrualization-process-request6/natrualization-process-request6.component';
+import { NatrualizationSubmissionComponent } from './naturalisation/natrualization-submission/natrualization-submission.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -52,7 +59,17 @@ const routes: Routes = [
   {path:'naturalisationForm', component:AlienComponent},
   {path:'registrationApplicationForm', component:RegistrationComponent},
   {path:'localDeskClerk/:formType/:type',component:LocalDeskClerkComponent},
-  {path:'localDeskClerkProcess',component:LocalDeskClerkProcessComponent}
+  {path:'localDeskClerkProcess',component:LocalDeskClerkProcessComponent},
+
+  //path for naturalisation
+  {path:'naturalisation',component:NaturalisationComponent},
+  {path:'naturalisation-process2',component:NatrualizationProcessRequest2Component},
+  {path:'naturalisation-process3',component:NatrualizationProcessRequest3Component},
+  {path:'naturalisation-process4',component:NatrualizationProcessRequest4Component},
+  {path:'naturalisation-process5',component:NatrualizationProcessRequest5Component},
+  {path:'naturalisation-process6',component:NatrualizationProcessRequest6Component},
+  {path:'naturalisation-submission/:applicantId',component:NatrualizationSubmissionComponent},
+
 ];
 
  

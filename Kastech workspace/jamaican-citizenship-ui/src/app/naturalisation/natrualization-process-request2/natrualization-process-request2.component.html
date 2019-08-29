@@ -1,0 +1,237 @@
+<div class="container">
+  <h3 class="text-center alien_head">APPLICATION BY AN ALIEN OR BRITISH PROTECTED PERSON <br/> FOR
+  A CERTIFICATE OF NATURALISATION</h3>
+  
+<form [formGroup]="process2" class="form-group" (ngSubmit)=onSubmit(process2.value)  autocomplete="off">
+  <div class="Alien_formtwo process2" >
+    <div class="row">
+      <div class="col-lg-12 col-sm-12">
+        <div class="section-card">
+          <div class="card-header">
+            <h3 class="section-title">Section 2b</h3>
+          </div>
+          <div class="section-body p-3">
+            <div class="row">
+              <div class="col-lg-6 col-sm-12">
+                <div class="form-group alien_form_inline">
+                  <label>f ) British  Territory <span class="glyphicon">&#x2a;</span></label>
+                  <select class="form-control" style='border:1px solid #ced4da' formControlName="britishterritory"
+                  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.britishterritory.errors }">
+                  <option  [ngValue]="country" *ngFor="let country of personalitynationalities">{{country}}
+                  </option>
+                </select>
+
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12">
+                <div class="form-group alien_form_inline">
+                  <label class="lbl-list">State how status was acquired</label>
+                  <input type="text" name="" class="form-control" formControlName="status" >
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12">
+                <div class="form-group alien_form_inline">
+                  <label>h ) Other Nationality Status</label>
+                  <input type="text" name="" class="form-control" formControlName="Nationalitystatus">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-card">
+          <div class="card-header">
+            <h3 class="section-title">Section 3</h3>
+          </div>
+          <div class="section-body p-3">
+            <div class="row">
+              <div class="col-lg-6 col-sm-12 ">
+                <div class="br-1">
+                  <h5 class="text-center"><strong>Father</strong></h5>
+                  <div class="form-group alien_form_inline">
+                    <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                    <input type="text" name="" class="form-control" formControlName="fatherLastName" [ngClass]="{ 'is-invalid': submitted && f.process2.controls.fatherLastName.errors }">
+                  </div>
+                  <div class="form-group alien_form_inline">
+                    <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                    <input type="text" name="" class="form-control" formControlName="fatherFirstName"  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.fatherFirstName.errors }">
+                  </div>
+                  <div class="form-group alien_form_inline">
+                    <label class="valign-top">Address <span class="glyphicon">&#x2a;</span></label>
+                    <textarea class="form-control" rows="3" name="text" formControlName="FatherAddress"  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.FatherAddress.errors }"></textarea>
+                  </div>
+                  <div class="form-group alien_form_inline">
+                    <label>Country of Birth <span class="glyphicon">&#x2a;</span></label>
+                    <select class="form-control" style='border:1px solid #ced4da' formControlName="FatherCOB"
+                    [ngClass]="{ 'is-invalid': submitted && f.process2.controls.FatherCOB.errors }">
+                    <option  [ngValue]="country" *ngFor="let country of nationalities">{{country}}
+                    </option>
+                  </select>
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12">
+                <h5 class="text-center"><strong>Mother</strong></h5>
+                <div class="form-group alien_form_inline">
+                  <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                  <input type="text" name="" class="form-control" formControlName="motherLastName"  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.motherLastName.errors }">
+                </div>
+                <div class="form-group alien_form_inline">
+                  <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                  <input type="text" name="" class="form-control" formControlName="motherFirstName"  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.motherLastName.errors }">
+                </div>
+                <div class="form-group alien_form_inline">
+                  <label class="valign-top">Address <span class="glyphicon">&#x2a;</span></label>
+                  <textarea class="form-control" rows="3" name="text" formControlName="motherAddress"  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.motherLastName.errors }"></textarea>
+                </div>
+                <div class="form-group alien_form_inline">
+                  <label>Country of Birth <span class="glyphicon">&#x2a;</span></label>
+                  <select class="form-control" style='border:1px solid #ced4da' formControlName="motherCOB"
+                  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.motherCOB.errors }">
+                  <option  [ngValue]="country" *ngFor="let country of nationalities">{{country}}
+                  </option>
+                </select>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-card mb-nonelayer">
+          <div class="card-header">
+            <h3 class="section-title">Section 4</h3>
+          </div>
+          <div class="section-body p-3">
+            <div class="row">
+              <div class="col-lg-4 col-sm-12">
+                <div class="form-group alien_form_inline">
+                  <label>Marital Status <span class="glyphicon">&#x2a;</span></label>
+                  <select class="form-control" style='border:1px solid #ced4da' formControlName="maritalStatus"
+                  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.maritalStatus.errors }">
+                  <option  [ngValue]="country" *ngFor="let country of maritalStatus">{{country}}
+                  </option>
+                </select>
+
+                 
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <div class="form-group alien_form_inline">
+                  <label for="" class="">Date of Marriage <span class="glyphicon">&#x2a;</span></label>
+                  <input type="text" [readonly]="true" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dom" placeholder=""  [maxDate]="datePickerConfig.maxDate" [ngClass]="{ 'is-invalid': submitted && f.process2.controls.dom.errors }"> 
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-12">
+                <div class="form-group alien_form_inline"> 
+                  <label>Place where marriage <span class="glyphicon">&#x2a;</span></label>
+                  <select class="form-control" style='border:1px solid #ced4da' formControlName="pom"
+                  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.pom.errors }">
+                  <option  [ngValue]="country" *ngFor="let country of nationalities">{{country}}
+                  </option>
+                </select>
+
+                
+                
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-sm-12">
+                <p class="hint-text">If Wife of Husband is dead please indicated date and place of death</p>
+                <div class="form-group alien_form_inline">
+                  <label for="" class="">Date</label>
+                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dod" [readonly]="true" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                </div>
+                <div class="form-group alien_form_inline">
+                  <label>Place Of Death</label>
+                  <select class="form-control" style='border:1px solid #ced4da' formControlName="pod"
+                  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.pod.errors }">
+                  <option  [ngValue]="country" *ngFor="let country of nationalities">{{country}}
+                  </option>
+                </select>
+
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12">
+                <p class="hint-text">If marriage dissolved, give date and place of decree</p>
+                <div class="form-group alien_form_inline">
+                  <label for="" class="">Date</label>
+                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dodissolved"  placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                </div>
+                <div class="form-group alien_form_inline"> 
+                  <label>Place Of Decree</label>
+                  <select class="form-control" style='border:1px solid #ced4da' formControlName="podissolved"
+                  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.podissolved.errors }">
+                  <option  [ngValue]="country" *ngFor="let country of nationalities">{{country}}
+                  </option>
+                </select>
+
+                </div>
+              </div>
+              <span class="bm-1"></span>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-sm-12">
+                <h5 class="text-center"><strong>Wife</strong></h5>
+                <div class="form-group alien_form_inline">
+                  <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                  <input type="text" name="" class="form-control" formControlName="wifeLastname" [ngClass]="{ 'is-invalid': submitted && f.process2.controls.wifeLastname.errors }">
+                </div>
+                <div class="form-group alien_form_inline">
+                  <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                  <input type="text" name="" class="form-control" formControlName="wifeFirstname"  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.wifeFirstname.errors }">
+                </div>
+                <div class="form-group alien_form_inline">
+                  <label class="valign-top">Address <span class="glyphicon">&#x2a;</span></label>
+                  <textarea class="form-control" rows="3" name="text" formControlName="wifeAddress" [ngClass]="{ 'is-invalid': submitted && f.process2.controls.wifeAddress.errors }"></textarea>
+                </div>
+                <div class="form-group alien_form_inline">
+                  <label>Country of Birth <span class="glyphicon">&#x2a;</span></label>
+                  <select class="form-control" style='border:1px solid #ced4da' formControlName="wifeCOB"
+                  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.wifeCOB.errors }">
+                  <option  [ngValue]="country" *ngFor="let country of nationalities">{{country}}
+                  </option>
+                </select>
+                 
+                 
+                </div>
+              </div>
+              <div class="col-lg-6 col-sm-12">
+                <h5 class="text-center"><strong>Husband</strong></h5>
+                <div class="form-group alien_form_inline">
+                  <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                  <input type="text" name="" class="form-control" formControlName="husbandLastname" [ngClass]="{ 'is-invalid': submitted && f.process2.controls.husbandLastname.errors }">
+                </div>
+                <div class="form-group alien_form_inline">
+                  <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                  <input type="text" name="" class="form-control" formControlName="husbandFirstname" [ngClass]="{ 'is-invalid': submitted && f.process2.controls.husbandFirstname.errors }">
+                </div>
+                <div class="form-group alien_form_inline">
+                  <label class="valign-top">Address <span class="glyphicon">&#x2a;</span></label>
+                  <textarea class="form-control" rows="3" name="text" formControlName="husbandaddress"  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.husbandaddress.errors }"></textarea>
+                </div>
+                <div class="form-group alien_form_inline">
+                  <label>Country of Birth <span class="glyphicon">&#x2a;</span></label>
+                  <select class="form-control" style='border:1px solid #ced4da' formControlName="husbandCOB"
+                  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.husbandCOB.errors }">
+                  <option  [ngValue]="country" *ngFor="let country of nationalities">{{country}}
+                  </option>
+                </select>
+                 
+                 
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="p-4 text-right">
+          <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+          <button class="btn btn-theme" (click)="back()">Back</button>
+          <button class="btn btn-theme" (click)="next()">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
