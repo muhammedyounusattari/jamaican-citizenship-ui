@@ -13,6 +13,7 @@ export class NaturalisationDocumentComponent implements OnInit {
   naturalizationFormSessoin:any;
   loginType:string;   
   formType:string;    
+  status:string;
   constructor(private activatedRoute:ActivatedRoute,public dialog:MatDialog) {
     
     this.activatedRoute.params.subscribe(params=>{
@@ -40,14 +41,35 @@ export class NaturalisationDocumentComponent implements OnInit {
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
   }
 
- /* incomplete(value){
+ incomplete(){
     const dialogConfig = new MatDialogConfig();
 //    localStorage.setItem('status','incomplete');
-localStorage.setItem('status',value);
-localStorage.setItem('type',this.loginType);
-    localStorage.setItem('applicantId',""+this.descentFormSessoin.id);
-    this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
-  }*/
+
+    if(this.loginType==="agentView"){
+      this.status = "cs";
+    }
+
+    if(this.loginType==="operationsmanager"){
+      this.status = "cs";
+    }
+
+    if(this.loginType==="director"){
+      this.status ="om";
+    }
+
+    if(this.loginType==="ceo"){
+      this.status ="director";
+    }
+
+    if(this.loginType==="permanentsecretary"){
+      this.status = "ceo";
+    }
+
+    localStorage.setItem('status',this.status);
+    localStorage.setItem('type',this.loginType);
+    localStorage.setItem('applicantId',""+this.naturalizationFormSessoin.id);
+    this.dialog.open(ReviewDailogComponentComponent, dialogConfig); 
+  }
 
   refer(value){
     const dialogConfig = new MatDialogConfig();

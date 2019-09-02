@@ -58,7 +58,7 @@
           <button *ngIf="loginType==='ceo'"  type="button" class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('permanentsecretary')" >Refer for Approval</button>
          <button *ngIf="loginType==='permanentsecretary'"  type="button" class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('completed')" >Approved</button>
 
-         <button type="button" class="clr-btn style-btn" (click)="incomplete('incomplete')">Incomplete</button>
+         <button type="button" class="clr-btn style-btn" (click)="incomplete()">Incomplete</button>
           <!-- <button type="button" class="clr-btn style-btn" (click)="refer('refer')">Refer</button> -->
           <button type="button" class="clr-btn style-btn" (click)="nextClick('next')">Next</button>
         </div>
