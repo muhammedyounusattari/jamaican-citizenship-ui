@@ -15,7 +15,7 @@ export class ReviewDailogComponentComponent implements OnInit {
   successMessage: string;
   sentMail: boolean;
 
-  @BlockUI() blockUI: NgBlockUI;
+  //@BlockUI() blockUI: NgBlockUI;
   constructor(private agent: AgentService, private dialogRef: MatDialogRef<ReviewDailogComponentComponent>, private router: Router) {
     dialogRef.disableClose = true;
   }
@@ -27,18 +27,25 @@ export class ReviewDailogComponentComponent implements OnInit {
 
   save(comments) {
 	  debugger;
-    var payload = { applicantId: '', status: '', agentId: '', comments: '',type:'' };
+    var payload = { applicantId: '', status: '', agentId: '', comments: '',type:'', formType:'' };
     payload.applicantId = localStorage.getItem('applicantId');
     payload.status = localStorage.getItem('status');
 
     var data = localStorage.getItem('agent');
     if(data != null)
-    payload.agentId = JSON.parse(data)._id;
+    var info = JSON.parse(data);
+
+    if(info.data){
+      payload.agentId = info.data[0].id;
+      payload.formType = info.data[0].profile.applied;      
+    }else{
+
+      payload.agentId = info._id;
+      payload.formType = info.formType;
+    }
     payload.type = localStorage.getItem('type');
     payload.comments = comments;
-
-
-    this.agent.updateApplicantStatus(payload).subscribe(data => {
+   this.agent.updateApplicantStatus(payload).subscribe(data => {
 
       if (data != null) {
         localStorage.setItem('agent', JSON.stringify(data));
@@ -52,8 +59,8 @@ export class ReviewDailogComponentComponent implements OnInit {
       }
       this.dialogRef.close();
       this.router.navigate(['/agentView/'+payload.type]);
-    })
-  }
+    }) 
+   }
 
   close() {
     this.dialogRef.close();

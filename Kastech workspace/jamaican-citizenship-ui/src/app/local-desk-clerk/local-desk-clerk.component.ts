@@ -52,13 +52,27 @@ export class LocalDeskClerkComponent implements OnInit {
     if(!applicantId)
       return false;
    
-    this.agentService.getReviewForm(applicantId).subscribe(data=>{
+    this.agentService.getReviewForm(applicantId,this.formType).subscribe(data=>{
       this.agent = data;
       if(data){
-        localStorage.setItem('profile',JSON.stringify(this.agent.profile));
-        localStorage.setItem('descentForm', JSON.stringify(data));
+        if(this.formType=="dpa"){
+          localStorage.setItem('profile',JSON.stringify(this.agent[0].profile));
+          localStorage.setItem('descentForm', JSON.stringify(this.agent[0]));
+          this.router.navigate(['/reviewApplicantForm/'+this.type+'/'])
+        }
+        if(this.formType=="nacw"){
+         
+            localStorage.setItem('isReviewOnly','true');
+            localStorage.setItem('process1',JSON.stringify(this.agent[0]));
+            localStorage.setItem('process',JSON.stringify(this.agent[0]));
+            localStorage.setItem('roles',JSON.stringify(this.agent[0].profile));
+            this.router.navigate(['/naturalisation',this.type]);
+        
+        }
+
+        
       }
-      this.router.navigate(['/reviewApplicantForm/'+this.type+'/'])
+     
     })  
    
   }

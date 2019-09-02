@@ -16,7 +16,6 @@
                 <tbody *ngIf='!showApplicantQueueMessage'>
 
                   <tr *ngFor="let data of forms.data">
-
                     <td>
                       <div class="form-check">
                         <label class="form-check-label" for="check1">
@@ -92,7 +91,7 @@
             </div>
           </div>
         </div>
-
+        <td><button type="button" style='align:right' class="btn btn-success" (click)="allForms()" >All Forms</button></td>
         <div class="col-md-12">
           <div class="my-4 Asset_mang_block">
             <h5>Agent Assignment</h5>

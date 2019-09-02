@@ -118,7 +118,10 @@
               <div class="col-lg-4 col-sm-12">
                 <div class="form-group alien_form_inline">
                   <label for="" class="">Date of Marriage <span class="glyphicon">&#x2a;</span></label>
-                  <input type="text" [readonly]="true" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dom" placeholder=""  [maxDate]="datePickerConfig.maxDate" [ngClass]="{ 'is-invalid': submitted && f.process2.controls.dom.errors }"> 
+                  <input type="text"  bsDatepicker class="form-control" [bsConfig]="datePickerConfig" 
+                  formControlName="dom" placeholder=""  [maxDate]="datePickerConfig.maxDate" 
+                  [ngClass]="{ 'is-invalid': submitted && f.process2.controls.dom.errors }"> 
+
                 </div>
               </div>
               <div class="col-lg-4 col-sm-12">
@@ -226,7 +229,7 @@
           </div>
         </div>
         <div class="p-4 text-right">
-          <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+          <!-- <button class="btn btn-danger" (click)='onCancel()' >Logout</button> -->
           <button class="btn btn-theme" (click)="back()">Back</button>
           <button class="btn btn-theme" (click)="next()">Next</button>
         </div>

@@ -48,7 +48,7 @@ export class AdminFormsComponent implements OnInit {
         }
         else{
           localStorage.setItem('agent',JSON.stringify(data));
-          this.router.navigate(['/agentView/'+this.loginType+'/']);
+          this.router.navigate(['/agentView/'+formType+'/'+this.loginType+'/']);
         }
 
        });
@@ -60,7 +60,7 @@ export class AdminFormsComponent implements OnInit {
         }else{
           localStorage.setItem('roles',JSON.stringify(data));
           localStorage.setItem('agent',JSON.stringify(data));
-          this.router.navigate(['/agentView/'+this.loginType+'/']);
+          this.router.navigate(['/agentView/'+formType+'/'+this.loginType]);
         }
        });
       // this.loginType === "operationsmanager"
@@ -76,14 +76,14 @@ export class AdminFormsComponent implements OnInit {
           // }
   
          });
-      }else if(this.loginType === "operationsmanager" || this.loginType === "director" ){
+      }else if(this.loginType === "operationsmanager" || this.loginType === "director" || this.loginType === "ceo" || this.loginType === "permanentsecretary"  ){
         this.adminService.getFormsForReview(formType,this.loginType).subscribe((data:any)=>{
           // if(data == null){
             // alert('there are no application assinged to you ');
           // }
           // else{
             localStorage.setItem('agent',JSON.stringify(data));
-            this.router.navigate(['/agentView/'+this.loginType+'/']);
+            this.router.navigate(['/agentView/'+this.loginType+'/'+formType])
             // this.router.navigate(['/localDeskClerk/'+formType+'/'+this.loginType])
           // }
   

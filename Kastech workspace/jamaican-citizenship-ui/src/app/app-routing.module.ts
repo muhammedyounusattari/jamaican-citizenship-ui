@@ -29,6 +29,8 @@ import { NatrualizationProcessRequest4Component } from './naturalisation/natrual
 import { NatrualizationProcessRequest5Component } from './naturalisation/natrualization-process-request5/natrualization-process-request5.component';
 import { NatrualizationProcessRequest6Component } from './naturalisation/natrualization-process-request6/natrualization-process-request6.component';
 import { NatrualizationSubmissionComponent } from './naturalisation/natrualization-submission/natrualization-submission.component';
+import { NaturalisationDocumentComponent } from './naturalisation/naturalisation-document/naturalisation-document.component';
+// import { NaturalizationDocumentsUploadComponent } from './naturalisation/naturalization-documents-upload/naturalization-documents-upload.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -43,14 +45,12 @@ const routes: Routes = [
   {path:'changePassword',component:ChangePasswordComponent},
   {path:'officalForms/:type/:id', component:AdminFormsComponent},
   {path:'officalForms/:type', component:AdminFormsComponent},
-  
-  // {path:'adminReview/:formType',component:SupervisorViewComponent},
-  // {path:'reviewForms', component:ReviewFormsComponent},
-  //{path:'adminReview/:formType',component:SupervisorViewComponent},
   {path:'reviewForms/:formType', component:ReviewFormsComponent},
   {path:'reviewForms/:formType/:type', component:ReviewFormsComponent},
   {path:'agentView/:type', component:AgentComponent},
+  {path:'agentView/:type/:formType', component:AgentComponent},
   {path:'reviewApplicantForm/:type', component:ReviewApplicantComponent},
+  {path:'reviewApplicantForm/:type/:formType', component:ReviewApplicantComponent},
   {path:'scheduleAppointment/:applicantId',component:SchedulerComponent},
   {path:'login/:schedule',component:LoginComponent},
   {path:'individualSchedule/:applicantId', component:IndividualScheduleComponent},
@@ -61,14 +61,33 @@ const routes: Routes = [
   {path:'localDeskClerk/:formType/:type',component:LocalDeskClerkComponent},
   {path:'localDeskClerkProcess',component:LocalDeskClerkProcessComponent},
 
-  //path for naturalisation
+  //path for naturalisation with formType
   {path:'naturalisation',component:NaturalisationComponent},
   {path:'naturalisation-process2',component:NatrualizationProcessRequest2Component},
   {path:'naturalisation-process3',component:NatrualizationProcessRequest3Component},
   {path:'naturalisation-process4',component:NatrualizationProcessRequest4Component},
   {path:'naturalisation-process5',component:NatrualizationProcessRequest5Component},
   {path:'naturalisation-process6',component:NatrualizationProcessRequest6Component},
-  {path:'naturalisation-submission/:applicantId',component:NatrualizationSubmissionComponent},
+  {path:'naturalisation-submission',component:NatrualizationSubmissionComponent},
+  {path:'naturalisation-document-upload',component:NaturalisationDocumentComponent},
+  
+  {path:'naturalisation/:type',component:NaturalisationComponent},
+  {path:'naturalisation-process2/:type',component:NatrualizationProcessRequest2Component},
+  {path:'naturalisation-process3/:type',component:NatrualizationProcessRequest3Component},
+  {path:'naturalisation-process4/:type',component:NatrualizationProcessRequest4Component},
+  {path:'naturalisation-process5/:type',component:NatrualizationProcessRequest5Component},
+  {path:'naturalisation-process6/:type',component:NatrualizationProcessRequest6Component},
+  {path:'naturalisation-submission/:type',component:NatrualizationSubmissionComponent},
+  {path:'naturalisation-document-upload/:type',component:NaturalisationDocumentComponent},
+/*
+  {path:'naturalisation/:type/:formType',component:NaturalisationComponent},
+  {path:'naturalisation-process2/:type/:formType',component:NatrualizationProcessRequest2Component},
+  {path:'naturalisation-process3/:type/:formType',component:NatrualizationProcessRequest3Component},
+  {path:'naturalisation-process4/:type/:formType',component:NatrualizationProcessRequest4Component},
+  {path:'naturalisation-process5/:type/:formType',component:NatrualizationProcessRequest5Component},
+  {path:'naturalisation-process6/:type/:formType',component:NatrualizationProcessRequest6Component},
+  {path:'naturalisation-submission/:type/:formType',component:NatrualizationSubmissionComponent},
+ {path:'naturalisation-document-upload/:type/:formType',component:NaturalisationDocumentComponent} */
 
 ];
 

@@ -80,14 +80,14 @@ export class ReviewFormsComponent implements OnInit {
 
       if(this.type==="supervisor"){
        
-        this.adminService.loadDeskClerk().subscribe((data:any) => {
+        this.adminService.loadDeskClerk(this.formType).subscribe((data:any) => {
           this.agents = data.data;
           debugger;
           this.selectLanguage = this.agents[0].name;
           console.log(this.selectLanguage);
         })
       }else if(this.type==="compliancesupervisor"){
-          this.adminService.loadAgentsDetails().subscribe((data:any) => {
+          this.adminService.loadAgentsDetails(this.formType).subscribe((data:any) => {
             this.agents = data.data;
             this.selectLanguage = this.agents[0].name;
           })
@@ -99,12 +99,13 @@ export class ReviewFormsComponent implements OnInit {
     delete payload.appCodes;
 
     var appCode = [];
-    var appInfo = { applicantId: '', name: '' };
+    var appInfo = { applicantId: '', name: '',appliedFor:'' };
     for (var key in payload) {
       if (payload[key] && key != 'agent') {
         var info = key.split("_");
         appInfo.applicantId = info[0];
         appInfo.name = info[1].split("_")[0];
+        appInfo.appliedFor = this.formType;
         appCode.push(appInfo);
       }
       else
@@ -119,6 +120,7 @@ export class ReviewFormsComponent implements OnInit {
     }
 
     console.log(this.applications)
+    payload.appType = this.formType;
 
     this.adminService.assignToAgent(payload,this.type).subscribe(data => {
       console.log(data);
@@ -126,6 +128,10 @@ export class ReviewFormsComponent implements OnInit {
     })
 
 
+  }
+
+  allForms(){
+    this.router.navigate(['/officalForms/'+this.type]);
   }
 
   cancel(){

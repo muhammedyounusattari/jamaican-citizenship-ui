@@ -64,7 +64,7 @@ export class ChangePasswordComponent implements OnInit {
             this.loginService.getDescentForm(this.profile.email).subscribe(data => {
               if (data != null)
                 sessionStorage.setItem('descentForm', JSON.stringify(data));
-              this.router.navigate(['/descentForm'])
+              this.router.navigate(['/allForms'])
             })
           }
         }

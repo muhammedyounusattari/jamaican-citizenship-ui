@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   constructor(private logoutService: LogoutService, private router: Router,
     private authentication:AuthenticationService) {
     //this.loginStatus = localStorage.getItem('isLoggedIn')
-
+      
     this.authentication.currentUser.subscribe(x => this.currentUser = x);
     console.log('........' + this.loginStatus); 
   }

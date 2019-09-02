@@ -164,11 +164,13 @@ export class IndividualScheduleComponent implements OnInit {
     //localStorage.setItem('date',)
    // debugger;
    var data =  this.model.split("_")
+   var applied = JSON.parse(localStorage.getItem('roles')).applied;
    var payload ={
 
       'time':data[0],
       'date':data[1].split(",")[1],
-      'applicantId':this.applicantId
+      'applicantId':this.applicantId,
+      'applied':applied
     };
     this.scheduleService.confirmAppointment(payload).subscribe((data)=>{
       sessionStorage.setItem('profile',JSON.stringify(data));

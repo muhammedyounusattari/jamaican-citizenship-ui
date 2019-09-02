@@ -19,13 +19,13 @@ export class AdminService {
     return this.httpClient.get(url,this.httpOptions);
   }
 
-  loadAgentsDetails(){
-    const url = HOST_URL.name+"/load-agents/";
+  loadAgentsDetails(formType){
+    const url = HOST_URL.name+"/load-agents/"+formType+"/";
     return this.httpClient.get(url,this.httpOptions);
   }
 
-  loadDeskClerk(){
-    const url = HOST_URL.name+"/load-deskclerk/";
+  loadDeskClerk(formType){
+    const url = HOST_URL.name+"/load-deskclerk/"+formType+"/";
     return this.httpClient.get(url,this.httpOptions);
   }
 

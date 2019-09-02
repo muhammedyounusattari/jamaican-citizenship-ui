@@ -179,6 +179,7 @@ export class LoginComponent implements OnInit {
         // this.logoutService.currentMessage.subscribe(message=>{this.loginStatus = message;this.blockUI.stop();}); 
         this.profile = data;
         sessionStorage.setItem('profile', JSON.stringify(data));
+        localStorage.setItem('roles', JSON.stringify(data));
         this.currentUserSubject.next(data)
         this.showError = false;
         if (!this.profile.passwordChanged) {
@@ -190,7 +191,7 @@ export class LoginComponent implements OnInit {
           this.blockUI.stop();
           this.router.navigate(['/scheduleAppointment/' + this.profile.appCode + '/']);
           return false;
-        } else if (this.profile.status != null) {
+        } else if (this.profile.status == null) {
           sessionStorage.setItem('appCode', this.profile.appCode);
           this.blockUI.stop();
           this.router.navigate(['/allForms'])
@@ -199,7 +200,7 @@ export class LoginComponent implements OnInit {
         else {
           this.blockUI.stop();
           // if(this.profile.status == 'Submitted' || this.profile.status == 'submitted'){
-          if (this.profile.status == null) {
+         // if (this.profile.status == null) {
             localStorage.setItem('roles',JSON.stringify(this.profile)); 
             this.router.navigate(['/allForms']);
 
@@ -210,7 +211,7 @@ export class LoginComponent implements OnInit {
                 sessionStorage.setItem('descentForm', JSON.stringify(data));
               this.router.navigate(['/allForms'])
             }) */
-          }
+         // }
         }
 
 

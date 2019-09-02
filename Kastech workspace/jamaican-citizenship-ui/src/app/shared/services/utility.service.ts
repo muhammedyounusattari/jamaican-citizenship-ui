@@ -12,6 +12,10 @@ export class UtilityService {
     return this.http.get('assets/json/countries.json');
   }
 
+  loadNaturalizationFromJson() {
+    return this.http.get('assets/json/naturalization.json');
+  }
+
   enhancedDate(input, days, months, years) {
     var date;
     if (!input) {

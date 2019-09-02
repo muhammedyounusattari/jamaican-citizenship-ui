@@ -3,8 +3,8 @@
       <div class="header-tag text-center">
         <h2 class="m-4">Agent Application Review</h2>
       </div>
-     
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 p-0" *ngIf='type != "operationsmanager" && type != "director" '>
+   
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 p-0" *ngIf='type != "operationsmanager" && type != "director" && type != "ceo" && type != "permanentsecretary" '>
             <label class="sr-only" for="inlineFormInputGroup">Type text here...</label>
             <div class="input-group mb-4">
               <div class="input-group-prepend">
@@ -12,8 +12,9 @@
               </div>
               <input type="text" class="form-control" id="inlineFormInputGroup" [ngModel]='agent.name' placeholder="Type text here...">
             </div>
+            <!-- <td><button type="button" style='align-items: right;' class="clr-btn" (click)="allForms()" >All Forms</button></td> -->
             </div>
-         
+            
       <div class="Asset_mang_block">
       <table class="table table-hover table-striped">
             <thead>
@@ -23,7 +24,7 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody class="text-size" *ngIf='type === "operationsmanager" || type === "director" '>
+            <tbody class="text-size" *ngIf='type === "operationsmanager" || type === "director" || type === "ceo" || type === "permanentsecretary"  '>
            
               <tr *ngFor='let applicant of agent.data'> 
                 <td>{{applicant.id}}</td>
@@ -42,8 +43,10 @@
                 </tr>
                
               </tbody>
-          </table>
+            </table>
+            
         </div>
     </div>
+   
   </section>
   <br/><br/>

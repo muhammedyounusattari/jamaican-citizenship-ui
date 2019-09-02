@@ -23,7 +23,7 @@
                     <td>Full postal Address in Jamaica <span class="glyphicon">&#x2a;</span></td>
                     <td><textarea class="form-control"  row="1" max-row="1" formControlName="residentaddress1"  [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentaddress.errors }"></textarea></td>
                     <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentfrom1" placeholder=""  [maxDate]="datePickerConfig.maxDate"   [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentfrom.errors }"/>  </td>
-                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto1" placeholder=""  [maxDate]="datePickerConfig.maxDate"  textReplace="process3Payload.residentto" [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentto.errors }"/> </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto1" placeholder=""  [maxDate]="datePickerConfig.maxDate"  [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentto.errors }"/> </td>
                   </tr>
                   <tr class="feild-block">
                     <td>Full postal Address in Jamaica
@@ -115,7 +115,7 @@
           </div>
         </div>
         <div class="p-4 text-right">
-          <button class="btn btn-danger" (click)='onCancel()' >Logout</button>
+          <!-- <button class="btn btn-danger" (click)='onCancel()' >Logout</button> -->
           <button class="btn btn-theme" (click)="back()" >Back</button>
           <button class="btn btn-theme" (click)="next()">Next</button>
         </div>

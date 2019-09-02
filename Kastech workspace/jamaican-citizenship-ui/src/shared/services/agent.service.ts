@@ -14,8 +14,8 @@ export class AgentService {
     })
   };
 
-  getReviewForm(applicantId){
-    const url = HOST_URL.name+"/applicant-detail/"+applicantId+"/";
+  getReviewForm(applicantId,type){
+    const url = HOST_URL.name+"/applicant-detail/"+applicantId+"/"+type+"/";
     return this.http.get(url,this.httpOptions);
   }
 

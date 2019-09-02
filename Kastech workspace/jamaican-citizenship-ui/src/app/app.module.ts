@@ -58,6 +58,7 @@ import { NatrualizationProcessRequest4Component } from './naturalisation/natrual
 import { NatrualizationProcessRequest5Component } from './naturalisation/natrualization-process-request5/natrualization-process-request5.component';
 import { NatrualizationProcessRequest6Component } from './naturalisation/natrualization-process-request6/natrualization-process-request6.component';
 import { NatrualizationSubmissionComponent } from './naturalisation/natrualization-submission/natrualization-submission.component';
+import { NaturalisationDocumentComponent } from './naturalisation/naturalisation-document/naturalisation-document.component';
 
 
 @NgModule({
@@ -72,7 +73,7 @@ import { NatrualizationSubmissionComponent } from './naturalisation/natrualizati
      AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent,
       SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent,
        ReviewDailogComponentComponent, SchedulerComponent, IndividualScheduleComponent,
-        GroupScheduleComponent, IndividualApointmentConfirmationComponent, AlienComponent, RegistrationComponent, LocalDeskClerkComponent, LocalDeskClerkProcessComponent, NaturalisationComponent, NatrualizationProcessRequest2Component, NatrualizationProcessRequest3Component, NatrualizationProcessRequest4Component, NatrualizationProcessRequest5Component, NatrualizationProcessRequest6Component, NatrualizationSubmissionComponent 
+        GroupScheduleComponent, IndividualApointmentConfirmationComponent, AlienComponent, RegistrationComponent, LocalDeskClerkComponent, LocalDeskClerkProcessComponent, NaturalisationComponent, NatrualizationProcessRequest2Component, NatrualizationProcessRequest3Component, NatrualizationProcessRequest4Component, NatrualizationProcessRequest5Component, NatrualizationProcessRequest6Component, NatrualizationSubmissionComponent, NaturalisationDocumentComponent
   ],
   imports: [
     BrowserModule,
