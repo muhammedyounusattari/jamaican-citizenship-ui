@@ -20,6 +20,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap';
 import { BlockUIModule } from 'ng-block-ui';
+import {DatePipe} from '@angular/common';
 
 
 
@@ -91,7 +92,7 @@ import { NaturalisationDocumentComponent } from './naturalisation/naturalisation
      MatMenuModule, MatFormFieldModule, MatChipsModule, MatAutocompleteModule, MatSidenavModule, MatListModule, MatRadioModule, MatSliderModule],
    
 
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
   entryComponents: [ForgotPasswordComponent,DescentSaveComponent,ReviewDailogComponentComponent]
 })
