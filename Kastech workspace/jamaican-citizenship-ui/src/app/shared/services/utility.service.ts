@@ -33,9 +33,17 @@ export class UtilityService {
   }
 
   formatDate(date) {
+    if(date.length==0){
+      return;
+    }
     if (typeof (date) === "string") {
       var x = date.split("/");
-      date = new Date(x[1] + "/" + x[0] + "/" + x[2]);
+      if(x.length>1){
+        date = new Date(x[1] + "/" + x[0] + "/" + x[2]);
+      }
+      else{
+        date = new Date(date);
+      }
     }
     return (date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear());
 

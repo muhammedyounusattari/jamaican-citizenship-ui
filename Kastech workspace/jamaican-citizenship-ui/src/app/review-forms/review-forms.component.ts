@@ -3,6 +3,7 @@ import { AdminService } from '../shared/services/admin.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 1000,
@@ -32,6 +33,7 @@ export class ReviewFormsComponent implements OnInit {
   private type:string;
   private selectLanguage: any;
 
+  @BlockUI() blockUI: NgBlockUI; 
   constructor(private adminService: AdminService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private router: Router) {
 
     this.activatedRoute.params.subscribe(param=>{
@@ -96,6 +98,7 @@ export class ReviewFormsComponent implements OnInit {
   }
 
   assignToAgent(payload) {
+    this.blockUI.start("assingning applicant to agent");
     delete payload.appCodes;
 
     var appCode = [];
@@ -123,6 +126,7 @@ export class ReviewFormsComponent implements OnInit {
     payload.appType = this.formType;
 
     this.adminService.assignToAgent(payload,this.type).subscribe(data => {
+      this.blockUI.stop();
       console.log(data);
       location.reload();
     })
