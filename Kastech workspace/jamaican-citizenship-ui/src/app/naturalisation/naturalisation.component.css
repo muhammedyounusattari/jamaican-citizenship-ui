@@ -176,7 +176,7 @@ label.labl-list.If-Stateless:before{
     position: absolute;
     width: 17px;
     height: 17px;
-    margin-left: -25px;
+    margin-left: 0px;
     border: 1px solid #c5c3c3;
     border-radius: 3px;
     background-color: #fff;
@@ -236,3 +236,4 @@ select{
     min-height: 100px;
     }
 }
+

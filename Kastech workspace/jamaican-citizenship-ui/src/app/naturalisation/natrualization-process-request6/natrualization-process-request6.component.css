@@ -271,3 +271,24 @@ h3.alien_head{
     min-height: 100px;
     }
 }
+
+.scanned-documents-block{
+    padding-left: 20px;
+}
+
+table{
+    width: 100%;
+}
+
+table th .mat-icon{
+    width: auto;
+}
+
+.accept{
+    position: absolute;
+    left: 0px;
+}
+
+.declaration_block{
+    padding-top: 10px;
+}
