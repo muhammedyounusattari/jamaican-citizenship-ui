@@ -1,0 +1,146 @@
+<block-ui>
+  <div class="container">
+    <h3 class="text-center Register_heading">REGISTRATION OF CITIZENSHIP OF A WOMAN
+        BY MARRIAGE APPLICATION</h3> 
+    <form [formGroup]="marriageApplicationForm" class="form-group" autocomplete="off">
+        <div class="Woman_Mrg_Formone">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <div class="section-card ">
+                        <div class="section-body p-3">
+                            <div class="row">
+                                <div class="col-lg-4 col-sm-12">
+                                    <div class="form-group woman_form_inline">
+                                        <label>Last Name</label>
+                                        <input type="text" name="" class="form-control" formControlName="lastname"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-sm-12">
+                                    <div class="form-group woman_form_inline">
+                                        <label>Middle Name</label>
+                                        <input type="text" name="" class="form-control" formControlName="middlename"/>
+                                    </div>
+                                </div> 
+                                <div class="col-lg-4 col-sm-12">
+                                    <div class="form-group woman_form_inline">
+                                        <label>First Name</label>
+                                        <input type="text" name="" class="form-control" formControlName="firstname"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group woman_form_inline">
+                                        <label>Date of Birth</label>
+                                        <input type="text" bsDatepicker [bsConfig]="datePickerConfig" class="form-control" formControlName="dob" placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted }" />                
+                                    </div>
+                                    <div class="form-group woman_form_inline">
+                                        <label>Place of Birth</label>  
+                                        <input type="text" class="form-control" formControlName="pob" placeholder="Place of birth"/>
+                                    </div>
+                                    <div class="form-group woman_form_inline">
+                                        <label>Gender</label>
+                                        <div class="gender-block form-check form-check-inline woman_check_inline checkbox-theme p-l-0 text-left">
+                                                <input type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted }"
+                                                  value='male' id="customRadioInline1" name="gender" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadioInline1">Male</label>
+                                              </div>
+                                        <div class="gender-block form-check form-check-inline woman_check_inline checkbox-theme p-l-0 text-left ">
+                                                <input type="radio" formControlName="gender" [ngClass]="{ 'is-invalid': submitted }"
+                                                value='female' id="customRadioInline2" name="gender" class="custom-control-input">
+                                              <label class="custom-control-label" for="customRadioInline2">Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group woman_form_inline">
+                                        <label>Address</label>
+                                        <input type="text" name="" class="form-control" formControlName="address1"/>
+                                    </div>
+                                    <div class="form-group woman_form_inline">
+                                        <label>Telephone Number</label>
+                                        <input type="text" name="" class="form-control" formControlName="number"/>
+                                    </div>
+                                    <div class="form-group woman_form_inline">
+                                        <label>Email Address</label>
+                                        <input type="text" name="" class="form-control" formControlName="email"/>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-sm-12">
+                    <div class="section-card ">
+                        <div class="section-body p-3">
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group woman_form_inline">
+                                        <label>Place of Marriage</label>
+                                        <input type="text" name="" class="form-control" formControlName="pom"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="form-group woman_form_inline">
+                                        <label>Date of Marriage</label>
+                                        <input type="text" bsDatepicker [bsConfig]="datePickerConfig" class="form-control" formControlName="dom" placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted }"/> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">                    
+                <div class="col-lg-12 col-sm-12">
+                    <div class="section-card mb-nonelayer">
+                        <div class="card-header">
+                            <h3 class="section-title">Section 1</h3>
+                        </div>
+                        <div class="section-body p-3">
+                            <h4 class="p-2 my-0 text-center">Paternal Information</h4>
+                            <div class="section-body p-3">
+                                <div class="row">
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group woman_form_inline">
+                                            <label>Last Name</label>
+                                            <input type="text" name="" class="form-control" formControlName ="paternallastName"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group woman_form_inline">
+                                            <label>Middle Name</label>
+                                            <input type="text" name="" class="form-control" formControlName="paternalmiddleName"/>
+                                        </div>
+                                    </div> 
+                                    <div class="col-lg-4 col-sm-12">
+                                        <div class="form-group woman_form_inline">
+                                            <label>First Name</label>
+                                            <input type="text" name="" class="form-control" formControlName="paternalfirstName"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <div class="form-group woman_form_inline">
+                                            <label>Date of Birth</label>
+                                            <input type="text" class="form-control" bsDatepicker [bsConfig]="datePickerConfig" formControlName="paternaldob" placeholder="Select Date of Birth" [ngClass]="{ 'is-invalid': submitted }" /> 
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                        <div class="form-group woman_form_inline">
+                                            <label>Place of Birth</label> 
+                                            <input type="text" name="" class="form-control" formControlName="paternalpob"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 text-right">
+                    <button *ngIf='!nonEdittable' class="btn btn-theme" (click)='onSave(marriageApplicationForm.value)'>Save</button>
+                    <button class="btn btn-theme" (click)="next(marriageApplicationForm.value)">Next</button>
+            </div>
+        </div>
+    </form>
+  </div>
+</block-ui>

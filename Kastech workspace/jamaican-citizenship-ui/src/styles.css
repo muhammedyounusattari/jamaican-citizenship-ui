@@ -78,4 +78,14 @@ body{
     }
 
 }
-
+.btn.btn-theme {
+    background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364) !important;
+    border: none;
+    color: #fff;
+    padding: 6px 50px;
+        box-shadow: 1px 1px 6px -2px #333;
+}
+.btn.btn-theme:hover,.btn.btn-theme:focus {
+    background: #fff;
+    color: #0F2027;
+}

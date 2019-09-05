@@ -59,6 +59,11 @@ import { NatrualizationProcessRequest5Component } from './naturalisation/natrual
 import { NatrualizationProcessRequest6Component } from './naturalisation/natrualization-process-request6/natrualization-process-request6.component';
 import { NatrualizationSubmissionComponent } from './naturalisation/natrualization-submission/natrualization-submission.component';
 import { NaturalisationDocumentComponent } from './naturalisation/naturalisation-document/naturalisation-document.component';
+import { MarriageApplicationComponent } from './marriage-application/marriage-application.component';
+import { MarriageApplicationProcessTwoComponent } from './marriage-application/marriage-application-process-two/marriage-application-process-two.component';
+import { MarriageApplicationProcessThreeComponent } from './marriage-application/marriage-application-process-three/marriage-application-process-three.component';
+import { MarriageApplicationProcessFourComponent } from './marriage-application/marriage-application-process-four/marriage-application-process-four.component';
+import { MarriageApplicationProcessCompleteComponent } from './marriage-application/marriage-application-process-complete/marriage-application-process-complete.component';
 
 
 @NgModule({
@@ -73,7 +78,7 @@ import { NaturalisationDocumentComponent } from './naturalisation/naturalisation
      AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent,
       SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent,
        ReviewDailogComponentComponent, SchedulerComponent, IndividualScheduleComponent,
-        GroupScheduleComponent, IndividualApointmentConfirmationComponent, AlienComponent, RegistrationComponent, LocalDeskClerkComponent, LocalDeskClerkProcessComponent, NaturalisationComponent, NatrualizationProcessRequest2Component, NatrualizationProcessRequest3Component, NatrualizationProcessRequest4Component, NatrualizationProcessRequest5Component, NatrualizationProcessRequest6Component, NatrualizationSubmissionComponent, NaturalisationDocumentComponent
+        GroupScheduleComponent, IndividualApointmentConfirmationComponent, AlienComponent, RegistrationComponent, LocalDeskClerkComponent, LocalDeskClerkProcessComponent, NaturalisationComponent, NatrualizationProcessRequest2Component, NatrualizationProcessRequest3Component, NatrualizationProcessRequest4Component, NatrualizationProcessRequest5Component, NatrualizationProcessRequest6Component, NatrualizationSubmissionComponent, NaturalisationDocumentComponent, MarriageApplicationComponent, MarriageApplicationProcessTwoComponent, MarriageApplicationProcessThreeComponent, MarriageApplicationProcessFourComponent, MarriageApplicationProcessCompleteComponent
   ],
   imports: [
     BrowserModule,

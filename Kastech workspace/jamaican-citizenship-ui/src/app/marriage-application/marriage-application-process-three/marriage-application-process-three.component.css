@@ -1,0 +1,264 @@
+.Woman_Mrg_formthree .section-card{
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    box-shadow: 0 0 30px 0 rgba(115, 77, 191, 0.2);
+    border-radius: 7px;
+    border: 0;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    font-size: 14px;
+    color:#000000;
+}
+.Woman_Mrg_formthree .section-card.mb-nonelayer{
+    margin-bottom: 1px;
+    box-shadow: 0 0px 30px 0 rgba(115, 77, 191, 0.2);
+}
+.Woman_Mrg_formthree .section-card .card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+.Woman_Mrg_formthree .section-card .card-header {
+    background: none;
+    padding: 0.5rem 1.5rem;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 3.5rem;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top-left-radius: 7px !important;
+    border-top-right-radius: 7px !important;
+    border-left: 2px solid #02a94f;
+    border-bottom: 1px solid rgba(107,122,144,0.1);
+}
+.Woman_Mrg_formthree .section-card .card-header .section-title{
+    font-size: 1.185rem;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+.btn.btn-theme {
+    background-image: linear-gradient(to right, #0F2027, #203A43, #2C5364);
+    border: none;
+    color: #fff;
+    padding: 6px 50px;
+    box-shadow: 0px 0px 5px -2px #333;
+}
+.btn.btn-theme:hover {
+    background: #fff;
+    color: #0F2027;
+}
+.form-group .form-control{
+    font-size: 14px;
+}
+.btns-bglayer{
+    background-color: #fff;
+    box-shadow: 0 0 30px 0 rgba(115, 77, 191, 0.2);
+    border-radius: 7px;
+    border: 0;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    padding: 12px;
+}
+.section4_table tr td{
+    border:none;
+    vertical-align: middle;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    font-size: 14px;
+}
+.section4_table .crown_service_block th{
+    border:none;
+    text-align: center;
+    padding: 8px;
+}
+.section4_table .crown_service_block td{
+    border:none;
+    padding: 8px;
+}
+.section4_table .crown_service_block td input{
+    width: 90%;
+    display: inline-block;
+    font-size:14px;
+    color:#000000;
+}
+.section4_table .crown_service_block td:nth-child(1){
+    width: 400px;
+}
+.section4_table .crown_service_block td:nth-child(2){
+    width: 150px;
+}
+.section4_table .crown_service_block td:nth-child(3){
+    width: 90px;
+}
+.section3_table .crown_service_block td:nth-child(4){
+    width: 90px;
+}
+.section4_table .crown_service_block td:nth-child(5){
+    width: 110px;
+}
+.section4_table .crown_service_block td:nth-child(6){
+    width: 110px;
+}
+.crown_service_block .form-control.years_block{
+    width: 10%;
+    display: inline-block;
+    margin-right: 10px;
+    margin: 0 15px;
+}
+.crown_service_block .form-control.crown_block{
+    width: 40%;
+    display: inline-block;
+    margin-right: 10px;
+    margin: 0 15px;
+}
+.form-control{
+    font-size: 14px;
+}
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #02a94f;
+    outline: 0;
+    box-shadow: 0 0 10px -1px #ccc;
+}
+.woman_form_inline .form-control{
+    display: inline-block;
+    width: 58%;
+}
+.woman_form_inline .form-control.input-sps{
+    display: inline-block;
+    width: 55%;
+}
+.woman_form_inline .form-control.labels{
+    display: inline-block;
+    width: 27%;
+}
+.woman_form_inline label{
+    width: 35%;
+    font-size: 14px;
+    vertical-align: middle;
+    position: relative;
+    
+}
+.woman_form_inline .lbl-spc label{
+    font-size: 14px;
+    vertical-align: middle;
+    position: relative;
+    display:inline;  
+}
+.border{
+    width: 96%;
+    margin: auto;
+}
+.woman_check_inline label{
+    width: 100%;
+}
+.gender-block .form-check-input {
+    position: absolute;
+    margin-left: 0;
+}
+
+.gender-block.form-check label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    margin-left: -25px;
+    border: 1px solid #c5c3c3;
+    border-radius: 3px;
+    background-color: #fff;
+    margin-top: 3px;
+}
+
+.gender-block .form-check-label {
+    padding-left: 25px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.gender-block.checkbox-theme input[type="radio"]:checked + label::before {
+    background-color: #1a9332;
+    border-color: #1a9332;
+}
+
+.gender-block input[type=radio]:checked + label:before {
+    font-weight: 300;
+    color: #f3f3f3;
+    line-height: 15px;
+    font-size: 14px;
+    content: "\2713";
+    padding-left: 2px;
+}
+
+.gender-block  input[type=radio]{
+    margin-top: 4px;
+}
+/*=======check box css=======*/
+.citizen_block .form-check-input {
+    position: absolute;
+    margin-left: 0;
+}
+
+.citizen_block .form-check label::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    margin-left: -25px;
+    border: 1px solid #c5c3c3;
+    border-radius: 3px;
+    background-color: #fff;
+    margin-top: 3px;
+}
+
+.citizen_block  .form-check-label {
+    padding-left: 25px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.citizen_block  .checkbox-theme input[type="checkbox"]:checked + label::before {
+    background-color: #1a9332;
+    border-color: #1a9332;
+}
+
+.citizen_block input[type=checkbox]:checked + label:before {
+    font-weight: 300;
+    color: #f3f3f3;
+    line-height: 15px;
+    font-size: 14px;
+    content: "\2713";
+    padding-left: 2px;
+}
+
+.citizen_block  input[type=checkbox]{
+    margin-top: 4px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    /*display: block;*/
+    /* background: url(../img/cal.png) no-repeat; */
+    width: 20px;
+    height: 20px;
+    background-size: 20px 19px;
+    background-position-x: 97%;
+}
+.table thead th {
+    font-size: 14px;
+    font-weight: 500;
+}
+.m_l{
+    margin-left:43px;
+}

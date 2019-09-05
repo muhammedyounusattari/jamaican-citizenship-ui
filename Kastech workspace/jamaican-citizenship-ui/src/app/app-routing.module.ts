@@ -31,6 +31,11 @@ import { NatrualizationProcessRequest6Component } from './naturalisation/natrual
 import { NatrualizationSubmissionComponent } from './naturalisation/natrualization-submission/natrualization-submission.component';
 import { NaturalisationDocumentComponent } from './naturalisation/naturalisation-document/naturalisation-document.component';
 // import { NaturalizationDocumentsUploadComponent } from './naturalisation/naturalization-documents-upload/naturalization-documents-upload.component';
+import { MarriageApplicationComponent } from './marriage-application/marriage-application.component';
+import { MarriageApplicationProcessTwoComponent } from './marriage-application/marriage-application-process-two/marriage-application-process-two.component';
+import { MarriageApplicationProcessThreeComponent } from './marriage-application/marriage-application-process-three/marriage-application-process-three.component';
+import { MarriageApplicationProcessFourComponent } from './marriage-application/marriage-application-process-four/marriage-application-process-four.component';
+import { MarriageApplicationProcessCompleteComponent } from './marriage-application/marriage-application-process-complete/marriage-application-process-complete.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -79,6 +84,13 @@ const routes: Routes = [
   {path:'naturalisation-process6/:type',component:NatrualizationProcessRequest6Component},
   {path:'naturalisation-submission/:type',component:NatrualizationSubmissionComponent},
   {path:'naturalisation-document-upload/:type',component:NaturalisationDocumentComponent},
+
+  //path for Marriage Application with formType
+ {path:'marriageApplication',component:MarriageApplicationComponent},
+ {path:'marriageApplication-process2',component:MarriageApplicationProcessTwoComponent},
+ {path:'marriageApplication-process3',component:MarriageApplicationProcessThreeComponent},
+ {path:'marriageApplication-process4',component:MarriageApplicationProcessFourComponent},
+ {path:'marriageApplication-complete',component:MarriageApplicationProcessCompleteComponent}, 
 /*
   {path:'naturalisation/:type/:formType',component:NaturalisationComponent},
   {path:'naturalisation-process2/:type/:formType',component:NatrualizationProcessRequest2Component},
@@ -88,7 +100,6 @@ const routes: Routes = [
   {path:'naturalisation-process6/:type/:formType',component:NatrualizationProcessRequest6Component},
   {path:'naturalisation-submission/:type/:formType',component:NatrualizationSubmissionComponent},
  {path:'naturalisation-document-upload/:type/:formType',component:NaturalisationDocumentComponent} */
-
 ];
 
  
