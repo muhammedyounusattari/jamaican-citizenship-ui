@@ -119,7 +119,7 @@
                 <div class="form-group alien_form_inline">
                   <label for="" class="">Date of Marriage <span class="glyphicon">&#x2a;</span></label>
                   <input type="text"  bsDatepicker class="form-control" [bsConfig]="datePickerConfig" 
-                  formControlName="dom" placeholder=""  [maxDate]="datePickerConfig.maxDate" 
+                  formControlName="dom" placeholder=""   
                   [ngClass]="{ 'is-invalid': submitted && f.process2.controls.dom.errors }"> 
 
                 </div>
@@ -143,7 +143,7 @@
                 <p class="hint-text">If Wife of Husband is dead please indicated date and place of death</p>
                 <div class="form-group alien_form_inline">
                   <label for="" class="">Date</label>
-                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dod" [readonly]="true" placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dod"  placeholder=""   > 
                 </div>
                 <div class="form-group alien_form_inline">
                   <label>Place Of Death</label>
@@ -159,7 +159,7 @@
                 <p class="hint-text">If marriage dissolved, give date and place of decree</p>
                 <div class="form-group alien_form_inline">
                   <label for="" class="">Date</label>
-                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dodissolved"  placeholder=""  [maxDate]="datePickerConfig.maxDate" > 
+                  <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="dodissolved"  placeholder=""   > 
                 </div>
                 <div class="form-group alien_form_inline"> 
                   <label>Place Of Decree</label>

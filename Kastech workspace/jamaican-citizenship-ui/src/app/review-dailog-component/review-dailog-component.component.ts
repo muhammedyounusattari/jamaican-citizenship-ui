@@ -15,8 +15,9 @@ export class ReviewDailogComponentComponent implements OnInit {
   successMessage: string;
   sentMail: boolean;
 
-  //@BlockUI() blockUI: NgBlockUI;
+  @BlockUI() blockUI: NgBlockUI;
   constructor(private agent: AgentService, private dialogRef: MatDialogRef<ReviewDailogComponentComponent>, private router: Router) {
+    this.blockUI.stop();
     dialogRef.disableClose = true;
   }
 
@@ -45,8 +46,9 @@ export class ReviewDailogComponentComponent implements OnInit {
     }
     payload.type = localStorage.getItem('type');
     payload.comments = comments;
+    this.blockUI.start("loading......");
    this.agent.updateApplicantStatus(payload).subscribe(data => {
-
+    this.blockUI.stop();
       if (data != null) {
         localStorage.setItem('agent', JSON.stringify(data));
         localStorage.removeItem('status');

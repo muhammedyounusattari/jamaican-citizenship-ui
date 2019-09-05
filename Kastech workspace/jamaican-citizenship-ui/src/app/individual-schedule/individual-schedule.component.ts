@@ -6,6 +6,7 @@ import { UtilityService } from '../shared/services/utility.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { SchedulerService } from '../shared/services/scheduler.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NgBlockUI, BlockUI } from 'ng-block-ui';
 
 
 @Component({
@@ -45,6 +46,7 @@ export class IndividualScheduleComponent implements OnInit {
   applicantId:string;
   
   // bsInlineValue = new Date();
+  @BlockUI() blockUI: NgBlockUI;
   constructor(private utilityService: UtilityService, private cdr: ChangeDetectorRef, 
     private formBuilder: FormBuilder, private scheduleService: SchedulerService,
     private router: Router,private activatedRoute:ActivatedRoute) {
@@ -172,7 +174,9 @@ export class IndividualScheduleComponent implements OnInit {
       'applicantId':this.applicantId,
       'applied':applied
     };
+    this.blockUI.start("confirming your appointment");
     this.scheduleService.confirmAppointment(payload).subscribe((data)=>{
+      this.blockUI.stop();
       sessionStorage.setItem('profile',JSON.stringify(data));
       this.router.navigate(['/individualAppointmentConf']);
     })

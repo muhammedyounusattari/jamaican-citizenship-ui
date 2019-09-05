@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UtilityService } from '../shared/services/utility.service';
+import { NaturlizationService } from '../shared/services/naturlization.service';
 
 @Component({
   selector: 'app-naturalisation',
@@ -22,7 +23,8 @@ export class NaturalisationComponent implements OnInit {
   type:string;
   nonEdittable:string;
   
-  constructor(private formBuilder: FormBuilder, private router: Router,private activatedRoute:ActivatedRoute, private utilityService:UtilityService) {
+  constructor(private formBuilder: FormBuilder, private router: Router,private activatedRoute:ActivatedRoute,
+    private naturialisationService:NaturlizationService, private utilityService:UtilityService) {
     this.activatedRoute.params.subscribe(params=>{
       this.type = params.type;
     })
@@ -317,7 +319,16 @@ export class NaturalisationComponent implements OnInit {
   }
 
   onSave(payload) {
-
+   payload.email = this.email;
+    this.naturialisationService.submitNaturalisationForm(payload).subscribe((data:any)=>{
+      if(!data){
+        alert('data doesnt exsit');
+        return false;
+      }else{
+        alert('data saved successfully ');
+        return false;
+      }      
+    });
   }
 
   next(payload) {
@@ -332,6 +343,7 @@ export class NaturalisationComponent implements OnInit {
   else
     this.router.navigate(['/naturalisation-process2']);
   }
+
 
 
 }

@@ -22,24 +22,24 @@
                   <tr class="feild-block">
                     <td>Full postal Address in Jamaica <span class="glyphicon">&#x2a;</span></td>
                     <td><textarea class="form-control"  row="1" max-row="1" formControlName="residentaddress1"  [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentaddress.errors }"></textarea></td>
-                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentfrom1" placeholder=""  [maxDate]="datePickerConfig.maxDate"   [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentfrom.errors }"/>  </td>
-                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto1" placeholder=""  [maxDate]="datePickerConfig.maxDate"  [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentto.errors }"/> </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentfrom1" placeholder=""     [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentfrom.errors }"/>  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto1" placeholder=""    [ngClass]="{ 'is-invalid': submitted && f.process3.controls.residentto.errors }"/> </td>
                   </tr>
                   <tr class="feild-block">
                     <td>Full postal Address in Jamaica
                       <span class="hint-text">(If you ever resided at another address)</span>
                     </td>
                     <td><textarea class="form-control"  row="1" max-row="1" formControlName="residentaddress2"  ></textarea></td>
-                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentfrom2"  textReplace="process3Payload.residentanotherfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
-                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto2"  textReplace="process3Payload.residentanotherto" placeholder=""  [maxDate]="datePickerConfig.maxDate"/> </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentfrom2"  textReplace="process3Payload.residentanotherfrom" placeholder=""   />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto2"  textReplace="process3Payload.residentanotherto" placeholder=""  /> </td>
                   </tr>
                   <tr class="feild-block">
                     <td>Full postal Address in Jamaica
                       <span class="hint-text">(If you ever resided at another address)</span>
                     </td>
                     <td><textarea class="form-control"  row="1" max-row="1" formControlName="residentaddress3" textReplace="process3Payload.residentanotheraddress" ></textarea></td>
-                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentfrom3"  textReplace="process3Payload.residentanotherfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
-                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto3"  textReplace="process3Payload.residentanotherto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentfrom3"  textReplace="process3Payload.residentanotherfrom" placeholder=""   />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="residentto3"  textReplace="process3Payload.residentanotherto" placeholder=""   /> </td>
                   </tr>
                   <tr>
                     <td>
@@ -74,40 +74,40 @@
                       <span>1. &nbsp;</span>
                       <input type="text" class="form-control" name="" formControlName="visitedCountries1"  textReplace="process3Payload.visitedCountries">
                     </td>
-                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom1"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
-                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto1"  textReplace="process3Payload.visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom1"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""   />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto1"  textReplace="process3Payload.visitedCountriesto" placeholder=""   /> </td>
                   </tr>
                   <tr class="countries_visited_block">
                     <td>
                       <span>2. &nbsp;</span>
                       <input type="text" class="form-control" name="" formControlName="visitedCountries2"  textReplace="process3Payload.visitedCountries">
                     </td>
-                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom2"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
-                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto2"  textReplace="process3Payload.visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom2"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""   />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto2"  textReplace="process3Payload.visitedCountriesto" placeholder=""   /> </td>
                   </tr>
                   <tr class="countries_visited_block">
                     <td>
                       <span>3. &nbsp;</span>
                       <input type="text" class="form-control" name="" formControlName="visitedCountries3" textReplace="process3Payload.visitedCountries">
                     </td>
-                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom3"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
-                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto3"  textReplace="process3Payload.visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom3"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""   />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto3"  textReplace="process3Payload.visitedCountriesto" placeholder=""   /> </td>
                   </tr>
                   <tr class="countries_visited_block">
                     <td>
                       <span>4. &nbsp;</span>
                       <input type="text" class="form-control" name="" formControlName="visitedCountries4"  textReplace="process3Payload.visitedCountries">
                     </td>
-                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom4"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
-                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto4"  textReplace="process3Payload.visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom4"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""   />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto4"  textReplace="process3Payload.visitedCountriesto" placeholder=""   /> </td>
                   </tr>
                   <tr class="countries_visited_block">
                     <td>
                       <span>5. &nbsp;</span>
                       <input type="text" class="form-control" name="" formControlName="visitedCountries5" textReplace="process3Payload.visitedCountries">
                     </td>
-                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom5"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""  [maxDate]="datePickerConfig.maxDate" />  </td>
-                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto5"  textReplace="process3Payload.visitedCountriesto" placeholder=""  [maxDate]="datePickerConfig.maxDate" /> </td>
+                    <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesfrom5"  textReplace="process3Payload.visitedCountriesfrom" placeholder=""   />  </td>
+                    <td> <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig" formControlName="visitedCountriesto5"  textReplace="process3Payload.visitedCountriesto" placeholder=""   /> </td>
                   </tr>
                 </tbody>
               </table>

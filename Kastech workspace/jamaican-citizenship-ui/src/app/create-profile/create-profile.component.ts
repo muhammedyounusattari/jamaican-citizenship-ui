@@ -84,6 +84,9 @@ export class CreateProfileComponent implements OnInit {
 
     this.blockUI.start('Loading.....');
     payload.isPasswordChanged='false';
+    payload.dob = this.utilityService.formatDate(this.dob);
+    payload.email = payload.email.toLowerCase();
+    
     this.loginService.validateEmailAddress(payload.email).subscribe(data => {
       if (data != null) {
         this.blockUI.stop();
