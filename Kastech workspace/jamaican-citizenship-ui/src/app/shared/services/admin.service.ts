@@ -19,8 +19,8 @@ export class AdminService {
     return this.httpClient.get(url,this.httpOptions);
   }
 
-  loadAgentsDetails(formType){
-    const url = HOST_URL.name+"/load-agents/"+formType+"/";
+  loadAgentsDetails(formType,type){
+    const url = HOST_URL.name+"/load-agents/"+formType+"/"+type+"/";
     return this.httpClient.get(url,this.httpOptions);
   }
 

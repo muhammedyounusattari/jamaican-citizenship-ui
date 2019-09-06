@@ -61,6 +61,7 @@ export class ReviewFormsComponent implements OnInit {
 
   getData(){
     //alert(1);
+    this.blockUI.stop();
     this.adminService.getFormsForReview(this.formType,this.type).subscribe((data:any) => {
 
       if (!data.data) {
@@ -89,7 +90,7 @@ export class ReviewFormsComponent implements OnInit {
           console.log(this.selectLanguage);
         })
       }else if(this.type==="compliancesupervisor"){
-          this.adminService.loadAgentsDetails(this.formType).subscribe((data:any) => {
+          this.adminService.loadAgentsDetails(this.formType,this.type).subscribe((data:any) => {
             this.agents = data.data;
             this.selectLanguage = this.agents[0].name;
           })
