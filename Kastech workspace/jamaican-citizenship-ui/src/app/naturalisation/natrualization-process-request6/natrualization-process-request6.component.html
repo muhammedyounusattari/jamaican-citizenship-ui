@@ -108,7 +108,8 @@
                   <tbody>
                     <tr *ngFor="let item of uploader.queue">
                       <th width="70%">
-                        {{ item.file.name}}({{item.file.size/1000000}} MB)
+                        {{ item.file.name}}
+                        <!-- ({{item.file.size/1000000}} MB) -->
                       </th>
                       <th class="text-left" width="30%">
                         <mat-icon (click)="item.remove()" style='color:blue;cursor: pointer;'><i class="material-icons">
