@@ -51,9 +51,10 @@
           <button *ngIf="loginType==='deskClerk'" type="button" class="clr-btn style-btn" style='width:300px;' (click)="updateStatus('pas')" >Process Scheduled Appointment</button>
           <button *ngIf="loginType==='agentView'" type="button" class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('om')" >Refer for Approval</button>
           <button *ngIf="loginType==='operationsmanager'" type="button" class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('director')" >Refer for Approval</button>
-          <button *ngIf="loginType==='director' && (formType==='nacw' || formType === 'NACW')"  type="button" class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('ceo')" >Refer for Approval</button>
-          
-          <button *ngIf="loginType==='director' && (formType !='nacw' || formType != 'NACW')"  type="button" class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('completed')" >Complete</button>
+          <!-- <button *ngIf="loginType==='director' && (formType==='nacw' || formType === 'NACW')"  type="button" class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('ceo')" >Refer for Approval</button>
+           -->
+          <button *ngIf="loginType==='director'"  type="button" 
+          class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('director')" >Complete</button>
          
           <button *ngIf="loginType==='ceo'"  type="button" class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('permanentsecretary')" >Refer for Approval</button>
          <button *ngIf="loginType==='permanentsecretary'"  type="button" class="clr-btn style-btn" style='width:150px;' (click)="updateStatus('completed')" >Approved</button>
