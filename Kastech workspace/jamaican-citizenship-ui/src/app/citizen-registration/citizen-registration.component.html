@@ -1,0 +1,172 @@
+<block-ui>
+  <div class="container">
+    <h3 class="text-center Register_heading">REGISTRATION OF CITIZENSHIP UNDER SECTION 3</h3> 
+    <div *ngIf='showErrorMsg' class="alert alert-danger" role="alert">
+      {{showErrorMsg}}<br />
+      <!-- <span *ngIf="submitted && f.dob.errors">Date of birth <b>should not be a future date</b>, please select correct date</span> -->
+    </div>
+    <form [formGroup]="Register_Formone" class="form-group" autocomplete="off">
+      <div class="Register_Formone">
+          <div class="row">
+              <div class="col-lg-12 col-sm-12">
+                  <div class="section-card">
+                      <div class="card-header">
+                          <h3 class="section-title">To complete the application process the following documents must be scanned and uploaded </h3>
+                      </div>
+                      <div class="section-body p-3">
+                        <div class="row">
+                                    <div class="col-lg-4 col-sm-12">
+                                      <div class="form-group alien_form_inline">
+                                        <label>Last Name <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" name="" class="form-control" formControlName="lastname" 
+                                          placeholder="Last name" />
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12">
+                                      <div class="form-group alien_form_inline">
+                                        <label>Middle Name </label>
+                                        <input type="text" name="" class="form-control" placeholder="Middle name"
+                                          formControlName="middlename"  />
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-4 col-sm-12">
+                                      <div class="form-group alien_form_inline">
+                                        <label>First Name <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" name="" class="form-control" formControlName="firstname" placeholder="First name"
+                                           />
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                      <div class="form-group alien_form_inline">
+                                        <label>Date of Birth <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"
+                                          formControlName="dob" placeholder="Select Date of Birth" 
+                                           >
+                                      </div>
+                                      <div class="form-group alien_form_inline">
+                                        <label>Place of Birth <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" class="form-control" formControlName="pob" 
+                                          placeholder="Place of birth"/>
+                                      </div>
+                                      <div class="form-group alien_form_inline">
+                                        <label>Gender <span class="glyphicon">&#x2a;</span></label> &nbsp;&nbsp;
+                                        <div
+                                          class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
+                                          <input class="form-check-input" name="gender" type="radio" value="male" id="Male"
+                                            formControlName="gender" >
+                                          <label class="form-check-label" for="Male">Male</label>
+                                        </div>
+                                        <div
+                                          class="gender-block form-check form-check-inline alien_check_inline checkbox-theme p-l-0 text-left ">
+                                          <input type="radio" class="form-check-input" formControlName="gender" value="female" id="female"
+                                            formControlName="gender">
+                                          <label class="form-check-label" for="female">Female</label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-12">
+                                      <div class="form-group alien_form_inline">
+                                        <label>Address <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" name="" class="form-control" formControlName="address"
+                                          >
+                                      </div>
+                                      <div class="form-group alien_form_inline">
+                                        <label>Telephone Number <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="number"  class="form-control"
+                                          formControlName="number" placeholder="Phone number" 
+                                          [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.number.errors }">
+                                      </div>
+                                      <div class="form-group alien_form_inline">
+                                        <label>Email Address <span class="glyphicon">&#x2a;</span></label>
+                                        <input type="text" class="form-control" formControlName="email"
+                                          placeholder="Email address" 
+                                          [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.email.errors }">
+                                      </div>
+                                    </div>
+                        </div>
+                      </div>
+                      <div class="border"></div>
+                      <div class="text-center"><h4 class="p-2 my-0">Family Information</h4></div>
+                      <div class="section-body p-3">
+                          <div class="row">
+                              <div class="col-lg-6 col-sm-12">
+                                  <h5 class="text-center p-2">Father</h5>
+                                  <div class="form-group register_form_inline">
+                                      <label>Last Name</label>
+                                      <input type="text" name="" class="form-control " formControlName="fatherlastName">
+                                  </div>
+                                  <div class="form-group register_form_inline">
+                                      <label>Middle Name</label>
+                                      <input type="text" name="" class="form-control" formControlName="fathermiddleName">
+                                  </div>
+                                  <div class="form-group register_form_inline">
+                                      <label>First Name</label>
+                                      <input type="text" name="" class="form-control" formControlName="fatherfirstName">
+                                  </div>
+                                  <div class="form-group register_form_inline">
+                                      <label>Date of Birth</label>
+                                     <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="fatherdob" placeholder="Select Date of Birth" >
+                                  </div>
+                                  <div class="form-group register_form_inline">
+                                      <label>Place of Birth</label>  
+                                      <input type="text" name="" class="form-control" formControlName="fatherpob">                             
+                                  </div>
+                                  <div class="form-group register_form_inline">
+                                      <label>Country of Birth</label>
+                                      <select class="form-control" id="inputGroupSelect01" formControlName="fathercob">
+                                          <option  selected>Select City</option>
+                                          <option>New value 1</option>
+                                          <option>New value 2</option>
+                                          <option>New value 3</option>
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6 col-sm-12">
+                                  <h5 class="text-center p-2">Spouse Information</h5>
+                                  <div class="form-group register_form_inline">
+                                      <label>Marital Status</label>
+                                      <select class="form-control" formControlName="maritalStatus"
+                                        [ngClass]="{ 'is-invalid': submitted && f.personalData.controls.nationalityControl.errors }">
+                                        <option  [ngValue]="country" *ngFor="let country of maritalStatus">{{country}}
+                                        </option>
+                                      </select>
+                                  </div>
+                                  <div class="form-group register_form_inline">
+                                      <label>Last Name</label>
+                                      <input type="text" name="" class="form-control" formControlName="spouselastname">
+                                  </div>
+                                  <div class="form-group register_form_inline">
+                                      <label>First Name</label>
+                                      <input type="text" name="" class="form-control" formControlName="spousefirstname">
+                                  </div>
+                                  <div class="form-group register_form_inline">
+                                      <label>Date of Birth</label>
+                                     <input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="spousedob" placeholder="Select Date of Birth" >
+                                  </div>
+                                  <div class="form-group register_form_inline">
+                                      <label>Place of Birth</label>  
+                                      <input type="text" name="" class="form-control" formControlName="spousepob">                             
+                                  </div>
+                                  <div class="form-group register_form_inline">
+                                      <label>Country of Birth</label>
+                                      <select class="form-control" id="inputGroupSelect01" formControlName="spousecob">
+                                          <option  selected>Select City</option>
+                                          <option>New value 1</option>
+                                          <option>New value 2</option>
+                                          <option>New value 3</option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="p-4 text-right">
+                    <button *ngIf='!nonEdittable' class="btn btn-theme" (click)='onSave(Register_Formone.value)'>Save</button>
+                    <button class="btn btn-theme" (click)="next(Register_Formone.value)">Next</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </form>
+  </div>
+</block-ui>

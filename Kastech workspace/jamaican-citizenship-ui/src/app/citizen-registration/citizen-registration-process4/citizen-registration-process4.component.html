@@ -1,0 +1,130 @@
+<block-ui>
+  <div class="container">
+    <h3 class="text-center alien_head">REGISTRATION OF CITIZENSHIP UNDER SECTION 3</h3>
+    <div *ngIf='showErrorMsg' class="alert alert-danger" role="alert">
+        {{showErrorMsg}}<br />
+        <!-- <span *ngIf="submitted && f.dob.errors">Date of birth <b>should not be a future date</b>, please select correct date</span> -->
+      </div>
+    <form [formGroup]="Register_Formfour" class="form-group" autocomplete="off">
+      <div class="Register_formfour">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12">
+            <div class="section-card">
+              <div class="card-header">
+                <h3 class="section-title">To complete the application process the following documents must be scanned and uploaded : </h3>
+              </div>
+              <div class="section-body p-3">
+                <ul class="scanned-documents-block">
+                  <li>The applicant 's Birth Certificate;</li>
+                  <li>The applicant's father's or mother's Birth Certficate or Certificate of Jamaica Citizenship or Adoption Certificate issued by the Registrar General Dept.</li>
+                  <li>
+                    Two (2) passport sized pictures of the applicant certified by either a<strong> Justice of the Peace, Commissioner of Oaths, Notary Public , Lawyer or Doctor.</strong>
+                    <p class="text-success my-0">(The applicant's name along with the name, number and signature of the certifying officer and the certfication date no older of than 6 months should be included).
+                    </p>
+                  </li>
+                  <li>Marriage Certificate (if applicable);</li>
+                  <li>Applicant's valid ID ( if adult 18 years and olders);</li>
+                  <li>Jamaican parent's government issued ID ( Valid Passport or Driver's Licence), if applicant is a minor;</li>
+                  <li>Court issued document  evidencing Legal Guardianship where applicable;</li>
+                  <li> Official Change of Name Document ( Court Order, Deed Polls registered through the court or the country's records office, etc) where applicable.</li>
+                </ul>
+                <p class="hint-text">
+                  All documents must be originals. PICA reserves the right to request additional and/or updated information during the process of the application
+                </p>
+              </div>
+            </div>
+            <div class="section-card mb-nonelayer">
+              <div class="card-header">
+                <h3 class="section-title">Upload Your Documents</h3>
+              </div>
+              <div class="section-body p-3">
+                <div class="row">
+                  <div class="col-md-6">
+                    <form [formGroup]="uploadForm" (ngSubmit)="uploadSubmit()" autocomplete="off">
+                      <div class="row">
+                        <div class='documentUploadButton'>
+                          <mat-card>
+                            <mat-card-content>
+              
+                              <div class="drop-zone" style='text-align: -webkit-center;'>
+                                <div ng2FileDrop [uploader]="uploader" class="drop-zone">
+                                  <span class="documentLable">Upload File</span>
+                                  <br /><br />
+                                  Drag and drop files to upload<br />
+                                  <span style='font-size:13px;'> Or</span><br />
+                                  <input class='btn' style='padding-left:8px;font-size: 14px;' formControlName="document" type="file"
+                                    ng2FileSelect accept=".png,.jpg,.pdf" [uploader]="uploader" multiple />
+                                  <span styel='font-size:3px;'>supports (pdf,jpg and png)</span><br />
+                                  <!-- <button class="btn uploadButton" mat-raised-button color="accent" type="submit">Upload Data</button> -->
+                                </div>
+                              </div>
+              
+                              <br>
+                            </mat-card-content>
+                          </mat-card>
+              
+                        </div>
+              
+                      
+                      </div>
+                    
+            
+                  </form>
+                  </div>
+                  <div class="col-md-6">
+                    
+                    <table>
+                      <thead>
+                        <tr>
+                          <th width="80%">
+                            File Name
+                          </th>
+                          <th width="20%">
+                            Remove
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of uploader.queue">
+                          <th width="80%">
+                            {{ item.file.name}}({{item.file.size/1000000}} MB)
+                          </th>
+                          <th  width="20%">
+                            <mat-icon (click)="item.remove()" style='color:blue;cursor: pointer;'><i class="material-icons">
+                              delete
+                              </i></mat-icon>
+                          </th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="col-lg-12 col-sm-12 declaration_block">
+                    <div class="form-check checkbox-theme p-l-0 text-left ">
+                      <div>
+                        <span class='accept'><input type='checkbox'  formControlName='accept' [ngClass]="{ 'is-invalid': true}"></span>
+                        <div class='declaration'>
+                          <strong>Declaration:</strong> This declaration would appear beside a checkbox at the end of the summary page, which summarizes all of the information entered by the applicant.<br/>
+                          <span>I declare that the information given in this application is complete and accurate to the best of my knowledge and belief and that the photo submitted is my true likeness.  
+                          </span><br/>
+                          <span class="hint-text"><strong>WARNING:</strong> It is an offense to make a false and misleading statement in support of a passport application.
+                          </span>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 text-right">
+              <button *ngIf='!nonEdittable' class="btn btn-theme" (click)='onSave()'>Save</button>
+              <button class="btn btn-theme" (click)="back()">Back</button>
+              <button class="btn btn-theme" (click)="next()">Next</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</block-ui>
+

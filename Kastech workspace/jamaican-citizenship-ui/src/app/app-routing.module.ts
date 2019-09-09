@@ -37,6 +37,12 @@ import { MarriageApplicationProcessThreeComponent } from './marriage-application
 import { MarriageApplicationProcessFourComponent } from './marriage-application/marriage-application-process-four/marriage-application-process-four.component';
 import { MarriageApplicationProcessCompleteComponent } from './marriage-application/marriage-application-process-complete/marriage-application-process-complete.component';
 
+import { CitizenRegistrationComponent } from './citizen-registration/citizen-registration.component';
+import { CitizenRegistrationProcecc2Component } from './citizen-registration/citizen-registration-procecc2/citizen-registration-procecc2.component';
+import { CitizenRegistrationProcess3Component } from './citizen-registration/citizen-registration-process3/citizen-registration-process3.component';
+import { CitizenRegistrationProcess4Component } from './citizen-registration/citizen-registration-process4/citizen-registration-process4.component';
+import { CitizenRegistrationProcessCompleteComponent } from './citizen-registration/citizen-registration-process-complete/citizen-registration-process-complete.component';
+
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home', component:HomeComponent},
@@ -84,14 +90,7 @@ const routes: Routes = [
   {path:'naturalisation-process6/:type',component:NatrualizationProcessRequest6Component},
   {path:'naturalisation-submission/:type',component:NatrualizationSubmissionComponent},
   {path:'naturalisation-document-upload/:type',component:NaturalisationDocumentComponent},
-
-  //path for Marriage Application with formType
- {path:'marriageApplication',component:MarriageApplicationComponent},
- {path:'marriageApplication-process2',component:MarriageApplicationProcessTwoComponent},
- {path:'marriageApplication-process3',component:MarriageApplicationProcessThreeComponent},
- {path:'marriageApplication-process4',component:MarriageApplicationProcessFourComponent},
- {path:'marriageApplication-complete',component:MarriageApplicationProcessCompleteComponent}, 
-/*
+  /*
   {path:'naturalisation/:type/:formType',component:NaturalisationComponent},
   {path:'naturalisation-process2/:type/:formType',component:NatrualizationProcessRequest2Component},
   {path:'naturalisation-process3/:type/:formType',component:NatrualizationProcessRequest3Component},
@@ -100,6 +99,21 @@ const routes: Routes = [
   {path:'naturalisation-process6/:type/:formType',component:NatrualizationProcessRequest6Component},
   {path:'naturalisation-submission/:type/:formType',component:NatrualizationSubmissionComponent},
  {path:'naturalisation-document-upload/:type/:formType',component:NaturalisationDocumentComponent} */
+
+  //path for Marriage Application with formType
+ {path:'marriageApplication',component:MarriageApplicationComponent},
+ {path:'marriageApplication-process2',component:MarriageApplicationProcessTwoComponent},
+ {path:'marriageApplication-process3',component:MarriageApplicationProcessThreeComponent},
+ {path:'marriageApplication-process4',component:MarriageApplicationProcessFourComponent},
+ {path:'marriageApplication-complete',component:MarriageApplicationProcessCompleteComponent},
+ 
+ //path for Citizen Registration with formType
+ {path:'citizenRegistration',component:CitizenRegistrationComponent},
+ {path:'citizenRegistration-process2',component:CitizenRegistrationProcecc2Component},
+ {path:'citizenRegistration-process3',component:CitizenRegistrationProcess3Component},
+ {path:'citizenRegistration-process4',component:CitizenRegistrationProcess4Component},
+ {path:'citizenRegistration-complete',component:CitizenRegistrationProcessCompleteComponent},
+
 ];
 
  

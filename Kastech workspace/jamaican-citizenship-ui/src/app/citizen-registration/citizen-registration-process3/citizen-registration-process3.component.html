@@ -1,0 +1,148 @@
+<block-ui>
+  <div class="container">
+    <h3 class="text-center Register_heading">REGISTRATION OF CITIZENSHIP UNDER SECTION 3</h3> 
+    <form [formGroup]="Register_formthree" class="form-group" autocomplete="off">
+        <div class="Register_formthree">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="section-card">
+                    <div class="card-header">
+                        <h3 class="section-title">Section 4</h3>
+                    </div>
+                    <div class="text-center"><h6 class="p-2 my-0"><b>Details Of Crown Service</b></h6></div>
+                    <div class="section-body p-3 font_14">
+                        <div class="table-responsive">
+                            <table class="table section4_table">
+                                <thead>
+                                    <tr class="crown_service_block">
+                                        <td><label>Details Of Crown Service Government Department by</label></td>
+                                        <td><label>Capacity in which Employed</label></td>
+                                        <td><label>From Date</label></td>
+                                        <td><label>To Date</label></td>
+                                        <td><label>Years</label></td>
+                                        <td><label>Months</label></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="crown_service_block">
+                                        <td>
+                                            <span>1. &nbsp;</span>
+                                            <input type="text" class="form-control" formControlName="crownServiceDept1" name="">
+                                        </td>
+                                        <td><input type="text" name="" formControlName="crownServiceCapacity1" class="form-control"></td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="crownServicefromDate1" placeholder="Select Date" > </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="crownServiceToDate1" placeholder="Select Date " > </td>
+                                        <td><input type="text" name="" formControlName="crownServiceYears1" class="form-control"></td>
+                                        <td><input type="text" name="" formControlName="crownServiceMonths1" class="form-control"></td>
+                                    </tr>
+                                    <tr class="crown_service_block">
+                                        <td>
+                                            <span>2. &nbsp;</span>
+                                            <input type="text" class="form-control" formControlName="crownServiceDept2" name="">
+                                        </td>
+                                        <td><input type="text" name="" formControlName="crownServiceCapacity2" class="form-control"></td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="crownServicefromDate2" placeholder="Select Date" > </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="crownServiceToDate2" placeholder="Select Date " > </td>
+                                        <td><input type="text" name="" formControlName="crownServiceYears2" class="form-control"></td>
+                                        <td><input type="text" name="" formControlName="crownServiceMonths2" class="form-control"></td>
+                                    </tr>
+                                    <tr class="crown_service_block">
+                                        <td>
+                                            <span>3. &nbsp;</span>
+                                            <input type="text" class="form-control" formControlName="crownServiceDept3" name="">
+                                        </td>
+                                        <td><input type="text" name="" formControlName="crownServiceCapacity3" class="form-control"></td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="crownServicefromDate3" placeholder="Select Date" > </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="crownServiceToDate3" placeholder="Select Date " > </td>
+                                        <td><input type="text" name="" formControlName="crownServiceYears3" class="form-control"></td>
+                                        <td><input type="text" name="" formControlName="crownServiceMonths3" class="form-control"></td>
+                                    </tr>
+                                    <tr class="crown_service_block">
+                                        <td>
+                                            <span>4. &nbsp;</span>
+                                            <input type="text" class="form-control" name="" formControlName="crownServiceDept4">
+                                        </td>
+                                        <td><input type="text" name="" formControlName="crownServiceCapacity4" class="form-control"></td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="crownServicefromDate4" placeholder="Select Date" > </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="crownServiceToDate4" placeholder="Select Date " > </td>
+                                        <td><input type="text" name="" formControlName="crownServiceYears4" class="form-control"></td>
+                                        <td><input type="text" name="" formControlName="crownServiceMonths4" class="form-control"></td>
+                                    </tr>
+                                    <tr class="crown_service_block">
+                                        <td>
+                                            <span>5. &nbsp;</span>
+                                            <input type="text" class="form-control" name="" formControlName="crownServiceDept5">
+                                        </td>
+                                        <td><input type="text" name="" formControlName="crownServiceCapacity5" class="form-control"></td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="crownServicefromDate5" placeholder="Select Date" > </td>
+                                        <td><input type="text" bsDatepicker class="form-control" [bsConfig]="datePickerConfig"   formControlName="crownServiceToDate5" placeholder="Select Date " > </td>
+                                        <td><input type="text" name="" formControlName="crownServiceYears5" class="form-control"></td>
+                                        <td><input type="text" name="" formControlName="crownServiceMonths5" class="form-control"></td>
+                                    </tr>
+                                    <tr class="crown_service_block">
+                                        <td colspan="1">
+                                            <label>Total Residence</label>
+                                            <input type="text" name="" class="form-control years_block" formControlName="years_block" ><span>Years</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-card mb-nonelayer">
+                    <div class="card-header">
+                        <h3 class="section-title">Section 5</h3>
+                    </div>
+                    <div class="section-body p-3">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12 citizen_block">
+                                <div class="br-1">
+                                    <div class="form-check checkbox-theme p-l-0 text-left ">
+                                    <input class="form-check-input" type="checkbox" formControlName="citizen_renounced" value="" id="citizen">
+                                    <label class="form-check-label" for="citizen">
+                                        <p>If you have previously renounced or been deprived of citizenship of Jamaica, please indicate the date below
+                                        </p> 
+                                    </label>
+
+                                </div>
+                            </div>
+                            <div class="crown_service_block m_l">
+                                <label>Date of Renunciation</label>
+                                <input type="text" bsDatepicker class="form-control crown_block" [bsConfig]="datePickerConfig"   formControlName="renouncedDate" placeholder="Select Date" >
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-sm-12 citizen_block">
+                            <div class="br-1">
+                                <div class="form-check checkbox-theme p-l-0 text-left ">
+                                <input class="form-check-input" formControlName="citizen_declare" type="checkbox" value="" id="citiz">
+                                <label class="form-check-label" for="citiz">
+                                    <p>I do solemnly and sincerely declare that the foregoing particulars stated in this application are true, and I make this solemn declaration conscientiously believing the same to be true.
+                                    </p> 
+                                </label>
+
+                            </div>
+                        </div>
+                        <div class="crown_service_block m_l">
+                            <label>Date of Declaration</label>
+                            <input type="text" bsDatepicker class="form-control crown_block" [bsConfig]="datePickerConfig"   formControlName="declarationDate" placeholder="Select Date" >
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="p-4 text-right">
+                <button *ngIf='!nonEdittable' class="btn btn-theme" (click)='onSave(Register_formthree.value)'>Save</button>
+                <button class="btn btn-theme" (click)='onSave(Register_formthree.value)'>Back</button>
+                <button class="btn btn-theme" (click)="next(Register_formthree.value)">Next</button>
+        </div>
+    </div>
+    </div>
+        </div>
+    </form>
+  </div>
+</block-ui>
+
+

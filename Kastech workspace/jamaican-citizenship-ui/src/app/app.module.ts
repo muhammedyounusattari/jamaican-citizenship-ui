@@ -64,6 +64,11 @@ import { MarriageApplicationProcessTwoComponent } from './marriage-application/m
 import { MarriageApplicationProcessThreeComponent } from './marriage-application/marriage-application-process-three/marriage-application-process-three.component';
 import { MarriageApplicationProcessFourComponent } from './marriage-application/marriage-application-process-four/marriage-application-process-four.component';
 import { MarriageApplicationProcessCompleteComponent } from './marriage-application/marriage-application-process-complete/marriage-application-process-complete.component';
+import { CitizenRegistrationComponent } from './citizen-registration/citizen-registration.component';
+import { CitizenRegistrationProcecc2Component } from './citizen-registration/citizen-registration-procecc2/citizen-registration-procecc2.component';
+import { CitizenRegistrationProcess3Component } from './citizen-registration/citizen-registration-process3/citizen-registration-process3.component';
+import { CitizenRegistrationProcess4Component } from './citizen-registration/citizen-registration-process4/citizen-registration-process4.component';
+import { CitizenRegistrationProcessCompleteComponent } from './citizen-registration/citizen-registration-process-complete/citizen-registration-process-complete.component';
 
 
 @NgModule({
@@ -78,7 +83,7 @@ import { MarriageApplicationProcessCompleteComponent } from './marriage-applicat
      AppStatusComponent, ChangePasswordComponent, DescentSaveComponent, AdminFormsComponent,
       SupervisorViewComponent, ReviewFormsComponent, AgentComponent, ReviewApplicantComponent,
        ReviewDailogComponentComponent, SchedulerComponent, IndividualScheduleComponent,
-        GroupScheduleComponent, IndividualApointmentConfirmationComponent, AlienComponent, RegistrationComponent, LocalDeskClerkComponent, LocalDeskClerkProcessComponent, NaturalisationComponent, NatrualizationProcessRequest2Component, NatrualizationProcessRequest3Component, NatrualizationProcessRequest4Component, NatrualizationProcessRequest5Component, NatrualizationProcessRequest6Component, NatrualizationSubmissionComponent, NaturalisationDocumentComponent, MarriageApplicationComponent, MarriageApplicationProcessTwoComponent, MarriageApplicationProcessThreeComponent, MarriageApplicationProcessFourComponent, MarriageApplicationProcessCompleteComponent
+        GroupScheduleComponent, IndividualApointmentConfirmationComponent, AlienComponent, RegistrationComponent, LocalDeskClerkComponent, LocalDeskClerkProcessComponent, NaturalisationComponent, NatrualizationProcessRequest2Component, NatrualizationProcessRequest3Component, NatrualizationProcessRequest4Component, NatrualizationProcessRequest5Component, NatrualizationProcessRequest6Component, NatrualizationSubmissionComponent, NaturalisationDocumentComponent, MarriageApplicationComponent, MarriageApplicationProcessTwoComponent, MarriageApplicationProcessThreeComponent, MarriageApplicationProcessFourComponent, MarriageApplicationProcessCompleteComponent, CitizenRegistrationComponent, CitizenRegistrationProcecc2Component, CitizenRegistrationProcess3Component, CitizenRegistrationProcess4Component, CitizenRegistrationProcessCompleteComponent
   ],
   imports: [
     BrowserModule,
