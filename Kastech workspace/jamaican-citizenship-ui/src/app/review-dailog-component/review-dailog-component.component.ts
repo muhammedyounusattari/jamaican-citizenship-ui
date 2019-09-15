@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { MatDialogRef } from '@angular/material';
 import { AgentService } from 'src/shared/services/agent.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-review-dailog-component',
@@ -14,11 +14,14 @@ export class ReviewDailogComponentComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
   sentMail: boolean;
+  
 
   @BlockUI() blockUI: NgBlockUI;
-  constructor(private agent: AgentService, private dialogRef: MatDialogRef<ReviewDailogComponentComponent>, private router: Router) {
+  constructor(private agent: AgentService, private dialogRef: MatDialogRef<ReviewDailogComponentComponent>, 
+    private router: Router) {
     this.blockUI.stop();
     dialogRef.disableClose = true;
+   
   }
 
   ngOnInit() {
@@ -31,6 +34,7 @@ export class ReviewDailogComponentComponent implements OnInit {
     var payload = { applicantId: '', status: '', agentId: '', comments: '',type:'', formType:'' };
     payload.applicantId = localStorage.getItem('applicantId');
     payload.status = localStorage.getItem('status');
+    
 
     var data = localStorage.getItem('agent');
     if(data != null)
@@ -47,6 +51,12 @@ export class ReviewDailogComponentComponent implements OnInit {
     payload.type = localStorage.getItem('type');
     payload.comments = comments;
     this.blockUI.start("loading......");
+
+    if(!payload.formType){
+      payload.formType = localStorage.getItem('formType');
+    }
+
+
    this.agent.updateApplicantStatus(payload).subscribe(data => {
     this.blockUI.stop();
       if (data != null) {
@@ -60,6 +70,14 @@ export class ReviewDailogComponentComponent implements OnInit {
  //       return false;
       }
       this.dialogRef.close();
+
+      if(payload.type==="localdeskclerk")
+        this.router.navigate(['/localDeskClerk/'+payload.formType+'/'+payload.type]);
+      else  if(payload.type==="agentView" )
+      this.router.navigate(['/agentView/'+payload.formType+'/'+payload.type]);   
+      else if(payload.type==="director" || payload.type==="ceo" || payload.type==="permanentsecretary" || payload.type==="operationsmanager" )
+      this.router.navigate(['/agentView/'+payload.type+'/'+payload.formType])
+      else
       this.router.navigate(['/agentView/'+payload.type]);
     }) 
    }

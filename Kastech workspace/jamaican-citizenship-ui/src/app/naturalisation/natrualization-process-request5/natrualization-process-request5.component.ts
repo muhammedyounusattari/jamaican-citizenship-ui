@@ -16,6 +16,7 @@ export class NatrualizationProcessRequest5Component implements OnInit {
   dob:Date = new Date();
   type:string;
   nonEdittable:string;
+  formType:string;
 
   constructor(private formBuilder:FormBuilder,private router:Router,private activatedRoute:ActivatedRoute,private utilityService:UtilityService) { 
 
@@ -24,6 +25,7 @@ export class NatrualizationProcessRequest5Component implements OnInit {
 
     this.activatedRoute.params.subscribe(params=>{
       this.type = params.type;
+      this.formType = params.formType;
     })
 
    
@@ -179,8 +181,14 @@ export class NatrualizationProcessRequest5Component implements OnInit {
     localStorage.setItem('process1',JSON.stringify(this.process5.value));
     var isReviewOnly = localStorage.getItem('isReviewOnly');
     if(isReviewOnly){
-      if(this.nonEdittable)
-        this.router.navigate(['/naturalisation-document-upload',this.type]);
+      if(this.nonEdittable){
+        if(!this.formType)
+          this.router.navigate(['/naturalisation-document-upload',this.type]);
+        else
+        this.router.navigate(['/naturalisation-document-upload/'+this.type+'/'+this.formType]);
+//          this.router.navigate(['/naturalisation-document-upload',this.type]);
+
+      }
       else
       this.router.navigate(['/naturalisation-document-upload']);   
     }else{

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SchedulerService } from '../shared/services/scheduler.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-scheduler',
@@ -10,8 +11,9 @@ import { SchedulerService } from '../shared/services/scheduler.service';
 export class SchedulerComponent implements OnInit {
 
   private applicantId:string;
+  private uploadForm:FormGroup;
 
-  constructor(private router:Router, private activatedRoute:ActivatedRoute, private schedulerService:SchedulerService) {
+  constructor(private router:Router,private fb:FormBuilder, private activatedRoute:ActivatedRoute, private schedulerService:SchedulerService) {
     this.activatedRoute.params.subscribe((param)=>{
       this.applicantId = param.applicantId;
     })
@@ -22,7 +24,9 @@ export class SchedulerComponent implements OnInit {
           this.router.navigate(['/home']);
         }
       })
-   
+      this.uploadForm = this.fb.group({
+        accept:['',Validators.required]
+      });
 
    }
 
@@ -31,6 +35,10 @@ export class SchedulerComponent implements OnInit {
   }
 
   individualForm(){
+    if(this.uploadForm.invalid){
+      alert('please accept decleration ');
+      return false;
+    }
     this.router.navigate(['/individualSchedule/'+this.applicantId]);
   }
 

@@ -90,7 +90,9 @@ const routes: Routes = [
   {path:'naturalisation-process6/:type',component:NatrualizationProcessRequest6Component},
   {path:'naturalisation-submission/:type',component:NatrualizationSubmissionComponent},
   {path:'naturalisation-document-upload/:type',component:NaturalisationDocumentComponent},
-  /*
+
+
+  
   {path:'naturalisation/:type/:formType',component:NaturalisationComponent},
   {path:'naturalisation-process2/:type/:formType',component:NatrualizationProcessRequest2Component},
   {path:'naturalisation-process3/:type/:formType',component:NatrualizationProcessRequest3Component},
@@ -98,7 +100,8 @@ const routes: Routes = [
   {path:'naturalisation-process5/:type/:formType',component:NatrualizationProcessRequest5Component},
   {path:'naturalisation-process6/:type/:formType',component:NatrualizationProcessRequest6Component},
   {path:'naturalisation-submission/:type/:formType',component:NatrualizationSubmissionComponent},
- {path:'naturalisation-document-upload/:type/:formType',component:NaturalisationDocumentComponent} */
+  {path:'naturalisation-document-upload/:type/:formType',component:NaturalisationDocumentComponent} ,
+
 
   //path for Marriage Application with formType
  {path:'marriageApplication',component:MarriageApplicationComponent},

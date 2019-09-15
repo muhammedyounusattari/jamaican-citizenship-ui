@@ -77,7 +77,14 @@ export class AdminFormsComponent implements OnInit {
   
          });
       }else if(this.loginType === "operationsmanager" || this.loginType === "director" || this.loginType === "ceo" || this.loginType === "permanentsecretary"  ){
-        this.adminService.getFormsForReview(formType,this.loginType).subscribe((data:any)=>{
+       var type;
+        if(this.loginType=="operationsmanager")
+        type = "om";
+        else if(this.loginType=="permanentsecretary")
+        type="ps";
+        else 
+        type= this.loginType;
+        this.adminService.getFormsForReview(formType,type).subscribe((data:any)=>{
           // if(data == null){
             // alert('there are no application assinged to you ');
           // }

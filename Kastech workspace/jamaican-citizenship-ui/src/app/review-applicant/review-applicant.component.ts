@@ -42,6 +42,7 @@ export class ReviewApplicantComponent implements OnInit {
   countries: any;
   descentFormSessoin: any;
   loginType:string;
+  formType:string;
 
   @BlockUI() blockUI: NgBlockUI;
 
@@ -59,6 +60,7 @@ export class ReviewApplicantComponent implements OnInit {
 
     this.activateRoute.params.subscribe((params)=>{
       this.loginType = params.type;
+      this.formType = params.formType;
     })
 
 
@@ -410,6 +412,7 @@ export class ReviewApplicantComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     localStorage.setItem('status',value);
     localStorage.setItem('type',this.loginType);
+    localStorage.setItem('formType',this.formType);
     localStorage.setItem('applicantId',""+this.descentFormSessoin.id);
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
   }
@@ -419,6 +422,7 @@ export class ReviewApplicantComponent implements OnInit {
 //    localStorage.setItem('status','incomplete');
 localStorage.setItem('status',value);
 localStorage.setItem('type',this.loginType);
+localStorage.setItem('formType',this.formType);
     localStorage.setItem('applicantId',""+this.descentFormSessoin.id);
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
   }
@@ -428,6 +432,7 @@ localStorage.setItem('type',this.loginType);
     // localStorage.setItem('status','reffered');
     localStorage.setItem('status',value);
     localStorage.setItem('type',this.loginType);
+    localStorage.setItem('formType',this.formType);
     localStorage.setItem('applicantId',""+this.descentFormSessoin.id);
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
   }
@@ -437,6 +442,7 @@ localStorage.setItem('type',this.loginType);
     // localStorage.setItem('status','complete');
     localStorage.setItem('status',value);
     localStorage.setItem('type',this.loginType);
+    localStorage.setItem('formType',this.formType);
     localStorage.setItem('applicantId',""+this.descentFormSessoin.id);
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
   }

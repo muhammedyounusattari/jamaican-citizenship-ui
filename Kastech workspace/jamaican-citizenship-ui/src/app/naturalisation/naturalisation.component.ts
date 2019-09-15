@@ -21,12 +21,14 @@ export class NaturalisationComponent implements OnInit {
   personalitynationalities = ['Indian', 'German', 'Italian'];
   email:string;
   type:string;
+  formType:string;
   nonEdittable:string;
   
   constructor(private formBuilder: FormBuilder, private router: Router,private activatedRoute:ActivatedRoute,
     private naturialisationService:NaturlizationService, private utilityService:UtilityService) {
     this.activatedRoute.params.subscribe(params=>{
       this.type = params.type;
+      this.formType = params.formType;
     })
     
    }
@@ -338,8 +340,12 @@ export class NaturalisationComponent implements OnInit {
     
   //  localStorage.setItem('roles', JSON.stringify(payload.profile));
 
-  if(this.nonEdittable)
-    this.router.navigate(['/naturalisation-process2',this.type]);
+  if(this.nonEdittable){
+    if(!this.formType)
+      this.router.navigate(['/naturalisation-process2',this.type]);
+    else
+    this.router.navigate(['/naturalisation-process2/'+this.type+'/'+this.formType]);
+  }
   else
     this.router.navigate(['/naturalisation-process2']);
   }

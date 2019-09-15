@@ -54,7 +54,15 @@ export class AgentComponent implements OnInit {
     if(this.type=="operationsmanager" || tempType=="director" || tempType === "ceo" || tempType === "permanentsecretary")
       this.type = this.formType;
 
-    this.agentService.getReviewForm(applicantId,this.type).subscribe(data=>{
+        var type;
+        if(this.type=="operationsmanager")
+        type = "om";
+        else if(this.type=="permanentsecretary")
+        type="ps";
+        else 
+        type= this.type;
+
+    this.agentService.getReviewForm(applicantId,type).subscribe(data=>{
       this.agent = data;
       
       if(tempType=="operationsmanager" || tempType=="director" || tempType === "ceo" || tempType === "permanentsecretary"){
@@ -67,16 +75,16 @@ export class AgentComponent implements OnInit {
         if(!this.formType)
           this.formType = this.type;
 
-        if(this.type==='dpa'){
+        if(this.type==='dpa' || this.type==='DPA'){
           localStorage.setItem('profile',JSON.stringify(this.agent[0].profile));
           localStorage.setItem('descentForm', JSON.stringify(data[0]));
           if(tempType=="operationsmanager"|| tempType=="director" || tempType === "ceo" || tempType === "permanentsecretary" ){
             this.router.navigate(['/reviewApplicantForm/'+this.formType+'/'+this.type+'/'])
           }else{
-            this.router.navigate(['/reviewApplicantForm/'+this.formType])
+            this.router.navigate(['/reviewApplicantForm/'+this.formType+'/'+this.type])
           }
         }
-        if(this.type === 'nacw'){
+        if(this.type === 'nacw' || this.type === 'NACW'){
           localStorage.setItem('isReviewOnly','true');
           localStorage.setItem('process1',JSON.stringify(this.agent[0]));
           localStorage.setItem('process',JSON.stringify(this.agent[0]));
@@ -84,10 +92,8 @@ export class AgentComponent implements OnInit {
           if(tempType=="operationsmanager" || tempType=="director" || tempType === "ceo" || tempType === "permanentsecretary" ){
             this.router.navigate(['/naturalisation/'+this.formType+'/']);
           }else{
-            this.router.navigate(['/naturalisation/'+this.formType+'/'])
+            this.router.navigate(['/naturalisation/'+this.formType+'/'+this.type])
           }
-
-          
         }
       }
       

@@ -90,7 +90,8 @@ export class ReviewFormsComponent implements OnInit {
           console.log(this.selectLanguage);
         })
       }else if(this.type==="compliancesupervisor"){
-          this.adminService.loadAgentsDetails(this.formType,this.type).subscribe((data:any) => {
+         var type="cs";
+          this.adminService.loadAgentsDetails(this.formType,type).subscribe((data:any) => {
             this.agents = data.data;
             this.selectLanguage = this.agents[0].name;
           })
@@ -120,6 +121,7 @@ export class ReviewFormsComponent implements OnInit {
       payload.appCodes = appCode;
     } else {
       this.showApplicantErrorMsg = 'Please select Applicant';
+      this.blockUI.stop();
       return false;
     }
 

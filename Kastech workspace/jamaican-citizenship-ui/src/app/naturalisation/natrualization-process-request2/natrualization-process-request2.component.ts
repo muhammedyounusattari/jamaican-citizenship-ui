@@ -19,6 +19,7 @@ export class NatrualizationProcessRequest2Component implements OnInit {
   personalitynationalities = ['Indian', 'German', 'Italian'];
   type:string;
   nonEdittable:string;
+  formType:string;
 
   constructor(private formBuilder:FormBuilder,private router:Router,private activatedRoute:ActivatedRoute,private utilityService:UtilityService) {
    var process1 =  localStorage.getItem('process1');
@@ -26,6 +27,7 @@ export class NatrualizationProcessRequest2Component implements OnInit {
 
    this.activatedRoute.params.subscribe(params=>{
     this.type = params.type;
+    this.formType = params.formType;
   })
 
 
@@ -183,8 +185,13 @@ export class NatrualizationProcessRequest2Component implements OnInit {
   }
   next(){
     localStorage.setItem('process1',JSON.stringify(this.process2.value));
-    if(this.nonEdittable)
-      this.router.navigate(['/naturalisation-process3',this.type])
+    if(this.nonEdittable){
+      if(!this.formType)
+        this.router.navigate(['/naturalisation-process3',this.type]);
+      else
+      this.router.navigate(['/naturalisation-process3/'+this.type+'/'+this.formType]);
+    }
+      
     else
       this.router.navigate(['/naturalisation-process3'])
   }

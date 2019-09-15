@@ -20,6 +20,9 @@ export class AdminService {
   }
 
   loadAgentsDetails(formType,type){
+    if(type=='cs'){
+      type='review';
+    }
     const url = HOST_URL.name+"/load-agents/"+formType+"/"+type+"/";
     return this.httpClient.get(url,this.httpOptions);
   }

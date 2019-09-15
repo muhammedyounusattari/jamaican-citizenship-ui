@@ -1,6 +1,7 @@
 <br/><br/>
 <div class="shedule-12">
   <div class="container">
+   <form [formGroup]="uploadForm"  autocomplete="off">
       <div class="col-md-12 pad-0">
 
           <h3 class="text-center">Schedule Appointment</h3>
@@ -13,7 +14,7 @@
                   <p class="text-left">The user accepts the resposibility  of supplying , checking and verifying the accuracy of the information that is provided on this platform in connection to thier application, and consent to the collection and use of thier personal information and biometic data for Government to conduct checks and validation against existing records.</p>
                   <div class="shedule-inner-form">
                       <div class="form-check checkbox-theme p-l-0 text-left ">
-                          <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                          <input class="form-check-input" formControlName='accept' type="checkbox" id="rememberMe">
                           <label class="form-check-label" for="rememberMe">
                              I have read and  understood the instructions and information on this page, and agree to Terms and Conditions on the use of this online appointment and scheduling system
                          </label>
@@ -29,6 +30,7 @@
               
           </div>
       </div>
+      </form>
   </div>
 </div>
 

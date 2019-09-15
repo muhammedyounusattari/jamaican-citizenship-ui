@@ -18,6 +18,7 @@ export class NaturalisationDocumentComponent implements OnInit {
     
     this.activatedRoute.params.subscribe(params=>{
       this.loginType = params.type;
+      this.formType = params.formType;
     })
     
     var process1 = localStorage.getItem('process');
@@ -37,6 +38,7 @@ export class NaturalisationDocumentComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     localStorage.setItem('status',value);
     localStorage.setItem('type',this.loginType);
+    localStorage.setItem('formType',this.formType);
     localStorage.setItem('applicantId',""+this.naturalizationFormSessoin.id);
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
   }
@@ -67,6 +69,7 @@ export class NaturalisationDocumentComponent implements OnInit {
 
     localStorage.setItem('status',this.status);
     localStorage.setItem('type',this.loginType);
+    localStorage.setItem('formType',this.formType);
     localStorage.setItem('applicantId',""+this.naturalizationFormSessoin.id);
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig); 
   }
@@ -76,6 +79,7 @@ export class NaturalisationDocumentComponent implements OnInit {
     // localStorage.setItem('status','reffered');
     localStorage.setItem('status',value);
     localStorage.setItem('type',this.loginType);
+    localStorage.setItem('formType',this.formType);
     localStorage.setItem('applicantId',""+this.naturalizationFormSessoin.id);
     this.dialog.open(ReviewDailogComponentComponent, dialogConfig);
   }

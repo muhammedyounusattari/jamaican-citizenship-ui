@@ -55,12 +55,12 @@ export class LocalDeskClerkComponent implements OnInit {
     this.agentService.getReviewForm(applicantId,this.formType).subscribe(data=>{
       this.agent = data;
       if(data){
-        if(this.formType=="dpa"){
+        if(this.formType=="dpa" || this.formType=="DPA"){
           localStorage.setItem('profile',JSON.stringify(this.agent[0].profile));
           localStorage.setItem('descentForm', JSON.stringify(this.agent[0]));
           this.router.navigate(['/reviewApplicantForm/'+this.type+'/'])
         }
-        if(this.formType=="nacw"){
+        if(this.formType=="nacw" || this.formType=="NACW"){
          
             localStorage.setItem('isReviewOnly','true');
             localStorage.setItem('process1',JSON.stringify(this.agent[0]));
@@ -75,5 +75,9 @@ export class LocalDeskClerkComponent implements OnInit {
      
     })  
    
+  }
+
+  navigateToAllForms(){
+    this.router.navigate(['/officalForms/'+this.type]);
   }
 }

@@ -16,12 +16,14 @@ export class NatrualizationProcessRequest3Component implements OnInit {
   dob:Date = new Date();
   type:string;
   nonEdittable:string;
+  formType:string;
 
   constructor(private formBuilder:FormBuilder,private router:Router,private activatedRoute:ActivatedRoute,private utilityService:UtilityService) {
     var process1 =  localStorage.getItem('process1');
     var processStorage =(process1!=null)? JSON.parse(process1):'';
     this.activatedRoute.params.subscribe(params=>{
       this.type = params.type;
+      this.formType = params.formType;
     })
 
    
@@ -175,8 +177,14 @@ export class NatrualizationProcessRequest3Component implements OnInit {
   }
   next(){
     localStorage.setItem('process1',JSON.stringify(this.process3.value));
-    if(this.nonEdittable)
-      this.router.navigate(['/naturalisation-process4',this.type])
+    if(this.nonEdittable){
+      if(!this.formType)
+      this.router.navigate(['/naturalisation-process4',this.type]);
+    else
+    this.router.navigate(['/naturalisation-process4/'+this.type+'/'+this.formType]);
+    
+
+    }
     else
       this.router.navigate(['/naturalisation-process4'])
   }
